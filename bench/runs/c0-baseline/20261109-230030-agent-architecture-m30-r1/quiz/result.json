@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 53387,
+  "stop_reason": "end_turn",
+  "session_id": "079a15ba-c55f-4777-920c-ac20efe34626",
+  "total_cost_usd": 0.2025094,
+  "usage": {
+    "input_tokens": 10,
+    "cache_creation_input_tokens": 31122,
+    "cache_read_input_tokens": 162614,
+    "output_tokens": 6174,
+    "output_tokens_details": {
+      "thinking_tokens": 2131
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 31122,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 294,
+        "cache_read_input_tokens": 44937,
+        "cache_creation_input_tokens": 702,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 702
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 10,
+      "outputTokens": 6174,
+      "cacheReadInputTokens": 162614,
+      "cacheCreationInputTokens": 31122,
+      "webSearchRequests": 0,
+      "costUSD": 0.2025094,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 2131,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 31122,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 13,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "The six-question quiz on O4 is ready: `quizzes/0002.json`, with its key in `keys/0002.json`.\n\n- **Topic:** the quiz covers who owns the control flow, when a fixed workflow is the better choice, and what an agent costs you. The items use your makerspace assistant: manual questions, calendar checks and bookings.\n- **Mix:** four multiple-choice items, one numeric item (a budget calculation) and one short answer.\n- **Ahead of the lessons:** there is no lesson on O4 yet, so the quiz tests the objective directly. I can write a lesson first if you'd like one before you take it.\n- **Misconception ids:** I added M7, M8 and M9 for the new wrong ideas the options test, and listed them in `NOTES.md`.\n\nDo you want to take the quiz here in the chat, or have a short lesson on workflows versus agents first?",
+  "ttft_ms": 4348,
+  "type": "result",
+  "duration_ms": 53638,
+  "uuid": "72babdf4-3111-481e-a477-61f7c55d7982",
+  "ttft_stream_ms": 3979,
+  "time_to_request_ms": 75,
+  "first_content_frame_ms": 3979,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 10,
+      "outputTokens": 6174,
+      "cacheReadInputTokens": 162614,
+      "cacheCreationInputTokens": 31122,
+      "webSearchRequests": 0,
+      "costUSD": 0.2025094,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 2131,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 31122,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-20T19:38:57.383Z"
+}

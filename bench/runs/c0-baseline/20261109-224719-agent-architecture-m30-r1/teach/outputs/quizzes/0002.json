@@ -1,0 +1,50 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A makerspace assistant finishes a chat with a student. A week later the same student opens a new chat. Which statement about the model in the new chat is true?",
+      "options": [
+        {"id": "a", "text": "It still holds last week's chat, unless the context window was filled"},
+        {"id": "b", "text": "It knows nothing of last week's chat unless the program loads saved text"},
+        {"id": "c", "text": "It recalls last week's chat only if the student mentions it again"},
+        {"id": "d", "text": "It has learned from last week's chat and quietly updated itself"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "An agent run makes 3 model calls. The fixed part (system prompt and tool definitions) is 2,000 tokens and the student's question is 100 tokens. Each tool result is 500 tokens, and the model's own replies and tool requests are so short that you can ignore them. Call 1 sends the fixed part and the question. Call 2 also sends the first tool result, and call 3 also sends the second. All earlier content is re-sent on every call. How many input tokens are sent across all 3 calls in total?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your assistant answers manual questions by searching 300 pages of manuals and adding the top three passages to the context. One answer is wrong, and the correct passage exists in the manuals. What should you check first?",
+      "options": [
+        {"id": "a", "text": "Which three passages the search placed in the context for that question"},
+        {"id": "b", "text": "Whether the model has been trained on enough machine manuals overall"},
+        {"id": "c", "text": "Whether switching to a model with a larger window would fix it"},
+        {"id": "d", "text": "Whether the system prompt tells the model to be more careful"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O3",
+      "stem": "In one or two sentences: why is it not enough to give the assistant a very large context window if you want it to remember each student's training status from one visit to the next?"
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O3",
+      "stem": "A debugging chat has grown long, and the early steps hold decisions that still matter along with pages of raw output that no longer do. Name the technique of summarizing the chat and continuing in a fresh window with that summary."
+    }
+  ]
+}

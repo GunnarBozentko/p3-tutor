@@ -1,0 +1,56 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A student chats with your assistant on Monday about a CNC router job. On Thursday they start a new chat. You built no storage or loading code. What does the assistant know about Monday?",
+      "options": [
+        {"id": "a", "text": "Nothing, because each new session starts with an empty context"},
+        {"id": "b", "text": "A summary, because the model keeps one after each conversation"},
+        {"id": "c", "text": "Everything, because the model stores all chats it has had"},
+        {"id": "d", "text": "The key points, because the system prompt records each chat"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "Your assistant's fixed context (system prompt plus tool descriptions) is 1,500 tokens. A request takes 3 model calls. The first call sends only the fixed context; each later call sends 1,000 more tokens than the call before it. How many input tokens are sent over the 3 calls in total?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your 10-page set of makerspace rules is about 8,000 tokens in total. The assistant must answer questions from it. What is the most sensible first design?",
+      "options": [
+        {"id": "a", "text": "Build a chunked embedding index and retrieve the top passages"},
+        {"id": "b", "text": "Put all of it in the system prompt and skip retrieval entirely"},
+        {"id": "c", "text": "Let the model recall the rules from what it learned in training"},
+        {"id": "d", "text": "Save the rules as notes the model writes from its own chats"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O3",
+      "stem": "In one sentence, why is a program-owned training record safer than a note the assistant writes itself for the fact \"this student may use the band saw\"?"
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A student asks, \"Why is my print stringing?\" The 3D printer manual says \"filament oozes between parts; lower the nozzle temperature or enable retraction.\" The manual never uses the word \"stringing\". Which search is more likely to find this passage?",
+      "options": [
+        {"id": "a", "text": "Embedding search, since it matches meaning and not exact words"},
+        {"id": "b", "text": "Keyword search, since the question's words must appear in it"},
+        {"id": "c", "text": "Neither one, since both need the exact word to find a page"},
+        {"id": "d", "text": "Both equally, since search type does not affect what is found"}
+      ]
+    }
+  ]
+}

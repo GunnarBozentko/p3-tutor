@@ -1,0 +1,38 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "c",
+      "rationale": "The model holds nothing between calls or sessions; it sees only what the program puts in the input. Unless a tool or note loads her record, it knows nothing about her. Options a and b show M3 (the model remembers earlier conversations by itself); option d is the same idea in a weaker form.",
+      "distractors": {"a": "M3", "b": "M3", "d": "M3"}
+    },
+    {
+      "id": "q2",
+      "answer": 9000,
+      "tolerance": 0,
+      "rationale": "Call 1 input is 1,500; call 2 is 2,000; call 3 is 2,500; call 4 is 3,000. The sum is 9,000. Answering 3,000 counts only the last call and forgets that each call re-reads the whole context."
+    },
+    {
+      "id": "q3",
+      "answer": "b",
+      "rationale": "Retrieval puts only the few relevant passages into the context, which is cheaper and avoids context rot. Pasting everything (a) costs the full price at every call and hurts recall even if it fits (M7); training (c) is not memory in this sense and is out of scope (M8); a note read in full (d) is the same as pasting everything.",
+      "distractors": {"a": "M7", "c": "M8", "d": "M7"}
+    },
+    {
+      "id": "q4",
+      "answer": "The context window is gone when the session ends, so anything not saved outside it is lost; a note persists and can be loaded into the next session.",
+      "accepted": [
+        "Context does not last between sessions, so it writes the preferences to storage and loads them next time.",
+        "The model keeps nothing after the session ends, so the info must be saved outside the context and read back later."
+      ],
+      "rationale": "Full credit says the context does not survive the end of the session (or the model keeps nothing between sessions) and that a note outside it persists to be loaded again. Saying only that notes are cheaper or tidier is partial. Saying the model remembers by itself or that a note trains the model shows M3 or M8."
+    },
+    {
+      "id": "q5",
+      "answer": "d",
+      "rationale": "Availability changes and the booking calendar is the source of truth, so a saved copy goes stale; call the calendar tool again. Notes are for stable facts. Options a, b and c invent limits that do not exist, and b mixes up reading a note with training (M8).",
+      "distractors": {"b": "M8"}
+    }
+  ]
+}

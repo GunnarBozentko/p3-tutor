@@ -1,0 +1,68 @@
+{
+  "id": "0002",
+  "objective": "O4",
+  "title": "Workflows, agents and who owns the control flow",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Two designs answer a student's question, \"How do I change the bit on the drill press?\" Design A: your code always calls search_manuals, then makes one model call that writes the answer. Design B: the model chooses which tools to call, in what order, and when to stop. Which statement is correct?",
+      "options": [
+        {"id": "a", "text": "Both are agents, because both use a language model to write text"},
+        {"id": "b", "text": "A is the agent, because fixed code gives it dependable steps"},
+        {"id": "c", "text": "B is the agent, because the model, not your code, picks the steps"},
+        {"id": "d", "text": "B is the workflow, because the model chooses the steps it takes"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "To book a machine, your assistant must always do the same three things in the same order: check the calendar, check the student's training record, then create the booking. Which design is the better choice for this part of the assistant, and why?",
+      "options": [
+        {"id": "a", "text": "An agent, since the model can pick whichever tool seems best each time"},
+        {"id": "b", "text": "A fixed workflow, since the steps and their order are known ahead of time"},
+        {"id": "c", "text": "An agent, since booking matters and needs the most capable design available"},
+        {"id": "d", "text": "A fixed workflow, since a workflow never needs to call a language model"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "numeric",
+      "objective": "O4",
+      "stem": "Your sponsor's budget covers 600 model calls per week. A fixed workflow for booking requests makes exactly 2 model calls per request. An agent for the same task has a step limit of 10 model calls per request, and in the worst case uses all 10. How many more booking requests per week can the budget guarantee to cover with the workflow than with the agent in its worst case?",
+      "unit": "requests"
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O4",
+      "stem": "Students' questions about the machine manuals vary a lot: some need one lookup, others need several lookups in an order that depends on what comes back. In one sentence, should this part be a fixed workflow or an agent, and why?"
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Your code makes one model call that labels each incoming message as either \"manual question\" or \"booking request\". Your code then sends the message down one of two fixed paths, each with a set sequence of steps. Which description fits this design?",
+      "options": [
+        {"id": "a", "text": "An agent, because the model makes a choice that changes what happens next"},
+        {"id": "b", "text": "An agent, because it makes more than one model call for each message"},
+        {"id": "c", "text": "A workflow, because the model has no influence over any step at all"},
+        {"id": "d", "text": "A workflow, because your code sets the paths and the model only picks one"}
+      ]
+    },
+    {
+      "id": "q6",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "A teammate proposes making the whole assistant a single agent instead of a fixed workflow. Compared with a fixed workflow, what does this trade?",
+      "options": [
+        {"id": "a", "text": "More model calls and less predictable steps, for handling open-ended requests"},
+        {"id": "b", "text": "Fewer model calls and more predictable steps, for handling open-ended requests"},
+        {"id": "c", "text": "More model calls and less predictable steps, with no gain in what it can handle"},
+        {"id": "d", "text": "Fewer model calls and more predictable steps, for losing the use of tools"}
+      ]
+    }
+  ]
+}

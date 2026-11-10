@@ -1,0 +1,43 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "c",
+      "rationale": "The difference is who owns the control flow: in a workflow, predefined code decides the steps; in an agent, the model decides which action comes next and when to stop. Both can use tools (a) and either can make one or many model calls (b); human approval (d) is a separate design choice."
+    },
+    {
+      "id": "q2",
+      "answer": "d",
+      "rationale": "The program fixes the order (extract, look up, reply), so it is a workflow even though the model is called twice and a tool is used. Counting model calls (a, c) or tool use (b) does not decide it; control flow does."
+    },
+    {
+      "id": "q3",
+      "answer": "b",
+      "rationale": "Booking has known steps in a fixed order and side effects (saving, emailing), so a fixed workflow gives predictable, testable, cheap behaviour. The other three are open-ended, where the needed steps depend on what is found along the way."
+    },
+    {
+      "id": "q4",
+      "answer": "A workflow makes a fixed, known number of model calls, while an agent may loop many times, exploring or retrying, so the workflow's cost is lower and predictable.",
+      "accepted": [
+        "It uses only the calls it needs, with no extra loop steps or exploring, so cost is lower and predictable.",
+        "The number of model calls is fixed in advance, so there are no wasted loop iterations and the cost can be budgeted."
+      ],
+      "rationale": "Full credit needs the cost link: fixed steps mean no extra or unbounded model calls, so cost is lower and/or predictable. Saying only that a workflow is simpler or more reliable, without tying it to the number of calls or cost, is partial."
+    },
+    {
+      "id": "q5",
+      "answer": "a",
+      "rationale": "What makes a system an agent is that the model directs the steps and decides when to stop. Here the code decides both, so it is a workflow (a prompt chain with a code loop) however many tools, calls or loops it has. Options b, c and d use a surface feature (tools, a loop, a call count) as the test."
+    },
+    {
+      "id": "q6",
+      "answer": "The steps cannot be fixed in advance, so the model has to choose each next action from the results it has seen so far.",
+      "accepted": [
+        "The path depends on intermediate results, so the model must decide the next step itself.",
+        "The model can choose its own next tool call and when to stop, which a predefined sequence cannot do."
+      ],
+      "rationale": "Full credit: the needed steps are not known beforehand, so the model must decide the next action from earlier results (it owns the control flow). Answers that only say an agent is smarter, more powerful or more accurate give no reason tied to the request, and are wrong or at most partial."
+    }
+  ]
+}

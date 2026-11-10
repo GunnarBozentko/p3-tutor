@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cheat sheet: context and memory</title>
+<style>
+  body { max-width: 40rem; margin: 0 auto; padding: 2rem 1rem; font-family: Georgia, serif; line-height: 1.5; }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { text-align: left; vertical-align: top; padding: 0.4rem; border-bottom: 1px solid #ccc; }
+</style>
+</head>
+<body>
+<h1>Context and memory: where does each fact go?</h1>
+<table>
+  <tr><th>Place</th><th>Lives</th><th>Use for</th></tr>
+  <tr><td>Context (messages list)</td><td>One session; re-sent every call</td><td>The current question, tool results</td></tr>
+  <tr><td>Saved notes</td><td>Across sessions; load what is needed</td><td>Soft facts: preferences, past topics</td></tr>
+  <tr><td>Program-owned record</td><td>Across sessions; staff-controlled</td><td>Facts that gate safety, such as training</td></tr>
+  <tr><td>Retrieval index</td><td>Permanent; search per question</td><td>Long manuals</td></tr>
+</table>
+<h2>Rules</h2>
+<ul>
+  <li>The model keeps nothing between calls; your program re-sends the context.</li>
+  <li>Cost per call grows with context size; recall can worsen as it fills (context rot).</li>
+  <li>Shrink with clearing old tool results or compaction; summaries delete what they omit.</li>
+  <li>Knowledge base under about 200,000 tokens: consider putting it all in the prompt.</li>
+  <li>Keyword search for exact codes; embedding search for meaning; hybrid if both matter.</li>
+</ul>
+<p>Source: <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents">Anthropic, Effective context engineering</a>; <a href="https://www.anthropic.com/engineering/contextual-retrieval">Contextual Retrieval</a>. Lesson: <a href="../lessons/0001-context-and-memory.html">0001</a>.</p>
+</body>
+</html>

@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s1",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right. What makes a system an agent is the loop: the model picks an action, the program runs it, and the result comes back for the next step. A longer prompt or a bigger model changes what one call can do, not the structure."
+    },
+    {
+      "id": "q2",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "You picked the option where the model reads the calendar by opening the booking system itself. The model only writes text. Here, that text is a request naming check_calendar with the laser cutter and tomorrow's date as arguments (option c). The program around the model reads that request, runs the tool and passes the result back. It is tempting because the answer you finally see looks like the model checked the calendar, but the model never touches the booking system."
+    },
+    {
+      "id": "q3",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right. The agent is repeating itself, so more steps or more context won't help. A step limit is a stopping condition that ends the loop and hands the problem back to a person. Every loop you design for the makerspace assistant needs one, which also caps cost."
+    },
+    {
+      "id": "q4",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "The answer is 4, not 1. You wrote that the model runs the 3 tools itself inside one call, but the program runs the tools. Each model call ends with one tool request or the final answer. That gives three requests plus the final answer, so 3 + 1 = 4. The model is called once for the question and once after each of the three tool results."
+    },
+    {
+      "id": "q5",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "You have the 'what': the result goes back to the model. The answer is missing the 'why'. The program adds the result to the model's next input and calls the model again so the model can use it to choose its next step or write the final answer. When a question asks 'what and why', give both parts."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": "M3",
+      "feedback": "The first half is right: the model gets a list of tools, each with a name and a description, and picks the one that fits. That is why a clear tool description matters for your project. The second half is wrong. The model does not remember its past choices on its own between sessions. Each call starts with only what the program puts in its input, so any memory across sessions has to be saved and supplied by the program."
+    }
+  ],
+  "summary": "You have the core shape of the agent loop (q1), the need for a stopping condition (q3), and how the model chooses a tool from its descriptions (q6, first half). The main thing to fix is who does what. The model only writes text, such as a tool request, and the program runs the tool and feeds the result back. That one confusion cost you q2 and q4. Also, the model has no automatic memory across sessions. Next step: trace the 'Is the laser cutter free tomorrow at 3 pm?' request on paper, labelling each step 'model writes' or 'program does', then count the model calls again."
+}

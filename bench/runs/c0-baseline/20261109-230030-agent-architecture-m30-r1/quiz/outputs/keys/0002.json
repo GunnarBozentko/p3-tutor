@@ -1,0 +1,46 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "c",
+      "rationale": "What separates the two is who owns the control flow: in a workflow, code written by the team fixes the steps; in an agent, the model decides the steps and when to stop. Design A is a workflow even though it calls a model (a, b); B is the agent, so calling it the workflow (d) reverses the definition.",
+      "distractors": {"a": "M8", "b": "M7", "d": "M9"}
+    },
+    {
+      "id": "q2",
+      "answer": "b",
+      "rationale": "When the steps and their order are known ahead of time, a fixed workflow is the better choice: it is predictable, cheaper and easier to test. Importance does not call for an agent (c) and an agent's flexibility is wasted here (a). Workflows can contain model calls, so (d) has the right design for a wrong reason.",
+      "distractors": {"a": "M7", "c": "M7", "d": "M8"}
+    },
+    {
+      "id": "q3",
+      "answer": 240,
+      "tolerance": 0,
+      "rationale": "The workflow covers 600 / 2 = 300 requests. The agent's worst case is 600 / 10 = 60 requests. The difference is 300 - 60 = 240. An answer of 300 or 60 stops after one of the two designs."
+    },
+    {
+      "id": "q4",
+      "answer": "An agent, because the number and order of steps depend on what each lookup returns, so they cannot be fixed in advance.",
+      "accepted": [
+        "agent, because the steps cannot be known ahead of time",
+        "an agent, because the model has to decide the next step based on what comes back",
+        "an agent because the number of steps varies and depends on the results",
+        "agent, since the path depends on intermediate results so the model must choose the steps"
+      ],
+      "rationale": "Full credit needs the choice (agent) and the reason: the steps are not known ahead of time and depend on what comes back, so the model must own the control flow. Answering agent with no reason, or with a reason like 'agents are more advanced', is partial or wrong; choosing a fixed workflow is wrong."
+    },
+    {
+      "id": "q5",
+      "answer": "d",
+      "rationale": "This is a routing workflow: the model makes one decision, but the paths and their steps are all fixed by your code, so your code still owns the control flow. A model choice alone does not make an agent (a), the number of model calls does not decide it (b), and workflows may use the model for individual steps (c).",
+      "distractors": {"a": "M9", "b": "M7", "c": "M8"}
+    },
+    {
+      "id": "q6",
+      "answer": "a",
+      "rationale": "An agent usually costs more model calls and latency and behaves less predictably, because the model decides the steps; in exchange it can handle open-ended requests no fixed sequence anticipates. With a small budget, this trade should be made only where the flexibility is needed.",
+      "distractors": {"b": "M7", "c": "M7", "d": "M8"}
+    }
+  ]
+}

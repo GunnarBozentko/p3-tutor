@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 17343,
+  "stop_reason": "end_turn",
+  "session_id": "20fca91c-87fd-4fb5-9f50-5e4a206fc3cc",
+  "total_cost_usd": 0.11636569999999999,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 22862,
+    "cache_read_input_tokens": 76857,
+    "output_tokens": 1722,
+    "output_tokens_details": {
+      "thinking_tokens": 353
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 22862,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 639,
+        "cache_read_input_tokens": 36703,
+        "cache_creation_input_tokens": 676,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 676
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1722,
+      "cacheReadInputTokens": 76857,
+      "cacheCreationInputTokens": 22862,
+      "webSearchRequests": 0,
+      "costUSD": 0.11636569999999999,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 353,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 22862,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 8,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Let's try a different picture: a **restaurant order slip**.\n\nImagine a chef who is locked in a windowless room. The chef is brilliant, but has no phone, no legs and no door. Two things pass through a slot: slips of paper in, slips of paper out.\n\nTaped inside the room is a **menu of services**, for example \"Check the fridge: tell me an item, I'll tell you how many are left\" and \"Book a table: give me a time and a name.\"\n\nA customer's note comes through the slot: \"Is there any salmon tonight?\" The chef can't look in the fridge. They write a slip: **\"Check the fridge: salmon.\"** and push it out. A runner outside reads it, walks to the fridge, counts, and slides back a new slip: **\"Salmon: 3 left.\"** The chef reads that and writes the reply: \"Yes, we have salmon.\"\n\nThat's tool calling:\n\n- **The model is the chef.** It only ever writes text. It never touches the fridge.\n- **The tool is the fridge check, and the runner is your program.** Your program does the real work.\n- **The menu is the tool descriptions.** The chef picks a service by reading its description, so a vague description gets you wrong slips.\n- **The loop is slips going back and forth** until the chef writes a final answer instead of another request.\n\nThe common mix-up is thinking the model *runs* the tool. It doesn't. It only *asks*, in a structured way, and your program decides whether and how to do it.\n\nFor your makerspace assistant: a student asks \"Can I use the laser cutter Friday at 3?\" The model writes a slip \"check calendar: laser cutter, Friday 3pm\". Your code looks it up and returns \"taken\". The model then writes a slip to check another time, or tells the student.\n\nWhere the analogy bends: a real chef knows the fridge exists from experience, but the model knows your tools *only* from the menu you give it.\n\nQuick check: in the makerspace example, who actually reads the booking calendar, the model or your program?",
+  "ttft_ms": 2466,
+  "type": "result",
+  "duration_ms": 17501,
+  "uuid": "5e2cb16d-4f46-4abc-8864-4449ca184f3e",
+  "ttft_stream_ms": 2117,
+  "time_to_request_ms": 77,
+  "first_content_frame_ms": 2117,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1722,
+      "cacheReadInputTokens": 76857,
+      "cacheCreationInputTokens": 22862,
+      "webSearchRequests": 0,
+      "costUSD": 0.11636569999999999,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 353,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 22862,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-20T19:38:57.383Z"
+}

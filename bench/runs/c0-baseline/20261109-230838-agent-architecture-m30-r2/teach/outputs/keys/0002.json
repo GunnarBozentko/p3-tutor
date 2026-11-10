@@ -1,0 +1,41 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "a",
+      "rationale": "The model keeps nothing between calls; the program keeps the message list and sends it again with each call, including the calendar result.",
+      "distractors": {"b": "M3", "c": "M3"}
+    },
+    {
+      "id": "q2",
+      "answer": "c",
+      "rationale": "A new session starts with an empty message list and nothing is saved automatically, so Monday's training is unknown unless the team saved it and loads it back.",
+      "distractors": {"a": "M3", "b": "M3"}
+    },
+    {
+      "id": "q3",
+      "answer": "It keeps the context small and relevant, which costs less per call and avoids burying the answer.",
+      "accepted": [
+        "Because it is cheaper and keeps only relevant text in the context",
+        "It saves tokens and window space by loading only what the question needs",
+        "Manuals are too long and every token in context is paid for on every call"
+      ],
+      "rationale": "Everything in the context is billed and takes window space on every call, so bring in only the passages the question needs. Mentioning cost, window space or relevance is enough."
+    },
+    {
+      "id": "q4",
+      "answer": "a",
+      "rationale": "Retrieved chunks are ordinary input; if the search returned the wrong chunk, the model worked from wrong text. The fault is in retrieval, not in forgetting or window size."
+    },
+    {
+      "id": "q5",
+      "answer": "Short facts such as trained machines with dates or booking preferences, saved to storage and loaded into the system prompt or first message of the next session.",
+      "accepted": [
+        "Trained machines and dates, loaded into the context at the start of the next session",
+        "Training status and preferences, read back by the program into the prompt in a new session"
+      ],
+      "rationale": "Full credit needs two short factual details and the mechanism that the program loads the note into the context. Saying only that the model remembers shows M3."
+    }
+  ]
+}

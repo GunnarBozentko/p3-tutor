@@ -1,0 +1,56 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Last week a student finished laser cutter training in a chat with your assistant. Today she opens a brand-new session. Your program sends the model only the system prompt, the tool descriptions and her new question. What does the model know about her training?",
+      "options": [
+        {"id": "a", "text": "It knows she is trained, because it learned this during last week's chat"},
+        {"id": "b", "text": "It knows she is trained, because the context window keeps old sessions"},
+        {"id": "c", "text": "It knows nothing about her unless a tool or note loads her record"},
+        {"id": "d", "text": "It knows she asked before, but not what the answer to her question was"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "Your agent's system prompt and tool descriptions take 1,500 tokens, and every tool result adds 500 tokens to the context. Ignore the question and the model's own text. The agent makes four model calls: three end with a tool request and the fourth writes the final answer. Adding up the input of all four calls, how many input tokens are processed in total?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "The makerspace has 400 pages of manuals, and the context window of your model could hold all of them. A student asks one question about changing a band saw blade. What is the best way to give the model the needed information?",
+      "options": [
+        {"id": "a", "text": "Put all 400 pages in every request, so no page is ever missing"},
+        {"id": "b", "text": "Search the manuals and put only the best few passages in the request"},
+        {"id": "c", "text": "Train the model once on all 400 pages, so it carries them in its memory"},
+        {"id": "d", "text": "Save the 400 pages as a note, and have the model read it each time"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O3",
+      "stem": "In one or two sentences: why does an agent that must remember a student's preferences next week write them to a note, rather than just leaving them in its context?"
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your assistant answers a question about whether the 3D printer is free on Thursday. A teammate proposes saving every such answer to the student's note so it can be reused in later sessions. What is the main problem with this plan?",
+      "options": [
+        {"id": "a", "text": "Notes can only hold a student's name and cannot hold booking details"},
+        {"id": "b", "text": "Saved notes slow down the model, because every note is re-trained"},
+        {"id": "c", "text": "The model cannot read a note unless it is written in its own words"},
+        {"id": "d", "text": "The saved answer can go stale, and the calendar is the source of truth"}
+      ]
+    }
+  ]
+}

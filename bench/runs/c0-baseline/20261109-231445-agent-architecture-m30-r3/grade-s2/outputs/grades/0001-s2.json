@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s2",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right. What makes a system an agent is the loop: the model picks an action, the program runs it, and the result comes back. A longer prompt or a bigger model only changes what one call can do."
+    },
+    {
+      "id": "q2",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right. The model only writes a request that names check_calendar and gives the arguments (laser cutter, tomorrow's date). The program around it does the actual lookup."
+    },
+    {
+      "id": "q3",
+      "verdict": "wrong",
+      "misconception": "M6",
+      "feedback": "Believing it will get there eventually is tempting, but it assumes the agent learns from each failure. Here it gets the same failing test back 40 times, so more steps add nothing, and they cost money. An agent needs a stopping condition: a step limit that ends the loop and reports back to a person. That matters for your budget too."
+    },
+    {
+      "id": "q4",
+      "verdict": "partial",
+      "misconception": "M4",
+      "feedback": "The number 4 is right: three tool requests plus the final answer, one model call each. The reason is off, though. The model does not run any tool. It only writes a request, and the program runs check_calendar, search_manuals and check_training_record. So you can count model calls by counting inputs: the question, plus three tool results, makes four."
+    },
+    {
+      "id": "q5",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right, and you gave both halves: the result goes back in as the next input, and the model uses it to decide its next step. The group-chat picture works. The model only sees the reply once it is added to its input."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "The name is part of it, and it does help. But the model is given the whole tool description: the name, what the tool does and the parameters it takes. A name alone can mislead. For example, check_training_record doesn't say whether it takes a student ID or a machine. This is why writing clear tool descriptions is one of your design jobs."
+    }
+  ],
+  "summary": "You have the loop down: q1, q2 and q5 are solid, and you understood that each tool result goes back to the model as its next input. Two ideas need work. First, the model never runs tools; it only writes requests, and your program runs them (your q4 count was right, but the reason was not). Second, an agent needs a stopping condition such as a step limit, because it does not fix itself by running longer. Next step: for the makerspace assistant, write down where the program, not the model, runs each tool. Then pick a step limit and say what the assistant should do when it hits it. Also write one full description for check_calendar, with a name, a purpose and its parameters."
+}

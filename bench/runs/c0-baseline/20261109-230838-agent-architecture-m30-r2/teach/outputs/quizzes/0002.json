@@ -1,0 +1,55 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your makerspace assistant checks the calendar and then searches a manual in one request. At the second model call, how does the model know what the calendar check returned?",
+      "options": [
+        {"id": "a", "text": "The program sends the earlier messages and the calendar result again"},
+        {"id": "b", "text": "The model stores each result inside itself between its own calls"},
+        {"id": "c", "text": "The calendar tool writes the result into the model's training data"},
+        {"id": "d", "text": "The model asks the program to reread the calendar each time"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A student trains on the 3D printer on Monday and returns on Thursday for a new conversation. With no extra work by your team, what does the assistant know on Thursday about Monday's training?",
+      "options": [
+        {"id": "a", "text": "Everything, because the model learns from each conversation it has"},
+        {"id": "b", "text": "A summary, because the program saves old chats by default"},
+        {"id": "c", "text": "Nothing, because a new session starts with an empty context"},
+        {"id": "d", "text": "Only the date, because dates are kept in the system prompt"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "short",
+      "objective": "O3",
+      "stem": "In one sentence, why is it usually better for the assistant to retrieve a few relevant manual passages with a search tool than to put every manual into the context on every call?"
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your assistant answers a question with a laser-cutter setting that is not in the manual. You inspect the call and find the search tool returned a chunk from the wrong manual. What is the most direct reason the answer was wrong?",
+      "options": [
+        {"id": "a", "text": "The model reasoned from the text it was handed, which was wrong"},
+        {"id": "b", "text": "The model forgot the right manual that it had learned earlier"},
+        {"id": "c", "text": "The context window was too small to hold any manual"},
+        {"id": "d", "text": "The notes store had not been saved at the end of the session"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O3",
+      "stem": "Name two details you would store in a note about a student so a later session can use them, and say how the later session gets them in front of the model."
+    }
+  ]
+}

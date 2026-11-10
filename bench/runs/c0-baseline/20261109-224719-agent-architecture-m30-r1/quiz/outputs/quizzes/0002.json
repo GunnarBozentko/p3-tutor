@@ -1,0 +1,68 @@
+{
+  "id": "0002",
+  "objective": "O4",
+  "title": "Workflows and agents: who owns the control flow?",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Which statement correctly separates a workflow from an agent?",
+      "options": [
+        {"id": "a", "text": "A workflow calls tools, while an agent only writes text and calls no tools"},
+        {"id": "b", "text": "A workflow makes one model call, while an agent makes several model calls"},
+        {"id": "c", "text": "In a workflow, code fixes the steps; in an agent, the model picks the steps"},
+        {"id": "d", "text": "A workflow runs on a smaller model, while an agent needs a stronger model"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Your booking feature always runs the same three steps in this order. Step 1: the model reads the student's message and extracts the machine, date and time. Step 2: your Python code calls the booking system. Step 3: the model writes a confirmation message. Which description fits this feature?",
+      "options": [
+        {"id": "a", "text": "A workflow, because your code decides the order of the steps every time"},
+        {"id": "b", "text": "An agent, because the model is called more than once for one request"},
+        {"id": "c", "text": "An agent, because the feature ends up using a tool to book the slot"},
+        {"id": "d", "text": "Neither, because the model and the code share the control of the steps"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Which part of the makerspace assistant is the best candidate for a fixed workflow rather than an agent?",
+      "options": [
+        {"id": "a", "text": "Working out why a student's 3D print keeps warping, using several manuals"},
+        {"id": "b", "text": "Booking a slot: check training, check the calendar, write the booking, confirm"},
+        {"id": "c", "text": "Investigating a vague report that \"the laser cutter is acting weird today\""},
+        {"id": "d", "text": "Answering unusual questions that may need any of the twelve machine manuals"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "numeric",
+      "objective": "O4",
+      "stem": "Assume every model call costs $0.02. A fixed workflow always makes 2 model calls per request. An agent doing the same job averages 6 model calls per request. Over 500 requests, how much more does the agent cost than the workflow, in dollars?",
+      "unit": "dollars"
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O4",
+      "stem": "Your sponsor wants a guaranteed upper limit on the number of model calls per request, from the design alone and with no extra safeguard added. Which design can promise that: a workflow or an agent? Answer with one word."
+    },
+    {
+      "id": "q6",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Your team builds an agent and adds a limit of 8 steps per request, so the loop always ends. A teammate says this has turned it into a workflow. Is the teammate right?",
+      "options": [
+        {"id": "a", "text": "Yes, because code now controls when the loop ends, so code owns the flow"},
+        {"id": "b", "text": "Yes, because any system with a fixed upper bound on its steps is a workflow"},
+        {"id": "c", "text": "No, because a workflow can only be built with a single model call per request"},
+        {"id": "d", "text": "No, because the model still picks which action comes next within that limit"}
+      ]
+    }
+  ]
+}

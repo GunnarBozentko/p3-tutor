@@ -1,0 +1,47 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "The difference is who owns the control flow: in a workflow, predefined code decides the steps and their order; in an agent, the model decides its own next step and tool use. Both may call models and use tools, so (a) and (c) are wrong, and (d) reverses the roles."
+    },
+    {
+      "id": "q2",
+      "answer": "c",
+      "rationale": "The code fixes the sequence (search, one model call, return), so this is a workflow. Calling a model (a) or a search tool (b) does not make a system an agent; the model must be steering the steps. Having one model call (d) is true here, but it is not the reason: a workflow can have many calls if the code fixes them.",
+      "distractors": {"a": "M4"}
+    },
+    {
+      "id": "q3",
+      "answer": "a",
+      "rationale": "Booking has the same known steps in the same order every time, so code can run them cheaply and predictably. The other tasks have unpredictable paths, which is where an agent's flexibility pays off."
+    },
+    {
+      "id": "q4",
+      "answer": "d",
+      "rationale": "With fixed steps the number of model calls is known and small, so cost is predictable; an agent loops until it decides to stop, so calls and context grow with the task. A workflow still gives the model instructions (a), can use the same model (b), and still passes tool results to it (c)."
+    },
+    {
+      "id": "q5",
+      "answer": "Who decides the next step: the code written in advance (workflow) or the model itself (agent)?",
+      "accepted": [
+        "Who decides what happens next, the code or the model?",
+        "Who controls the flow of steps: predefined code or the model?",
+        "Does the code or the model decide the next step?",
+        "Who owns the control flow, the code or the model?"
+      ],
+      "rationale": "Full credit names the control-flow question: what chooses the next step, predefined code (workflow) or the model (agent). An answer such as 'does it use tools' or 'does it call a model' is wrong, since both kinds do. Naming only one side without the question is partial."
+    },
+    {
+      "id": "q6",
+      "answer": "A fixed workflow, because the steps are the same every time, so code can run them in order, which is cheaper and more predictable than letting a model decide.",
+      "accepted": [
+        "Workflow, because the steps are known and fixed in advance.",
+        "A fixed workflow, since the sequence never changes and code can control it.",
+        "Fixed workflow: the steps are predictable, so an agent's flexibility would only add cost and risk."
+      ],
+      "rationale": "The steps and order are known in advance, so the code should own the control flow; an agent would add model calls, cost and unpredictability for no benefit. Choosing workflow without a reason about the fixed steps is partial; choosing agent is wrong."
+    }
+  ]
+}

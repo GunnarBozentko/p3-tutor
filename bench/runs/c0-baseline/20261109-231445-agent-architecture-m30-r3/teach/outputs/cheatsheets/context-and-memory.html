@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cheat sheet: context and memory in an agent</title>
+  <link rel="stylesheet" href="../assets/lesson.css">
+</head>
+<body>
+<main>
+  <div class="kicker">Cheat sheet &middot; from <a href="../lessons/0001-context-and-memory-in-an-agent.html">Lesson 1</a></div>
+  <h1>Context and memory in an agent</h1>
+  <table>
+    <tr><th>Where</th><th>Lasts</th><th>Holds</th><th>Makerspace example</th></tr>
+    <tr><td>Context window</td><td>One call (resent each step)</td><td>System prompt, tools, conversation, results</td><td>Today's chat with Sam</td></tr>
+    <tr><td>Saved note</td><td>Across sessions</td><td>Stable facts, loaded on demand</td><td>Sam's training status</td></tr>
+    <tr><td>Retrieval</td><td>Stored; only a few passages enter per call</td><td>Long knowledge, searched</td><td>Manual passages</td></tr>
+    <tr><td>Live tool</td><td>Not stored</td><td>Fast-changing truth</td><td>Booking calendar</td></tr>
+  </table>
+  <h2>Rules</h2>
+  <ul>
+    <li>The model keeps nothing between calls; the program resends the context.</li>
+    <li>Input cost = sum of every call's whole input, so a token kept for n more calls is paid n more times.</li>
+    <li>Keep the smallest set of useful tokens: short tool results, clear used results, compact near the limit.</li>
+    <li>Reading a note or passage does not teach the model; the text must be loaded each time.</li>
+    <li>Tag every chunk with its machine and section.</li>
+  </ul>
+  <p>Sources: <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents">Effective context engineering</a>, <a href="https://platform.claude.com/docs/en/build-with-claude/context-windows">Context windows</a>.</p>
+</main>
+</body>
+</html>

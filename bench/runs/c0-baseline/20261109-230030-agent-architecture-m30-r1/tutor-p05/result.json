@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 19090,
+  "stop_reason": "end_turn",
+  "session_id": "2fcbf485-a151-40a6-ba9e-9d9aa781650b",
+  "total_cost_usd": 0.11684220000000001,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 22938,
+    "cache_read_input_tokens": 77082,
+    "output_tokens": 1737,
+    "output_tokens_details": {
+      "thinking_tokens": 374
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 22938,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 644,
+        "cache_read_input_tokens": 36863,
+        "cache_creation_input_tokens": 592,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 592
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1737,
+      "cacheReadInputTokens": 77082,
+      "cacheCreationInputTokens": 22938,
+      "webSearchRequests": 0,
+      "costUSD": 0.11684220000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 374,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 22938,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 8,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Short version first: I'd skip training your own model for this project. Here is the PPO idea at your level, then what I'd do instead.\n\n**PPO in a tool-calling example.** Say the model sees \"book the laser cutter Friday 2pm\". It writes a tool call, and you give a **reward**: 1 if the booking is correct, 0 if not. The basic policy-gradient idea is to raise the probability of actions that got high reward. The update is\n\n∇J = E[ (∇ log π(a|s)) · A ]\n\nHere π is the model's probability of producing an action, and A is the **advantage**: how much better this attempt was than average.\n\nThat update is unstable, because one big step can wreck the model. PPO (Schulman et al., 2017, arXiv:1707.06347) limits the step. Let r = π_new(a|s) / π_old(a|s). The objective is\n\nL = E[ min( r·A, clip(r, 1−ε, 1+ε)·A ) ]\n\nOnce r moves more than ε (about 0.2) from 1, the gradient stops pushing, so each update stays close to the old model. For language models you usually also add a penalty for drifting from the original model.\n\n**Why I wouldn't do this for your assistant.**\n- You'd need an open-weights model, GPUs, a reward function and thousands of scored rollouts. Your budget is small.\n- Most tool-calling failures in a first design come from vague tool descriptions, missing examples and no tests. These cost almost nothing to fix.\n- Training and the math inside models are out of scope in your `MISSION.md`.\n\nBetter first steps: write sharper tool descriptions, then build 20–30 test requests with known correct tool calls and score them. That scoring set is also exactly the reward function RL would need later.\n\nA quick check: why does PPO clip r instead of letting the update run freely?\n\nIf you want RL covered properly, tell me and we can change your mission. Otherwise I'd suggest a lesson on tool descriptions and testing them.",
+  "ttft_ms": 5262,
+  "type": "result",
+  "duration_ms": 19251,
+  "uuid": "f09fe2b5-394e-4c69-b64d-5a779e42b9e4",
+  "ttft_stream_ms": 3812,
+  "time_to_request_ms": 80,
+  "first_content_frame_ms": 3812,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1737,
+      "cacheReadInputTokens": 77082,
+      "cacheCreationInputTokens": 22938,
+      "webSearchRequests": 0,
+      "costUSD": 0.11684220000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 374,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 22938,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-20T19:38:57.383Z"
+}

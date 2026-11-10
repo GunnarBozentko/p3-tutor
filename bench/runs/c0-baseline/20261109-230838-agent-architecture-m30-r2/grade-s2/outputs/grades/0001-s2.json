@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s2",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. What makes it an agent is the structure: the model picks an action, the program runs it, and the result comes back, repeated until a stop. A longer prompt or a bigger model only changes what a single call can do."
+    },
+    {
+      "id": "q2",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. The model only writes a request that names check_calendar and gives the arguments (laser cutter, tomorrow's date). The program around it runs the tool. Keep this split in mind when you write tool descriptions for your team."
+    },
+    {
+      "id": "q3",
+      "verdict": "wrong",
+      "misconception": "M6",
+      "feedback": "You picked 'no change; it will eventually fix the bug'. That is tempting, but the agent is getting the same failing result 40 times in a row, so more steps add nothing new for it to learn from. A loop needs a stopping condition the program enforces, such as a step limit that stops and reports back to a person (option b). This also matters for your budget: every extra step is a paid model call."
+    },
+    {
+      "id": "q4",
+      "verdict": "partial",
+      "misconception": "M4",
+      "feedback": "Your 4 is right, and so is your count of the calls: three tool requests plus the final answer. But the reason says the model 'runs' the tools itself. It does not: each call, the model only writes a request for one tool, and the program runs it and sends the result back. The tool runs are not model calls. Rephrase it as 'the model asks for check_calendar, the program runs it', and your count still comes out at 4."
+    },
+    {
+      "id": "q5",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. You gave both parts: the result goes back in as the model's next input, and the reason is that the model can use it to decide its next step. Your group-chat comparison works. The model only 'sees' a tool result once it is added to its input."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "The name is part of it: the model does read the name check_calendar. But it relies on the whole tool description the program gives it: the name, what the tool does and the parameters it takes. A name alone can mislead (a tool called 'lookup' could mean anything). That is why writing a clear description for each of your tools is a core skill for the makerspace assistant."
+    }
+  ],
+  "summary": "You have the loop down: q1, q2 and q5 are solid, and you explain the result-goes-back-in step well. Two things to fix. First, you believe the model runs the tools itself (q4's reasoning, M4): it only writes a request, and the program runs the tool. Second, you think a looping agent will fix itself with time (q3, M6), so it needs a program-enforced stop. Also, the model chooses tools from the full description, not just the name. Next step: trace the laser cutter request on paper again, labelling each step 'model writes' or 'program does', and add a step limit. Then try writing a full description for check_calendar."
+}

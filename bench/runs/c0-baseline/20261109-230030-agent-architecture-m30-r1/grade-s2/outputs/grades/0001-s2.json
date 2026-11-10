@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s2",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right. What makes a system an agent is the loop: the model picks an action, the program runs it, and the result comes back. A longer prompt or a bigger model only changes what a single call can do."
+    },
+    {
+      "id": "q2",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right. The model only outputs a request that names the tool and gives its arguments, such as check_calendar with the laser cutter and tomorrow's date. The program around it does the actual running. Keep this in mind when you design the assistant's tools."
+    },
+    {
+      "id": "q3",
+      "verdict": "wrong",
+      "misconception": "M6",
+      "feedback": "You picked 'left to run longer, it will eventually fix the bug'. That is tempting, but the agent has made the same edit and got the same failure 40 times, and all 40 steps are already in its context. More steps will most likely give the same result, and on your budget every step costs money. The safeguard is a stopping condition, such as a step limit, that ends the loop and reports what happened so a person can take over. Every agent loop needs one."
+    },
+    {
+      "id": "q4",
+      "verdict": "partial",
+      "misconception": "M4",
+      "feedback": "Your count of 4 is right, and your breakdown of three tool requests plus the final answer is the right way to get it. The problem is the reason: 'the model runs check_calendar...' is wrong. In each call the model only requests a tool. The program runs it and starts a new model call with the result. The count is the same here, but the wrong picture would mislead you when you estimate cost or debug the loop. Count model calls as one for the question plus one for each tool result."
+    },
+    {
+      "id": "q5",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right. The result goes back as the model's next input, and the model then takes its next turn with it in view so it can choose its next step or write the answer. Your group chat comparison works. Because the model is called again with everything so far, each step adds to the context, and that is where cost comes from. That is the next topic."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "The name does help: check_calendar is a good name. But the name is only part of what the model sees. It is also given each tool's description (what the tool does) and its parameters, and it chooses by matching the whole description to the request. A vague description or a misleading name makes it pick the wrong tool, so writing clear descriptions for your own tools matters. Try to name all three things the model is given for each tool."
+    }
+  ],
+  "summary": "You have the core loop down: what makes an agent, what the model outputs when it uses a tool, and what happens to the result. Two things to work on. First, the model only requests tools and the program runs them, so check your reasoning when you count model calls. Second, you need to know that an agent needs a stopping condition such as a step limit, because it may repeat a failing step forever. For tools, the model chooses from the full description, not just the name. Next step: write a three-line description (name, what it does, parameters) for the makerspace booking tool, and say what stopping condition you would give the assistant. Then we can move on to context and memory."
+}

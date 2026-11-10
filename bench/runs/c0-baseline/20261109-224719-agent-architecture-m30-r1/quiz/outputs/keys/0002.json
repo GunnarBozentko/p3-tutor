@@ -1,0 +1,41 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "c",
+      "rationale": "The dividing line is who owns the control flow: in a workflow, predefined code paths decide the steps; in an agent, the model decides its own next action and tool use (Anthropic, 'Building effective agents'). Tool use (a) and the number of model calls (b) do not separate them, since workflows can use both, and model size (d) is unrelated.",
+      "distractors": {"a": "M7", "b": "M7", "d": "M8"}
+    },
+    {
+      "id": "q2",
+      "answer": "a",
+      "rationale": "The order of steps is written in your code and never changes, so code owns the control flow: it is a workflow, even though the model is called twice and a tool-like booking call is made. Counting model calls (b) or tool use (c) is the usual mix-up; the model never chooses the next step, so there is no sharing of control (d).",
+      "distractors": {"b": "M7", "c": "M7"}
+    },
+    {
+      "id": "q3",
+      "answer": "b",
+      "rationale": "Booking has the same steps in the same order every time, so a fixed workflow is cheaper, faster and more predictable, and there is nothing for a model to decide. The other three depend on what turns up along the way (which manual, which follow-up), which is where an agent's flexibility pays off.",
+      "distractors": {"a": "M8", "c": "M8", "d": "M8"}
+    },
+    {
+      "id": "q4",
+      "answer": 40,
+      "tolerance": 0.5,
+      "rationale": "The agent uses 6 - 2 = 4 extra calls per request. 4 calls x $0.02 = $0.08 per request, and 500 requests x $0.08 = $40. (Workflow: 500 x 2 x 0.02 = $20; agent: 500 x 6 x 0.02 = $60.) This is why a fixed workflow suits a small budget when the steps are predictable."
+    },
+    {
+      "id": "q5",
+      "answer": "workflow",
+      "accepted": ["a workflow", "workflow."],
+      "rationale": "In a workflow the number of model calls is set by the code's fixed steps, so the ceiling follows from the design. An agent decides for itself how many steps to take; a ceiling only exists if you add a limit on top."
+    },
+    {
+      "id": "q6",
+      "answer": "d",
+      "rationale": "A step limit only caps the loop; inside it the model still chooses each next action, so the model owns the control flow and it remains an agent. A guardrail on an agent does not turn it into a workflow (a, b), and workflows can make many model calls (c).",
+      "distractors": {"a": "M9", "b": "M9", "c": "M7"}
+    }
+  ]
+}

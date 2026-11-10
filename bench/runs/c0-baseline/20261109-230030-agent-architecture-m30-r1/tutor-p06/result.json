@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 22020,
+  "stop_reason": "end_turn",
+  "session_id": "1246b459-e9aa-4533-918a-423df7840655",
+  "total_cost_usd": 0.1208752,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 23234,
+    "cache_read_input_tokens": 76872,
+    "output_tokens": 2024,
+    "output_tokens_details": {
+      "thinking_tokens": 698
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 23234,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 575,
+        "cache_read_input_tokens": 36713,
+        "cache_creation_input_tokens": 1038,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 1038
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 2024,
+      "cacheReadInputTokens": 76872,
+      "cacheCreationInputTokens": 23234,
+      "webSearchRequests": 0,
+      "costUSD": 0.1208752,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 698,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 23234,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 8,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Here's tool calling as a restaurant.\n\n**The picture.** You're a diner at a table. You can talk and write, but you can't go into the kitchen. The restaurant gives you a **menu**, and you can only order what's on it. You write an order on a slip: \"one soup, no onions.\" A **waiter** takes the slip to the kitchen. The kitchen makes the soup and the waiter brings it back. You read what arrived, then decide what to do next: eat, order something else, or ask for the bill.\n\n**The mapping.**\n- The diner is the language model. It only reads and writes text. It never does anything itself.\n- The order slip is the tool call. It's only text saying which tool and what details.\n- The waiter and kitchen are your program. Your program reads the slip, does the real work (looks up the calendar, books the machine), and returns the result as more text.\n- The menu is the tool descriptions. The model picks tools by reading these, the way a diner picks dishes by reading the menu. A vague menu line gets you the wrong dish.\n\n**Your makerspace assistant.** A student asks, \"Is the laser cutter free Friday?\" The model can't see the calendar. It writes a slip: \"check calendar, laser cutter, Friday.\" Your program looks it up and sends back \"free 2–4 pm.\" The model reads that and answers the student. The loop you already know is this exchange repeating until the model has what it needs.\n\n**Where the analogy breaks.** A real diner can walk into the kitchen. The model can't. Everything it does in the world goes through slips your program chooses to carry out, which is also where you control cost and safety.\n\nQuick check in your own words: who actually looks at the booking calendar, the model or your program?\n\nIf you'd like, I can turn this into a short lesson with a worked makerspace example.",
+  "ttft_ms": 1442,
+  "type": "result",
+  "duration_ms": 22236,
+  "uuid": "ee9f0c30-82a8-427b-8725-977fc6410f0d",
+  "ttft_stream_ms": 1032,
+  "time_to_request_ms": 137,
+  "first_content_frame_ms": 1032,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 2024,
+      "cacheReadInputTokens": 76872,
+      "cacheCreationInputTokens": 23234,
+      "webSearchRequests": 0,
+      "costUSD": 0.1208752,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 698,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 23234,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-20T19:38:57.383Z"
+}

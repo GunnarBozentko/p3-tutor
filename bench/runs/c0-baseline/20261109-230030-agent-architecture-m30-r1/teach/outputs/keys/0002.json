@@ -1,0 +1,37 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "a",
+      "rationale": "The model keeps nothing between calls and the context list dies with the session; without storage and loading code, a new session starts empty. Options b, c and d each assume memory is built in or automatic.",
+      "distractors": {"b": "M3", "c": "M3", "d": "M3"}
+    },
+    {
+      "id": "q2",
+      "answer": 7500,
+      "tolerance": 0,
+      "rationale": "The whole context is re-sent on every call. The calls send 1,500, then 2,500, then 3,500 tokens: 1,500 + 2,500 + 3,500 = 7,500. An answer of 4,500 counts the fixed part three times and forgets the history."
+    },
+    {
+      "id": "q3",
+      "answer": "b",
+      "rationale": "At 8,000 tokens the rules are far below the roughly 200,000-token level under which Anthropic says the whole knowledge base can simply go in the prompt, so including them is the simplest thing that works. A retrieval index adds complexity for no gain. The model cannot recall your makerspace's own rules from training, and notes it writes from chats are not a source for rules."
+    },
+    {
+      "id": "q4",
+      "answer": "It gates safety, so it must be reliable and controlled by staff; a note the model writes could be wrong or missing.",
+      "accepted": [
+        "The model might write it wrongly or forget it, while a program-owned record is controlled and checkable.",
+        "A record that staff control is trustworthy, but a free-form note the model wrote could be mistaken."
+      ],
+      "rationale": "Full credit names the reliability or control difference: only trusted writers change the record, so access decisions do not depend on the model's own possibly wrong note."
+    },
+    {
+      "id": "q5",
+      "answer": "a",
+      "rationale": "The passage and the question share meaning but no key word, which is where embedding search helps. Keyword search needs shared words. Options c and d wrongly say that search type does not matter or that both need exact words.",
+      "distractors": {"b": "M7"}
+    }
+  ]
+}

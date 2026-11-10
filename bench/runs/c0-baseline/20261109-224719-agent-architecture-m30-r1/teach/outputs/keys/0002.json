@@ -1,0 +1,37 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "The model keeps nothing between calls or sessions; only text the program saves and loads into the new context is available. Option d shows the idea that the model learns from chats, which it does not."
+    },
+    {
+      "id": "q2",
+      "answer": 7900,
+      "tolerance": 0.5,
+      "rationale": "Call 1 = 2,100; call 2 = 2,100 + 500 = 2,600; call 3 = 2,600 + 500 = 3,100. Total 7,900. An answer of 3,100 counts only the last call; 5,200-ish answers forget the fixed part is re-sent."
+    },
+    {
+      "id": "q3",
+      "answer": "a",
+      "rationale": "The model can only use what is in its context, so a wrong answer with the right passage existing points first to retrieval: inspect exactly which passages were placed in the context."
+    },
+    {
+      "id": "q4",
+      "answer": "A context window only lasts one session and is empty in the next; the status must be saved outside the context and loaded back in.",
+      "accepted": [
+        "the window is cleared when the session ends, so the status must be stored outside it",
+        "a bigger window does not persist between sessions; you need saved notes or a record",
+        "context is lost when the chat ends, so it needs external storage such as notes or a database"
+      ],
+      "rationale": "The window holds one session's content and resets afterwards. Size does not create persistence; saved notes or records, loaded back into context, do."
+    },
+    {
+      "id": "q5",
+      "answer": "compaction",
+      "accepted": ["context compaction", "compacting", "summarization and restart", "compact the context", "summarizing the conversation"],
+      "rationale": "Compaction is summarizing a conversation near the window limit and reinitiating a fresh window with the summary."
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 24911,
+  "stop_reason": "end_turn",
+  "session_id": "d2fdd811-e4a1-48d2-85ef-833cecce502f",
+  "total_cost_usd": 0.12247840000000002,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 23277,
+    "cache_read_input_tokens": 114444,
+    "output_tokens": 1791,
+    "output_tokens_details": {
+      "thinking_tokens": 345
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 23277,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 622,
+        "cache_read_input_tokens": 37492,
+        "cache_creation_input_tokens": 302,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 302
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1791,
+      "cacheReadInputTokens": 114444,
+      "cacheCreationInputTokens": 23277,
+      "webSearchRequests": 0,
+      "costUSD": 0.12247840000000002,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 345,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 23277,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 9,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Neither five nor ten. The premise is the problem: more agents don't always give better results.\n\n**Why it's tempting.** Splitting a job among specialists sounds like a team of people. But agents aren't people. Every agent is a separate model loop, and each one has costs:\n- **Tokens.** Anthropic reported that agents use about 4× the tokens of a plain chat, and multi-agent systems about 15×. Your budget is small, so this matters a lot.\n- **Handoffs.** Each agent only knows what it was passed. Information gets lost or garbled at every handoff, and a mistake early on carries into everything after it.\n- **Debugging.** With ten agents, finding which one caused a wrong booking is much harder.\n\n**What the sources say.** Anthropic's \"Building effective agents\" advises starting with the simplest solution and adding complexity only when it clearly improves results. Many tasks need only a single model call or a fixed workflow. Several agents pay off mainly for broad, parallel work, such as researching many independent sources at once.\n\n**Your assistant.** Take \"Is the laser cutter free Friday, and book me 2 hours.\" That's one chain: read the manual, check the calendar, book. Each step needs the result of the one before, so there's little to parallelize. I'd start with one agent that has three tools: manual search, calendar check and booking. Make the steps with a fixed order (like confirming before booking) a plain workflow. Add a second agent only if you can name a specific problem a single agent can't handle, such as its context getting overloaded.\n\nI'm answering from what I know of those sources, not fresh reading. For the design review, read the original posts and quote them.\n\n**Quick check:** for the Friday request, what would agent #2 need to be told by agent #1, and what could go wrong in that handoff?\n\nIf you'd like, I can write a lesson on when splitting pays off and when it doesn't. That's one of your mission goals.",
+  "ttft_ms": 2824,
+  "type": "result",
+  "duration_ms": 25252,
+  "uuid": "b156fc44-b735-4ed4-ad0c-f4e1a1e2a864",
+  "ttft_stream_ms": 2351,
+  "time_to_request_ms": 244,
+  "first_content_frame_ms": 2351,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1791,
+      "cacheReadInputTokens": 114444,
+      "cacheCreationInputTokens": 23277,
+      "webSearchRequests": 0,
+      "costUSD": 0.12247840000000002,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 345,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 23277,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-20T19:38:57.383Z"
+}
