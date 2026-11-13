@@ -1,0 +1,75 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "Control flow is the decision of what runs next and when to stop. The context (a) is what the model sees, the tool list (c) is what it may call, and token order (d) is inside one reply; none of those decide the next step.",
+      "distractors": {"a": "M7", "c": "M7"}
+    },
+    {
+      "id": "q2",
+      "answer": "c",
+      "rationale": "A workflow is model calls and tools arranged along predefined code paths, so the code owns the control flow. Option d describes an agent, and option b is wrong because workflows usually include model calls; calling the model several times (a) does not by itself make something a workflow or an agent.",
+      "distractors": {"a": "M8", "b": "M8", "d": "M9"}
+    },
+    {
+      "id": "q3",
+      "answer": "In an agent, the model owns the control flow: it decides the next step and when to stop, from the results so far, whereas in a workflow the code fixes the steps.",
+      "accepted": [
+        "The model decides what to do next and when to stop; in a workflow the code decides.",
+        "An agent lets the model direct its own steps and tool use, while a workflow follows paths set in code.",
+        "The model, not the code, chooses the next step."
+      ],
+      "rationale": "The distinction is who owns the control flow: the model for an agent, the code for a workflow. Saying an agent is one that uses tools, or one that uses a model, is incomplete, since workflows can do both."
+    },
+    {
+      "id": "q4",
+      "answer": "a",
+      "rationale": "Routing classifies an input and sends it down one of several fixed branches chosen by code. Option d is prompt chaining, option b is an agent, and option c is voting (parallelization).",
+      "distractors": {"b": "M9", "d": "M8"}
+    },
+    {
+      "id": "q5",
+      "answer": "c",
+      "rationale": "Prompt chaining splits a task into fixed steps, each model call working on the previous one's output. Option b is routing, and option a is an agent loop, where the model decides when it is finished.",
+      "distractors": {"a": "M9", "b": "M8"}
+    },
+    {
+      "id": "q6",
+      "answer": "b",
+      "rationale": "The order never varies, so code should own it: that is cheaper, predictable and easy to test, while the model still handles the one judgment the task needs, reading the request into arguments. Option a pays for flexibility the task does not use, and option d is wrong because the request still needs a model to read it.",
+      "distractors": {"a": "M10", "c": "M10", "d": "M8"}
+    },
+    {
+      "id": "q7",
+      "answer": 16,
+      "tolerance": 0.01,
+      "rationale": "Extra calls per request are 6 - 2 = 4. Over 1,000 requests that is 4,000 calls, and 4,000 x $0.004 = $16. An answer of 24 or 8 is the agent's or the workflow's total cost, not the difference."
+    },
+    {
+      "id": "q8",
+      "answer": "An agent, because the next lookup depends on what earlier results show, so the path cannot be fixed in advance and the model must choose the next step.",
+      "accepted": [
+        "Agent: the steps are not known ahead of time, so the model has to decide them from the results.",
+        "An agent, since the needed lookups depend on intermediate results and cannot be hard-coded."
+      ],
+      "rationale": "When the sequence of steps cannot be predicted, a fixed workflow has no path to encode, so the model must own the control flow. Answering 'workflow' because it is cheaper ignores that a fixed path cannot handle an unpredictable task, which shows M10 in reverse."
+    },
+    {
+      "id": "q9",
+      "answer": "d",
+      "rationale": "An agent adds calls, cost and unpredictability in exchange for flexibility, so it belongs only where the path varies and a fixed workflow suffices elsewhere. Option a is wrong because looping usually makes an agent slower; option b is wrong because agents need a stopping condition more than workflows do (M6).",
+      "distractors": {"a": "M10", "b": "M6", "c": "M8"}
+    },
+    {
+      "id": "q10",
+      "answer": "Code owns the control flow of the three booking steps; the model owns it inside the equipment-question step, where it decides its own lookups and when to stop.",
+      "accepted": [
+        "The program/code fixes the booking order; the model decides the steps inside the question step.",
+        "Booking: code. Equipment question: the model (agent loop)."
+      ],
+      "rationale": "Control flow can be mixed: the outer workflow is fixed by code, and the one step with an unpredictable path hands control to the model inside the loop. Saying the model owns all of it, or that the code owns all of it, misses that the ownership changes at the step boundary."
+    }
+  ]
+}

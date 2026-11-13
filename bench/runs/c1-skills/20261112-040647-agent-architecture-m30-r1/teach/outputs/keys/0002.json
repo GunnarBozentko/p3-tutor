@@ -1,0 +1,35 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "The model keeps nothing between calls; the program keeps the message list and sends it, including earlier tool results, with every call. Believing the model stored the result (a) is the misconception that the model remembers by itself, and believing only the newest message is sent (c) is the misconception that each step sees only the latest message.",
+      "distractors": {"a": "M7", "c": "M9"}
+    },
+    {
+      "id": "q2",
+      "answer": 4850,
+      "tolerance": 0,
+      "rationale": "Call 1 input: 1,000 + 100 = 1,100. Call 2: 1,100 + 50 + 400 = 1,550. Call 3: 1,550 + 50 + 600 = 2,200. Total: 1,100 + 1,550 + 2,200 = 4,850. Answering 2,100 counts each piece of text once, ignoring that earlier text is resent on every call (M9); 1,100 counts only the first call."
+    },
+    {
+      "id": "q3",
+      "answer": "c",
+      "rationale": "Training status is stable and needed on later visits, so it belongs in saved notes. Availability changes constantly, so a saved copy goes stale and a tool call gives fresh data. Option a would serve stale slots; b is manual and also stale; d reverses the roles.",
+      "distractors": {"a": "M7"}
+    },
+    {
+      "id": "q4",
+      "answer": "d",
+      "rationale": "Every token in the context is billed on each call that includes it and also adds to context rot, so retrieving only the relevant chunks is cheaper and works better. A large window raises the limit but does not make tokens free (c, M8), and retrieval does not guarantee correct quoting (a, M10).",
+      "distractors": {"a": "M10", "c": "M8"}
+    },
+    {
+      "id": "q5",
+      "answer": "the application program",
+      "accepted": ["the application", "the program", "the app", "your code", "the application program, not the model", "the program around the model", "the client"],
+      "rationale": "The memory tool is client-side: the model only outputs a request naming the operation and path, and the application's own code carries it out and returns the result. Saying the model reads and writes the file shows M4, that the model runs tools itself."
+    }
+  ]
+}

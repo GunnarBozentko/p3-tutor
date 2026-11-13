@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s2",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. An agent is defined by its structure: a loop of choose action, run it, feed back the result. A longer prompt (a) or a larger context window (c) only changes what a single call can do, and memory (b) is neither automatic nor what defines an agent."
+    },
+    {
+      "id": "q2",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. The model only writes a structured request (tool name plus arguments); the program runs the tool. The most tempting wrong option, (a), fails because the model has no direct access to the booking system."
+    },
+    {
+      "id": "q3",
+      "verdict": "wrong",
+      "misconception": "M6",
+      "feedback": "You chose (c), 'left to run longer, it will eventually fix the bug'. That assumes more steps produce progress, but each step here receives the same failing test and repeats the same edit, so step 41 will look exactly like step 40. Such a loop never ends by itself, and in your case it would also spend your model budget on every extra step. The correct answer is (b): a step limit is a stopping condition that ends the loop and reports back to a person. (a) fails because all 40 steps already fit in the context, and (d) fails because a stronger instruction does not stop a loop. Only the program around the model can enforce a stop."
+    },
+    {
+      "id": "q4",
+      "verdict": "partial",
+      "misconception": "M4",
+      "feedback": "The number 4 is right: three tool requests plus the final answer is four model calls. The reason is wrong, though. You wrote that the model 'runs check_calendar, then search_manuals, then check_training_record'. The model never runs a tool; it outputs a request, and the program runs the tool and sends the result back in the next call. That mistake would break a different count: if the model ran the tools itself, a single call could cover all three, and you could not explain why the loop needs the program at all. Count calls as one per input the model receives: the question plus three tool results gives 4."
+    },
+    {
+      "id": "q5",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. You gave both parts: the result goes back to the model as its next input, and the model uses it to decide its next step. The group-chat analogy fits, since the model sees the reply and takes its next turn. Keep in mind that the program makes the next model call, and that this call is what sends the result back."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "Partly right: the name is one of the things the model sees, and it does not read the tool's code. But the name alone is not enough. It also relies on the description of what the tool does and on the parameters it takes, which the program supplies with each call. Consider two tools named check_calendar and check_schedule: the name alone would not tell the model which one returns machine bookings and which returns staff shifts. The fix is that the model chooses the tool whose full description (name, purpose, parameters) fits the request."
+    }
+  ],
+  "summary": "You have the agent loop and the model-versus-program split mostly down: q1, q2 and q5 were correct. Work next on M6: a loop with no stopping condition does not eventually succeed, because repeating the same step with the same feedback gives the same result and spends budget. Also fix M4 in your explanation: the model only requests tools, and the program runs them. Next step: in lesson 0002's agent-loop notes, trace one request through the loop and mark which party acts at each step (model or program), then write what would stop the loop if a tool kept failing. For q6, write a one-sentence description for one makerspace tool, such as check_calendar."
+}

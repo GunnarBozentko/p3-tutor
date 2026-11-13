@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s1",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. The defining feature is the structure: the model chooses an action, the program runs it, the result returns, and this repeats. The tempting option (a), a longer prompt, only changes what a single call can do; it adds no loop."
+    },
+    {
+      "id": "q2",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "Wrong. You chose (a), that the model reads the calendar entries by opening the booking system itself. A model only takes text in and writes text out; it has no connection to the booking system, so it cannot read anything from it. Suppose the model could open systems itself: then it would need credentials and network access, and nothing in the program could check or limit what it does. The correct answer is (c): the model outputs a structured request naming check_calendar with the laser cutter and tomorrow's date as arguments, and the program runs the tool and returns the result. Option (d) fails for the same reason as yours: the model never sees or runs the tool's code. Option (b) fails because the model, not the program, decides to call the tool."
+    },
+    {
+      "id": "q3",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. The agent is repeating itself with identical failing feedback, so only a stopping condition such as a step limit ends the loop and hands the problem to a person. A larger context window (a) fails because all 40 steps already fit."
+    },
+    {
+      "id": "q4",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "Wrong. You answered 1, on the belief that the model receives the question once and runs the three tools itself. That is tempting because the whole exchange feels like one task, but a model call produces text only and ends with either one tool request or the final answer. If one call ran all three tools, the model would have to act on results it has not yet received, for example search_manuals needing what check_calendar returned. The correct answer is 4: three calls that each end in a tool request, plus a fourth that writes the final answer. Equivalently, the model is called once per input it receives: the question and the three tool results. The program runs the tools, and those runs are not model calls."
+    },
+    {
+      "id": "q5",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "Partial. 'It sends it back to the model' is right, and it is what happens. The question also asked why, and you gave no reason. The program returns the result as part of the model's next input and calls the model again, because the model has not seen the result and needs it to decide its next step or to write the final answer. When a question asks what and why, write both parts."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": "M3",
+      "feedback": "Partial. Right: the program sends the model a list of tools, each with a name and a description, and the model picks the one that fits the request. Wrong: the claim that it 'remembers on its own which tool it picked in earlier sessions'. A model keeps nothing between calls or sessions; it knows only what is in its current input. If it did remember, a changed or renamed tool would still be called from memory and fail. Any memory across sessions has to be built by the program, which saves information and puts it back into the input. The fix: the model chooses from the descriptions it is given in each call, and nothing else."
+    }
+  ],
+  "summary": "You have the loop itself and the stopping condition (q1, q3), and you know the model chooses tools from descriptions (q6, q5 in part). The misconception to fix first is M4: the model never runs a tool or reads a system itself, because it only writes text, and the program runs the tool and calls the model again for each result. That error cost you q2 and q4. Next step: redraw the laser-cutter request as a table with the columns 'input to model', 'model output', 'what the program does', and count the model calls. Then fix the second error, which is that the model remembers across sessions (M3); the next topic, context and memory, covers that."
+}

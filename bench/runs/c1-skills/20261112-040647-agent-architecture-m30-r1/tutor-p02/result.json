@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 11977,
+  "stop_reason": "end_turn",
+  "session_id": "91c1ac42-0bcd-4b53-8757-ddcfb8baa9c3",
+  "total_cost_usd": 0.0841802,
+  "usage": {
+    "input_tokens": 10,
+    "cache_creation_input_tokens": 15021,
+    "cache_read_input_tokens": 122362,
+    "output_tokens": 1184,
+    "output_tokens_details": {
+      "thinking_tokens": 284
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 15021,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 517,
+        "cache_read_input_tokens": 29237,
+        "cache_creation_input_tokens": 301,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 301
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 10,
+      "outputTokens": 1184,
+      "cacheReadInputTokens": 122362,
+      "cacheCreationInputTokens": 15021,
+      "webSearchRequests": 0,
+      "costUSD": 0.0841802,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 284,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 15021,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 5,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I will not tell you which option is right for q2, or confirm or rule out option a. Quiz 0001 is not graded yet, and the quiz measures what you can do. Ask your TA to confirm directly that the tutor may check answers.\n\nHere are three steps you can take on your own:\n\n1. **Analogy.** A soccer coach on the sideline shouts an instruction, and the players carry it out on the pitch. Think about who produces what in that exchange: the coach produces words, and the players produce movement. Map that onto the model and the program around it. The analogy breaks down because a coach can walk onto the pitch, whereas the model has no way to act outside its text output.\n\n2. **Worked example on a different case.** Suppose a weather assistant has a tool `get_forecast(city, day)`, and the model decides to use it. Ask three questions in order:\n   - What can the model emit? Only text.\n   - Who runs `get_forecast`, and where does its code live?\n   - What does the model see next, and from where?\n   Answer each for this case. Do not carry the conclusion over to q2. Redo the reasoning with q2's tool and scenario.\n\n3. **Check on every option.** For each of a, b, c and d, write down two things:\n   - Which component would have to act: the model or the program?\n   - Could a model that only receives and emits text actually do that?\n   \n   Apply the same two questions to all four options. Do not stop at the first one that sounds right.\n\nYour question back: for q2, what is the only kind of thing a language model can produce, and which options are consistent with that? Once the quiz is graded, I will go through the item with you in full.",
+  "ttft_ms": 1554,
+  "type": "result",
+  "duration_ms": 12906,
+  "uuid": "311a77d0-cc97-41b6-96f8-8131b96e9af4",
+  "ttft_stream_ms": 620,
+  "time_to_request_ms": 94,
+  "first_content_frame_ms": 621,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 10,
+      "outputTokens": 1184,
+      "cacheReadInputTokens": 122362,
+      "cacheCreationInputTokens": 15021,
+      "webSearchRequests": 0,
+      "costUSD": 0.0841802,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 284,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 15021,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-20T19:38:57.383Z"
+}

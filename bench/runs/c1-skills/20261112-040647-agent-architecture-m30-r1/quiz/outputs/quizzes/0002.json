@@ -1,0 +1,104 @@
+{
+  "id": "0002",
+  "objective": "O4",
+  "title": "Workflows and agents: who owns the control flow",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Definitions: In a system built around a language model, which of these best defines its control flow?",
+      "options": [
+        {"id": "a", "text": "The text the model has available in its context window at one call"},
+        {"id": "b", "text": "The decision of which step runs next, and when the whole task stops"},
+        {"id": "c", "text": "The list of tools, with descriptions, that the model is allowed to call"},
+        {"id": "d", "text": "The order in which tokens are written out inside a single model reply"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Which of these best defines a workflow, as the word is used for language-model systems?",
+      "options": [
+        {"id": "a", "text": "Any system that calls a language model more than once per request"},
+        {"id": "b", "text": "A system that runs without calling a language model at any step"},
+        {"id": "c", "text": "Model calls and tools arranged along paths that the code fixes in advance"},
+        {"id": "d", "text": "A system in which the model picks its own next step from the results so far"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "short",
+      "objective": "O4",
+      "stem": "In one sentence, what is an agent, as distinct from a workflow, in terms of who owns the control flow?"
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Which of these best defines routing, one common workflow pattern?",
+      "options": [
+        {"id": "a", "text": "Code sends each input down one of several fixed branches, based on a classification of that input"},
+        {"id": "b", "text": "The model chooses freely among all tools on every step until it decides to stop"},
+        {"id": "c", "text": "Several copies of the model answer the same input and the most common answer is kept"},
+        {"id": "d", "text": "Each step's output becomes the next step's input along one fixed line of steps"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Which of these best defines prompt chaining, one common workflow pattern?",
+      "options": [
+        {"id": "a", "text": "The model repeats tool calls until it judges the task finished"},
+        {"id": "b", "text": "Code sends each input down one of several fixed branches, based on its type"},
+        {"id": "c", "text": "A task is split into fixed steps, each a model call that takes the previous call's output"},
+        {"id": "d", "text": "The same prompt is repeated word for word at the start of every model call"}
+      ]
+    },
+    {
+      "id": "q6",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Applying it: A student has already confirmed they want the laser cutter tomorrow at 3 pm. Every such booking must run check_calendar, then check_training_record, then book_slot, always in that order, and the only judgment needed is reading the student's request into the three tool arguments. Which design fits best?",
+      "options": [
+        {"id": "a", "text": "An agent with the three tools, so the model decides the order each time"},
+        {"id": "b", "text": "A fixed workflow where code runs the three steps in order and the model only fills in the arguments"},
+        {"id": "c", "text": "An agent with a larger context window, so it can remember to follow the right order"},
+        {"id": "d", "text": "A fixed workflow with no language model, which cannot read the student's request at all"}
+      ]
+    },
+    {
+      "id": "q7",
+      "type": "numeric",
+      "objective": "O4",
+      "stem": "Applying it: Your sponsor's budget counts model calls only, at $0.004 per call. The booking task as a fixed workflow always makes 2 model calls per request. As an agent it averages 6 model calls per request, because it loops. For 1,000 booking requests, how many more dollars does the agent cost than the workflow?",
+      "unit": "dollars"
+    },
+    {
+      "id": "q8",
+      "type": "short",
+      "objective": "O4",
+      "stem": "Applying it: A student writes, \"The bandsaw blade keeps burning the wood.\" Which lookups are needed (manual sections, past tickets, calendar) cannot be known until earlier results arrive. Should this part of the assistant be a fixed workflow or an agent, and what is the reason?"
+    },
+    {
+      "id": "q9",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Applying it: At the design review a teammate proposes, \"Make every part of the assistant an agent, since agents are more flexible.\" Given your small model budget, which reply is the strongest?",
+      "options": [
+        {"id": "a", "text": "Agree: flexibility is always worth extra cost, because an agent also finishes tasks faster"},
+        {"id": "b", "text": "Agree: an agent needs no stopping condition, so it is simpler to build than a workflow"},
+        {"id": "c", "text": "Reject all agents: only a workflow can ever call a tool, so agents are unsafe for booking"},
+        {"id": "d", "text": "Disagree: flexibility is paid for in extra calls and less predictability, so use it only where the path varies"}
+      ]
+    },
+    {
+      "id": "q10",
+      "type": "short",
+      "objective": "O4",
+      "stem": "Applying it: Your design is a fixed booking workflow (check calendar, check training, book), except that its second step, 'answer the student's equipment question', runs a small agent loop over the manuals. In this design, who owns the control flow of the three booking steps, and who owns the control flow inside the equipment-question step?"
+    }
+  ]
+}

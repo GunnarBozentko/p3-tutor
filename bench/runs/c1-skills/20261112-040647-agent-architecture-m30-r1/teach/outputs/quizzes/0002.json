@@ -1,0 +1,56 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Within one request, the assistant's model is called a second time after a tool returned the calendar. How does the model have access to what the calendar tool returned?",
+      "options": [
+        {"id": "a", "text": "The model stored the result internally during the first call"},
+        {"id": "b", "text": "The program sends the earlier messages and results again as input"},
+        {"id": "c", "text": "The program sends only the newest tool result, which is enough"},
+        {"id": "d", "text": "The model looks the result up in its training data again"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "An assistant request uses three model calls: call 1 requests tool A, call 2 requests tool B, and call 3 writes the final answer. The system prompt and tool descriptions take 1,000 tokens and the student's question 100 tokens. Each tool request the model writes is 50 tokens. Tool A returns 400 tokens and tool B returns 600 tokens. Every call is sent the full message list so far. How many input tokens are billed across the three calls in total? Do not count the final answer.",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "The assistant must know which students have passed the laser cutter course, and which time slots are free right now. Which pairing is the best place for each?",
+      "options": [
+        {"id": "a", "text": "Both in saved notes, loaded at the start of every session"},
+        {"id": "b", "text": "Both in the system prompt, rewritten by hand each week"},
+        {"id": "c", "text": "Training in saved notes; free slots from a calendar tool"},
+        {"id": "d", "text": "Free slots in saved notes; training from a manual search"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your sponsor asks why the assistant should search the manuals and use a few chunks, when the model's window is large enough to hold a whole 300-page manual. What is the strongest reason?",
+      "options": [
+        {"id": "a", "text": "Retrieval guarantees the model will quote the manual correctly"},
+        {"id": "b", "text": "Models cannot read any text longer than a single page"},
+        {"id": "c", "text": "A large window makes tokens free, so only accuracy matters"},
+        {"id": "d", "text": "Only the chunks used are billed and crowd the context"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O3",
+      "stem": "The assistant uses a file-based memory tool: the model asks to create or edit a notes file about a student. Which part of the system actually reads and writes that file: the model or the application program?"
+    }
+  ]
+}
