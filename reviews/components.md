@@ -22,25 +22,34 @@ An example of a finished entry:
 
 - Kind: skill
 - Step added: c1-skills
-- Purpose: TODO
+- Purpose: to add ask about definiton and application questions to the learner after the teach skill
 - With and without: reviews/c1-skills.md, Round 1 (without) and Round 2 (with)
-- Review: TODO
+- Review: Without it the quiz had 6 questions with them mostly being applide questions. With it there are not 5 definiton and 5 application questions. The structure made the quiz a bit easier, but there are more questions now.
 - Kept in final: TODO
 
 ### tutor
 
 - Kind: skill
 - Step added: c1-skills
-- Purpose: TODO
+- Purpose: to guide and help the user with quiz questions but not give the answer away. 
 - With and without: reviews/c1-skills.md, Round 3 (without) and Round 4 (with)
-- Review: TODO
+- Review: The refusals were kind and soft at first, but now they are straight to the point. It also uses soccer and everyday analogies which is good. 
+- Kept in final: TODO
+
+### teach
+
+- Kind: skill
+- Step added: c1-skills
+- Purpose: give a lesson to the learner
+- With and without: none yet; teach ships with c0-baseline and no c1-skills round changed it, so its SKILL.md in configs/c1-skills/ is the same as in configs/c0-baseline/
+- Review: The skill was unchanged in c1 so the only differences come from my preferneces which ask for math and coding examples as well as analogies, which it does well.
 - Kept in final: TODO
 
 ### grade
 
 - Kind: skill
 - Step added: c1-skills
-- Purpose: TODO
+- Purpose: grades quizzes and gives feedback on the answers
 - With and without: reviews/c1-skills.md, Round 4 (without) and Round 5 (with)
-- Review: TODO
+- Review: Does a good job explaining why a question was incorrect, and explains why the correct answer is right. A drawback is that the responses are a little lengthy.
 - Kept in final: TODO
