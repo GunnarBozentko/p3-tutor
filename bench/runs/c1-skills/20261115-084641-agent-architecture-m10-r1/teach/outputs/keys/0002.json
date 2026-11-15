@@ -1,0 +1,35 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "a",
+      "rationale": "The context window is what the model sees in one call, bounded in tokens. Option b treats the model as learning from use; c and d confuse it with saved records and tools.",
+      "distractors": {"b": "M3", "c": "M3"}
+    },
+    {
+      "id": "q2",
+      "answer": 9000,
+      "tolerance": 0,
+      "rationale": "Call 1: 2,000. Call 2: 3,000. Call 3: 4,000. Total 9,000. An answer of 5,000 forgets that the whole list is resent every call."
+    },
+    {
+      "id": "q3",
+      "answer": "b",
+      "rationale": "Nothing persists between sessions unless saved outside the context and loaded back. A larger window or a prompt instruction cannot recall a closed session.",
+      "distractors": {"a": "M3", "c": "M3"}
+    },
+    {
+      "id": "q4",
+      "answer": "It uses far fewer tokens, so it costs less and avoids degrading the model's recall of a huge context.",
+      "accepted": ["cheaper and keeps context small", "fewer tokens, lower cost, and less context rot", "saves cost and keeps the context focused"],
+      "rationale": "Input tokens are billed on every call and recall degrades as context grows (context rot). Retrieval keeps only relevant pieces."
+    },
+    {
+      "id": "q5",
+      "answer": "The message list the program resends on each call",
+      "accepted": ["the context", "the message history", "the conversation history resent each call", "the context window contents"],
+      "rationale": "The model keeps no state; the program appends each result to the message list and resends it. An answer such as the model remembering shows M3."
+    }
+  ]
+}

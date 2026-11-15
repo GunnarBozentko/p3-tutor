@@ -1,0 +1,50 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your assistant calls the model for the fourth time in one request. What does the program send to the model in that call?",
+      "options": [
+        {"id": "a", "text": "Only the newest tool result, since the model recalls the rest"},
+        {"id": "b", "text": "Instructions, the question, and every earlier request and result"},
+        {"id": "c", "text": "Only the question, plus a short summary the model wrote itself"},
+        {"id": "d", "text": "Nothing new, because the model keeps its own hidden state"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "Instructions and tool descriptions take 1,500 tokens. Each step of the loop adds 800 tokens to the context, and the whole context is sent on every call. How many input tokens are sent in total over 3 calls?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A student books a 3D printer today, and next week asks the assistant, \"What did I book last time?\" Which design lets the assistant answer?",
+      "options": [
+        {"id": "a", "text": "A larger context window, so the old chat still fits inside it"},
+        {"id": "b", "text": "Retrieval over the machine manuals, to find the booking page"},
+        {"id": "c", "text": "A saved booking note per student, loaded at session start"},
+        {"id": "d", "text": "A longer system prompt, which tells the model to remember"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O3",
+      "stem": "A 300-page laser cutter manual does not fit in the context window. In one sentence, how can the assistant still answer a question about one setting in it?"
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O3",
+      "stem": "In one sentence, why does a long agent loop raise cost per request even if each step adds only a little text?"
+    }
+  ]
+}

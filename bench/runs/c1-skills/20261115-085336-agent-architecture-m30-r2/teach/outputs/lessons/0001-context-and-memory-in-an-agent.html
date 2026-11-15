@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="p3-minutes" content="30">
+  <meta name="p3-objective" content="O3">
+  <title>Context and memory in an agent</title>
+  <style>
+    :root {
+      --bg: #fffdf8; --text: #1f1d1a; --muted: #6b665e; --rule: #e4dfd4;
+      --accent: #9a4517; --accent-soft: #f7ede4; --warn: #8c2f39; --warn-soft: #f9eaec;
+      --ok: #2f6b3a; --ok-soft: #e7f2e9; --code-bg: #f3efe6;
+      --serif: Charter, "Bitstream Charter", "Iowan Old Style", "Sitka Text", Cambria, Georgia, serif;
+      --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --mono: ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, monospace;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #171614; --text: #e9e5dc; --muted: #a49e93; --rule: #36332e; --accent: #eaa77a; --accent-soft: #2c231d;
+        --warn: #f0a3ac; --warn-soft: #2f1f22; --ok: #9fd3a8; --ok-soft: #1c2a1f; --code-bg: #23211e; }
+    }
+    * { box-sizing: border-box; }
+    html { font-size: 19px; -webkit-text-size-adjust: 100%; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--serif); line-height: 1.6; }
+    main { max-width: 40rem; margin: 0 auto; padding: 3rem 1.25rem 4rem; }
+    p, li { hyphens: auto; }
+    a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+    h1, h2, h3 { line-height: 1.25; font-weight: 600; }
+    h1 { font-size: 2.1rem; margin: 0.25rem 0 1rem; }
+    h2 { font-size: 1.45rem; margin: 3rem 0 0.75rem; }
+    h3 { font-size: 1.1rem; margin: 2rem 0 0.5rem; }
+    .kicker, .label, .meta, .section-time, figcaption, summary, th, nav.toc, footer.closing { font-family: var(--sans); }
+    .kicker { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+    .lead { font-size: 1.15rem; }
+    .meta { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; font-size: 0.85rem; color: var(--muted);
+            border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 0.5rem 0; margin: 1.5rem 0; }
+    nav.toc { font-size: 0.9rem; margin: 1.5rem 0 2rem; }
+    nav.toc ol { padding-left: 1.2rem; margin: 0.4rem 0 0; }
+    .section-time { font-size: 0.8rem; font-weight: 400; color: var(--muted); margin-left: 0.4rem; white-space: nowrap; }
+    dfn { font-style: normal; font-weight: 600; }
+    aside.note { font-size: 0.9rem; color: var(--muted); border-left: 2px solid var(--rule); padding-left: 1rem; margin: 1.25rem 0; }
+    .box { border-radius: 6px; padding: 1rem 1.25rem; margin: 1.75rem 0; }
+    .box > :first-child { margin-top: 0; }
+    .box > :last-child { margin-bottom: 0; }
+    .label { display: block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.4rem; }
+    .mission { background: var(--accent-soft); }
+    .mission .label { color: var(--accent); }
+    .misconception { background: var(--warn-soft); border-left: 4px solid var(--warn); }
+    .misconception .label { color: var(--warn); }
+    .worked { border: 1px solid var(--rule); }
+    .worked ol { padding-left: 1.3rem; }
+    .summary { border: 1px solid var(--rule); }
+    figure { margin: 2rem 0; }
+    figure svg { display: block; width: 100%; height: auto; }
+    figcaption { font-size: 0.85rem; color: var(--muted); margin-top: 0.5rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 1.5rem 0; }
+    th, td { text-align: left; vertical-align: top; padding: 0.45rem 0.6rem; border-bottom: 1px solid var(--rule); }
+    th { font-size: 0.78rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+    code, pre { font-family: var(--mono); font-size: 0.85em; background: var(--code-bg); border-radius: 4px; }
+    code { padding: 0.1em 0.3em; }
+    pre { padding: 1rem; overflow-x: auto; line-height: 1.45; }
+    pre code { padding: 0; background: none; font-size: 1em; }
+    .check { border: 1px solid var(--rule); border-radius: 6px; padding: 1rem 1.25rem; margin: 1.75rem 0; }
+    .check .label { color: var(--accent); }
+    .check p { margin: 0.25rem 0; }
+    .choices { list-style: none; padding: 0; margin: 0.75rem 0 0; display: grid; gap: 0.5rem; }
+    .choices button { width: 100%; text-align: left; font: inherit; font-size: 0.95rem; color: inherit; background: transparent;
+                      border: 1px solid var(--rule); border-radius: 6px; padding: 0.55rem 0.8rem; cursor: pointer; }
+    .choices button:hover { border-color: var(--accent); }
+    .choices button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .choices button.right { border-color: var(--ok); background: var(--ok-soft); }
+    .choices button.wrong { border-color: var(--warn); background: var(--warn-soft); }
+    .feedback { font-size: 0.95rem; margin: 0.6rem 0 0; }
+    .feedback:empty { margin: 0; }
+    details { margin-top: 0.75rem; }
+    summary { font-size: 0.85rem; color: var(--accent); cursor: pointer; }
+    details > :not(summary) { margin: 0.5rem 0 0; }
+    .go-further li { margin-bottom: 0.6rem; }
+    footer.closing { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--rule); font-size: 0.9rem; color: var(--muted); }
+    @media (max-width: 32rem) { html { font-size: 17px; } h1 { font-size: 1.75rem; } main { padding-top: 2rem; } }
+    @media print {
+      :root { --bg: #fff; --text: #000; --muted: #444; --rule: #ccc; --accent: #000; --accent-soft: #f2f2f2;
+              --warn: #000; --warn-soft: #f2f2f2; --ok: #000; --ok-soft: #fff; --code-bg: #f2f2f2; }
+      html { font-size: 11.5pt; }
+      main { max-width: none; padding: 0; }
+      nav.toc { display: none; }
+      a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.8em; word-break: break-all; }
+      .box, .check, figure, table, pre { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+<main>
+
+  <header>
+    <div class="kicker">Lesson 1 &middot; 30 minutes</div>
+    <h1>Context and memory in an agent</h1>
+    <p class="lead">By the end of this lesson you can decide, for each piece of information in the makerspace assistant, whether it belongs in the context window, in a saved note, or in a manual index that is searched on demand, and defend that choice with a token count.</p>
+    <div class="meta">
+      <span>Objective O3: context and memory in an agent</span>
+      <span>About 30 minutes</span>
+      <span>Builds on the agent loop (learning record 0002)</span>
+    </div>
+    <div class="box mission">
+      <span class="label">Why this matters for you</span>
+      <p>Your assistant must answer from long machine manuals and remember each student's training status between visits, on a small model budget. Both problems are context and memory problems, and you will have to defend your answer at the design review.</p>
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="In this lesson">
+    <strong>In this lesson</strong>
+    <ol>
+      <li><a href="#warm-up">Warm-up</a></li>
+      <li><a href="#window">The context window</a></li>
+      <li><a href="#steps">What is kept between steps</a></li>
+      <li><a href="#sessions">What is kept between sessions</a></li>
+      <li><a href="#retrieval">Retrieval: finding the right page</a></li>
+      <li><a href="#practice">Worked example and practice</a></li>
+      <li><a href="#summary">Summary</a></li>
+      <li><a href="#further">Go further</a></li>
+    </ol>
+  </nav>
+
+  <section id="warm-up">
+    <h2>Warm-up <span class="section-time">2 min</span></h2>
+    <div class="check">
+      <span class="label">Recall</span>
+      <p>A student asks, "Is the laser cutter free Friday, and do I need training?" The model requests <code>check_calendar</code>. Who runs the tool, and what happens to its result? Answer from memory in two sentences.</p>
+      <details>
+        <summary>Check your answer</summary>
+        <p>The program around the model runs the tool; the model only writes a request naming it. The program then puts the result into the model's next input and calls the model again. That last step is today's subject: "the model's next input" is the context, and what the program chooses to put in it is the whole design question.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="window">
+    <h2>The context window <span class="section-time">6 min</span></h2>
+    <p>A language model has no memory of its own. It sees only the text handed to it on each call, and Anthropic defines <dfn>context</dfn> as "the set of tokens included when sampling from a large-language model" (<a href="https://anthropic.com/engineering/effective-context-engineering-for-ai-agents">Anthropic, Effective context engineering for AI agents</a>). A <dfn>token</dfn> is the unit the model reads and writes: a word or a piece of a word, so a page of manual text is a few hundred tokens. The <dfn>context window</dfn> is the maximum number of tokens one call can hold, input and output together. Anything outside it does not exist for the model.</p>
+    <p>Two limits follow, and you need both. The first is a hard limit: past the window, the call fails or the oldest text is dropped. The second is soft: Anthropic's post describes <dfn>context rot</dfn>, the observed decline in the model's ability to recall information accurately as the token count grows, and treats context as "a finite resource with diminishing marginal returns" (same source). It describes the decline as a gradient, not a cliff. Research agrees: a study of long inputs found that accuracy is highest when the relevant passage sits at the beginning or end, and drops when it sits in the middle, even in models built for long contexts (<a href="https://Huggingface.co/papers/2307.03172">Liu et al., Lost in the Middle</a>).</p>
+    <p>A third limit is cost. You pay per token the model reads and per token it writes, so every token in context costs money on every call that includes it. For a sponsor with a small budget, this is the limit that bites first.</p>
+
+    <figure>
+      <svg viewBox="0 0 640 250" role="img" aria-labelledby="fig1-title">
+        <title id="fig1-title">The context window as a box that holds the system prompt, tool descriptions, message history and the new input</title>
+        <g fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="20" y="20" width="400" height="210" rx="8" style="stroke: var(--accent)"/>
+          <rect x="40" y="55" width="360" height="32" rx="4"/>
+          <rect x="40" y="95" width="360" height="32" rx="4"/>
+          <rect x="40" y="135" width="360" height="52" rx="4"/>
+          <rect x="40" y="195" width="360" height="25" rx="4"/>
+          <rect x="480" y="95" width="140" height="60" rx="8"/>
+          <line x1="420" y1="125" x2="476" y2="125" marker-end="url(#arrow1)"/>
+        </g>
+        <defs>
+          <marker id="arrow1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+          </marker>
+        </defs>
+        <g fill="currentColor" font-family="system-ui, sans-serif" font-size="18">
+          <text x="30" y="42" style="fill: var(--accent)">Context window (one call)</text>
+          <text x="52" y="77">System prompt: role, rules</text>
+          <text x="52" y="117">Tool descriptions</text>
+          <text x="52" y="164">Message history:</text>
+          <text x="52" y="184" font-size="16">questions, tool requests, results</text>
+          <text x="52" y="214">New input</text>
+          <text x="500" y="122">Model</text>
+          <text x="500" y="144" font-size="16">writes output</text>
+        </g>
+      </svg>
+      <figcaption>Figure 1. Everything the model knows on one call is inside the box. Every part is counted in tokens, and you pay for all of it each time.</figcaption>
+    </figure>
+
+    <div class="box misconception">
+      <span class="label">A common mix-up</span>
+      <p>"A bigger window means I can paste in every manual and stop worrying." This is tempting because a window that holds a whole textbook sounds like unlimited knowledge. It is wrong for two reasons: you pay for every token on every call, and recall degrades as the window fills, particularly for material in the middle. A larger window raises the hard limit; it does not remove the soft one or the cost.</p>
+    </div>
+
+    <div class="check" data-check>
+      <span class="label">Check yourself</span>
+      <p>Your team pastes all 12 machine manuals into the system prompt of the assistant. Which problem do you expect first?</p>
+      <ul class="choices">
+        <li><button type="button" data-correct="false" data-why="The model does not lose the text; it is in the window. The trouble is how reliably it uses that text and what it costs.">The model forgets the manuals between two consecutive calls</button></li>
+        <li><button type="button" data-correct="false" data-why="Tools are separate from the prompt. Pasting text in does not change whether the model can call them.">The model stops being able to call any tools at all</button></li>
+        <li><button type="button" data-correct="true" data-why="Every call re-sends the manuals, so you pay for them each time, and recall of a specific page weakens as the window fills.">Each call costs more and recall of one page weakens</button></li>
+      </ul>
+      <p class="feedback" aria-live="polite"></p>
+      <details>
+        <summary>Show the answer</summary>
+        <p>The third option. The manuals are re-sent and billed on every call, and a fact buried in a very long input is recalled less reliably than one in a short input.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="steps">
+    <h2>What is kept between steps <span class="section-time">6 min</span></h2>
+    <p>Within one request, the agent loop from the earlier session runs several model calls. The model keeps nothing between those calls. What looks like memory is the program re-sending the whole <dfn>message history</dfn>, the list of everything said and done so far, with each new item appended. Here is the idea in code:</p>
+<pre><code>messages = [{"role": "user", "content": question}]
+while True:
+    reply = call_model(system_prompt, tools, messages)   # model sees ALL of messages
+    messages.append(reply)                               # keep its output
+    if reply.is_final_answer:
+        break
+    result = run_tool(reply.tool_request)                # program runs the tool
+    messages.append(tool_result(result))                 # keep the result</code></pre>
+    <p>The list <code>messages</code> is the only thing that carries information from one step to the next. Delete an item from it and the model has never seen that item. This is also why cost grows faster than the number of steps: call 1 sends the base context, call 2 sends the base plus step 1, call 3 the base plus steps 1 and 2, and so on. With a base of <code>b</code> tokens, each step adding <code>a</code> tokens and <code>n</code> calls, the total input tokens billed are</p>
+    <p style="text-align:center"><code>total = n&middot;b + a&middot;(0 + 1 + &hellip; + (n&minus;1)) = n&middot;b + a&middot;n(n&minus;1)/2</code></p>
+    <p>The second term is quadratic in <code>n</code>. A long loop with large tool results is therefore expensive, and a bloated first call is paid for on every step.</p>
+
+    <figure>
+      <svg viewBox="0 0 640 230" role="img" aria-labelledby="fig2-title">
+        <title id="fig2-title">Bars showing the input to model calls 1 to 4 growing as each tool result is appended</title>
+        <g stroke="currentColor" stroke-width="1.5" fill="none">
+          <rect x="60" y="150" width="90" height="40" style="stroke: var(--accent)"/>
+          <rect x="190" y="110" width="90" height="40" style="stroke: var(--accent)"/><rect x="190" y="150" width="90" height="40"/>
+          <rect x="320" y="70" width="90" height="40" style="stroke: var(--accent)"/><rect x="320" y="110" width="90" height="40"/><rect x="320" y="150" width="90" height="40"/>
+          <rect x="450" y="30" width="90" height="40" style="stroke: var(--accent)"/><rect x="450" y="70" width="90" height="40"/><rect x="450" y="110" width="90" height="40"/><rect x="450" y="150" width="90" height="40"/>
+        </g>
+        <g fill="currentColor" font-family="system-ui, sans-serif" font-size="18" text-anchor="middle">
+          <text x="105" y="215">Call 1</text><text x="235" y="215">Call 2</text><text x="365" y="215">Call 3</text><text x="495" y="215">Call 4</text>
+          <text x="105" y="176" font-size="15">base</text><text x="235" y="176" font-size="15">base</text><text x="365" y="176" font-size="15">base</text><text x="495" y="176" font-size="15">base</text>
+          <text x="235" y="136" font-size="15">+ step 1</text><text x="365" y="136" font-size="15">+ step 1</text><text x="495" y="136" font-size="15">+ step 1</text>
+          <text x="365" y="96" font-size="15">+ step 2</text><text x="495" y="96" font-size="15">+ step 2</text>
+          <text x="495" y="56" font-size="15">+ step 3</text>
+        </g>
+      </svg>
+      <figcaption>Figure 2. The base is paid on every call, and each step's result is paid on every later call. The input is rebuilt from the message history each time.</figcaption>
+    </figure>
+
+    <p>The program can edit the history. Anthropic's post names two ways, both tools for keeping the window small during one long task. <dfn>Compaction</dfn> means summarizing a conversation that is nearing the limit and starting a new window with the summary. <dfn>Tool result clearing</dfn> means deleting old tool outputs once they have been used, which the post calls "one of the safest lightest touch forms of compaction" (<a href="https://anthropic.com/engineering/effective-context-engineering-for-ai-agents">Anthropic</a>). For the makerspace assistant, a long manual excerpt that has already produced its answer is a good candidate for clearing: the answer stays, the 3,000 tokens of excerpt go.</p>
+
+    <div class="check" data-check>
+      <span class="label">Check yourself</span>
+      <p>In a loop, call 3 can answer a question about the result of call 1. Why?</p>
+      <ul class="choices">
+        <li><button type="button" data-correct="false" data-why="The model keeps no state between calls. It would not remember anything unless the text was in its input.">The model stores call 1's result internally between calls</button></li>
+        <li><button type="button" data-correct="false" data-why="The tool is run by the program and returns data once; it does not hold the conversation for the model.">The tool holds the result and returns it when asked</button></li>
+        <li><button type="button" data-correct="true" data-why="The program appended the result to the message history and re-sent that history in call 3's input.">The program re-sent that result inside call 3's input</button></li>
+      </ul>
+      <p class="feedback" aria-live="polite"></p>
+      <details>
+        <summary>Show the answer</summary>
+        <p>The third option: the model has no memory between calls, so the program re-sends the history, which includes call 1's result.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="sessions">
+    <h2>What is kept between sessions <span class="section-time">7 min</span></h2>
+    <p>A <dfn>session</dfn> is one conversation or task, from the first message to the end. When it ends, the message history is gone unless your program saved it. A fresh session starts with an empty context. So a student who was certified on the laser cutter last week is, to a new session, a stranger. The model cannot remember them; only your program can, by saving information outside the context window and loading it back in.</p>
+    <p>Anthropic calls one pattern <dfn>structured note-taking</dfn> (also called agentic memory): the agent regularly writes notes to storage outside the context window, and those notes are pulled back in at later times. Its examples include a to-do list and a <code>NOTES.md</code> file, and it describes an agent playing a game that kept tallies and maps across thousands of steps (<a href="https://anthropic.com/engineering/effective-context-engineering-for-ai-agents">Anthropic</a>). The platform provides a <dfn>memory tool</dfn> built on this idea: Claude can create, view, edit and delete files under a <code>/memories</code> directory, and checks that directory before starting a task (<a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/memory-tool">Memory tool documentation</a>).</p>
+    <p>Notice how this fits what you already know. Memory is just another tool. The model writes a request ("create the file <code>/memories/riley.md</code> with this text"), and your program carries it out and returns a result. The documentation is explicit that the operations are <em>client-side</em>: the application executes them against storage you control, and Anthropic does not store the files (same source). What you build is the storage and its rules.</p>
+
+    <figure>
+      <svg viewBox="0 0 640 240" role="img" aria-labelledby="fig3-title">
+        <title id="fig3-title">Session 1 ends and its context is lost, but a note saved to a file is loaded into session 2</title>
+        <g fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="20" y="30" width="170" height="90" rx="8"/>
+          <rect x="450" y="30" width="170" height="90" rx="8"/>
+          <rect x="235" y="150" width="170" height="70" rx="8" style="stroke: var(--accent)"/>
+          <line x1="105" y1="120" x2="105" y2="185" stroke-dasharray="4 4"/>
+          <line x1="105" y1="185" x2="231" y2="185" marker-end="url(#arrow3)"/>
+          <line x1="409" y1="185" x2="535" y2="185"/>
+          <line x1="535" y1="185" x2="535" y2="124" marker-end="url(#arrow3)"/>
+        </g>
+        <defs>
+          <marker id="arrow3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+          </marker>
+        </defs>
+        <g fill="currentColor" font-family="system-ui, sans-serif" font-size="18" text-anchor="middle">
+          <text x="105" y="70">Session 1</text><text x="105" y="95" font-size="16">context lost at end</text>
+          <text x="535" y="70">Session 2</text><text x="535" y="95" font-size="16">starts empty</text>
+          <text x="320" y="180" style="fill: var(--accent)">Saved notes</text><text x="320" y="204" font-size="16">/memories/riley.md</text>
+          <text x="165" y="165" font-size="15">write</text><text x="470" y="165" font-size="15">read</text>
+        </g>
+      </svg>
+      <figcaption>Figure 3. Only what was written to storage crosses the gap between sessions. The context itself never does.</figcaption>
+    </figure>
+
+    <h3>What to save, and what to leave out</h3>
+    <p>Notes are only useful if they are small, durable and correct. Save facts that stay true across visits and are cheap to store: "Riley: laser cutter certified 2026-10-02; 3D printer not certified." Do not save raw conversation or manual text; the manuals already exist elsewhere and belong to retrieval. The documentation also lists cautions you must handle in your own code: validate every file path so it stays inside <code>/memories</code>, cap file sizes, and expire files nobody reads (<a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/memory-tool">Memory tool documentation</a>). A training status is a fact that should come from the booking system's records, not only from a note the model wrote; notes can be wrong, and a wrong note about safety training is a real hazard. That is a design-review argument.</p>
+
+    <div class="box misconception">
+      <span class="label">A common mix-up</span>
+      <p>"The assistant will just remember the student from last time." Tempting because chatbots in a product often seem to do this. But remembering is a feature someone built: a program saved something and loaded it again. Without that, a new session knows nothing about earlier ones, however capable the model.</p>
+    </div>
+
+    <table>
+      <thead><tr><th>Kind</th><th>Lives in</th><th>Lasts</th><th>Makerspace example</th></tr></thead>
+      <tbody>
+        <tr><td>Context</td><td>The model's input</td><td>One call, rebuilt each step</td><td>This request's tool results</td></tr>
+        <tr><td>Message history</td><td>Your program's list</td><td>One session</td><td>The question and answers so far</td></tr>
+        <tr><td>Notes</td><td>Files or a database</td><td>Across sessions</td><td>Each student's training status</td></tr>
+        <tr><td>Reference index</td><td>A search index</td><td>Until you change it</td><td>The machine manuals</td></tr>
+      </tbody>
+    </table>
+
+    <div class="check" data-check>
+      <span class="label">Check yourself</span>
+      <p>Where should "the 3D printer's nozzle size is 0.4 mm" live, and why?</p>
+      <ul class="choices">
+        <li><button type="button" data-correct="false" data-why="A student's note records a student's state, such as training. Machine facts are the same for everyone and are not learned from one student.">In each student's saved note file, copied for every student</button></li>
+        <li><button type="button" data-correct="false" data-why="Always including every machine fact bloats every call and is paid for each time, even when the question is about a laser.">In the system prompt, along with every other machine fact</button></li>
+        <li><button type="button" data-correct="true" data-why="It is shared reference knowledge: store it once in the indexed manuals and fetch it only when a question needs it.">In the indexed manuals, fetched only when a question needs it</button></li>
+      </ul>
+      <p class="feedback" aria-live="polite"></p>
+      <details>
+        <summary>Show the answer</summary>
+        <p>The third option. It is shared reference knowledge, so it belongs in the manual index and is retrieved on demand. Per-student notes are for per-student facts.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="retrieval">
+    <h2>Retrieval: finding the right page <span class="section-time">6 min</span></h2>
+    <p><dfn>Retrieval</dfn> means fetching only the pieces of a large body of text that a question needs and placing just those in the context. The manuals are the case: one 300-page manual is far too large to include every call, and a question needs maybe two paragraphs of it. The usual method is to split the manual into <dfn>chunks</dfn> of a few hundred tokens, convert each into an <dfn>embedding</dfn>, which is a list of numbers (a vector) produced by a model so that texts with similar meaning get vectors pointing in similar directions, and store them. At question time you embed the question the same way and rank chunks by similarity.</p>
+    <p>The standard similarity is <dfn>cosine similarity</dfn>: the cosine of the angle between two vectors,</p>
+    <p style="text-align:center"><code>cos(q, c) = (q &middot; c) / (|q| &middot; |c|)</code></p>
+    <p>It is 1 when the vectors point the same way, 0 when they are unrelated (perpendicular), and ignores the vectors' lengths, as correlation ignores scale. You take the top few chunks and add them to the context. This is the retrieval that happens before the model is called.</p>
+    <p>Anthropic's post describes an alternative it says is growing: <dfn>just-in-time retrieval</dfn>. The agent keeps lightweight references, such as file paths or search queries, and loads data into context at runtime through tools. Claude Code, for example, uses <code>grep</code> and <code>glob</code> instead of pre-built embeddings. The trade-off the post names is that runtime exploration is slower and can waste context without good tools. It also notes hybrids, and says that "do the simplest thing that works" will likely remain the best guidance (<a href="https://anthropic.com/engineering/effective-context-engineering-for-ai-agents">Anthropic</a>).</p>
+    <p>For your assistant that suggests a plan. Give the model a tool such as <code>search_manuals(machine, query)</code> that returns the top three chunks, each labelled with machine and page. The model decides when to call it, and the result enters the context like any tool result, so the earlier rules apply: keep results short, and clear them once used. Retrieval is thus not separate from the agent loop; it is one more tool.</p>
+
+    <figure>
+      <svg viewBox="0 0 640 200" role="img" aria-labelledby="fig4-title">
+        <title id="fig4-title">A question is embedded, compared with stored manual chunks, and the top chunks go into the context</title>
+        <g fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="20" y="60" width="130" height="60" rx="8"/>
+          <rect x="190" y="60" width="130" height="60" rx="8"/>
+          <rect x="360" y="20" width="130" height="140" rx="8" style="stroke: var(--accent)"/>
+          <rect x="520" y="60" width="100" height="60" rx="8"/>
+          <line x1="150" y1="90" x2="186" y2="90" marker-end="url(#arrow4)"/>
+          <line x1="320" y1="90" x2="356" y2="90" marker-end="url(#arrow4)"/>
+          <line x1="490" y1="90" x2="516" y2="90" marker-end="url(#arrow4)"/>
+        </g>
+        <defs>
+          <marker id="arrow4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+          </marker>
+        </defs>
+        <g fill="currentColor" font-family="system-ui, sans-serif" font-size="18" text-anchor="middle">
+          <text x="85" y="95">Question</text>
+          <text x="255" y="87">Embed</text><text x="255" y="108" font-size="16">as vector</text>
+          <text x="425" y="55" style="fill: var(--accent)">Chunk index</text><text x="425" y="85" font-size="16">rank by cosine</text><text x="425" y="107" font-size="16">keep top 3</text>
+          <text x="570" y="87">Context</text><text x="570" y="108" font-size="16">3 chunks</text>
+        </g>
+      </svg>
+      <figcaption>Figure 4. Retrieval turns a 300-page manual into a few hundred tokens of relevant text in the context.</figcaption>
+    </figure>
+
+    <div class="box misconception">
+      <span class="label">A common mix-up</span>
+      <p>"Retrieval is the same thing as memory." They share a mechanism, text loaded into context on demand, but they hold different things. Notes hold what the agent learned about particular students or tasks, written by the agent. Retrieval holds a corpus that existed before the conversation, such as manuals. Mixing them leads to storing manual text in student notes, or training status in the manual index.</p>
+    </div>
+  </section>
+
+  <section id="practice">
+    <h2>Worked example and practice <span class="section-time">3 min</span></h2>
+    <div class="box worked">
+      <span class="label">Worked example: the cost of one request</span>
+      <p>A student asks a question that needs 5 model calls. The base context (system prompt, tool descriptions, question) is 3,000 tokens, and each step adds 1,500 tokens (the model's request plus the tool result). How many input tokens are billed in total?</p>
+      <ol>
+        <li>Write the input of each call: 3,000; 4,500; 6,000; 7,500; 9,000, because each call includes everything before it.</li>
+        <li>Sum them: 3,000 + 4,500 + 6,000 + 7,500 + 9,000 = 30,000.</li>
+        <li>Check with the formula: n&middot;b + a&middot;n(n&minus;1)/2 = 5&middot;3,000 + 1,500&middot;10 = 15,000 + 15,000 = 30,000.</li>
+        <li>Interpret: half the bill is re-reading history, not new information. Shrinking <code>b</code> by 1,000 tokens saves 5,000 per request; clearing a used 1,500-token result before call 5 saves 1,500.</li>
+      </ol>
+    </div>
+    <div class="check">
+      <span class="label">Your turn</span>
+      <p>Another request needs 6 calls, with a base of 2,000 tokens and 2,000 added per step. Step one is given: the call inputs are 2,000; 4,000; &hellip; Finish: list all six inputs, sum them, and confirm with the formula.</p>
+      <details>
+        <summary>Show a solution</summary>
+        <p>Inputs: 2,000; 4,000; 6,000; 8,000; 10,000; 12,000. Sum = 42,000. Formula: 6&middot;2,000 + 2,000&middot;15 = 12,000 + 30,000 = 42,000.</p>
+      </details>
+    </div>
+    <div class="check">
+      <span class="label">Your turn, retrieval</span>
+      <p>The question vector is q = (3, 4). Three chunk vectors are D = (6, 8), E = (4, 3) and F = (0, 5). Compute the cosine similarity of each with q and rank them. (Hint: |q| = 5, and the cosine of D is computed as 48 / (5 &middot; 10).)</p>
+      <details>
+        <summary>Show a solution</summary>
+        <p>D: 48 / (5&middot;10) = 1.00. E: (12 + 12) / (5&middot;5) = 0.96. F: (0 + 20) / (5&middot;5) = 0.80. Rank: D, E, F. D points the same direction as q even though it is twice as long, which is why cosine is preferred to raw dot product.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="summary">
+    <h2>Summary <span class="section-time">2 min</span></h2>
+    <div class="box summary">
+      <ul>
+        <li>The model sees only its context window on each call, limited by a hard size, by recall that weakens as it fills, and by cost per token.</li>
+        <li>Between steps, the only memory is the message history your program re-sends; cost grows as n&middot;b + a&middot;n(n&minus;1)/2, and you control it with clearing and compaction.</li>
+        <li>Between sessions, nothing survives unless your program saves notes and loads them back; memory is a tool you build the storage for.</li>
+        <li>Retrieval fetches the few chunks of a large corpus a question needs; notes hold agent-learned facts. They are different stores.</li>
+      </ul>
+      <p><strong>Say it in your own words:</strong> without looking back, explain to a teammate where the assistant keeps (a) the current request's tool results, (b) a student's training status, and (c) the laser cutter manual, and why each is kept there.</p>
+    </div>
+    <p>Next lesson: how to write tool descriptions the model can use, including a <code>search_manuals</code> tool.</p>
+  </section>
+
+  <section id="further" class="go-further">
+    <h2>Go further</h2>
+    <p><strong>Read next:</strong> <a href="https://anthropic.com/engineering/effective-context-engineering-for-ai-agents">Effective context engineering for AI agents</a>, Anthropic's engineering post, the best single source on what belongs in context and why, and where compaction, notes and sub-agents fit.</p>
+    <ul>
+      <li><a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/memory-tool">Memory tool documentation</a>: the file operations, client-side storage and security cautions.</li>
+      <li><a href="https://www.anthropic.com/news/context-management">Anthropic: managing context on the Claude Developer Platform</a>: announcement of context editing alongside the memory tool.</li>
+      <li><a href="https://Huggingface.co/papers/2307.03172">Lost in the Middle: How Language Models Use Long Contexts</a>: the research on why position in a long input matters.</li>
+    </ul>
+    <p><strong>Test it with others:</strong> your senior design review and your faculty advisor are the real test. Bring the table of what lives where and the token estimate, and ask what they would cut.</p>
+  </section>
+
+  <footer class="closing">
+    <p>Anything unclear? Ask me in the chat; I can explain any part again, another way, or go deeper.</p>
+    <p>A short quiz on this lesson is ready (quiz 0002): ask me for it when you want to check what stuck.</p>
+  </footer>
+
+</main>
+<script>
+  document.querySelectorAll("[data-check]").forEach(function (box) {
+    var buttons = box.querySelectorAll("button[data-correct]");
+    var out = box.querySelector(".feedback");
+    buttons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        buttons.forEach(function (b) { b.classList.remove("right", "wrong"); });
+        var right = button.getAttribute("data-correct") === "true";
+        button.classList.add(right ? "right" : "wrong");
+        if (out) { out.textContent = (right ? "Yes. " : "Not quite. ") + (button.getAttribute("data-why") || ""); }
+      });
+    });
+  });
+</script>
+</body>
+</html>

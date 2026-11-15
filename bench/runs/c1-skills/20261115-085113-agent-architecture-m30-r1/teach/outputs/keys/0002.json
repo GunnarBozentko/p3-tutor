@@ -1,0 +1,37 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "The model keeps nothing between calls; the program must resend the earlier messages with the new one. Options a and d assume the model or the system prompt remembers earlier turns, which is the misconception that memory of earlier conversation is automatic (M3).",
+      "distractors": {"a": "M3", "d": "M3"}
+    },
+    {
+      "id": "q2",
+      "answer": 14000,
+      "tolerance": 0,
+      "rationale": "Input per call: 2,000, 3,000, 4,000, 5,000. Total 14,000. Formula: 4(2,000) + 1,000(4)(3)/2 = 8,000 + 6,000. An answer of 5,000 counts only the last call; 8,000 counts the fixed part but forgets that results are resent."
+    },
+    {
+      "id": "q3",
+      "answer": "c",
+      "rationale": "The context is gone when the session ends, so the fact must be written to storage outside it and loaded into the next session's context. Option a assumes the context persists (M3). A manual search (b) and the calendar (d) do not hold per-student training facts unless the program stores them there.",
+      "distractors": {"a": "M3"}
+    },
+    {
+      "id": "q4",
+      "answer": "Everything in the context is sent and paid for on every call, so twelve manuals multiply the cost; and accuracy of recall falls as the context grows, so retrieving a few passages is cheaper and more accurate.",
+      "accepted": [
+        "It costs far more tokens on every call and long contexts make the model worse at finding the relevant fact.",
+        "Cost: all tokens are resent each step. Accuracy: more context reduces recall of the relevant passage."
+      ],
+      "rationale": "Full credit names cost (whole context billed every call) or degraded accuracy (context rot, lost in the middle); giving both is best. Saying only that the manuals will not fit is partial or wrong, since the stem grants that they fit."
+    },
+    {
+      "id": "q5",
+      "answer": "b",
+      "rationale": "The model sees only what the program puts in the context. With the right passage missing, it answers from the three chunks it has, possibly wrongly. It does not search or read manuals itself; the program runs retrieval. Options a and c credit the model with running search itself, and d trusts unreliable recall from training."
+    }
+  ]
+}

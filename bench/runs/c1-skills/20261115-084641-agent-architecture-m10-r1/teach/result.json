@@ -1,0 +1,152 @@
+{
+  "duration_api_ms": 92921,
+  "stop_reason": "end_turn",
+  "session_id": "ecacb8fe-8445-435d-9ba2-d4f06e8749bc",
+  "total_cost_usd": 0.38074800000000003,
+  "usage": {
+    "input_tokens": 12,
+    "cache_creation_input_tokens": 52306,
+    "cache_read_input_tokens": 186551,
+    "output_tokens": 11682,
+    "output_tokens_details": {
+      "thinking_tokens": 670
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 52306,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 422,
+        "cache_read_input_tokens": 56384,
+        "cache_creation_input_tokens": 10429,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 10429
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 12,
+      "outputTokens": 11682,
+      "cacheReadInputTokens": 186551,
+      "cacheCreationInputTokens": 52306,
+      "webSearchRequests": 0,
+      "costUSD": 0.34472310000000006,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 670,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 52306,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 42879,
+      "outputTokens": 3474,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 3,
+      "costUSD": 0.0360249,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 1153,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 0,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 21,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "The 10-minute lesson on O3 is at `lessons/0001-context-and-memory.html`. I haven't opened it in a browser or counted its words; it's written to the 10-minute budget.\n\nIt covers:\n- **Context window:** what the model sees on one call, and context rot.\n- **Between steps and sessions:** the message list is resent every call, and nothing persists across sessions unless your program saves and reloads it.\n- **Retrieval and notes:** how each fits the makerspace assistant.\n- **Practice:** a token-cost worked example, a manual-stuffing versus retrieval exercise, and a recall warm-up on the agent loop.\n\nThe sources are Anthropic's engineering post on context engineering, its context windows docs and its memory tool docs. I recorded them in `RESOURCES.md` and cited them in the lesson. I found no community for the topic, so the lesson has no community pointer.\n\nQuiz 0002 (five items, with its key) is ready when you want it. I also added notes to `NOTES.md`, including that retrieval was only introduced briefly. Ask me anything about the lesson in the chat.\n\nOne question for you: which part of the assistant do you want to decide first, what goes in the context, how to retrieve from the manuals, or what to save per student? That decides the next lesson.",
+  "ttft_ms": 1059,
+  "type": "result",
+  "duration_ms": 78789,
+  "uuid": "28092bc1-8af8-49bf-b095-7e51729790c3",
+  "ttft_stream_ms": 706,
+  "time_to_request_ms": 72,
+  "first_content_frame_ms": 706,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 12,
+      "outputTokens": 11682,
+      "cacheReadInputTokens": 186551,
+      "cacheCreationInputTokens": 52306,
+      "webSearchRequests": 0,
+      "costUSD": 0.34472310000000006,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 670,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 52306,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 42879,
+      "outputTokens": 3474,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 3,
+      "costUSD": 0.0360249,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 1153,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 0,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-20T19:38:56.831Z"
+}

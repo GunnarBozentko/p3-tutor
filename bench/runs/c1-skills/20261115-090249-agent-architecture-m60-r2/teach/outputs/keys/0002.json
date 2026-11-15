@@ -1,0 +1,36 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "c",
+      "rationale": "The model is stateless between calls: its window holds only what the program sent, which is Tuesday's messages. With nothing about Monday, it has to ask. Options a and b show the misconception that the model automatically remembers earlier conversations (M3); d is a guess the model has no basis for.",
+      "distractors": {"a": "M3", "b": "M3"}
+    },
+    {
+      "id": "q2",
+      "answer": 6300,
+      "tolerance": 0,
+      "rationale": "Call 1 reads 1,500. Call 2 adds the first request and result: 1,500 + 100 + 500 = 2,100. Call 3 adds the second pair: 2,100 + 600 = 2,700. Total 1,500 + 2,100 + 2,700 = 6,300. An answer of 4,500 (3 x 1,500) forgets that history is resent; 1,500 + 600 + 600 style answers count each result once."
+    },
+    {
+      "id": "q3",
+      "answer": "a",
+      "rationale": "The chunks have lost the context they had in their document; putting the machine name and section title at the top of each chunk restores it (the contextual-retrieval idea, done cheaply). Returning 50 chunks costs more and invites context rot, a stronger instruction cannot supply missing information, and a larger window does not make the chunk say which machine it is about."
+    },
+    {
+      "id": "q4",
+      "answer": "Training status gates safety, so it must be authoritative and current; a model-written note can be wrong, stale or based on a student's unverified claim, while the training system is the source of truth.",
+      "accepted": [
+        "Because it is a safety-critical fact, it should come from the system of record, which is current and verified; a note may be stale or wrong.",
+        "A note could be outdated or inaccurate, and the training system is the authoritative source for something that gates equipment access."
+      ],
+      "rationale": "Full credit names the reason: the fact gates safety or access, so it needs an authoritative, current source, and notes can be stale or wrong. Saying only that notes cost tokens is partial or wrong, since that is not the deciding reason."
+    },
+    {
+      "id": "q5",
+      "answer": "d",
+      "rationale": "Summarizing (compaction) is lossy: whatever the summary omits is no longer in the window, and the model decides what to omit. Tools still work (a), a summary is shorter than the history it replaces (b), and the window size is fixed (c)."
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Which statement best describes the context window of a language model?",
+      "options": [
+        {"id": "a", "text": "Everything the model can see during one single call, up to a limit"},
+        {"id": "b", "text": "Everything the model has learned from all of its earlier conversations"},
+        {"id": "c", "text": "The saved record of every student that the assistant has served"},
+        {"id": "d", "text": "The set of tools that the model is permitted to request at once"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "An agent's fixed prompt and tool descriptions take 2,000 tokens. Every tool result adds 1,000 tokens to the message list, which is resent in full on each call. The run makes 3 model calls (the first has no tool results yet). How many input tokens are billed in total, ignoring the model's output?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A student chats with your assistant on Tuesday and says they are left-handed and need a different saw guard. On Thursday they open a new session and the assistant does not know this. What is the most direct fix in your program?",
+      "options": [
+        {"id": "a", "text": "Switch to a model with a much larger context window"},
+        {"id": "b", "text": "Save a note after Tuesday and load it at Thursday's start"},
+        {"id": "c", "text": "Tell the model in its prompt to remember every student"},
+        {"id": "d", "text": "Retrieve more pages from the saw manual for each question"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O3",
+      "stem": "In one or two sentences, why is retrieving a few relevant chunks of a long manual usually better than putting the whole manual in the context on every call?"
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O3",
+      "stem": "Within one agent run, what is the only thing that carries information from one model call to the next?"
+    }
+  ]
+}

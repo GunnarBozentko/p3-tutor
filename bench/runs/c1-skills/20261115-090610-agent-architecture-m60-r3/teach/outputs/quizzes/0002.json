@@ -1,0 +1,56 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A student chats with your assistant, then sends a second message that refers to \"that machine\". The assistant answers correctly. What makes this possible?",
+      "options": [
+        {"id": "a", "text": "The model stores each conversation internally and recalls it on the next call"},
+        {"id": "b", "text": "The program sends the earlier messages along with the new one each call"},
+        {"id": "c", "text": "The model's parameters are updated by each message the student sends"},
+        {"id": "d", "text": "The context window keeps its contents automatically between separate model calls"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "An agent run has a system prompt, tool definitions and question totaling 1,000 tokens. Each step adds 500 tokens (the model's tool request plus the tool's result). The model makes 2 tool requests and then writes its final answer, so it is called 3 times, and each call receives the full context so far. How many input tokens are processed in total across the 3 calls?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your assistant must know whether a student has passed laser-cutter training when they return next month. Which design is the most reliable?",
+      "options": [
+        {"id": "a", "text": "Keep the finished chat's message history and hope the model recalls it"},
+        {"id": "b", "text": "Store the status in a database and look it up by student when needed"},
+        {"id": "c", "text": "Ask the model to remember the status the next time it is trained"},
+        {"id": "d", "text": "Add every student's status to the system prompt for all conversations"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O3",
+      "stem": "The makerspace manuals total about 600,000 tokens. Give one reason to retrieve a few relevant chunks per question instead of putting the whole manual set into the context on every call."
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Retrieval returned five chunks for the question \"Why does the printer stop at layer 3?\", but the chunk that actually explains the fault is not among them, though it is in the index. The model still writes a confident answer. What is the best reading of this result?",
+      "options": [
+        {"id": "a", "text": "The model read the whole manual and chose to ignore the relevant page"},
+        {"id": "b", "text": "The window was full, so the correct chunk was silently trimmed from it"},
+        {"id": "c", "text": "The model only saw the returned chunks, so the answer lacks the fault"},
+        {"id": "d", "text": "The memory notes were wrong, so the retrieval step must have been correct"}
+      ]
+    }
+  ]
+}

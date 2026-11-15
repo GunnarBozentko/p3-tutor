@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cheat sheet: context and memory</title>
+  <style>
+    body { max-width: 42rem; margin: 0 auto; padding: 2rem 1rem; font-family: Georgia, serif; line-height: 1.5; }
+    table { border-collapse: collapse; width: 100%; font-size: 0.9rem; }
+    th, td { text-align: left; padding: 0.35rem 0.5rem; border-bottom: 1px solid #ccc; vertical-align: top; }
+    code { background: #f2efe8; padding: 0 0.2em; }
+  </style>
+</head>
+<body>
+<h1>Context and memory: cheat sheet</h1>
+<p>From <a href="../lessons/0001-context-and-memory.html">lesson 1</a>.</p>
+<h2>Terms</h2>
+<ul>
+  <li><strong>Context window</strong>: all the text the model can read on one call.</li>
+  <li><strong>Token</strong>: a chunk of text; the unit of window size and of billing.</li>
+  <li><strong>Session</strong>: one conversation; its message list is discarded at the end.</li>
+  <li><strong>Compaction</strong>: replacing history with a summary (lossy).</li>
+  <li><strong>RAG</strong>: retrieve chunks, put them in the window with the question.</li>
+</ul>
+<h2>Rules</h2>
+<ul>
+  <li>The model keeps nothing; the program resends the message list each call.</li>
+  <li>Input on call n = fixed part + question + everything added in steps 1 to n-1.</li>
+  <li>Cut cost: fewer steps, smaller tool results, clear used results.</li>
+  <li>Between sessions: save then load. Safety facts come from a system of record via a tool.</li>
+  <li>Cosine similarity = (u · v) / (|u| |v|). Keyword search for exact strings, embeddings for paraphrase.</li>
+</ul>
+<h2>Where does it live?</h2>
+<table>
+  <tr><th>Need</th><th>Put it</th></tr>
+  <tr><td>Every call</td><td>System prompt or tool descriptions (keep short)</td></tr>
+  <tr><td>Some requests</td><td>Behind a tool, fetched just in time</td></tr>
+  <tr><td>Later sessions</td><td>System-of-record fact or note, loaded when needed</td></tr>
+  <tr><td>Large, already used</td><td>Trim at source or clear from the list</td></tr>
+</table>
+</body>
+</html>

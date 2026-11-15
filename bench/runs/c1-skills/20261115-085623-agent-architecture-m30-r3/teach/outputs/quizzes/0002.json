@@ -1,0 +1,50 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A student chats with your makerspace assistant on Monday and returns on Thursday in a new session. The program saved nothing from Monday. What does the model know on Thursday about Monday's chat?",
+      "options": [
+        {"id": "a", "text": "Everything, because the model keeps all earlier chats stored internally"},
+        {"id": "b", "text": "A short summary, because models retain the main points of chats"},
+        {"id": "c", "text": "Nothing, because only what the program sends in the window exists"},
+        {"id": "d", "text": "Only the student's name, because the model stores user identities"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "One request makes 4 model calls. The fixed prefix (system prompt plus tool descriptions) is 2,000 tokens, and each of the first 3 calls adds a 1,000-token tool result that stays in the window for all later calls. Call 1 reads only the prefix. Ignoring caching, how many input tokens are read across all 4 calls in total?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your team has one 30-page manual (about 15,000 tokens) and a budget for many requests per day. Which approach does the lesson's source support as the sensible first design?",
+      "options": [
+        {"id": "a", "text": "Build embeddings and reranking first, because every manual needs retrieval"},
+        {"id": "b", "text": "Put the whole manual in the prompt, and cache it to reduce cost"},
+        {"id": "c", "text": "Retrain the model on the manual so that it remembers its contents"},
+        {"id": "d", "text": "Split the manual into one-sentence chunks and retrieve a hundred of them"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O3",
+      "stem": "Retrieval over your manuals finds passages by meaning (embeddings) but sometimes misses a query containing an exact part number. Name the method that is strong at exact-identifier matches and that is merged with embeddings to fix this."
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O3",
+      "stem": "The assistant has been running a very long task and its context window is almost full. Name one technique, applied inside the session, that makes room, and say in one sentence what it does."
+    }
+  ]
+}

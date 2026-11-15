@@ -1,0 +1,56 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your assistant's program calls the model for a student's first message and gets an answer. The student then writes, \"And what about the 3D printer?\" What must the program include in the next model call for the model to answer sensibly?",
+      "options": [
+        {"id": "a", "text": "Only the new message, because the model keeps the earlier turns itself"},
+        {"id": "b", "text": "The earlier messages and replies together with the new message"},
+        {"id": "c", "text": "Only a request id, because the provider stores the conversation for it"},
+        {"id": "d", "text": "Only the new message, because the system prompt covers earlier turns"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "The assistant's fixed context (system prompt plus tool descriptions) is 2,000 tokens. A request makes 3 tool calls and then a final answer, so the model is called 4 times. The first call's input is the 2,000 fixed tokens, and every tool request plus its result adds 1,000 tokens to the context for all later calls. What is the total number of input tokens across the 4 calls?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A student finishes the laser-cutter safety training during a chat. Your team wants the assistant to know this at the student's visit next month. Which design achieves that?",
+      "options": [
+        {"id": "a", "text": "Keep the full chat in the context window and hope it persists"},
+        {"id": "b", "text": "Search the laser-cutter manual for the student's name next month"},
+        {"id": "c", "text": "Save the fact outside the context and load it at the next session"},
+        {"id": "d", "text": "Query the booking calendar, which records the training status itself"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O3",
+      "stem": "Your team proposes putting all twelve machine manuals into the context of every model call, since the model's window is large enough to hold them. Give one or two reasons, tied to how context works, why retrieving a few passages is better."
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your search tool returns the top 3 chunks for each question. For one question the correct passage is ranked 6th. What does the model do when it writes its answer?",
+      "options": [
+        {"id": "a", "text": "It notices the gap and reads the whole manual on its own"},
+        {"id": "b", "text": "It answers from the 3 chunks it was given, without the passage"},
+        {"id": "c", "text": "It asks the search index for the 6th-ranked chunk automatically"},
+        {"id": "d", "text": "It recalls the passage from its training and always cites it correctly"}
+      ]
+    }
+  ]
+}

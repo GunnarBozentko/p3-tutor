@@ -1,0 +1,39 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "c",
+      "rationale": "The model keeps nothing between calls or sessions; it sees only the window the program sends. With nothing saved, Monday's chat is absent. Options a, b and d show M3, the belief that memory of earlier conversations is automatic.",
+      "distractors": {"a": "M3", "b": "M3", "d": "M3"}
+    },
+    {
+      "id": "q2",
+      "answer": 14000,
+      "tolerance": 0,
+      "rationale": "Call 1 reads 2,000; call 2 reads 3,000; call 3 reads 4,000; call 4 reads 5,000. The sum is 14,000. Answering 5,000 counts only the last window; answering 8,000 counts the prefix four times and forgets the results are re-read, which shows M7 (each call pays only for what is new)."
+    },
+    {
+      "id": "q3",
+      "answer": "b",
+      "rationale": "Anthropic advises that a knowledge base under about 200,000 tokens can simply be included in the prompt, with prompt caching to cut cost; 15,000 tokens is far under that. Building retrieval first (a, d) adds complexity the case does not need, and retraining (c) is out of scope and does not work as memory (M8).",
+      "distractors": {"c": "M8"}
+    },
+    {
+      "id": "q4",
+      "answer": "BM25 keyword search",
+      "accepted": ["BM25", "keyword search", "bm25 keyword matching", "keyword matching", "lexical search"],
+      "rationale": "BM25 scores chunks by the query's words weighted by rarity, so it catches exact identifiers that embeddings can miss; its results are merged with the embedding results by rank fusion."
+    },
+    {
+      "id": "q5",
+      "answer": "Compaction: summarize the window's contents and start a new window with the summary.",
+      "accepted": [
+        "Clearing old tool results: drop tool results that have already been used from the window.",
+        "Compaction, summarizing the conversation and continuing in a fresh window",
+        "Clear old tool results"
+      ],
+      "rationale": "Either technique from the lesson counts: compaction (summarize and restart with the summary) or clearing old tool results (drop used results). Naming one without saying what it does is partial. Saving notes outside the window is a between-session technique and does not by itself free space; a bigger window is not a technique inside the session."
+    }
+  ]
+}

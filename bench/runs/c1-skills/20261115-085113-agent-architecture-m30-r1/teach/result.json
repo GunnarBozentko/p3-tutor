@@ -1,0 +1,152 @@
+{
+  "duration_api_ms": 147856,
+  "stop_reason": "end_turn",
+  "session_id": "91eaca15-41dc-46ba-ab16-99997a358034",
+  "total_cost_usd": 0.5222958000000001,
+  "usage": {
+    "input_tokens": 20,
+    "cache_creation_input_tokens": 61269,
+    "cache_read_input_tokens": 423602,
+    "output_tokens": 19946,
+    "output_tokens_details": {
+      "thinking_tokens": 2164
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 61269,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 661,
+        "cache_read_input_tokens": 72355,
+        "cache_creation_input_tokens": 3421,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 3421
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 20,
+      "outputTokens": 19946,
+      "cacheReadInputTokens": 423602,
+      "cacheCreationInputTokens": 61269,
+      "webSearchRequests": 0,
+      "costUSD": 0.4869362,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 2164,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 61269,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 41666,
+      "outputTokens": 2386,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 3,
+      "costUSD": 0.0353596,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 444,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 0,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 23,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "The 30-minute lesson on O3 is written, with a quiz and key. I haven't opened the lesson in a browser, and I haven't counted its words. I estimate it at roughly 3,500, inside the 2,700 to 6,750 range that FORMATS.md accepts for 30 minutes.\n\n**Lesson:** `lessons/0001-context-and-memory-in-an-agent.html`. It covers:\n- **Context window:** what it holds, and why every token in it is billed again on each call.\n- **Between steps:** the program's message list is the only memory, and total input cost is `n·B + A·n(n−1)/2` (`n` model calls, `B` fixed tokens, `A` tokens added per step).\n- **Context rot and trimming:** why more context can lower accuracy, plus clearing old tool results, summarizing, and returning less.\n- **Between sessions:** a per-student notes file, with a Python load/save sketch.\n- **Retrieval:** chunking and a top-k search, treated as a ranking problem with recall at k and the cost of raising k.\n- **Where each piece of information lives:** a table for the makerspace assistant, a worked cost comparison, and two practice tasks.\n\nIt also has two figures, four self-checking practice questions, a warm-up recalling your agent-loop record, and the primary source (Anthropic's context-engineering article).\n\n**Quiz 0002** is ready to take: 5 items on O3, with the key in `keys/0002.json`. Ask for it when you want it.\n\n**Other files:**\n- I created `RESOURCES.md` and updated `NOTES.md`.\n- No online community link turned up in my searches, so the \"test it with others\" prompt points to your design team and the makerspace staff.\n- I wrote no cheat sheet or learning record. A record needs evidence you've learned something, which doesn't exist yet.\n\n**Not graded:** quiz 0001 has two submissions (`s1`, `s2`) that I left alone, since this request was a lesson. Do you want them graded next?",
+  "ttft_ms": 1123,
+  "type": "result",
+  "duration_ms": 137146,
+  "uuid": "80abf987-cb5a-4e6b-85fe-15b3e609942f",
+  "ttft_stream_ms": 524,
+  "time_to_request_ms": 83,
+  "first_content_frame_ms": 524,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 20,
+      "outputTokens": 19946,
+      "cacheReadInputTokens": 423602,
+      "cacheCreationInputTokens": 61269,
+      "webSearchRequests": 0,
+      "costUSD": 0.4869362,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 2164,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 61269,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 41666,
+      "outputTokens": 2386,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 3,
+      "costUSD": 0.0353596,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 444,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 0,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-20T19:38:56.831Z"
+}

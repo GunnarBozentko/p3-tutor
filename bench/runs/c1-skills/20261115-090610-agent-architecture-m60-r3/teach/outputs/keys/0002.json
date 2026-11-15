@@ -1,0 +1,32 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "The model keeps nothing between calls; the program resends the message history each call. Option a or d shows the belief that the model or window remembers by itself; c confuses memory with training."
+    },
+    {
+      "id": "q2",
+      "answer": 4500,
+      "tolerance": 0.5,
+      "rationale": "Call 1 receives 1,000 tokens, call 2 receives 1,000 + 500 = 1,500, and call 3 receives 1,000 + 1,000 = 2,000, because each call resends everything so far. Total 4,500. An answer of 2,000 counts only the final context; 2,000 + 500 style sums miss the resending."
+    },
+    {
+      "id": "q3",
+      "answer": "b",
+      "rationale": "An exact fact with one correct value, needed across sessions, belongs in a persistent database the program looks up. Message history is gone after the session, the model does not learn, and putting every student in the prompt does not scale."
+    },
+    {
+      "id": "q4",
+      "answer": "It would cost far too much and exceed or degrade the context; only a few relevant chunks are needed.",
+      "accepted": ["cost", "too expensive", "it is too expensive", "too many tokens", "it would not fit", "it would exceed the context window", "context rot", "accuracy drops with long context", "it would be too costly because every call resends it", "cost and accuracy"],
+      "rationale": "Every call resends the context and is billed per token; 600,000 tokens would also not fit or would hurt the model's recall (context rot). Any of cost, window limit or reduced accuracy is a full answer."
+    },
+    {
+      "id": "q5",
+      "answer": "c",
+      "rationale": "The model sees only what retrieval returned. A missed chunk means the model cannot use it and may answer from guesswork; retrieval quality must be tested separately from answer quality."
+    }
+  ]
+}

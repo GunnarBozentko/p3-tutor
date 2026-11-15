@@ -1,0 +1,56 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "An agent answers a student's question in step 1 and is called again for step 2 of the same run. What does the model have available for step 2 beyond its fixed training?",
+      "options": [
+        {"id": "a", "text": "Everything the program puts in the step 2 input"},
+        {"id": "b", "text": "A private record of its own earlier calls in the run"},
+        {"id": "c", "text": "Its step 1 reasoning, kept inside the model between calls"},
+        {"id": "d", "text": "Every earlier conversation with every student it has served"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "A run makes 5 model calls. The starting context is 1,500 tokens and each of the first 4 steps adds 500 tokens to the context. What is the total number of input tokens billed across all 5 calls?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your assistant must know on Friday that a student passed the router training on Tuesday. Which design provides this?",
+      "options": [
+        {"id": "a", "text": "Use a model with a context window large enough for a week"},
+        {"id": "b", "text": "Save a record outside the model and load it each session"},
+        {"id": "c", "text": "Tell the model in its system prompt to remember students"},
+        {"id": "d", "text": "Retrieve it from the machine manuals using embedding search"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Students search the manuals for exact error codes such as \"E-47\". Embedding-only retrieval often returns pages about other errors. Which change most directly addresses this?",
+      "options": [
+        {"id": "a", "text": "Add keyword (BM25) search and merge it with the embeddings"},
+        {"id": "b", "text": "Raise the number of chunks sent to the model to forty"},
+        {"id": "c", "text": "Rewrite the system prompt to say that codes are important"},
+        {"id": "d", "text": "Switch to a model whose context window is much larger"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O3",
+      "stem": "In one word: what is the name for asking the model to summarise a long conversation and replacing the old messages with that summary when the context nears its limit?"
+    }
+  ]
+}

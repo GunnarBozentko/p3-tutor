@@ -1,0 +1,33 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "The model keeps no state between calls, so the program re-sends the instructions, the question and the whole history every time."
+    },
+    {
+      "id": "q2",
+      "answer": 6900,
+      "tolerance": 0,
+      "rationale": "Inputs are 1,500, 2,300 and 3,100 tokens, which sum to 6,900. An answer of 4,500 counts only the base and misses the growing history."
+    },
+    {
+      "id": "q3",
+      "answer": "c",
+      "rationale": "Between sessions nothing persists unless the program saves it; a per-student note loaded at the start does that. A window or prompt cannot carry last week's session, and manual retrieval searches fixed documents, not bookings."
+    },
+    {
+      "id": "q4",
+      "answer": "Retrieve the relevant passage from the manual by search and put only that into the context.",
+      "accepted": ["retrieval", "search the manual and add only the relevant section to the context", "retrieve the relevant section", "use retrieval to fetch the relevant pages"],
+      "rationale": "Retrieval searches the stored manual outside the window and places only the best-matching pieces in context."
+    },
+    {
+      "id": "q5",
+      "answer": "Because every call re-sends the whole accumulated context, so input tokens are billed again at each step.",
+      "accepted": ["the full history is re-sent and billed on every call", "each call resends all earlier context", "context is resent every step"],
+      "rationale": "Total input tokens grow roughly quadratically with the number of steps because earlier text is re-sent each call."
+    }
+  ]
+}

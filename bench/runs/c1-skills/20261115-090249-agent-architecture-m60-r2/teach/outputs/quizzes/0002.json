@@ -1,0 +1,56 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A student chats with your makerspace assistant on Monday. On Tuesday they open a new session and say, \"Book the same machine as yesterday.\" Your program stores nothing between sessions and sends the model only Tuesday's messages. What happens?",
+      "options": [
+        {"id": "a", "text": "The model recalls Monday's chat, since it keeps every conversation it has had"},
+        {"id": "b", "text": "The model fetches Monday's chat from its own servers, using the student's account"},
+        {"id": "c", "text": "The model has no information about Monday, so it must ask which machine"},
+        {"id": "d", "text": "The model guesses the machine from the booking calendar without being given it"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "In an agent run, the system prompt, tool descriptions and question together take 1,500 tokens. The model makes two tool requests of 100 tokens each; the tool results are 500 tokens each; then it writes its final answer. The program resends the full message list on every call. How many input tokens does the model read in total, summed over all three calls?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your manual search often returns chunks like \"Set power to 80% and speed to 20%\" without saying which machine or material they belong to, and the model sometimes gives the wrong machine's settings. Which change to the index most directly addresses this?",
+      "options": [
+        {"id": "a", "text": "Add the machine name and section title to the top of each chunk"},
+        {"id": "b", "text": "Return the top 50 chunks to the model instead of the top 3"},
+        {"id": "c", "text": "Tell the model in its system prompt to be careful with settings"},
+        {"id": "d", "text": "Switch to a model whose context window is twice as large"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O3",
+      "stem": "In one or two sentences: why should a student's training status be read from the training system through a tool, rather than kept as a note the model wrote in an earlier session?"
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A long agent session nears its context limit, and your program replaces the full history with a model-written summary and continues. What is the main risk of this approach?",
+      "options": [
+        {"id": "a", "text": "The model can no longer call tools after the history is replaced"},
+        {"id": "b", "text": "The summary costs more tokens than the full history did before"},
+        {"id": "c", "text": "The context window shrinks permanently for the rest of the session"},
+        {"id": "d", "text": "Details left out of the summary are gone from the model's view"}
+      ]
+    }
+  ]
+}

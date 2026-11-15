@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cheat sheet: context and memory in an agent</title>
+  <style>
+    body { max-width: 44rem; margin: 0 auto; padding: 2rem 1.25rem; font-family: Charter, Georgia, serif; line-height: 1.5; color: #1f1d1a; background: #fffdf8; }
+    h1 { font-size: 1.6rem; } h2 { font-size: 1.1rem; margin-top: 1.6rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+    th, td { text-align: left; vertical-align: top; padding: 0.4rem 0.5rem; border-bottom: 1px solid #e4dfd4; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; font-size: 0.88em; background: #f3efe6; }
+    pre { padding: 0.8rem; overflow-x: auto; }
+    a { color: #9a4517; }
+    @media (prefers-color-scheme: dark) { body { background: #171614; color: #e9e5dc; } th, td { border-color: #36332e; } code, pre { background: #23211e; } a { color: #eaa77a; } }
+  </style>
+</head>
+<body>
+<h1>Context and memory in an agent</h1>
+<p>From <a href="../lessons/0001-context-and-memory-in-an-agent.html">lesson 1</a>.</p>
+<h2>Where information lives</h2>
+<table>
+  <tr><th>Place</th><th>Lasts</th><th>Use for</th></tr>
+  <tr><td>Context (the messages sent each call)</td><td>One call or run</td><td>Instructions, tools, current request, needed results</td></tr>
+  <tr><td>Notes (saved by the program)</td><td>Across sessions</td><td>Per-student facts</td></tr>
+  <tr><td>Retrieval index</td><td>As long as the documents</td><td>Large static text such as manuals</td></tr>
+  <tr><td>Live tool call</td><td>Not stored</td><td>Fast-changing data such as the calendar</td></tr>
+</table>
+<h2>Formulas</h2>
+<pre>Total input tokens  T = n*C0 + d*n*(n-1)/2
+  n  = model calls, C0 = starting context, d = tokens added per step
+Rough tokens        len(text) // 4
+Recall at k         questions whose right chunk is in the top k / all test questions</pre>
+<h2>Rules</h2>
+<ul>
+  <li>The model keeps nothing between calls; the program's <code>messages</code> list is the memory.</li>
+  <li>Every token in the context is billed on every call, and recall may weaken as it grows (context rot).</li>
+  <li>Manage size by trimming used tool results, compaction, or sub-agents.</li>
+  <li>Save facts that must survive exactly in notes, not only in a summary.</li>
+  <li>Hybrid retrieval (embeddings plus BM25) misses less than either alone; test on real questions.</li>
+</ul>
+<p>Sources: <a href="https://anthropic.com/research/effective-context-engineering-for-ai-agents">Anthropic, Effective context engineering</a>; <a href="https://anthropic.com/research/contextual-retrieval">Anthropic, Contextual Retrieval</a>.</p>
+</body>
+</html>

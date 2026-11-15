@@ -1,0 +1,50 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your assistant is on step 4 of answering one student's request. Which statement about what the model knows at that step is correct?",
+      "options": [
+        {"id": "a", "text": "It knows what the program sent in this call's input"},
+        {"id": "b", "text": "It retains hidden state from steps 1 through 3 itself"},
+        {"id": "c", "text": "It can read the booking system whenever it chooses"},
+        {"id": "d", "text": "It recalls this student from visits in earlier weeks"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "The instructions, tool descriptions and question total 1,000 tokens. The model is called 3 times, and each of the first two calls ends with a tool result of 500 tokens that is added to the context. Ignoring the model's own output tokens, how many input tokens are sent across all 3 calls in total?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A student finishes laser cutter training today and returns next week in a new session. Which design lets the assistant know this next week?",
+      "options": [
+        {"id": "a", "text": "A larger context window on the model being used"},
+        {"id": "b", "text": "A note saved to a file, then loaded at session start"},
+        {"id": "c", "text": "A longer system prompt with detailed behavior rules"},
+        {"id": "d", "text": "A step limit on the number of loop iterations"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O3",
+      "stem": "In one sentence, why does retrieving only the relevant manual chunks usually cost less per request than putting a whole manual in the context?"
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O3",
+      "stem": "A long task is about to exceed the context window. Name one technique the program can use to continue the task without losing its key facts."
+    }
+  ]
+}

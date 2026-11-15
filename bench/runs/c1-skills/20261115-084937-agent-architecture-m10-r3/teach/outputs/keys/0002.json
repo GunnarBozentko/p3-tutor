@@ -1,0 +1,34 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "a",
+      "rationale": "The model is stateless; the program rebuilds the input every call, so the model knows only what is in it. Option b is the 'model remembers' mix-up.",
+      "distractors": {"b": "M3", "d": "M3"}
+    },
+    {
+      "id": "q2",
+      "answer": 4500,
+      "tolerance": 1,
+      "rationale": "Results accumulate and the whole context is re-sent each call: call 1 sends 1,000, call 2 sends 1,500, call 3 sends 2,000, total 4,500. An answer of 3,000 or 2,000 forgets that earlier content is re-sent."
+    },
+    {
+      "id": "q3",
+      "answer": "b",
+      "rationale": "Memory across sessions is information saved outside the model and loaded into the next context. A larger window or longer prompt does not persist anything."
+    },
+    {
+      "id": "q4",
+      "answer": "Only the few relevant chunks are sent as input tokens at each later step, instead of the whole manual.",
+      "accepted": ["fewer input tokens", "fewer tokens are sent each call", "less text is re-sent every call", "the context is smaller so fewer input tokens are paid for"],
+      "rationale": "Input is re-sent and billed at every call, so a smaller context means fewer tokens paid for."
+    },
+    {
+      "id": "q5",
+      "answer": "Compaction: summarize the history and continue from the summary.",
+      "accepted": ["compact", "summarize", "summarise", "summarize the history", "write notes to a file and reload them", "save notes outside the context", "note-taking"],
+      "rationale": "Compaction (summarizing) or saving notes outside the context and reloading them keeps key facts in a smaller context."
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A student chats with your assistant on Monday and ends the session. Your team has not built any saving of notes or history. On Tuesday the student starts a new session. What does the model see at the start of it?",
+      "options": [
+        {"id": "a", "text": "A short summary of Monday's chat that the model kept itself"},
+        {"id": "b", "text": "Monday's full chat, because the same student is signed in"},
+        {"id": "c", "text": "Only the system prompt, tool descriptions and the new message"},
+        {"id": "d", "text": "Monday's tool results only, because tools store their outputs"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "An agent request makes 4 model calls. The base context (system prompt, tool descriptions and question) is 1,000 tokens, and each step adds 500 tokens that stay in the message history. Every call re-sends the whole history. How many input tokens are billed in total across the 4 calls?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Midway through a request, the history holds a 6,000-token manual excerpt that has already been used to answer the student's first question. Three more calls will follow, on a different topic. Which change lowers the cost of those three calls most while keeping the agent's answer to the first question?",
+      "options": [
+        {"id": "a", "text": "Clear the used excerpt from the history, but keep the answer given"},
+        {"id": "b", "text": "Keep everything, because the model can only use what it sees"},
+        {"id": "c", "text": "Move the excerpt to the end, so that the model recalls it better"},
+        {"id": "d", "text": "Raise the window size so that the excerpt costs less per token"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "A question has the embedding vector q = (1, 0), and a manual chunk has the embedding vector c = (3, 4). What is the cosine similarity of q and c, as a decimal?",
+      "unit": ""
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O3",
+      "stem": "The model answers correctly in call 3 using a tool result it received in call 1. The model itself stores nothing between calls. In one sentence, what carries that result from call 1 to call 3?"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "a",
+      "rationale": "The model keeps nothing between calls; it sees only the input the program sends, which normally includes the earlier messages and tool results. Options b and c imagine hidden memory inside the model, and d imagines automatic memory across conversations.",
+      "distractors": {"b": "M3", "c": "M3", "d": "M3"}
+    },
+    {
+      "id": "q2",
+      "answer": 12500,
+      "tolerance": 0,
+      "rationale": "The calls see 1,500, 2,000, 2,500, 3,000 and 3,500 tokens, which sum to 12,500. By formula: 5 x 1,500 + 500 x (5 x 4 / 2) = 7,500 + 5,000. An answer of 7,500 forgets that earlier steps are re-sent on every later call."
+    },
+    {
+      "id": "q3",
+      "answer": "b",
+      "rationale": "Information that must outlive a session has to be saved outside the model by the program and loaded back into the context. A bigger window (a) and an instruction to remember (c) do not persist anything between sessions, and the manuals (d) do not contain student records.",
+      "distractors": {"a": "M3", "c": "M3"}
+    },
+    {
+      "id": "q4",
+      "answer": "a",
+      "rationale": "Exact strings are what keyword search handles well and embeddings blur, so hybrid retrieval with BM25 is the direct fix. Sending more chunks (b) costs tokens and may still miss the page, and a prompt (c) or larger window (d) does not change what the search returns."
+    },
+    {
+      "id": "q5",
+      "answer": "compaction",
+      "accepted": ["compaction", "context compaction", "compacting", "summarisation", "summarization", "summarising", "summarizing"],
+      "rationale": "Compaction replaces the old messages with a model-written summary so the context fits, at the price of losing verbatim detail."
+    }
+  ]
+}
