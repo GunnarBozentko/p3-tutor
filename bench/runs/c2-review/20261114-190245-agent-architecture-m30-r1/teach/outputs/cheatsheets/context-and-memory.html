@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cheat sheet: context and memory in an agent</title>
+<style>
+  body { max-width: 42rem; margin: 0 auto; padding: 2rem 1rem; font-family: Georgia, serif; line-height: 1.5; }
+  table { width: 100%; border-collapse: collapse; font-family: system-ui, sans-serif; font-size: 0.9rem; }
+  th, td { text-align: left; vertical-align: top; padding: 0.4rem; border-bottom: 1px solid #ccc; }
+  code { font-family: ui-monospace, Consolas, monospace; }
+</style>
+</head>
+<body>
+<h1>Context and memory in an agent</h1>
+<p>From <a href="../lessons/0001-context-and-memory.html">lesson 0001</a>.</p>
+<table>
+  <tr><th>Kind</th><th>Lives</th><th>Kept by</th><th>Use for</th></tr>
+  <tr><td>Context window</td><td>In the call</td><td>Program resends the <code>messages</code> list</td><td>This request: rules, tools, history, tool results, output</td></tr>
+  <tr><td>Notes</td><td>A file or store outside the window</td><td>Program loads and saves</td><td>Soft per-student facts: preferences, progress</td></tr>
+  <tr><td>Database via tool</td><td>System of record</td><td>The owner of the data</td><td>Facts that must be exact and current: training status, bookings</td></tr>
+  <tr><td>Retrieval</td><td>Indexed chunks of long documents</td><td>Built once, searched per question</td><td>Shared reference text: manuals</td></tr>
+</table>
+<h2>Formulas</h2>
+<ul>
+  <li>Input billed = sum of every call's input. With overhead F and s tokens added per step, m calls cost about <code>m*F + s*m(m+1)/2</code>. Example: F=2,000, s=500: 3 calls = 9,000; 10 calls = 47,500.</li>
+  <li>Cosine similarity = <code>(q . c) / (|q| |c|)</code>. Example: q=(1,0), c=(0.9,0.1): 0.9/0.906 = 0.994.</li>
+</ul>
+<h2>Rules</h2>
+<ul>
+  <li>The model keeps nothing between calls; your program owns memory.</li>
+  <li>A big window is a budget, not a goal: recall degrades and cost grows with length.</li>
+  <li>Retrieval ranks by similarity; it does not verify that a chunk applies.</li>
+</ul>
+</body>
+</html>

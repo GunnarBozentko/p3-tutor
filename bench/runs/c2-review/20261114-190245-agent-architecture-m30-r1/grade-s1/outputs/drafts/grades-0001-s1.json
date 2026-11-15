@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s1",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. An agent is defined by its structure: a loop in which the model picks an action, the program runs it, and the result returns for the next step. The tempting option is the longer prompt (a), but a prompt only changes what one call is told, so a single call with a very detailed prompt is still one call, just as a detailed team talk is still one game plan and not a match played in rounds."
+    },
+    {
+      "id": "q2",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "Wrong. You chose (a), which assumes the model opens the booking system itself and reads the entries; that is tempting because the final answer arrives as if the model had looked. But the model only produces text, so calendar entries it wrote without a tool run would be invented, like a commentator announcing a score he has not seen. The correct answer is (c): the model outputs a structured request (a message in a fixed format) naming check_calendar with the laser cutter and tomorrow's date as arguments (the values the tool is given), and the program runs the tool and sends the result back. Option (b) fails because the model, not the program, decides to call the tool, and (d) fails because the model never receives or runs the tool's code."
+    },
+    {
+      "id": "q3",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. Repeating the same failing step means more steps add nothing, so the fix is a stopping condition such as a step limit that ends the loop and reports back to a person. The most tempting wrong option is (a), a larger context window, which fails because all 40 steps already fit in the context (the text the model can read in one call); the problem is not missing information but a loop with no exit."
+    },
+    {
+      "id": "q4",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "Wrong. You answered 1, reasoning that the model runs the three tools itself; that is tempting because from the outside the exchange looks like one question and one answer. But the model cannot run tools, and each call produces only one thing, a single tool request or the final answer, like a manager who gives one instruction per stoppage and does not play the passes himself. The correct answer is 4: three calls that each end in a tool request, and a fourth after the last result arrives, which writes the final answer. A quick check: count the inputs the model receives, here the question plus three tool results."
+    },
+    {
+      "id": "q5",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "Partial. 'It sends it back to the model' is right and covers what the program does, but the question also asked why, and your answer gives no reason. Without the reason, the answer would fit a program that returned the result and then did nothing with it, as a scout who reports on a rival team but never tells the coach. The result goes back as part of the model's next input and the model is called again so that it can use the result to choose its next step or write the final answer. On a what-and-why question, write one clause for each."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": "M3",
+      "feedback": "Partial. Your first sentence is right: the model is sent a list of tools, each with a name and a description, and picks the one that fits the request. The claim that it remembers on its own which tool it picked in earlier sessions is wrong, because a model keeps nothing between calls unless the program puts it into the input text. If it did remember, a tool you renamed or redescribed last week would still be chosen by habit, the way a player keeps running an old set play after the coach changed it. Each choice is made fresh from the descriptions in the current input; any carry-over between sessions must be built and supplied by the program."
+    }
+  ],
+  "summary": "q1 (the loop), q3 (the step limit) and the tool-description part of q6 were correct. The misconception to work on is M4, that the model runs the tools: the model only writes a request, and the program runs the tool and calls the model again, which is why q4 is 4 model calls and not 1. Next step: trace the laser cutter question on paper, marking each line as 'model output' or 'program action', and recount the model calls; also add the 'why' to any answer about what the program does with a result."
+}

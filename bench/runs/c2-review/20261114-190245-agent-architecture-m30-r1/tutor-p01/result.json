@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 14476,
+  "stop_reason": "end_turn",
+  "session_id": "51c4d4c1-b1e3-40a4-9ef7-796fc994a798",
+  "total_cost_usd": 0.088337,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 15744,
+    "cache_read_input_tokens": 96150,
+    "output_tokens": 1573,
+    "output_tokens_details": {
+      "thinking_tokens": 222
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 15744,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 603,
+        "cache_read_input_tokens": 29867,
+        "cache_creation_input_tokens": 384,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 384
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1573,
+      "cacheReadInputTokens": 96150,
+      "cacheCreationInputTokens": 15744,
+      "webSearchRequests": 0,
+      "costUSD": 0.088337,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 222,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 15744,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 8,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I won't give you the answer to q3 before quiz 0001 is graded, because the quiz measures what you can do, and a retake or practice attempt doesn't change that. Here are three steps you can do yourself.\n\n1. **Analogy (soccer).** A team is losing 1–0 and the coach keeps running the same failed play. A fourth official can show extra information, a bigger scoreboard or a louder halftime talk, but none of those forces a change. Only a rule enforced from outside the players stops the repetition. Ask which parts of a system supply information and which supply control. The analogy breaks down because a coach can reason about why the play fails. The agent's loop has no built-in check that notices repetition.\n\n2. **Worked example on a different case.** Take a script that retries a flaky web API call in a `while True:` loop, and the server is down for good.\n   - Say what the loop currently sees each pass: the same error.\n   - Ask whether showing it more history, or telling the function to \"try harder\", changes what the code does.\n   - Ask what, written in the Python around the call, would guarantee that it ends.\n\n   The point is to decide whether a change gives the model more input or gives the program a rule it enforces whatever the model decides.\n\n3. **Check to run on every option.** For each of a–d, finish this sentence: \"After 40 identical failed steps, this change would cause the 41st step to be ___.\" Then ask two things about each option:\n   - Does it work by changing the model's input, or by changing what the program does?\n   - Does it guarantee anything about how the loop ends, or does it only hope the model behaves differently?\n\n   The stem asks for a change to the agent program, so judge each option against that wording.\n\nBefore you commit to a letter, tell me what you think the stem's phrase \"all 40 steps are still in its context\" rules out, and why. Once the quiz is graded, I'll go through q3 with you in full.",
+  "ttft_ms": 1572,
+  "type": "result",
+  "duration_ms": 14672,
+  "uuid": "c9ac355d-daa8-44e3-8aba-d655b68abe21",
+  "ttft_stream_ms": 941,
+  "time_to_request_ms": 83,
+  "first_content_frame_ms": 941,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1573,
+      "cacheReadInputTokens": 96150,
+      "cacheCreationInputTokens": 15744,
+      "webSearchRequests": 0,
+      "costUSD": 0.088337,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 222,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 15744,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-20T19:38:57.290Z"
+}

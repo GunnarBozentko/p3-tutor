@@ -7,7 +7,7 @@ argument-hint: "Which objective, and how many questions?"
 # Quiz
 
 You write quizzes and their answer keys for the learner in this workspace.
-Do the job yourself, in this conversation and in one pass, and finish with your message to the learner.
+You write the quiz in this conversation, have the `quiz-reviewer` subagent review the draft with a fresh context, revise, and only then write the final files; finish with your message to the learner.
 
 ## The request
 
@@ -59,12 +59,15 @@ Give each part a clear start in the stems the learner sees: the first definition
 - Do not repeat the lesson's own practice questions.
 - Types: `mcq` when the wrong answers are predictable misconceptions; `numeric` when a quantity is involved (state the unit in the stem and in `unit`); `short` when the learner should produce the idea in a word, a phrase or one sentence.
   Mix the types where the objective allows.
+- When `MISSION.md` names a quantity the learner must keep in check, such as cost per request under a small budget, at least one application item is a `numeric` item on that quantity, worked out from numbers in its stem.
+  If a reviewer calls it arithmetic only, keep it `numeric` and add judgment to it, for instance by making the learner pick which design's figures apply or which numbers matter, so the answer is still a quantity; never turn it into an `mcq` or drop it.
 
 For `mcq` options:
 
 - Three to five options, usually four, with ids `a`, `b`, `c`, `d`.
 - Each distractor is plausible to someone holding the misconception it encodes; no joke options.
 - Options of similar length, grammar and detail, so the longest or most careful option is not a giveaway.
+  Count the words of every option: in every `mcq` item at least one wrong option has as many words as the correct option or more, so the correct option is never the longest alone.
 - Vary the position of the correct option across items.
 - Exactly one option is correct; check that no distractor is also defensible.
 
@@ -83,10 +86,26 @@ Follow `FORMATS.md` for the key's shape, with the same number as the quiz.
 1. Pin down the objective, its id and the number of items, by the rule above.
 2. Find the objective's core in its lessons or source, and list the key terms for the definition part.
 3. Take the next number in `quizzes/`; the key gets the same number in `keys/`.
-4. Write the quiz to `quizzes/NNNN.json` and its key to `keys/NNNN.json`, exactly as `FORMATS.md` shows.
-5. Check: answer every item yourself from its stem alone, without the key, and rewrite any item where you hesitate or a careful expert could argue for a second answer.
-   Check that the definition items come first, that the quiz file holds no answers, and that every item carries the objective's id.
-6. Finish with a short message: the quiz's path, that it opens with definition questions and then applies them, and that it is ready when the learner is.
+4. **Draft.** Write the quiz to `drafts/quiz-NNNN.json` and its key to `drafts/key-NNNN.json`, in exactly the shapes `FORMATS.md` gives for a quiz and a key.
+   Never write a draft into `quizzes/` or `keys/`: those folders get each file once, at the end.
+   Check the draft yourself first: answer every item from its stem alone, without the key, and rewrite any item where you hesitate or a careful expert could argue for a second answer; check that the definition items come first, that every definition stem carries the same label and every application stem the same label, that the quiz holds no answers, and that every item carries the objective's id.
+5. **Review, at most two passes.** A pass is one review and the revision after it.
+   - Start the `quiz-reviewer` subagent with the Agent tool.
+     Its task message names the draft quiz's path, the draft key's path, the objective's id and text, and the lesson's path in `lessons/` if one covers the objective, or says there is none.
+     Do not pass it your reasoning or your own opinion of the draft; it reads the draft fresh.
+   - Wait for its report before you do anything else; do not revise or finish while it is still running.
+   - Fix every item in the report's "Must fix" line, and any other finding you agree with, by rewriting the draft files in place.
+     For a finding you decide not to fix, note why for the record.
+     A giveaway finding (checks A1 to A5, including every pair in the leak table) is never left with a reason: rewrite or replace one of the items until the cue or the leak is gone; when two definition items together answer a third item, replace the third with an item on a different term.
+   - If "Must fix" was "none", the loop ends after this pass.
+     Otherwise run a second pass on the revised draft, with the same kind of task message.
+     After the second pass, fix what it found and stop: there is never a third review.
+6. **Check the last revision yourself**, since no reviewer sees it: count the words of every `mcq` option and confirm no correct option is the longest alone; confirm every leak pair from the last report is gone; and confirm the numeric item on the mission's quantity is still there.
+   Fix anything that fails before you go on.
+7. **Write the final files once.** Write the final quiz to `quizzes/NNNN.json` and the final key to `keys/NNNN.json` with your file-writing tool, as complete files, exactly as `FORMATS.md` shows; do not copy them with a shell command.
+   Leave the drafts in `drafts/` as they are after the last revision.
+8. **Record the loop** in `review-records/NNNN-quiz.md`: how many passes ran; for each pass, the items the reviewer flagged, with the check (such as A2 longest option) and a few words of its finding; what you changed in each item; and any finding you left, with the reason.
+9. Finish with a short message: the quiz's path, that it opens with definition questions and then applies them, that a reviewer checked it and how many passes ran, and that it is ready when the learner is.
    Never put an answer in the message.
 
 ## Giving a quiz in the chat

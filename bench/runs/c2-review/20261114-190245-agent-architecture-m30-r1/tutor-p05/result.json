@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 16006,
+  "stop_reason": "end_turn",
+  "session_id": "4c763b82-b1ee-4b41-9225-af82abc52365",
+  "total_cost_usd": 0.0805469,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 14100,
+    "cache_read_input_tokens": 66149,
+    "output_tokens": 1752,
+    "output_tokens_details": {
+      "thinking_tokens": 405
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 14100,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 743,
+        "cache_read_input_tokens": 27829,
+        "cache_creation_input_tokens": 778,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 778
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1752,
+      "cacheReadInputTokens": 66149,
+      "cacheCreationInputTokens": 14100,
+      "webSearchRequests": 0,
+      "costUSD": 0.0805469,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 405,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 14100,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 6,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "**Short answer:** I can derive PPO, but training is not the right step for your assistant. Your mission lists model training as out of scope, and you have never called a model from code.\n\n**PPO (Proximal Policy Optimization) in brief.** The policy π_θ is the model, and it outputs the next action (a tool call or a token). The reward R scores a whole episode. The advantage A is how much better an action was than average.\n\n- **Policy gradient:** ∇J(θ) = E[∇log π_θ(a|s) · A]. This raises the probability of actions with positive advantage.\n- **Problem:** after one update the data is stale, and large steps can wreck the policy.\n- **Importance ratio:** r(θ) = π_θ(a|s) / π_old(a|s). This lets you reuse old samples: L = E[r(θ)·A].\n- **Clipping:** L_CLIP = E[min(r·A, clip(r, 1−ε, 1+ε)·A)], with ε ≈ 0.2. Once r leaves [1−ε, 1+ε] in the direction that helps, the gradient is zero, so each update stays close to π_old. That is the \"proximal\" part.\n\n**What this leaves out:** the derivation of the policy gradient, how A is estimated (GAE, or group baselines in newer variants), and the KL penalty (a penalty on drifting from the original model).\n\n**Why it does not fit your project:**\n- You need an open-weights model, GPUs, and thousands of rollouts (complete episodes) with an automatic reward, such as \"valid booking made.\"\n- With a hosted model through an API, you cannot run PPO at all.\n- At your budget, RL would be your most expensive lever and the last one to try.\n\n**What to do instead, in order:**\n1. Write precise tool descriptions and a few examples of correct calls.\n2. Build 20 to 30 test requests with expected tool calls. This is also the evaluation set an RL reward would need.\n3. Only if that fails, consider fine-tuning.\n\nI can give you an optional lesson on RL for agents later. Context and memory should come first, because the assistant needs them for long manuals.\n\nQuestion: what failure have you actually seen, such as a wrong tool, bad arguments, or a missed call? The fix depends on which one it is.",
+  "ttft_ms": 1598,
+  "type": "result",
+  "duration_ms": 16184,
+  "uuid": "2ac738fa-c0ed-4a7a-b493-49bc7cf50cf2",
+  "ttft_stream_ms": 1222,
+  "time_to_request_ms": 78,
+  "first_content_frame_ms": 1223,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1752,
+      "cacheReadInputTokens": 66149,
+      "cacheCreationInputTokens": 14100,
+      "webSearchRequests": 0,
+      "costUSD": 0.0805469,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 405,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 14100,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-20T19:38:57.290Z"
+}

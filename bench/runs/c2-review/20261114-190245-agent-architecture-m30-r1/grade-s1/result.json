@@ -1,0 +1,110 @@
+{
+  "duration_api_ms": 85210,
+  "stop_reason": "end_turn",
+  "session_id": "1a31d915-f1df-4727-81fc-9d76f6ab817c",
+  "total_cost_usd": 0.34153959999999994,
+  "usage": {
+    "input_tokens": 10,
+    "cache_creation_input_tokens": 7856,
+    "cache_read_input_tokens": 182243,
+    "output_tokens": 4283,
+    "output_tokens_details": {
+      "thinking_tokens": 156
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 7856,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 561,
+        "cache_read_input_tokens": 47857,
+        "cache_creation_input_tokens": 2976,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 2976
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 28,
+      "outputTokens": 12449,
+      "cacheReadInputTokens": 400946,
+      "cacheCreationInputTokens": 48964,
+      "webSearchRequests": 0,
+      "costUSD": 0.34153959999999994,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 2417,
+      "cacheCreationEphemeral5mInputTokens": 12638,
+      "cacheCreationEphemeral1hInputTokens": 36326,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "origin": {
+    "kind": "task-notification",
+    "producer": "session-task",
+    "runId": "0mwgsi03p-2cfae8bb"
+  },
+  "subagent_stats": {
+    "spawned": 1,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 1
+    },
+    "started_in_background": 1,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 1,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "grade-reviewer": 1
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 10,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I graded submission s1 for quiz 0001 and wrote the grades to `grades/0001-s1.json`.\n\n| Item | Verdict | Misconception |\n|---|---|---|\n| q1 | correct | none |\n| q2 | wrong | M4 |\n| q3 | correct | none |\n| q4 | wrong | M4 |\n| q5 | partial | none |\n| q6 | partial | M3 |\n\n- **q2 and q4 (M4):** You chose (a) on q2 and answered 1 model call on q4. Both assume the model runs the tools itself. The model only writes a request, and the program runs the tool and calls the model again. A run with three tool requests and a final answer is therefore 4 model calls.\n- **q5:** \"It sends it back to the model\" is right, but you gave no reason. The program does it so the model can use the result to choose its next step or write the final answer.\n- **q6 (M3):** Your point about tool names and descriptions is right. The claim that the model remembers its tool choices across sessions is wrong, because the model keeps nothing unless the program supplies it.\n\nNext step: trace the laser cutter question on paper, marking each line \"model output\" or \"program action\", then recount the model calls. On any \"what and why\" question, write one clause for each.\n\nThe grade-reviewer ran one pass and its only required fix was the length of q6, which I made. I also added the term definitions it suggested and removed the praise-like opening from the summary. The pass is recorded in `review-records/0001-s1-grade.md`, and the draft is in `drafts/grades-0001-s1.json`. I added learning record `0003-model-does-not-run-tools.md` and updated `NOTES.md`. Submission s2 is still ungraded.",
+  "ttft_ms": 2441,
+  "type": "result",
+  "duration_ms": 25993,
+  "uuid": "4098aee8-7507-4d3e-bb95-30dbb0f84bea",
+  "ttft_stream_ms": 820,
+  "time_to_request_ms": 14,
+  "first_content_frame_ms": 820,
+  "queued_turn_count": 0,
+  "result_index": 1,
+  "model_usage_since_last_result": {},
+  "credential_expires_at": "2026-11-20T19:38:57.290Z"
+}

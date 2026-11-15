@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 12309,
+  "stop_reason": "end_turn",
+  "session_id": "1dee93aa-9889-408e-9ea1-c1cb5c8f52bf",
+  "total_cost_usd": 0.0811023,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 14559,
+    "cache_read_input_tokens": 94803,
+    "output_tokens": 1337,
+    "output_tokens_details": {
+      "thinking_tokens": 97
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 14559,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 493,
+        "cache_read_input_tokens": 28664,
+        "cache_creation_input_tokens": 402,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 402
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1337,
+      "cacheReadInputTokens": 94803,
+      "cacheCreationInputTokens": 14559,
+      "webSearchRequests": 0,
+      "costUSD": 0.0811023,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 97,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 14559,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 8,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "No, that is not right. A language model does not remember earlier conversations on its own, and your assistant will not remember last week's students unless you build that in.\n\nThe belief is tempting because chat apps feel continuous. That continuity comes from the program around the model, not from the model.\n\nA model is **stateless**, meaning it keeps nothing between calls. It produces output only from its training plus the text in the current call, which is the floor from your first lesson. Within one conversation, the program resends the whole history with every new message. The model \"remembers\" only because that text is in its input again. When a new session starts with an empty history, nothing from last week reaches it.\n\nAn everyday analogy is a statistician who gets a fresh dataset each morning. Yesterday's data doesn't affect today's estimate unless you pass it in. The analogy breaks down in one place: the statistician could remember the data on their own, and the model cannot.\n\nFor the makerspace assistant, a student says \"I finished the laser cutter training\" on Monday.\n\n- **Without memory:** next week the model sees only the new question and has no record of that training.\n- **With memory:** your program saves a fact such as `{\"student\": \"id123\", \"laser_cutter_trained\": true}` to a file or database. At the start of the next session, it looks up that student and adds the fact to the input.\n\nYou decide what gets saved, when it is looked up and how much goes back in. The more you put back in, the more each request costs.\n\nQuestion: which would you save for each student, the full transcript of every past conversation or a short list of facts like training status? Give one reason tied to your budget.",
+  "ttft_ms": 1289,
+  "type": "result",
+  "duration_ms": 12484,
+  "uuid": "c691d572-0ec7-469d-9704-b280a2d3795d",
+  "ttft_stream_ms": 930,
+  "time_to_request_ms": 76,
+  "first_content_frame_ms": 930,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1337,
+      "cacheReadInputTokens": 94803,
+      "cacheCreationInputTokens": 14559,
+      "webSearchRequests": 0,
+      "costUSD": 0.0811023,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 97,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 14559,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-20T19:38:57.290Z"
+}

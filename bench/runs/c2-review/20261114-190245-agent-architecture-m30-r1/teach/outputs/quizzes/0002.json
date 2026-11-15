@@ -1,0 +1,51 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your makerspace assistant is on step 2 of a request. The program is about to call the model again. Which statement about what happened in step 1 is true?",
+      "options": [
+        {"id": "a", "text": "The model still holds step 1 inside itself from its earlier call"},
+        {"id": "b", "text": "The model sees step 1 only if the program sends it again"},
+        {"id": "c", "text": "The model fetches step 1 from the provider's saved history"},
+        {"id": "d", "text": "The model keeps step 1 until the context window is full"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "An assistant request has a fixed overhead (system prompt plus tool definitions) of 1,000 tokens and a student question of 100 tokens. The model requests one tool (50 tokens), whose result is 500 tokens. It then requests a second tool (50 tokens), whose result is 1,500 tokens, and then writes its final answer. Each call re-reads everything before it. How many input tokens are read across all three calls in total?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "The makerspace manuals total 400,000 tokens, and the model's context window is 1,000,000 tokens. Your budget is small. Which design is best for answering a question about one machine?",
+      "options": [
+        {"id": "a", "text": "Put all the manuals in every request, since they fit in the window"},
+        {"id": "b", "text": "Pick the largest model, since recall stays equal at any length"},
+        {"id": "c", "text": "Let the model rewrite the manuals as notes after each visit"},
+        {"id": "d", "text": "Search the manuals and send only the best-matching chunks"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O3",
+      "stem": "In one or two sentences: why should a student's laser cutter training status be read from the training database by a tool, rather than only stored in a notes file the model writes?"
+    },
+    {
+      "id": "q5",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "A question embeds to the vector q = (1, 1) and a manual chunk embeds to c = (1, 0). Compute the cosine similarity of q and c, rounded to two decimal places.",
+      "unit": "cosine similarity"
+    }
+  ]
+}

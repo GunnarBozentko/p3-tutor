@@ -1,0 +1,110 @@
+{
+  "id": "0002",
+  "objective": "O4",
+  "title": "Workflows, agents and who owns the control flow",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Definition: Which of these best defines a workflow, in the sense of agent architecture?",
+      "options": [
+        {"id": "a", "text": "A system in which the model has access to tools it can call"},
+        {"id": "b", "text": "A system that makes one model call for each part of the request"},
+        {"id": "c", "text": "A system where developer-written code sets the path and calls the model at fixed points"},
+        {"id": "d", "text": "A system that sends the same prompt to the model every time, whatever the request"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Definition: Which of these best defines an agent, in the sense of agent architecture?",
+      "options": [
+        {"id": "a", "text": "A system where the model decides at each point what happens next, including which tool to call and when to stop"},
+        {"id": "b", "text": "A system where the code runs a fixed sequence of model calls, each one feeding the next, and checks each result"},
+        {"id": "c", "text": "A system that keeps a record of the conversation so far across turns"},
+        {"id": "d", "text": "A system that makes several model calls to answer a single request"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "short",
+      "objective": "O4",
+      "stem": "Definition: In one phrase, what does the \"control flow\" of an assistant decide?"
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Definition: Compared with a fixed workflow, what does an agent typically give up in exchange for its flexibility?",
+      "options": [
+        {"id": "a", "text": "The ability to call external tools such as a booking calendar or a search index"},
+        {"id": "b", "text": "Predictable cost and behavior, because the number of steps varies from run to run"},
+        {"id": "c", "text": "Any built-in way of stopping the loop once it has started running"},
+        {"id": "d", "text": "The ability to use more than one model call to answer a single request"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Definition: In a fixed workflow, what is the model's own job at each step?",
+      "options": [
+        {"id": "a", "text": "Deciding which step the code should run after its own output is produced"},
+        {"id": "b", "text": "Deciding when the whole process should end, based on the results so far"},
+        {"id": "c", "text": "Deciding which tools will be available at the next step of the process"},
+        {"id": "d", "text": "Carrying out the task of that step, such as extracting details or writing text"}
+      ]
+    },
+    {
+      "id": "q6",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Applying it: In your makerspace assistant's booking feature, a student writes: \"Book the laser cutter Friday at 3.\" The system makes four moves in this order: (1) a model call pulls out machine, date and time; (2) check_calendar runs; (3) if the slot is free, book_slot runs; (4) a model call writes the confirmation. Moves 2 and 3 are triggered by the previous move's result, never by a model decision. Which statement is correct?",
+      "options": [
+        {"id": "a", "text": "The model owns the control flow, so this is an agent, because it decides how to word the extraction and the confirmation"},
+        {"id": "b", "text": "The code decides each next move and calls the model for two of them, so this is a workflow"},
+        {"id": "c", "text": "The code decides each next move, but this is a workflow only because the model is called fewer than three times"},
+        {"id": "d", "text": "The code decides each next move, so this is an agent, because it calls a model that can request tools"}
+      ]
+    },
+    {
+      "id": "q7",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Applying it: A student writes: \"My 3D print keeps warping on the third layer.\" In past cases staff found the cause after between one and five lookups: a manual page sometimes named a part, and that part's maintenance log sometimes named a specific booking to check. The manuals are long and the budget is small. Which design fits best for answering correctly at the lowest cost per request?",
+      "options": [
+        {"id": "a", "text": "A fixed chain that reads the manual, then the maintenance log, then the booking history, and answers after exactly 3 lookups"},
+        {"id": "b", "text": "A router that labels the question as warping and sends it to a pre-written troubleshooting handler"},
+        {"id": "c", "text": "One call with the manual pasted in, answering from it alone"},
+        {"id": "d", "text": "Give the model the three sources as tools and let it decide what to fetch, up to 6 lookups"}
+      ]
+    },
+    {
+      "id": "q8",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Applying it: A teammate proposes making the booking feature a full agent too, \"because agents are more capable.\" Booking always runs the same moves (extract details, check calendar, book, confirm), it is about 3,000 of this term's 4,000 requests, and the sponsor's model budget is small. Which is the strongest reason, given that budget, to keep booking a fixed workflow?",
+      "options": [
+        {"id": "a", "text": "Booking writes to the calendar, and an agent's wrong write is harder to catch than a workflow's"},
+        {"id": "b", "text": "An agent needs a step limit, and a limit could cut off a booking midway"},
+        {"id": "c", "text": "Each request uses fewer model calls, and no step can be skipped or reordered by a model's mistake"},
+        {"id": "d", "text": "A workflow answers troubleshooting questions at least as well as an agent, so one workflow should serve the whole assistant"}
+      ]
+    },
+    {
+      "id": "q9",
+      "type": "numeric",
+      "objective": "O4",
+      "stem": "Applying it: For one semester you compare two designs. A fixed workflow handles a request in 3 model calls at $0.004 per call. An agent handles a request in an average of 6 model calls at $0.006 per call (its calls carry longer context). You expect 4,000 requests: 3,000 booking requests (extract details, check calendar, book, confirm) and 1,000 troubleshooting questions (the sources needed depend on what each lookup finds). You give each request type the design that fits it. What is the total model cost for the semester, in dollars?",
+      "unit": "dollars"
+    },
+    {
+      "id": "q10",
+      "type": "short",
+      "objective": "O4",
+      "stem": "Applying it: A teammate says: \"Our agent loop has a step limit, a cap that stops it after 8 steps, so the code now decides when it ends, which makes it a workflow.\" In one sentence, is the teammate right, and what test settles it?"
+    }
+  ]
+}

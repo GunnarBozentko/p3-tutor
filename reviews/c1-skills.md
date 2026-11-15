@@ -73,7 +73,7 @@ After looking at the tutor replies, I see significant progress. It was more blun
 
 **Live tries:**
 
-The topic i picked a lesson from was when an agent decides it is done using /teach. I then took the quiz using the /quiz skill. The lesson was very well written. Everything in the lesson was accurate and it had soccer analogies and a worked example. The quiz was quite easy, but the questions were well worded. The second question could be answered by looking at the thrid question's use of tool_use, so that is not great. The feedback on the questions was well done as it explained why the answered questions were correct. It also explained very well why my answer for the second question was incorrect by giving a reason why the answer I gave was the opposite of the actual answer. When I asked for help it did not give me the answers and the help it gave did not give answers away to the other questions. 
+The topic i picked a lesson from was when an agent decides it is done using /teach. I then took the quiz using the /quiz skill. The lesson was very well written. Everything in the lesson was accurate and it had soccer analogies and a worked example. The quiz was quite easy, but the questions were well worded. The second question could be answered by looking at the thrid question's use of tool_use, so that is not great. The feedback on the questions was well done as it explained why the answered questions were correct. It also explained very well why my answer for the second question was incorrect by giving a reason why the answer I gave was the opposite of the actual answer. When I asked for help it did not give me the answers and the help it gave did not give answers away to the other questions.
 
 ### Lesson
 

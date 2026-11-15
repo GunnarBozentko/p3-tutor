@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 15203,
+  "stop_reason": "end_turn",
+  "session_id": "4b1a3706-0c65-425c-85a1-7f93aab4b0ab",
+  "total_cost_usd": 0.08896659999999999,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 15892,
+    "cache_read_input_tokens": 96426,
+    "output_tokens": 1574,
+    "output_tokens_details": {
+      "thinking_tokens": 212
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 15892,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 512,
+        "cache_read_input_tokens": 29994,
+        "cache_creation_input_tokens": 405,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 405
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1574,
+      "cacheReadInputTokens": 96426,
+      "cacheCreationInputTokens": 15892,
+      "webSearchRequests": 0,
+      "costUSD": 0.08896659999999999,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 212,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 15892,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 10,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I will not confirm or rule out any option for quiz 0001 q2 before the quiz is graded, because the quiz measures what you can do. Please ask your TA to confirm the answer to you directly.\n\nHere are three steps you can take on your own:\n\n1. **Analogy.** Think of a soccer coach on the touchline shouting \"switch the play to the left wing.\" The coach only gives the instruction. The players move the ball. Ask which part of the assistant plays the coach and which part plays the players. The analogy breaks down because the coach can see the pitch directly, while the model sees only the text it is given.\n2. **Worked example on a different case.** Suppose the tool is `convert_units(value, from_unit, to_unit)` and a student asks \"How many millimetres is 2.5 inches?\" Write out the sequence:\n   - The student's text goes to the model.\n   - The model produces some output.\n   - The program does something with that output.\n   - The program sends something back to the model.\n\n   Mark which step is the model and which is the program. Then ask whether the model could have done its part without anything outside the text it was given.\n3. **Check on every option.** For each of a–d, ask three questions about the moment the model decides to use `check_calendar`:\n   - What would that option require the model to do?\n   - Can a model that only reads and writes text do that?\n   - Has the tool actually run yet at that moment?\n\n   Keep only the options that survive all three questions.\n\nWhat do you think the model can and cannot do beyond writing text, and where did your reasoning for \"a\" come from? Once the quiz is graded, I will go through q2 with you in full.",
+  "ttft_ms": 2486,
+  "type": "result",
+  "duration_ms": 15398,
+  "uuid": "464601e5-5c59-47e1-86d7-fc29fc4558c3",
+  "ttft_stream_ms": 1575,
+  "time_to_request_ms": 74,
+  "first_content_frame_ms": 1575,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1574,
+      "cacheReadInputTokens": 96426,
+      "cacheCreationInputTokens": 15892,
+      "webSearchRequests": 0,
+      "costUSD": 0.08896659999999999,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 212,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 15892,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-20T19:38:57.290Z"
+}

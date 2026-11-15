@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s2",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. The defining feature of an agent is the loop: the model picks an action, the program runs it, and the result returns for the next step. The tempting option is (a), a longer prompt, but a more detailed prompt still produces one answer from one call; it changes what that call says, not the structure of the system."
+    },
+    {
+      "id": "q2",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. The model's output is only text: a structured request naming check_calendar with the laser cutter and tomorrow's date as arguments (the values the tool is given to work on). Think of a soccer coach shouting an instruction from the touchline; the players (the program) carry it out. The tempting option is (a), because it sounds as if the model reads the calendar itself, but the model never touches the booking system."
+    },
+    {
+      "id": "q3",
+      "verdict": "wrong",
+      "misconception": "M6",
+      "feedback": "Wrong. You chose (c), that the agent will eventually fix the bug if left to run; that belief fails here because the same edit returns the same failing test, so step 41 gets exactly the same evidence as step 40 and behaves the same way. It is like re-running a statistical test on identical data and hoping for a different p-value, while the agent also spends your small model budget. The correct answer is (b), a step limit that ends the loop and reports back, because a loop needs a stopping condition besides success. Option (a) fails because all 40 steps already fit in the context (the text the model is given on each call), and (d) fails because a stronger instruction is only text the model may ignore, not a rule the program enforces."
+    },
+    {
+      "id": "q4",
+      "verdict": "partial",
+      "misconception": "M4",
+      "feedback": "Partial. The count of 4 is right, but the reason is wrong: you wrote that the model 'runs check_calendar, then search_manuals', and the model never runs a tool; it only outputs a request, and the program runs it. The count holds because each model call (one send of text to the model and one reply back) ends in one tool request or the final answer: 3 requests plus 1 final answer is 4 calls. If the model ran the tools itself inside one call, the count would be 1, which is the M4 error. Think of a coach on the touchline: the coach speaks four times, but the players, not the coach, do the running that three of those instructions ask for."
+    },
+    {
+      "id": "q5",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. The result goes back as the model's next input, and the model uses it to decide its next step. The model cannot see anything outside the conversation it is handed (its context, the text it receives on each call), so the program must put the result there. The tempting wrong idea is that the program shows the result to the user directly, but the model has to read it first to write the final answer."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "Partial. You answered 'by the name'; the name is part of what the model reads, but the model decides from the full description the program gives it: the name, what the tool does, and its parameters (the inputs the tool takes, such as machine and date). A bare name can be ambiguous: a tool called 'book' does not say whether it books a machine or a room, just as a column labeled 'x1' with no codebook tells a statistician nothing. The model never sees the code, so the description is its only evidence. It picks the tool whose full description fits the request."
+    }
+  ],
+  "summary": "q1, q2 and q5 were correct; q4 and q6 were partial; q3 was wrong. In q4 the count was right but the reason said the model runs the tools (M4), and in q6 the name alone was not enough. The misconception to work on is M6, the belief that an agent left running will eventually succeed: it is wrong because repeated identical feedback gives the model no new information, so the loop needs a step limit. Next step: re-read learning-records/0002-the-agent-loop.md, then add a step limit to your own sketch of the assistant's loop in Python (a `for step in range(max_steps)` loop that stops and reports back), and write one sentence on what the limit prevents."
+}

@@ -1,0 +1,38 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "The model keeps nothing between calls; each call is computed from the text sent, so step 1 is visible only because the program resends it. Options a and d treat the model as holding state itself (M3); option c invents a provider-side history, which is also M3.",
+      "distractors": {"a": "M3", "c": "M3", "d": "M3"}
+    },
+    {
+      "id": "q2",
+      "answer": 5950,
+      "tolerance": 0,
+      "rationale": "Call 1 reads 1,000 + 100 = 1,100. Call 2 reads 1,100 + 50 + 500 = 1,650. Call 3 reads 1,650 + 50 + 1,500 = 3,200. Total 1,100 + 1,650 + 3,200 = 5,950. Answering 3,200 (the last call only) or 2,200 (fixed parts counted once) shows the bill being treated as the final length rather than the sum of every call."
+    },
+    {
+      "id": "q3",
+      "answer": "d",
+      "rationale": "Retrieval sends only the few relevant chunks, which cuts cost and keeps recall high. Pasting everything (a) is billed at 400,000 tokens per call and invites context rot (M7). Recall does not stay equal at any length (b), also M7. Notes the model rewrites (c) are for soft per-student facts, not shared reference text, and invite drift (M8).",
+      "distractors": {"a": "M7", "b": "M7", "c": "M8"}
+    },
+    {
+      "id": "q4",
+      "answer": "Training status is a safety record with an owner, so it should be read live from the source of truth; a note the model wrote could be wrong or out of date.",
+      "accepted": [
+        "It is an official record, and a model-written note could be wrong or stale, so the tool reads the real database.",
+        "A safety decision should rest on the actual record, not on a note that may be outdated or mistaken."
+      ],
+      "rationale": "Full credit needs the idea that the database is the authoritative, current record and that a model-written note can be wrong or stale. Saying only that the database is bigger or faster is partial. Saying that the model cannot read files at all is wrong; the memory tool lets it. Saying that memory is the model's job to keep correct shows M8."
+    },
+    {
+      "id": "q5",
+      "answer": 0.71,
+      "tolerance": 0.01,
+      "rationale": "cos = (1*1 + 1*0) / (sqrt(2) * 1) = 1 / 1.414 = 0.707, which rounds to 0.71. An answer of 1 ignores the lengths of the vectors; an answer of 0.5 divides by 2 instead of by the product of the lengths."
+    }
+  ]
+}

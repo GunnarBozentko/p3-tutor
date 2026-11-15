@@ -53,3 +53,30 @@ An example of a finished entry:
 - With and without: reviews/c1-skills.md, Round 4 (without) and Round 5 (with)
 - Review: Does a good job explaining why a question was incorrect, and explains why the correct answer is right. A drawback is that the responses are a little lengthy.
 - Kept in final: TODO
+
+### quiz-reviewer
+
+- Kind: subagent
+- Step added: c2-review
+- Purpose: This subagent quiz reviewer is able to reread each question and compare it to others to try and make sure quiz answers arent revealed from other quiz questions.
+- With and without: reviews/c2-review.md, Round 1 (without) and Round 2 (with)
+- Review: Wit hit the length of the quiz questions di dnot give the answer away, but occasionally some quiz questions would give away quiz answers. 
+- Kept in final: TODO
+
+### grade-reviewer
+
+- Kind: subagent
+- Step added: c2-review
+- Purpose: The purpose of the grade reviewer was to make sure all feedback was within 3-5 sentecnes, each feedback started with a verdict, and to use analogies for each qquuestion to help with understanding. 
+- With and without: reviews/c2-review.md, Round 4 (without) and Round 5 (with)
+- Review: This agent did very well as most feedback is within sentence range, starts wit ha verdict, and has analogies included. 
+- Kept in final: TODO
+
+### lesson-reviewer
+
+- Kind: subagent
+- Step added: c2-review
+- Purpose: The goal of this sub-reviewer was to make the lesson length longer and also to reduce the number of precision slips in the lessons. 
+- With and without: reviews/c2-review.md, Round 5 (without) and Round 6 (with)
+- Review: The lessons were much longer now with a length ratio of .78 and precision slips were absent. Numerical and common misconception exmaples were also added which was good. 
+- Kept in final: TODO

@@ -1,0 +1,68 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "c",
+      "rationale": "A workflow is a system where LLMs and tools are orchestrated through predefined code paths: the developer's code owns the control flow and calls the model at fixed points. Giving a model tools (a) or making one call per part (b) does not decide it; a workflow can use tools and many calls, and the test is who decides the next step.",
+      "distractors": {"a": "M7", "b": "M7"}
+    },
+    {
+      "id": "q2",
+      "answer": "a",
+      "rationale": "An agent is a system where the model dynamically directs its own process and tool use, so the model owns the control flow, including when to stop. Counting model calls (d) does not decide it: a fixed chain (b) can make many calls and is still a workflow.",
+      "distractors": {"b": "M7", "d": "M7"}
+    },
+    {
+      "id": "q3",
+      "answer": "Which step runs next (the order of steps, including when to stop)",
+      "accepted": ["what happens next", "which step comes next", "the order of steps", "what step to take next and when to stop", "which action or tool is used next and when it ends", "who decides what step comes next"],
+      "rationale": "Control flow is the decision of what runs next and when the process ends. Who makes that decision, the code or the model, is what separates a workflow from an agent. Answering with what the assistant says to the user confuses control flow with content."
+    },
+    {
+      "id": "q4",
+      "answer": "b",
+      "rationale": "Agents trade predictability for flexibility: the number of steps varies from run to run, so cost, latency and behavior are harder to predict and errors can compound. Agents still call tools (a) and loop over several calls (d); that is what they are built on.",
+      "distractors": {"a": "M7", "d": "M7"}
+    },
+    {
+      "id": "q5",
+      "answer": "d",
+      "rationale": "In a workflow the code owns the control flow, so the model only carries out the task of its step, such as extracting details or writing text. Deciding which step comes next or when to end (a, b) is the model's job in an agent, not in a workflow.",
+      "distractors": {"a": "M11", "b": "M11"}
+    },
+    {
+      "id": "q6",
+      "answer": "b",
+      "rationale": "The moves run in a code-fixed order and the model is called only inside two of them, so the code owns the control flow and the system is a workflow. Calling a model that could use tools (d) or counting calls (c) does not decide it; wording text well (a) is the model's task within a step, not control of the flow.",
+      "distractors": {"a": "M11", "c": "M7", "d": "M7"}
+    },
+    {
+      "id": "q7",
+      "answer": "d",
+      "rationale": "Each lookup's result decides what to read next and between one and five lookups are needed, so the path cannot be fixed in advance: the open-ended case that suits a model-directed loop with a cap on steps. A fixed chain (a) pays for all three lookups every time, and a router (b) or a manual-only call (c) cannot follow the trail from part to log to booking.",
+      "distractors": {"a": "M10", "b": "M10", "c": "M10"}
+    },
+    {
+      "id": "q8",
+      "answer": "c",
+      "rationale": "When the path is known, fixed code uses fewer model calls and cannot be led off the path by a model's mistake, which matters under a small budget. Option d overreaches: workflows are not better everywhere, and open-ended troubleshooting still suits an agent (M10); a and b sound like real risks but are weaker than the cost and predictability argument.",
+      "distractors": {"d": "M10"}
+    },
+    {
+      "id": "q9",
+      "answer": 72,
+      "tolerance": 0.5,
+      "rationale": "Bookings have known steps, so they use the workflow figures: 3,000 x 3 calls x $0.004 = $36. Troubleshooting depends on what each lookup finds, so it uses the agent figures: 1,000 x 6 calls x $0.006 = $36. The total is $72. An answer of $144 sends all 4,000 requests through the agent, and $36 or $54 prices one group with the wrong design."
+    },
+    {
+      "id": "q10",
+      "answer": "No; the test is who decides what happens next, and within the cap the model still chooses each step, so it is still an agent.",
+      "accepted": [
+        "No, the model still directs its own steps and the limit is only a guardrail, so it is still an agent.",
+        "No. Who owns the control flow decides it, and the model still does; a step limit only bounds the loop."
+      ],
+      "rationale": "Full credit says the teammate is wrong and names the test: who owns the control flow. The model still chooses each next step, and the limit is a guardrail on cost and runaway loops, not a transfer of control to code. Agreeing with the teammate shows M9 (a cap on steps turns an agent into a workflow)."
+    }
+  ]
+}

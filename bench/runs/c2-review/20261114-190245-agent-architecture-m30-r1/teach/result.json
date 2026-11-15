@@ -1,0 +1,127 @@
+{
+  "duration_api_ms": 523262,
+  "stop_reason": "end_turn",
+  "session_id": "32b647ab-b234-481c-9ef9-bdd9406dc6b5",
+  "total_cost_usd": 1.687100505,
+  "usage": {
+    "input_tokens": 12,
+    "cache_creation_input_tokens": 42325,
+    "cache_read_input_tokens": 552336,
+    "output_tokens": 24241,
+    "output_tokens_details": {
+      "thinking_tokens": 1102
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 42325,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 478,
+        "cache_read_input_tokens": 133360,
+        "cache_creation_input_tokens": 6211,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 6211
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 62,
+      "outputTokens": 72917,
+      "cacheReadInputTokens": 1672190,
+      "cacheCreationInputTokens": 227180,
+      "webSearchRequests": 0,
+      "costUSD": 1.652059,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 15064,
+      "cacheCreationEphemeral5mInputTokens": 102116,
+      "cacheCreationEphemeral1hInputTokens": 125064,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 43071,
+      "outputTokens": 12057,
+      "cacheReadInputTokens": 14428,
+      "cacheCreationInputTokens": 36493,
+      "webSearchRequests": 2,
+      "costUSD": 0.03504150500000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 5817,
+      "cacheCreationEphemeral5mInputTokens": 36493,
+      "cacheCreationEphemeral1hInputTokens": 0,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "origin": {
+    "kind": "task-notification",
+    "producer": "session-task",
+    "runId": "0mwgs2rmq-6a415f86"
+  },
+  "subagent_stats": {
+    "spawned": 5,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 5
+    },
+    "started_in_background": 2,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 5,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "web-fetch": 3,
+      "lesson-reviewer": 2
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 20,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I wrote the 30-minute lesson on objective O3, `lessons/0001-context-and-memory.html`. It has not been taken yet.\n\nIt covers the context window, what is kept between steps, notes as memory between sessions, and retrieval. It ends with a token-cost worked example for a makerspace request and a budget exercise. Its main source is Anthropic's context-engineering post, with the Claude docs on context windows and the memory tool as supporting sources.\n\n**Review:** the lesson went through two review passes, and the revisions fixed the length, the numbers and the code. The reviewer's final estimate was about 4,500 words, which fits 30 minutes. Review notes are in `review-records/0001-lesson.md`.\n\n**Also written:**\n- Quiz 0002 (5 items) and its key. The lesson's footer points to it.\n- `cheatsheets/context-and-memory.html`\n- `RESOURCES.md`\n- An update to `NOTES.md`\n\n**Open items:**\n- No outside community for agent builders is listed yet. The lesson says so, and the gap is recorded in `RESOURCES.md`.\n- The $3 per million tokens price in the lesson is labeled illustrative, not a real quote.\n- Your two quiz 0001 submissions (`s1`, `s2`) are still ungraded.\n\nIf you want, I can grade them next. Ask me anything in the chat about the lesson, or ask for quiz 0002 when you want to try it.",
+  "ttft_ms": 1721,
+  "type": "result",
+  "duration_ms": 125930,
+  "uuid": "59158081-ada5-473b-a988-616d89538a73",
+  "ttft_stream_ms": 1232,
+  "time_to_request_ms": 16,
+  "first_content_frame_ms": 1233,
+  "queued_turn_count": 0,
+  "result_index": 2,
+  "model_usage_since_last_result": {},
+  "credential_expires_at": "2026-11-20T19:38:57.290Z"
+}
