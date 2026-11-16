@@ -1,0 +1,56 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "On Monday a student tells the makerspace assistant their preferred booking time. On Wednesday they start a new session and the assistant does not know it. What explains this?",
+      "options": [
+        {"id": "a", "text": "The context window was too small to hold Monday's chat"},
+        {"id": "b", "text": "The model forgot it because its weights are updated slowly"},
+        {"id": "c", "text": "Nothing carried over unless the program saved it and reloaded it"},
+        {"id": "d", "text": "The model ignored the fact because it sat mid-conversation"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "An agent starts with 1,000 tokens (system prompt, tools, question). Each step adds 500 tokens (the model's request plus the tool result). It makes 3 model calls. Every call receives the full context so far. How many input tokens are read in total across the 3 calls?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "The assistant must answer from a 60-page manual of about 36,000 tokens, across 5 model calls per request, on a small budget. Which design is best?",
+      "options": [
+        {"id": "a", "text": "Search the manual and add only the few best-matching chunks"},
+        {"id": "b", "text": "Load the whole manual because the window is big enough"},
+        {"id": "c", "text": "Save the whole manual as a note for the model to recall"},
+        {"id": "d", "text": "Ask the model to memorize the manual during the session"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O3",
+      "stem": "Give one reason, in one sentence, why putting an entire long document in the context can give worse answers than putting in only the relevant part, apart from cost."
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A long run is nearing the limit. Early tool results are no longer needed, but the student's confirmed machine certification must still be known next week. What is the best handling?",
+      "options": [
+        {"id": "a", "text": "Clear the old results and save the certification as a note"},
+        {"id": "b", "text": "Keep every result in the context so nothing is lost"},
+        {"id": "c", "text": "Clear the old results and trust the summary to survive"},
+        {"id": "d", "text": "Restart the conversation and have the student repeat it"}
+      ]
+    }
+  ]
+}

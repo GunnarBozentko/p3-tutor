@@ -1,0 +1,110 @@
+{
+  "id": "0002",
+  "objective": "O4",
+  "title": "Workflows and agents: who owns the control flow",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Definition: Which of these best defines a workflow in an LLM system?",
+      "options": [
+        {"id": "a", "text": "A system where the model picks a tool, reads the result, and repeats until it stops"},
+        {"id": "b", "text": "A system where the code supplies the tools and the model decides, call by call, which one runs next"},
+        {"id": "c", "text": "A system where predefined code paths decide the order of the model and tool calls"},
+        {"id": "d", "text": "A system that uses only model calls and no tools, with the steps written by the team"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Definition: Which of these best defines an agent, as distinct from a workflow?",
+      "options": [
+        {"id": "a", "text": "A system where the model chooses its own steps and tools from one moment to the next"},
+        {"id": "b", "text": "A system where a programmer fixes the main steps, and the model chooses which tool to use inside each step"},
+        {"id": "c", "text": "A system that has been given at least one tool to call"},
+        {"id": "d", "text": "A system that calls the model more than once to answer a single request"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "short",
+      "objective": "O4",
+      "stem": "Definition: In one phrase, what is the control flow of an LLM system?"
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Definition: Which of these best defines prompt chaining?",
+      "options": [
+        {"id": "a", "text": "A loop in which the model keeps calling tools until it decides that the task is done"},
+        {"id": "b", "text": "Several model calls run at the same time on the same input, with the code merging the replies"},
+        {"id": "c", "text": "Several model calls in a fixed order, where the code reruns the first call until a check passes"},
+        {"id": "d", "text": "A fixed sequence of model calls in which each call's output becomes the next call's input"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Definition: Which of these best defines routing, as a workflow pattern?",
+      "options": [
+        {"id": "a", "text": "A model call that rewrites the user's question into a clearer one before any search"},
+        {"id": "b", "text": "A workflow step that classifies an input and sends it down one of several predefined paths"},
+        {"id": "c", "text": "A step that sends the same input to several model calls at once and compares their answers"},
+        {"id": "d", "text": "A step that splits one task into subtasks and hands each to a separate worker"}
+      ]
+    },
+    {
+      "id": "q6",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Application: The makerspace assistant's code is a loop. It sends the conversation to the model, runs whichever tool the model names (calendar or manual search), appends the result and repeats. The loop ends when the model replies with text and no tool request. A teammate says: the loop is in our code, so the code owns the control flow. Who is right about control flow, and what is this design?",
+      "options": [
+        {"id": "a", "text": "The code owns it, because the loop is written in our script and runs every step; this is a workflow"},
+        {"id": "b", "text": "The code owns it, because the script runs every tool call; this is a workflow"},
+        {"id": "c", "text": "The model owns it, because it picks each tool and decides when to stop; this is an agent"},
+        {"id": "d", "text": "The model owns it, because it writes the final reply; this is an agent"}
+      ]
+    },
+    {
+      "id": "q7",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Application: Which makerspace task should the team build as a fixed workflow rather than an agent?",
+      "options": [
+        {"id": "a", "text": "Finding why a booking request failed, when the cause could be the calendar, the student's training status or the machine's maintenance record"},
+        {"id": "b", "text": "Releasing a booked slot after the student cancels, then emailing the student a confirmation"},
+        {"id": "c", "text": "Deciding whether a student may use the laser cutter, when the answer could depend on training records, a safety hold or a machine fault"},
+        {"id": "d", "text": "Answering a question that may need two or three manual sections, where which section to read next depends on the last one"}
+      ]
+    },
+    {
+      "id": "q8",
+      "type": "numeric",
+      "objective": "O4",
+      "stem": "Application: Model usage costs $3 per million tokens, counting input and output together. Design W, a fixed workflow, always makes 3 model calls of about 1,200 tokens each per request. Design A, an agent, averages 6 model calls of about 2,500 tokens each per request, and in rare worst cases makes 10 calls. Using the average figures, how much more does design A cost than design W over 1,000 requests? Give a number in dollars.",
+      "unit": "dollars"
+    },
+    {
+      "id": "q9",
+      "type": "short",
+      "objective": "O4",
+      "stem": "Application: You log 50 real manual questions sent to the assistant. What would you look for in the logs to justify letting the model, rather than fixed code, choose the steps?"
+    },
+    {
+      "id": "q10",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Application: The team splits the assistant into two parts. Part 1 sends each incoming message to the booking code or to the manual-question code. Part 2 answers manual questions, where which page to read next depends on what the previous page said. The model budget is small. Which design do you defend?",
+      "options": [
+        {"id": "a", "text": "Both parts as fixed workflows, because fixed designs cost less per request"},
+        {"id": "b", "text": "Both parts with the model choosing the steps, because it reads messages better than code does"},
+        {"id": "c", "text": "Part 1 with the model choosing the steps, and part 2 as a fixed workflow"},
+        {"id": "d", "text": "Part 1 as a fixed workflow, and part 2 with the model choosing the steps"}
+      ]
+    }
+  ]
+}

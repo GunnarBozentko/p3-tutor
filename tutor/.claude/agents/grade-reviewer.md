@@ -39,7 +39,7 @@ If a check finds nothing, write "none" under it, so a skipped check is never sil
 
 ### U. Useful
 
-1. **Verdict is right.** The verdict matches what the response means against the key: `correct` for a right meaning in other words, `partial` for one right half or a right answer with a wrong stated reason, `wrong` otherwise (my review of c1: s2 q4 had the right number with a wrong reason and was rightly marked partial).
+1. **Verdict is right.** The verdict matches what the response means against the key: `correct` for a right meaning in other words, `partial` for one right half or when the final answer holds up but the justification given for it does not, `wrong` otherwise (my review of c1: s2 q4 had the right number with a wrong reason and was rightly marked partial).
    Name every item whose verdict you would change, and why.
 2. **Misconception named.** Every wrong or partial item that shows a known misconception carries its id, from ids the workspace already uses; none is invented.
 3. **References the learner can find.** Every file, lesson or record the feedback or summary points to is named the way it is in the workspace, with its folder (my review of c1: the s2 summary said "lesson 0002 agent loop notes" for what was learning record 0002).

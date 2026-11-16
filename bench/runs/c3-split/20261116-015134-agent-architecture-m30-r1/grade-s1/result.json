@@ -1,0 +1,110 @@
+{
+  "duration_api_ms": 126629,
+  "stop_reason": "end_turn",
+  "session_id": "87ce83c7-2a9c-435e-80fb-dd1e02492063",
+  "total_cost_usd": 0.4374545,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 5432,
+    "cache_read_input_tokens": 96806,
+    "output_tokens": 3420,
+    "output_tokens_details": {
+      "thinking_tokens": 174
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 5432,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 460,
+        "cache_read_input_tokens": 49446,
+        "cache_creation_input_tokens": 3346,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 3346
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 36,
+      "outputTokens": 18698,
+      "cacheReadInputTokens": 429950,
+      "cacheCreationInputTokens": 59992,
+      "webSearchRequests": 0,
+      "costUSD": 0.4374545,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 6060,
+      "cacheCreationEphemeral5mInputTokens": 21707,
+      "cacheCreationEphemeral1hInputTokens": 38285,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "origin": {
+    "kind": "task-notification",
+    "producer": "session-task",
+    "runId": "0mwimnifi-e80591ee"
+  },
+  "subagent_stats": {
+    "spawned": 2,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 2
+    },
+    "started_in_background": 2,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 2,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "grade-reviewer": 2
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 5,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I graded submission s1 of quiz 0001: 2 correct, 2 partial, 2 wrong. The grades are in `grades/0001-s1.json`.\n\n| Item | Verdict | Misconception |\n|---|---|---|\n| q1 | Correct | none |\n| q2 | Wrong (chose a) | M4 |\n| q3 | Correct | none |\n| q4 | Wrong (answered 1, not 4) | M4 |\n| q5 | Partial (the answer says what, not why) | none |\n| q6 | Partial (the claim that the model remembers earlier tool choices is wrong) | M3 |\n\n**What to work on:** M4. The model never runs tools or looks anything up itself, because it only writes text. The program runs each tool and calls the model again, so one request takes several model calls. Your q2 and q4 answers both assumed the model does the running.\n\n**Next step:** Trace the laser cutter question from q4 on paper. Label each step \"model call\" or \"program action\", and note which input the model sees at each call. Then check your trace against `learning-records/0002-the-agent-loop.md`.\n\nThe grade-reviewer subagent reviewed the draft twice, and I applied its fixes. The review record is `review-records/0001-s1-grade.md`. I added learning record `0003-model-does-not-run-tools.md` and updated `NOTES.md`. Submission s2 is still ungraded.",
+  "ttft_ms": 1571,
+  "type": "result",
+  "duration_ms": 19825,
+  "uuid": "d200c31b-4beb-4275-ac58-0100226d4922",
+  "ttft_stream_ms": 575,
+  "time_to_request_ms": 27,
+  "first_content_frame_ms": 576,
+  "queued_turn_count": 0,
+  "result_index": 2,
+  "model_usage_since_last_result": {},
+  "credential_expires_at": "2026-11-20T19:38:56.831Z"
+}

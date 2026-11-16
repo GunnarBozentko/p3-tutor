@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 21151,
+  "stop_reason": "end_turn",
+  "session_id": "9116bf71-cd21-488d-a2a1-4bd9a7f01789",
+  "total_cost_usd": 0.10804939999999999,
+  "usage": {
+    "input_tokens": 12,
+    "cache_creation_input_tokens": 16997,
+    "cache_read_input_tokens": 155074,
+    "output_tokens": 2453,
+    "output_tokens_details": {
+      "thinking_tokens": 932
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 16997,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 624,
+        "cache_read_input_tokens": 30372,
+        "cache_creation_input_tokens": 1132,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 1132
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 12,
+      "outputTokens": 2453,
+      "cacheReadInputTokens": 155074,
+      "cacheCreationInputTokens": 16997,
+      "webSearchRequests": 0,
+      "costUSD": 0.10804939999999999,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 932,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 16997,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 10,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I'll explain what tool calling is for, but not how it works, because three items on your ungraded quiz 0001 (q2, q5 and q6) test exactly that. Giving you that part now would answer them. The quiz measures what you can do without help.\n\n**What tools are for**\n\nPicture a very well-read person locked in a sealed room. They have read a huge library, but only up to the day the door was shut. They know nothing about today, and they cannot see or touch anything outside. Their knowledge is fixed and their reach is zero.\n\nTools are what extend that reach. For your makerspace assistant, the booking calendar and the machine manuals are outside the room. Without tools, the assistant can only guess at Friday's laser cutter availability from old patterns. With tools, it can work from real, current facts.\n\nThis is also why you noticed chatbots stating outdated facts with confidence.\n\n**Where the analogy breaks down:** it says nothing about who acts on the outside world or how the person in the room signals what they need. That is the mechanics, and I'm withholding it until the quiz is graded.\n\nThree steps you can take toward q2, q5 and q6 now:\n\n1. Reread your own trace of \"Is the laser cutter free on Friday?\" from learning record 0002. For each step, write down who does it: the model or the program around it.\n2. Use a worked example on a different case. In soccer, a coach on the sideline shouts \"switch the play to the left.\" Ask yourself who moves the ball, and who learns what happened afterward.\n3. Test every candidate answer the same way. Ask what that option would require the model to be able to do, given that it only reads and writes text.\n\nWhich part of your trace is unclear: what the model produces, or what happens right after? Quiz 0001 has two ungraded attempts. If you ask me to grade them, I can then re-explain the mechanics with a fresh analogy, using your actual answers.",
+  "ttft_ms": 974,
+  "type": "result",
+  "duration_ms": 21442,
+  "uuid": "6893b6bf-644c-42d0-bdaa-6b5aaf67c825",
+  "ttft_stream_ms": 619,
+  "time_to_request_ms": 85,
+  "first_content_frame_ms": 619,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 12,
+      "outputTokens": 2453,
+      "cacheReadInputTokens": 155074,
+      "cacheCreationInputTokens": 16997,
+      "webSearchRequests": 0,
+      "costUSD": 0.10804939999999999,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 932,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 16997,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-20T19:38:56.831Z"
+}

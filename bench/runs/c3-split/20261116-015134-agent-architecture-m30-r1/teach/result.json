@@ -1,0 +1,130 @@
+{
+  "duration_api_ms": 801602,
+  "stop_reason": "end_turn",
+  "session_id": "ced37484-cc79-412e-b77a-388a66bd810d",
+  "total_cost_usd": 2.454922495,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 34413,
+    "cache_read_input_tokens": 556775,
+    "output_tokens": 19158,
+    "output_tokens_details": {
+      "thinking_tokens": 121
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 34413,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 718,
+        "cache_read_input_tokens": 160463,
+        "cache_creation_input_tokens": 371,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 371
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 106,
+      "outputTokens": 109356,
+      "cacheReadInputTokens": 3107118,
+      "cacheCreationInputTokens": 313867,
+      "webSearchRequests": 0,
+      "costUSD": 2.4086418000000003,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 31216,
+      "cacheCreationEphemeral5mInputTokens": 167540,
+      "cacheCreationEphemeral1hInputTokens": 146327,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 66128,
+      "outputTokens": 11216,
+      "cacheReadInputTokens": 3227,
+      "cacheCreationInputTokens": 32221,
+      "webSearchRequests": 3,
+      "costUSD": 0.046280695000000004,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 6219,
+      "cacheCreationEphemeral5mInputTokens": 32221,
+      "cacheCreationEphemeral1hInputTokens": 0,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "origin": {
+    "kind": "task-notification",
+    "producer": "session-task",
+    "runId": "0mwimb1i5-0245142a"
+  },
+  "subagent_stats": {
+    "spawned": 6,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 6
+    },
+    "started_in_background": 5,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 6,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "web-fetch": 1,
+      "lesson-reviewer": 2,
+      "preference-reviewer": 1,
+      "reference-checker": 1,
+      "lesson-editor": 1
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 6,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "The 30-minute lesson on O3 is written, with a five-item quiz ready. I could not count the lesson's words (shell commands needing approval were blocked). The second reviewer estimated about 4,150 words before my last round of edits, against the 4,500 target.\n\n- **Lesson:** `lessons/0001-context-and-memory.html`. It covers:\n  - **Context window:** what it costs, using a token-count formula with a proof.\n  - **Context rot and \"lost in the middle\":** why more context is not always better.\n  - **Between steps:** the message list, clearing old tool results, and compaction.\n  - **Between sessions:** saved notes, with a per-student record for the makerspace assistant.\n  - **Retrieval:** both as a way to find the right manual page and as a form of memory.\n  - **Practice:** two worked examples and three \"Your turn\" tasks with solutions.\n- **Quiz:** `quizzes/0002.json`, with its key in `keys/0002.json`. Its misconception ids are M7 to M10, because M1 to M6 are already used in key 0001.\n- **Reviews:** two lesson-review passes, then the preference, reference and consistency reviews. Their findings and my changes are in `review-records/0001-lesson.md`.\n- **Sources:** `RESOURCES.md` now lists the three sources I used. They are Anthropic's context-engineering post, the memory tool docs and the \"Lost in the Middle\" paper.\n- **Unconfirmed in the lesson:**\n  - The \"roughly three-quarters of an English word per token\" figure and the ~600 tokens per page are unsourced rules of thumb; the lesson labels the per-page figure as an assumption.\n  - The reference checker could not confirm Anthropic's use of the term \"context rot\". I kept it because my own fetch of the page quoted it.\n- **Notes:** `NOTES.md` is updated. Quizzes 0001 and 0002 are still ungraded and untaken.\n\nQuestions on any part of the lesson are welcome, and you can ask for quiz 0002 whenever you are ready.\n\nDo you want a cheat sheet of the token-cost formula and the \"where does this information go\" table?",
+  "ttft_ms": 1891,
+  "type": "result",
+  "duration_ms": 104356,
+  "uuid": "abe57a29-95a6-4061-9493-178a7ffba7f9",
+  "ttft_stream_ms": 1171,
+  "time_to_request_ms": 170,
+  "first_content_frame_ms": 1171,
+  "queued_turn_count": 0,
+  "result_index": 5,
+  "model_usage_since_last_result": {},
+  "credential_expires_at": "2026-11-20T19:38:56.831Z"
+}

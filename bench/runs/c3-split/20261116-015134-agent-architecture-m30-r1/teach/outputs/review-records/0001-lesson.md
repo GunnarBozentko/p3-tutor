@@ -1,0 +1,9 @@
+# Review record: lesson 0001 (context and memory, O3)
+
+- Passes: 2.
+- Pass 1: length estimate 2,840 words (ratio 0.63). Flagged: L1 (too short), T3 (numbers: "over 50,000", call-2 timing, mismatched bases, S inconsistency), T4 (billing/caching, "term-frequency"), T5 ("Anthropic names three"), P6 (formula numbers), A10 (retrieval as memory). Changed: added worked example 2, three "Your turn" items, summary table, derivation, retrieval-as-memory paragraph, corrected numbers and wording.
+- Pass 2: length estimate 4,150 words (ratio 0.92). Must fix: T3 (retrieval totals ignored r; ratio overstated). Changed: stated the simplification and called the ratio an upper bound. Also applied the 10-30 documents wording correction (later replaced by "short passages" because the abstract page did not support the number), the Section 1 misconception, the Section 4 numbers, the warm-up rewrite and the code comment. Left: the extra Your turn 4 and the analogy replacement, since the length and analogy already fit.
+- Preference review Must fix: 1, 2, 3, 4, 6, 7, 9, 11, 12, 13. Changed: example before general idea in Sections 1 and 2, a proof of the sum, definitions at first use, a cooking analogy, signal-to-noise and precision/recall examples, shorter paragraphs and bullets, "Correct./Incorrect." feedback, a plainer footer.
+- Reference check Must fix: compaction definition, "three techniques" and "context rot" wording, the 10-30 documents figure. Changed: compaction reworded to the post's phrasing, "three" dropped, the document count removed. "Context rot" kept, as the fetched page quoted the term.
+- Editor: C1 summary said the message list "is the memory", changed to "all that carries over"; C2 meta line now names learning record 0002 by title and footer names quiz 0002 and O3; Left: the "later lesson" mention of sub-agents.
+- Quiz 0002 misconception ids M7 to M10 are new, because M1 to M6 are taken in key 0001.

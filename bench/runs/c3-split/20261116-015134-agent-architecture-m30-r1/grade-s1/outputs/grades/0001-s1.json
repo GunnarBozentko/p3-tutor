@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s1",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. An agent is defined by its structure: the model picks an action, the program runs it, and the result returns for the next step. The most tempting wrong option, a longer prompt (a), fails because it only changes what a single call can do; one call with a very long prompt is still one call with no loop."
+    },
+    {
+      "id": "q2",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "Wrong. You chose (a), that the model opens the booking system and reads the calendar itself, but the model only produces text and has no connection to the booking system; any 'opening' it wrote would sit there as words, and the calendar would never be read. Think of a soccer coach on the sideline: the coach calls the play, and the players on the pitch carry it out. The model outputs a structured request, meaning a fixed-format message, naming check_calendar with the laser cutter and tomorrow's date as arguments (the values the tool needs), which is option (c); the program then runs the tool and sends back the result. Option (d) fails because the model never runs a tool's code, and (b) fails because the model, not the program, decides to call the tool."
+    },
+    {
+      "id": "q3",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. Repeating the same failing step adds no information, so the fix is a stopping condition, such as a step limit, that ends the loop and reports back. Option (c) fails because an agent with no stopping condition can keep looping until the budget is gone. A larger window (a) fails because the context, the text the model can read in one call, already holds all 40 steps."
+    },
+    {
+      "id": "q4",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "Wrong. You answered 1, believing the model receives the question once and runs the three tools itself. But the model only writes text, so each tool request ends a call, and the program runs the tool and calls the model again. Compare a statistician who writes three database queries and then a report: the database runs each query, and the statistician is brought back each time a result arrives, so the work takes four turns, not one. The count is 4: three calls that each end in a tool request, plus a fourth that writes the final answer, which equals the number of inputs the model receives (the question and three tool results)."
+    },
+    {
+      "id": "q5",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "Partial. 'It sends it back to the model' is right: the result goes back as part of the model's next input and the model is called again. What is missing is why: the model has not seen the result yet, so it needs it to choose its next step or write the final answer. Compare a statistician who requests a dataset: no analysis can start until the data is handed back."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": "M3",
+      "feedback": "Partial. The first half is right: the model is sent each tool's name, description and parameters, and picks the one that fits the request. The second half is wrong: the model does not remember earlier picks, because it keeps nothing between calls and each call starts only from the text it is given. This is tempting because assistants seem to learn from past chats, but a past choice exists only if the program saves it and puts it back into the input. Compare a regression fitted in one session: unless its coefficients are saved to disk and loaded again, the next session starts without them."
+    }
+  ],
+  "summary": "Work on M4 first: the model never runs tools or looks anything up itself, because it only writes text; the program runs the tool and calls the model again, so one request takes several model calls. Next step: trace the laser cutter question from q4 on paper, labelling each step 'model call' or 'program action' and noting which input the model sees at each call. Re-read learning-records/0002-the-agent-loop.md afterwards to check your trace."
+}

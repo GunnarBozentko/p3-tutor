@@ -1,0 +1,75 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "c",
+      "rationale": "In a workflow, predefined code paths orchestrate the model and tools, so the code fixes the order of steps. Option a describes an agent, where the model chooses the steps, which confuses who owns the control flow.",
+      "distractors": {"a": "M7", "b": "M7"}
+    },
+    {
+      "id": "q2",
+      "answer": "a",
+      "rationale": "In an agent the model dynamically directs its own process and tool use, so it decides the steps. Option b is tempting but wrong: there the programmer fixes the steps, which is a workflow with a model-chosen tool inside a step; and option c is wrong too, since a workflow can call tools.",
+      "distractors": {"c": "M7"}
+    },
+    {
+      "id": "q3",
+      "answer": "which step runs next, that is, the order of steps and when to stop",
+      "accepted": [
+        "the decision of what happens next",
+        "the order in which the steps run",
+        "who decides which step or tool call comes next",
+        "the sequence of steps and the decision of when to stop",
+        "the logic that decides what step happens next"
+      ],
+      "rationale": "Control flow is the decision about which step runs next, and when the system stops. Answering 'the tools it can call' names what is available, not who decides the order."
+    },
+    {
+      "id": "q4",
+      "answer": "d",
+      "rationale": "Prompt chaining is a fixed sequence of model calls where each output feeds the next call. Option c is the closest lookalike but adds a rerun loop and does not pass outputs along; option a describes the agent loop, where the model rather than the code decides how many calls happen.",
+      "distractors": {"a": "M7"}
+    },
+    {
+      "id": "q5",
+      "answer": "b",
+      "rationale": "Routing classifies an input and sends it down one of several predefined paths, so the paths are fixed in code even though the choice among them depends on the input. Option c is the closest lookalike, parallel calls compared with each other, and option d is the orchestrator-workers pattern, which splits a task rather than choosing a path."
+    },
+    {
+      "id": "q6",
+      "answer": "c",
+      "rationale": "The model picks each next tool and decides when the loop ends, so the model owns the control flow and this is an agent; the script only executes what the model asks. Option a is tempting but wrong: where the loop is written, or who runs the tool, does not decide who owns the control flow.",
+      "distractors": {"a": "M10", "b": "M10"}
+    },
+    {
+      "id": "q7",
+      "answer": "b",
+      "rationale": "Releasing a slot and emailing the student has the same known steps every time, so a fixed workflow is predictable and cheap. The other three depend on what each lookup returns; option a is the most tempting, but the cause of a failure decides what to check next."
+    },
+    {
+      "id": "q8",
+      "answer": 34.2,
+      "tolerance": 0.05,
+      "rationale": "Design W uses 3 x 1,200 = 3,600 tokens per request; design A averages 6 x 2,500 = 15,000. The difference is 11,400 tokens per request, so 11,400,000 tokens over 1,000 requests, at $3 per million = $34.20. Using the 10-call worst case instead of the average would overstate the gap."
+    },
+    {
+      "id": "q9",
+      "answer": "Different requests need different tool calls or a different number of them, and the next call depends on what the previous call returned.",
+      "accepted": [
+        "the steps vary between requests and depend on earlier results",
+        "requests that need a different number or order of steps",
+        "the next step depends on what the previous step returned",
+        "no single fixed sequence of steps fits the requests",
+        "the path cannot be fixed in advance"
+      ],
+      "rationale": "Model-chosen steps pay off when no single fixed sequence fits: the steps vary between requests and depend on earlier results. Looking for hard or long questions is wrong: difficulty alone does not make the steps unpredictable."
+    },
+    {
+      "id": "q10",
+      "answer": "d",
+      "rationale": "Part 1 is a fixed routing step, so a workflow is cheaper and consistent; part 2's next step depends on what each page says, so the model should choose it. Option a is tempting but wrong: cost alone cannot justify a fixed design for steps that cannot be known in advance.",
+      "distractors": {"a": "M9", "b": "M8", "c": "M11"}
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 16474,
+  "stop_reason": "end_turn",
+  "session_id": "cc1fa6d3-bd22-4666-b297-b10c69265387",
+  "total_cost_usd": 0.09589500000000001,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 16699,
+    "cache_read_input_tokens": 97530,
+    "output_tokens": 1933,
+    "output_tokens_details": {
+      "thinking_tokens": 709
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 16699,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 473,
+        "cache_read_input_tokens": 30330,
+        "cache_creation_input_tokens": 876,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 876
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1933,
+      "cacheReadInputTokens": 97530,
+      "cacheCreationInputTokens": 16699,
+      "webSearchRequests": 0,
+      "costUSD": 0.09589500000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 709,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 16699,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 8,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I will not confirm or rule out any option for quiz 0001 q2 before the quiz is graded, because the quiz measures what you can do without a check. If your TA allows answer checks, ask the TA to confirm the answer directly.\n\nThree steps you can take on your own:\n\n1. **Analogy.** In soccer, an analyst on a video call can only say things, such as \"switch the play to the left.\" Someone else on the pitch has to act on that. Separate \"who can say\" from \"who can do\" in the scenario. The analogy breaks down because the model's only channel is text, while an analyst can in principle walk onto the pitch.\n2. **Worked example of the method.** Take a different case: a spreadsheet assistant model that wants to know the average of column B.\n   - Write down the literal text the model would produce at that moment.\n   - Ask what else must happen before a number exists.\n   - Name who performs each of those steps.\n\n   Do the same for q2 with its own tool and arguments, and write out exactly what the model produces.\n3. **Check on every option alike.** For each of a, b, c and d, ask two questions:\n   - Is this something the model produces as text, or something that another part of the system does?\n   - Could the model produce this at the moment the stem describes, using only what it has been given?\n\n   Keep the options that pass both questions, then compare them against the stem's wording (\"the model itself output\").\n\nWhat is your reasoning for the option you chose? Once the quiz is graded, I will go through q2 in full with you.",
+  "ttft_ms": 1022,
+  "type": "result",
+  "duration_ms": 16728,
+  "uuid": "4a55c43c-d598-4095-867a-df22a25243c8",
+  "ttft_stream_ms": 575,
+  "time_to_request_ms": 93,
+  "first_content_frame_ms": 575,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1933,
+      "cacheReadInputTokens": 97530,
+      "cacheCreationInputTokens": 16699,
+      "webSearchRequests": 0,
+      "costUSD": 0.09589500000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 709,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 16699,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-20T19:38:56.831Z"
+}

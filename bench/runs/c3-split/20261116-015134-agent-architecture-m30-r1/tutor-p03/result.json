@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 10441,
+  "stop_reason": "end_turn",
+  "session_id": "4f9d3f1c-42ba-448f-866f-8c00d21a789b",
+  "total_cost_usd": 0.07602410000000001,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 14161,
+    "cache_read_input_tokens": 66981,
+    "output_tokens": 1267,
+    "output_tokens_details": {
+      "thinking_tokens": 118
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 14161,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 613,
+        "cache_read_input_tokens": 28245,
+        "cache_creation_input_tokens": 423,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 423
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1267,
+      "cacheReadInputTokens": 66981,
+      "cacheCreationInputTokens": 14161,
+      "webSearchRequests": 0,
+      "costUSD": 0.07602410000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 118,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 14161,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 6,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "No, that is not right. A language model does not remember earlier conversations on its own, and your assistant will not recall what a student said last week unless you build that in.\n\nIt is a tempting idea because a chat appears to remember. Within one conversation, the application re-sends the whole conversation so far with every new message. The model only sees that text, which sits in its **context window**, the limited amount of text it can read in one request. The model itself keeps no state between requests. It is **stateless**, meaning each call starts from nothing except what you send.\n\nAn analogy is a goalkeeper who gets a fresh scouting sheet before every match and has no recollection of past matches. If nobody hands over last week's sheet, it does not exist for them. The analogy breaks down in one way: the model has no history to forget, because nothing was ever stored inside it.\n\nFor your assistant, this means your code has to do the remembering:\n\n- At the end of a session, save the facts worth keeping, such as a student's training status, to a file or database.\n- At the start of the next session, look up that student's record and put it into the context.\n- Choose what to save. Re-sending every past conversation would fill the context window and cost more tokens per request, which matters on your budget.\n\nA minimal sketch of the idea:\n\n```python\nsaved = {\"student_42\": {\"laser_cutter_trained\": True}}  # persisted between sessions\n\ndef build_messages(student_id, question):\n    facts = saved.get(student_id, {})\n    return [\n        {\"role\": \"system\", \"content\": f\"Known about this student: {facts}\"},\n        {\"role\": \"user\", \"content\": question},\n    ]\n```\n\nThe model \"remembers\" the training status only because `build_messages` put it in the text.\n\nQuestion: if a student told the assistant last week \"I'm only free after 6 pm\", what would your design need to do at the end of that session for the assistant to use it this week?\n\nIf you want more depth, I can write a lesson on context and memory, which is the next topic in your mission.",
+  "ttft_ms": 972,
+  "type": "result",
+  "duration_ms": 10623,
+  "uuid": "59c672f7-4632-4243-8280-56ed9acc8363",
+  "ttft_stream_ms": 586,
+  "time_to_request_ms": 77,
+  "first_content_frame_ms": 586,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1267,
+      "cacheReadInputTokens": 66981,
+      "cacheCreationInputTokens": 14161,
+      "webSearchRequests": 0,
+      "costUSD": 0.07602410000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 118,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 14161,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-20T19:38:56.831Z"
+}

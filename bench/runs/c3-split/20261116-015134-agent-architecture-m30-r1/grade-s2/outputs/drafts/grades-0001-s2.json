@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s2",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. An agent is defined by the cycle: the model picks an action, the program runs it, and the result returns for the next step. The tempting option (a), a longer prompt, only changes what a single call can do; it adds no loop."
+    },
+    {
+      "id": "q2",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. The model's output is only text: a structured request, meaning a formatted message with fixed fields, such as {\"tool\": \"check_calendar\", \"args\": {\"machine\": \"laser cutter\", \"date\": \"tomorrow\"}}. The program does the running, so option (a), where the model opens the booking system itself, fails because a model cannot act on anything outside its text output."
+    },
+    {
+      "id": "q3",
+      "verdict": "wrong",
+      "misconception": "M6",
+      "feedback": "Wrong. You chose (c), the belief that the agent will eventually fix the bug if left to run, but it receives the same failing test and repeats the same edit, so its 41st step is the same as the last 40. It is like a striker who takes the identical shot from the identical spot and keeps hitting the post: more attempts do not change the outcome, so the coach must intervene. The correct answer is (b), a step limit, because only the program around the model can end a loop the model will not leave, and it can then report what happened. A larger context window (a), the amount of text the model can read per call, fails because all 40 steps already fit; a longer prompt (d) fails because an instruction does not stop a loop."
+    },
+    {
+      "id": "q4",
+      "verdict": "partial",
+      "misconception": "M4",
+      "feedback": "Partial. Your count of 4 is right, but your reason is wrong: you wrote that the model 'runs' check_calendar, then search_manuals, then check_training_record. The model only outputs a request for each tool; the program around it runs the tool and sends the result back, so the model never executes anything. Think of a soccer manager who calls out the play while the players carry it out; counting the manager's calls gives 4 either way, but the roles differ. The count holds because the model is called once for the question and once per tool result: 1 + 3 = 4, with the final answer written on the fourth call."
+    },
+    {
+      "id": "q5",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. You gave both parts: the result goes back as the model's next input, and the model uses it to decide its next step. Your group-chat analogy holds because the model has no other way to see what the tool returned."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "Partial. The name is part of what the model sees, but the model chooses from the whole description the program gives it: name, purpose and parameters. A name alone cannot tell the model which arguments to send: check_calendar suggests a calendar lookup, but only the description says it needs a machine and a date. It is like a dataset column named x3: the name hints at the content, while the data dictionary gives the type and meaning you need. The correct answer is that the model picks the tool whose description (purpose and parameters) fits the request, which is why clear descriptions matter for your own tools."
+    }
+  ],
+  "summary": "Results: q1, q2 and q5 correct; q3 wrong; q4 and q6 partial. Work first on M6: an agent will not eventually fix a repeated failure, because the same step with the same feedback gives the same result, so the program needs a stopping condition such as a step limit. Next step: write a step limit for the makerspace assistant loop in Python (for example, stop after max_steps = 10) and the message it returns when the limit is hit."
+}

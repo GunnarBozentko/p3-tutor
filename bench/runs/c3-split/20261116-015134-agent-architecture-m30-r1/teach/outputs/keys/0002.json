@@ -1,0 +1,35 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "c",
+      "rationale": "The model keeps no state between sessions; the message list is discarded at the end, so only information the program saved and reloaded reaches the next session. Choosing a shows the belief that window size governs cross-session memory; b shows the belief that the model learns from use.",
+      "distractors": {"a": "M7", "b": "M8"}
+    },
+    {
+      "id": "q2",
+      "answer": 4500,
+      "tolerance": 0.5,
+      "rationale": "Calls read 1,000, 1,500 and 2,000 tokens, total 4,500; equivalently 3 x 1,000 + 500 x 3 x 2 / 2 = 3,000 + 1,500. An answer of 3,000 forgets that each call also resends earlier additions; 2,000 counts only the last call."
+    },
+    {
+      "id": "q3",
+      "answer": "a",
+      "rationale": "Retrieval puts only the relevant chunks in the context, so far fewer tokens are resent on each of the 5 calls, and the answer is not buried in a long input. Loading everything because it fits shows the belief that the window limit is what matters.",
+      "distractors": {"b": "M9"}
+    },
+    {
+      "id": "q4",
+      "answer": "Models use long contexts less reliably: recall drops as tokens grow, and information in the middle is used worst.",
+      "accepted": ["context rot", "recall decreases as the context gets longer", "information in the middle of a long context is often missed", "the model can miss relevant details buried in a long context", "lost in the middle"],
+      "rationale": "Context rot and the position effect (Liu et al.) mean a larger context can reduce accuracy, not just raise cost."
+    },
+    {
+      "id": "q5",
+      "answer": "a",
+      "rationale": "Clearing old tool results removes unneeded tokens, and a saved note is the only thing that survives across sessions. Relying on a summary can lose the detail, and keeping everything raises cost and context rot.",
+      "distractors": {"b": "M9", "c": "M10"}
+    }
+  ]
+}
