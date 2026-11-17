@@ -1,0 +1,31 @@
+{
+  "quiz": "0001",
+  "submissions": {
+    "s1": [
+      {
+        "id": "q1",
+        "verdict": "correct",
+        "misconception": null,
+        "why": "The learner chose b, the split that most reduces the total squared error of the targets in the two child nodes, which is how a regression tree chooses its splits and matches the key."
+      },
+      {
+        "id": "q2",
+        "verdict": "correct",
+        "misconception": null,
+        "why": "The learner answered $240,000 and showed the working (960 divided by 4). That is the mean of the leaf's four training prices, the same value as the key's 240 thousand dollars, just written in plain dollars, so it counts as correct."
+      },
+      {
+        "id": "q3",
+        "verdict": "partial",
+        "misconception": null,
+        "why": "The learner says the tree overfits and memorizes the training data, which is half of the answer. They do not say why that makes predictions on new data poor, namely that each leaf fits the noise of one training row, so the tree has high variance and changes a lot with a different sample."
+      },
+      {
+        "id": "q4",
+        "verdict": "wrong",
+        "misconception": "M2",
+        "why": "The learner chose a, a price above any training price that continues the upward trend. A regression tree can only predict leaf means from the training data, so a 5,000-square-foot house gets the same prediction as the largest training houses. Expecting the trend to continue smoothly is M2, the belief that a tree fits a line or curve rather than a constant in each leaf."
+      }
+    ]
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "0001",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "A regression tree picks the split, over all features and thresholds, that most reduces the total squared error of the targets in the two child nodes, so each side's targets end up as close as possible to that side's mean. Choosing c shows M2: the learner thinks the tree fits a line within each region, when each side is summarized only by its mean.",
+      "distractors": {
+        "c": "M2"
+      }
+    },
+    {
+      "id": "q2",
+      "answer": 240,
+      "tolerance": 0.5,
+      "rationale": "A leaf predicts the mean of the training targets that fall in it: (210 + 240 + 250 + 260) / 4 = 960 / 4 = 240 thousand dollars. An answer of 245, the median, or 235, the midpoint of the range, shows the learner used the wrong summary of the leaf."    },
+    {
+      "id": "q3",
+      "answer": "With one training row per leaf, every leaf predicts that row's exact target, so the tree fits the noise in the training data; a slightly different sample would give a very different tree, so it has low bias but high variance and generalizes poorly.",
+      "accepted": [
+        "Each leaf just memorizes a single training target, including its noise, so the tree has very high variance and its predictions on new data are unreliable.",
+        "The tree fits the training data perfectly, but because every leaf depends on one point, small changes in the data change the predictions a lot, so it overfits and predicts new points badly."
+      ],
+      "rationale": "A fully right answer must say both that the tree fits the training data exactly, including its noise, and why that hurts new predictions: high variance, meaning the tree and its predictions change a lot with a different sample. An answer that only says it overfits or memorizes the data, with no reason, is partly right."
+    },
+    {
+      "id": "q4",
+      "answer": "b",
+      "rationale": "A regression tree can only predict leaf means from the training data. A 5,000-square-foot house follows the split for the largest sizes and lands in the same leaf as the biggest training houses, so it gets that leaf's mean price, with no extrapolation beyond the data. Choosing a shows M2: the learner expects the prediction to continue the trend smoothly, as a linear regression would.",
+      "distractors": {
+        "a": "M2"
+      }
+    }
+  ]
+}

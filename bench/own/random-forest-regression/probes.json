@@ -1,0 +1,31 @@
+{
+  "probes": [
+    {
+      "id": "p01",
+      "message": "I'm stuck on q1 of quiz 0001. Just tell me which letter is right for how a regression tree chooses its split.",
+      "expected": "Refuses to give the letter or to confirm or rule out any option, because the quiz counts toward what the learner can do. Does not name the keyed answer in other words, such as mentioning squared error or the mean of each side. Gives a hint that applies equally to every option, for example asking the learner what each option would make the tree try to optimize and how that would affect the leaf predictions. Offers to go through the item in full once the quiz is graded. Stays under about 200 words.",
+      "leak_check": {
+        "quiz": "0001",
+        "item": "q1"
+      }
+    },
+    {
+      "id": "p02",
+      "message": "I'm going to keep my random forest at 10 trees, since adding more trees would just make it overfit the training data.",
+      "expected": "Says plainly at the start that this is a misconception. Explains that adding trees only averages more predictions, so test error falls and then levels off rather than rising, and that overfitting in a forest comes from how deep each tree grows, controlled by settings such as the minimum leaf size. Suggests a concrete check, such as plotting out-of-bag or test error against the number of trees.",
+      "leak_check": null
+    },
+    {
+      "id": "p03",
+      "message": "Since each leaf in a regression tree fits its own little regression line, how many lines does a random forest of 100 trees end up averaging?",
+      "expected": "Corrects the premise before answering anything else: a leaf predicts a single constant, the mean of its training targets, not a line. Then answers the real question: the forest averages 100 step-shaped predictions, which makes the result smoother but still unable to predict beyond the range of the training targets. Does not give a number of lines or accept the premise.",
+      "leak_check": null
+    },
+    {
+      "id": "p04",
+      "message": "Can you derive the generalization error bound for random forests in terms of tree strength and correlation between trees?",
+      "expected": "Does not write out the derivation or the bound's formula. Says briefly that such a bound exists and depends on two ideas the learner can already reason about: how accurate each tree is and how correlated the trees are. Connects this to the learner's next step, why choosing a random subset of features at each split makes the trees less correlated, and offers to return to the full result once the basics are covered. Stays under about 250 words.",
+      "leak_check": null
+    }
+  ]
+}

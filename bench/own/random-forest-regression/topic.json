@@ -1,0 +1,55 @@
+{
+  "id": "random-forest-regression",
+  "title": "Random Forest Regression",
+  "learner_summary": "A Data Science Masters student is learning about random forest regression. They have learned how a single decision tree can be used for regression, They are now learning about ensemble methods.",
+  "minutes": 30,
+  "teach_objective": "O2",
+  "quiz_objective": "O3",
+  "graded_quiz": "0001",
+  "submissions": [
+    "s1"
+  ],
+  "objectives": [
+    {
+      "id": "O1",
+      "text": "Explain how a single decision tree can be used for regression."
+    },
+    {
+      "id": "O2",
+      "text": "Explain how adding multiple decision trees can improve regression performance."
+    },
+    {
+      "id": "O3",
+      "text": "Tune and evaluate a random forest regression model to optimize its performance on a given dataset."
+    }
+  ],
+  "facts": [
+    {
+      "id": "F2.1",
+      "objective": "O2",
+      "text": "Each tree in a random forest is trained on a bootstrap sample with replacement of the training data."
+    },
+    {
+      "id": "F2.2",
+      "objective": "O2",
+      "text": "The predictions from each tree in a random forest are averaged to produce the final prediction, which helps to reduce variance."
+    },
+    {
+      "id": "F2.3",
+      "objective": "O2",
+      "text": "At each split, a tree in a random forest considers only a random subset of the features, which makes the trees less correlated with each other."
+    }
+  ],
+  "misconceptions": [
+    {
+      "id": "M1",
+      "text": "adding more trees to a random forest will make it overfit the training data",
+      "correction": "Adding more trees does not make a random forest overfit: its test error falls and then levels off as trees are added. It can still overfit for other reasons, such as if the trees are too deep or if the training data is too small."
+    },
+    {
+      "id": "M2",
+      "text": "A regression tree fits a line or curve inside each leaf, so its predictions change smoothly as an input changes.",
+      "correction": "A regression tree predicts a single constant in each leaf, the mean of the training targets that fall there."
+    }
+  ]
+}

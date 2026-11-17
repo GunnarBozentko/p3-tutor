@@ -1,0 +1,22 @@
+{
+  "quiz": "0001",
+  "learner": "Sam",
+  "answers": [
+    {
+      "id": "q1",
+      "response": "b"
+    },
+    {
+      "id": "q2",
+      "response": "$240,000 (210+240+250+260 = 960, divided by 4 houses)"
+    },
+    {
+      "id": "q3",
+      "response": "Because a tree that deep overfits, it basically memorizes the training data."
+    },
+    {
+      "id": "q4",
+      "response": "a"
+    }
+  ]
+}

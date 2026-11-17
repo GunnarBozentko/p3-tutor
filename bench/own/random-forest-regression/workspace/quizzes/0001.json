@@ -1,0 +1,44 @@
+{
+  "id": "0001",
+  "objective": "O1",
+  "title": "Regression trees: splits, leaves and predictions",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O1",
+      "stem": "A regression tree is deciding how to split a node. Which split does it choose?",
+      "options": [
+        {"id": "a", "text": "The split that puts the same number of training rows on each side"},
+        {"id": "b", "text": "The split that most reduces the total squared error of the targets in the two child nodes"},
+        {"id": "c", "text": "The split after which a straight line fits the targets on each side most closely"},
+        {"id": "d", "text": "The split at the median of the feature most correlated with the target"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O1",
+      "stem": "A leaf of a regression tree holds four training houses with prices of 210, 240, 250 and 260 thousand dollars. A new house lands in this leaf. What price does the tree predict?",
+      "unit": "thousand dollars"
+    },
+    {
+      "id": "q3",
+      "type": "short",
+      "objective": "O1",
+      "stem": "In one or two sentences, explain why a regression tree grown until every leaf holds a single training row tends to predict new data poorly."
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O1",
+      "stem": "A regression tree is trained on houses from 1,000 to 3,000 square feet, and prices rise steadily with size. What does it predict for a 5,000-square-foot house?",
+      "options": [
+        {"id": "a", "text": "A price above any training price, continuing the upward trend in the data"},
+        {"id": "b", "text": "The same price it predicts for the largest houses in the training data"},
+        {"id": "c", "text": "No prediction, because the input is outside the range it was trained on"},
+        {"id": "d", "text": "The average price of all the houses in the training data"}
+      ]
+    }
+  ]
+}
