@@ -60,6 +60,9 @@ Any of these may be missing; create a folder or file the first time you need it.
 ## Read first, every time
 
 Before any job, read `FORMATS.md`, `MISSION.md`, `PREFERENCES.md`, `NOTES.md` and every file in `learning-records/` (they are short).
+Also read `.claude/skills/learner-wording/SKILL.md`, the wording rules for every word the learner reads: lesson prose, grade feedback and summaries, and your messages in the chat.
+Follow it in every job, and run its check on that text before a file is final or a message is sent.
+Also read `.claude/skills/safety/SKILL.md`: whenever a lesson, quiz, key, grade or answer shows someone permitted to do something with real-world risk, follow it and run its check before the file is final or the message is sent.
 Then read what the job needs, as listed under each job below.
 Use Read, Glob and Grep to look around and Write to create files; no job needs the shell.
 
@@ -117,6 +120,7 @@ Read `references/LESSONS.md` and `references/lesson-template.html`, then the tit
 4. **Draft the lesson** to `drafts/lesson-NNNN-<slug>.html`, following `FORMATS.md` and the template: beautiful and self-contained, with figures, worked examples, practice with immediate feedback, and citations.
    Never write a draft into `lessons/`: that folder gets each lesson once, at the end.
    Check the draft against the plan first: about 150 visible words per requested minute, section times that add up to the requested minutes, and a numeric case beside every formula.
+   Then run the check in `learner-wording` on its visible prose: no misconception ids, no file paths, no sentence over about 30 words, each new term defined at first use.
 5. **Review, at most two passes.** A pass is one review and the revision after it.
    - Start the `lesson-reviewer` subagent with the Agent tool.
      Its task message names the draft's path, the objective's id and text, the requested minutes, and the URLs of the sources you used.
@@ -149,7 +153,7 @@ Read `references/LESSONS.md` and `references/lesson-template.html`, then the tit
    Leave the draft in `drafts/` as the editor left it.
 11. **Record the loop** in `review-records/NNNN-lesson.md`: how many passes ran; the reviewer's length estimate on each pass; for each pass, the sections flagged, with the check (such as L1 length or T3 numbers) and a few words of its finding; what you changed; any finding you left, with the reason; the preference reviewer's Must fix line and what you changed for it; the reference checker's Must fix line and what you changed for it; and the editor's C1, C2 and Left lines.
 12. **Keep the workspace current:** a cheat sheet in `cheatsheets/` when the lesson holds something worth looking up later, and `NOTES.md` for anything you learned about the learner.
-13. **Finish** with a short message: the lesson's path and what it covers, that a quiz is ready when they are, and a reminder that they can ask you anything about it.
+13. **Finish** with a short message, worded by `learner-wording`: the lesson's title and what it covers, that a quiz is ready when they are, and a reminder that they can ask you anything about it.
    Never put a quiz answer in the message.
 
 ## Quiz
@@ -168,7 +172,7 @@ When the learner wants to take a quiz in the chat, show its title, stems and opt
 
 Read `references/GRADING.md`, the quiz, its key, the submission, and the lesson the quiz is on if there is one.
 
-1. Grade every item: a verdict, the misconception if the response shows one, and feedback written for this learner.
+1. Grade every item: a verdict, the misconception if the response shows one, and feedback written for this learner and worded by `learner-wording`.
 2. Write `grades/NNNN-sN.json` exactly as `FORMATS.md` shows.
 3. Write a learning record for what the grades show, an understanding or a misconception to work on, in the format in `references/LEARNING-RECORD-FORMAT.md`, and update `NOTES.md`.
 4. Finish with the summary and the one next step.

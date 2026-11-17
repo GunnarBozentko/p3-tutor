@@ -2,5 +2,19 @@
   "permissions": {
     "allow": ["WebSearch", "WebFetch"],
     "deny": ["Agent(p3-guide)"]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Read|Grep|Glob|Bash|PowerShell",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python \"$CLAUDE_PROJECT_DIR/.claude/hooks/keys_guard.py\"",
+            "onFailure": "block"
+          }
+        ]
+      }
+    ]
   }
 }
