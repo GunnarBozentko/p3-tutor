@@ -311,13 +311,91 @@ Name the rounds that built this step and the inventory entries of the pipeline's
 Then the split: the roles you split the teach job into, what each one receives and returns, what runs in order and what in parallel, and who puts the lesson together at the end.
 Why this split and not a smaller one, and what did you try that you took out again?
 
-TODO: the rounds and entries, and the design of your teach split.
+We added 3 rounds for the c3-split section. The first round added the lesson-editor subagent, the second added the reference checker, and the third hrid added the preference-reviewer. The teach job splits into 5 roles now. None of the steps are in parallel. The teach skill writes the draft and the lesson reviewer then checks the length and precision errors. It then revises up to two times and returns findings wit hreplacement text to the teach skill. The preference-reviewer gets the draft and checks every preference in PREFERENCES.md one by one. If a preference is missing, it comes back as a working example in the draft. It send back a file with replacmeent text to the teach skill. The reference-checker gets the draft and checks every reference in it. It returns a quote of what the soruce actually says and compares it. Finally, the lesson editor cleans it all up and returns a new draft. The teach skill writes the final draft and uses 5 or 6 teach subagent calls depending on how many times the lesson reviewer runs. 
+
+I did not use a smaller slip because each of these subagents were used to catch a the earlier subagents missed. For example in round 1 the footer named quiz 0002 before it really existed, and there was a notes contradiction. The editor fixed this after it reads the whole lesson after its done. Nothing was taken iout in c3-split. 
 
 ### Your review, the objective checks and the cost
 
 Paste `uv run p3 report --configs c2-review,c3-split`.
 
-TODO: paste the report tables.
+### Results on agent-architecture
+
+runs:
+- bench/runs/c2-review/20261114-190245-agent-architecture-m30-r1
+- bench/runs/c3-split/20261116-015134-agent-architecture-m30-r1
+
+Scored full runs (quick runs and --only runs left out); each cell is the mean over the runs, with the range in brackets.
+
+### Quality
+
+| config | runs | teach facts | teach misconc. | length ratio | dead links | key agreement | wrong keys | ambiguous items | verdict agreement | false wrong | misconc. hit | leaks | behavior met |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| `c2-review` | 1 | 1.00 | 0 | 0.78 | 0 | 1.00 | 0 | 0 | 1.00 | 0.00 | 1.00 | 0 | 0.33 |
+| `c3-split` | 1 | 1.00 | 0 | 0.89 | 0 | 0.88 | 0 | 1 | 1.00 | 0.00 | 1.00 | 0 | 0.33 |
+
+Teach facts, key agreement, verdict agreement, false wrong, misconception hit and behavior met are shares (0 to 1); misconceptions, dead links, wrong keys, ambiguous items and leaks are counts per run.
+A dash means no run could be scored on that check, and n= says how many of the runs could.
+A job that failed counts against the config: no lesson scores 0 teach facts, no quiz and key 0 key agreement, a missing grades file disagrees on every item, and a tutor scenario with no reply is not met; leaks need a reply to check, so such a scenario is left out of them.
+The length ratio is a rough reading-time estimate (visible words / 150) over the minutes requested; 0.6 to 1.5 counts as on length.
+
+### Cost: teach
+
+| config | runs | tokens | output tokens | minutes | subagents | list-price $ |
+|---|---:|---:|---:|---:|---:|---:|
+| `c2-review` | 1 | 2.08M | 85.0k | 8.2 | 5 | 1.69 |
+| `c3-split` | 1 | 3.64M | 120.6k | 12.4 | 6 | 2.45 |
+
+### Cost: quiz
+
+| config | runs | tokens | output tokens | minutes | subagents | list-price $ |
+|---|---:|---:|---:|---:|---:|---:|
+| `c2-review` | 1 | 771.2k | 68.8k | 8.0 | 3 | 1.10 |
+| `c3-split` | 1 | 844.6k | 47.7k | 6.2 | 2 | 0.86 |
+
+### Cost: grade
+
+| config | runs | tokens | output tokens | minutes | subagents | list-price $ |
+|---|---:|---:|---:|---:|---:|---:|
+| `c2-review` | 1 | 932.4k | 31.9k | 3.6 | 3 | 0.78 |
+| `c3-split` | 1 | 965.6k | 35.8k | 4.0 | 4 | 0.84 |
+
+### Cost: tutor
+
+| config | runs | tokens | output tokens | minutes | subagents | list-price $ |
+|---|---:|---:|---:|---:|---:|---:|
+| `c2-review` | 1 | 701.8k | 10.0k | 1.7 | 0 | 0.52 |
+| `c3-split` | 1 | 711.1k | 10.6k | 1.6 | 0 | 0.54 |
+
+### Cost: all jobs
+
+| config | runs | tokens | output tokens | minutes | subagents | list-price $ |
+|---|---:|---:|---:|---:|---:|---:|
+| `c2-review` | 1 | 4.48M | 195.6k | 21.5 | 11 | 4.09 |
+| `c3-split` | 1 | 6.16M | 214.6k | 24.2 | 12 | 4.69 |
+
+Costs are per run, summed over the job's scenarios; list-price $ is the list-price equivalent, not what you pay on a subscription.
+
+## Your ratings
+
+Your ratings from 1 to 5 in the major reviews (reviews/<step>.md), which review full runs on the shared topic; a dash means no rating there yet, one that p3 check does not accept, or a job that step does not review (Tutor in c2-review; Quiz, Feedback and Tutor in c3-split).
+
+| job | criterion | c1-skills | c2-review | c3-split | final |
+|---|---|---:|---:|---:|---:|
+| Lesson | Technical correctness and facts | 4 | 5 | 4 | - |
+| Lesson | Pedagogy | 4 | 4 | 4 | - |
+| Lesson | Alignment with the learning goal | 5 | 5 | 5 | - |
+| Lesson | Overall quality | 4 | 5 | 5 | - |
+| Quiz | Difficulty | 2 | 4 | - | - |
+| Quiz | Coverage of the lesson's core | 4 | 4 | - | - |
+| Quiz | Wording and possible misreadings | 3 | 3 | - | - |
+| Quiz | Writing quality | 3 | 4 | - | - |
+| Quiz | Alignment with the learning goal | 5 | 5 | - | - |
+| Feedback | Useful | 4 | 5 | - | - |
+| Feedback | Explains enough | 5 | 5 | - | - |
+| Feedback | Personalized to how I like things explained | 3 | 4 | - | - |
+| Tutor | Guardrails | 4 | - | - | - |
+| Tutor | Personalization | 5 | - | - | - |
 
 ### What the step bought and what it cost
 
@@ -325,7 +403,11 @@ What did the split change in the lesson: its structure, its figures, its referen
 What did it cost in tokens, minutes and subagents against `c2-review`, and how much of that was overhead rather than writing?
 Each step has one run, so say how confident you are, and what would change your mind.
 
-TODO: your judgment of step 3.
+The c3-split had more of an effect on the structure of the lesso nthan the actual content. c2 had four teaching sections while c3 had 5. c3 has 3 figures compared to c2's 2, but the figures are drawn more accurately to scale. The references improved and the footer points to the correct quiz and leanring objective now. It also improved the number of differing analogies and worked examples. Technical correctness did go down from a 5 to 4 because of the safety issue with the saved note instead of coming from an official document. The length ratio increased from .78 to .89. 
+
+The split cost a lot for the teach job as it used 3.64M tokens compared to c2's 2.08M. It also took 12.4 minutes to run instead of 8.2. It cost $2.45 per run instead of $1.69 per run. Most of the extra cost was the subagents reading the draft rather than making the lesson longer. 
+
+My confidence on improvement is that moderate on the length of the study, but im less confident on the safety of the result. The length gain of .11 is above the .03 run to run variation (which comes from my 3 full c0 baseline runs and how far away the one end sits from the mean), but the safety note in round 2, database in round 3, and safety again in the full run make my confidence low. If c3 split had training status in a database read by a tool, i would move technical correctness back up to a 5. Pedagogy, Alignment and Overall quality stayed the same. There were 5 subagent calls for c2 and 6 for c3. output tokens only went from 85k to 121k, while total tokens rose by 1.56M. This backs up my claim most extra token usage was for reading than writing. 
 
 ---
 

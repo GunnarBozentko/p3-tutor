@@ -85,25 +85,25 @@ An example of a finished entry:
 
 - Kind: subagent
 - Step added: c3-split
-- Purpose: TODO
+- Purpose: A subagent with fresh context that reads the lesson after the draft finishes to make sure each section states facts the same way and there are no inconsistencies.
 - With and without: reviews/c3-split.md, Round 1 (without) and Round 2 (with)
-- Review: TODO
+- Review: Resolved a notes contradiction but lead to more issues with safety for an example in the lesson and the quiz footer. It wrote the footer as “quiz 0002, on this lesson, O3” without even opening the quiz, whcih was not true in this run, giving incorrect information.
 - Kept in final: TODO
 
 ### reference-checker
 
 - Kind: subagent
 - Step added: c3-split
-- Purpose: TODO
+- Purpose: A subagent with fresh context that opens all worksapce files the section names and pulls out quotes to amek sure the information in the lesson matches the reference.
 - With and without: reviews/c3-split.md, Round 2 (without) and Round 3 (with)
-- Review: TODO
+- Review: Corrected the quiz footer and cited records from their actual titles. it did a very good job. The Round 3 lesson with a legnth ratio of .88 corrected a footer since quiz 0002’s objective really was O3.
 - Kept in final: TODO
 
 ### preference-reviewer
 
 - Kind: subagent
 - Step added: c3-split
-- Purpose: TODO
+- Purpose: A subagent with fresh context that checks every preference in PREFERENCES.md one by one to make sure they are all included in the lesson.
 - With and without: reviews/c3-split.md, Round 3 (without) and Round 4 (with)
-- Review: TODO
+- Review: Before this subagent, a soccer example was missing. After adding it, the soccer example was added as well as math proofs and coding examples. It also opened each section with a concrete example. This subagent performed very well. The full c3-split teach run costed $2.45 and took 12.4 minutes per run. This is compared against c2-review’s $1.69 and 8.2 minutes. We do not know the exact amount each skill led to this cost. 
 - Kept in final: TODO
