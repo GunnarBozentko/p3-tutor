@@ -1,0 +1,44 @@
+{
+  "id": "0001",
+  "objective": "O1",
+  "title": "The parts of a penalty kick",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O1",
+      "stem": "In a penalty kick, what is the follow-through?",
+      "options": [
+        {"id": "a", "text": "The run of steps the kicker takes toward the ball before striking it"},
+        {"id": "b", "text": "The kicking leg continuing to swing toward the target after it strikes the ball"},
+        {"id": "c", "text": "Striking the ball as hard as possible so the shot finishes with full power"},
+        {"id": "d", "text": "The kicker's eyes staying on the goalkeeper until the ball is struck"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O1",
+      "stem": "The approach starts from behind the penalty mark. Under the Laws of the Game, how far is the penalty mark from the goal line?",
+      "unit": "meters"
+    },
+    {
+      "id": "q3",
+      "type": "short",
+      "objective": "O1",
+      "stem": "Name the five parts of a penalty kick in the order they happen."
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O1",
+      "stem": "Where should the non-kicking (plant) foot go when taking a penalty?",
+      "options": [
+        {"id": "a", "text": "Well behind the ball, to give the kicking leg a longer swing and more power"},
+        {"id": "b", "text": "Beside the ball, roughly level with it, with the toes pointing at the target"},
+        {"id": "c", "text": "In front of the ball, so the body leans back over the kicking leg"},
+        {"id": "d", "text": "Anywhere that feels comfortable, since it does not change the shot"}
+      ]
+    }
+  ]
+}

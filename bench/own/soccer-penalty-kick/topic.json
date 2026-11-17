@@ -1,0 +1,55 @@
+{
+  "id": "soccer-penalty-kick",
+  "title": "Improving Penalty Kicks",
+  "learner_summary": "The learner is a young soccer player who wants to improve their penalty kick. They have learned the basic technique of a penalty kick and are now learning how to improve their accuracy and power.",
+  "minutes": 30,
+  "teach_objective": "O2",
+  "quiz_objective": "O3",
+  "graded_quiz": "0001",
+  "submissions": [
+    "s1"
+  ],
+    "objectives": [
+    {
+      "id": "O1",
+      "text": "Identify the parts of a penalty kick: the approach, the plant foot, the striking surface, the contact point on the ball and the follow-through."
+    },
+    {
+      "id": "O2",
+      "text": "Explain how the plant foot, the part of the foot that strikes the ball and the body's lean change a penalty kick's accuracy, power and height."
+    },
+    {
+      "id": "O3",
+      "text": "Choose a penalty strategy against a goalkeeper, deciding when to pick a side in advance and when to watch the keeper, and explain the trade-off."
+    }
+  ],
+  "facts": [
+    {
+      "id": "F2.1",
+      "objective": "O2",
+      "text": "Striking with the inside of the foot gives more accuracy but less power than striking with the laces."
+    },
+    {
+      "id": "F2.2",
+      "objective": "O2",
+      "text": "Planting the non-kicking foot beside the ball, pointing at the target, helps direct the shot toward that target."
+    },
+    {
+      "id": "F2.3",
+      "objective": "O2",
+      "text": "Leaning back at contact tends to send the ball higher and can put it over the bar, while keeping the body over the ball keeps the shot lower."
+    }
+  ],
+  "misconceptions": [
+    {
+      "id": "M1",
+      "text": "Hitting a penalty as hard as possible is always the best way to score.",
+      "correction": "Placement matters as much as power: a well-placed shot near a corner is hard to save even at moderate speed, while a full-power shot is easier to miss the target with or to hit straight at the keeper."
+    },
+    {
+      "id": "M2",
+      "text": "The plant foot should be placed well behind the ball to get a longer swing and more power.",
+      "correction": "The plant foot goes beside the ball, roughly level with it. planting the foot far behind makes the kicker reach for the ball, which tends to lift it high and makes the direction less reliable."
+    }
+  ]
+}

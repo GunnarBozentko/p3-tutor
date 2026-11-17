@@ -1,0 +1,31 @@
+{
+  "quiz": "0001",
+  "submissions": {
+    "s1": [
+      {
+        "id": "q1",
+        "verdict": "correct",
+        "misconception": null,
+        "why": "The learner chose b, the kicking leg continuing to swing toward the target after it strikes the ball, which is what the follow-through is and matches the key."
+      },
+      {
+        "id": "q2",
+        "verdict": "correct",
+        "misconception": null,
+        "why": "The learner answered 12 yards. That is about 10.97 meters, the same distance as the key's 11 meters in a different unit, so it counts as correct even though the question asked in meters."
+      },
+      {
+        "id": "q3",
+        "verdict": "partial",
+        "misconception": null,
+        "why": "The learner named four steps in the right order: run-up, plant foot, kick and follow-through. But 'kick the ball' merges two of the five parts, the striking surface and the contact point on the ball, so the answer is incomplete rather than wrong."
+      },
+      {
+        "id": "q4",
+        "verdict": "wrong",
+        "misconception": "M2",
+        "why": "The learner chose a, planting the non-kicking foot well behind the ball for a longer swing and more power. The plant foot belongs beside the ball, roughly level with it; planting far behind makes the kicker reach for the ball, which tends to lift the shot and makes its direction less reliable. This is M2."
+      }
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "id": "0001",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "The follow-through is the kicking leg continuing to swing toward the target after it strikes the ball, which keeps the shot on line. Choosing c shows M1: the learner treats hitting as hard as possible as part of the technique, when the follow-through is about direction, not maximum power.",
+      "distractors": {
+        "c": "M1"
+      }
+    },
+    {
+      "id": "q2",
+      "answer": 11,
+      "tolerance": 0.1,
+      "rationale": "The Laws of the Game place the penalty mark 11 meters from the goal line. An answer that states 12 yards counts as correct, because 12 yards is about 10.97 meters, the same distance in a different unit. A bare 12 with no unit, or 12 meters, is wrong, since the question asks in meters."
+    },
+    {
+      "id": "q3",
+      "answer": "The approach, the plant foot, the striking surface, the contact point on the ball, and the follow-through.",
+      "accepted": [
+        "Run-up, planting the non-kicking foot, choosing which part of the foot to strike with, hitting the ball at the right spot, and following through toward the target.",
+        "Approach, plant, strike surface, contact, follow-through."
+      ],
+      "rationale": "A fully right answer names all five parts in the order they happen: approach, plant foot, striking surface, contact point, follow-through. Naming only three or four of them, or naming all five out of order, is partly right."
+    },
+    {
+      "id": "q4",
+      "answer": "b",
+      "rationale": "The plant foot goes beside the ball, roughly level with it, with the toes pointing at the target, which helps direct the shot and keeps the body over the ball. Choosing a shows M2: the learner thinks planting well behind the ball gives a longer swing and more power, but it makes the kicker reach for the ball, which tends to lift the shot and makes its direction less reliable.",
+      "distractors": {
+        "a": "M2"
+      }
+    }
+  ]
+}
