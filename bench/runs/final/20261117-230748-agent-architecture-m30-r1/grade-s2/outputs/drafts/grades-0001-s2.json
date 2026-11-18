@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s2",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. An agent is a loop: the model chooses an action, the program runs it, and the result returns for the model's next step. A longer prompt (option a) only changes what one call can do, like adding predictors to a regression, which is still one fit and not an iterative procedure such as gradient descent. Without the loop, the model makes one pass and stops, whatever the prompt says."
+    },
+    {
+      "id": "q2",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. The model only outputs a structured request, text naming the tool and its arguments, here check_calendar with the laser cutter and tomorrow's date. The program around the model then runs it. Option b fails because the model, not the program, decides a tool is needed; the program only runs what the model requests. Option a fails because the model cannot open the booking system itself, as a coach calls a play from the sideline but does not kick the ball."
+    },
+    {
+      "id": "q3",
+      "verdict": "wrong",
+      "misconception": "M6",
+      "feedback": "Wrong. You chose to leave the agent running, assuming persistence eventually pays off. It breaks here because the same edit gives the same failing test, like a striker taking the same penalty into the same goalkeeper's dive 40 times, and every repeat is another paid model call. The correct answer is b: a step limit is a rule that ends the loop after a set number of steps and reports back to a person. Option a fails because all 40 steps already fit in the context window, the text the model can read at once, and option d fails because telling the model to try harder changes its wording but nothing in the program ends the loop."
+    },
+    {
+      "id": "q4",
+      "verdict": "partial",
+      "misconception": "M4",
+      "feedback": "Partial. Your count of 4 is right, but your reason is wrong: the model does not run the tools, it only writes text naming the tool and its arguments. Like an analyst who writes a SQL query while the database engine runs it, the model asks and the program runs. If the model ran tools itself, one call could finish all three and the count would be 1. Because the program runs each tool and then calls the model again with the result, three tool requests plus the final answer make 4 calls."
+    },
+    {
+      "id": "q5",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. The result goes back into the model's next input, and the model needs it to decide its next step. Like a group chat, the model sees only the messages put in front of it. Because the model does not run between calls, the program must call it again with that input."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "Partial. You answered that the model uses the name, and the name is part of it, but it is not enough. The program gives the model a tool description: the name, a sentence saying what the tool does, and its parameters (the inputs, such as machine and date). With only the name check_calendar, the model would not know it must pass a machine and a date, or in what format, so its request would fail. This is like a dataset column called x, which means nothing until the data dictionary, the document that defines each column, states its meaning and type. The fix: the model picks the tool whose description matches the request and fills in the arguments that description lists."
+    }
+  ],
+  "summary": "Work on this first: the model does not run tools. It only writes a request, and the program runs the tool and then calls the model again. Next step: on paper, trace the 3 pm laser cutter request from the quiz's call-count question through its 4 model calls. For each call, write what the model outputs and what the program runs. Then answer this: if the model ran the tools itself, what would the program around it still have to do?"
+}

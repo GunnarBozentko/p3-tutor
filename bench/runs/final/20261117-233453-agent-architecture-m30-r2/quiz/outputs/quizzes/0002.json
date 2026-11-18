@@ -1,0 +1,104 @@
+{
+  "id": "0002",
+  "objective": "O4",
+  "title": "Workflows, agents and when to use each",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Definition: Which of these best defines a workflow, in the sense used when designing systems built on language models?",
+      "options": [
+        {"id": "a", "text": "A system that sends every request through the same prompt text, changing only the student's message"},
+        {"id": "b", "text": "Any system that makes several separate calls to a language model while handling one single user request"},
+        {"id": "c", "text": "A system where the program's code fixes the sequence of steps, and model calls sit inside those steps"},
+        {"id": "d", "text": "A system that wraps a single model call in a prompt template, so each request gets one model response"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Definition: Which of these best defines an agent, in the same sense?",
+      "options": [
+        {"id": "a", "text": "A system that gives a language model access to at least one tool"},
+        {"id": "b", "text": "A system where the model directs its own process, choosing which tools to use as it goes"},
+        {"id": "c", "text": "A system that runs several model calls at the same time and combines their answers"},
+        {"id": "d", "text": "A system where the model drafts an answer and code feeds it back for revision a fixed number of times"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "short",
+      "objective": "O4",
+      "stem": "Definition: In one phrase, what does \"control flow\" mean in a system built on a language model?"
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Definition: Which of these best defines an agentic system?",
+      "options": [
+        {"id": "a", "text": "A general term for any system that is either a workflow or an agent"},
+        {"id": "b", "text": "Another name for an agent, meaning any system that uses a model to handle a user's request"},
+        {"id": "c", "text": "A workflow in which a second model call checks the first model call's answer"},
+        {"id": "d", "text": "A system in which several agents divide one request between them"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O4",
+      "stem": "Definition: In one sentence, what normally ends an agent's loop when nothing goes wrong?"
+    },
+    {
+      "id": "q6",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Application: Your makerspace assistant works like this. Python code asks a model to label each student message as 'manual question', 'calendar question' or 'booking'. For 'manual question' the code runs search_manuals and asks the model once to summarize the result. For 'calendar question' it runs check_calendar and asks the model once to phrase the answer. For 'booking' it runs check_calendar, then book_slot, then asks the model to write a confirmation. Which description fits best?",
+      "options": [
+        {"id": "a", "text": "A workflow: the label picks a branch, and code runs every step after it"},
+        {"id": "b", "text": "An agent: the model decides how each request is handled, so it directs the process"},
+        {"id": "c", "text": "An agent: three tools are available and the model writes every reply the student reads"},
+        {"id": "d", "text": "An agent: the model is called more than once while one request is handled"}
+      ]
+    },
+    {
+      "id": "q7",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Application: A student arrives to use the laser cutter and finds that the booking was made although their training was not on record. Which design for the booking step would have made this impossible?",
+      "options": [
+        {"id": "a", "text": "An agent given both tools, with the training check listed first in its instructions"},
+        {"id": "b", "text": "An agent that is told to ask the student to confirm their training before it books"},
+        {"id": "c", "text": "A fixed workflow where code checks the training record and only then runs the booking tool"},
+        {"id": "d", "text": "An agent followed by a second model call that reviews each booking and flags any without training"}
+      ]
+    },
+    {
+      "id": "q8",
+      "type": "numeric",
+      "objective": "O4",
+      "stem": "Application: Model usage costs $2 per million tokens, input and output together. A fixed workflow uses about 2,400 tokens per request and an agent averages 11,000 tokens per request. The team has $20 for model usage and expects 2,000 requests. Every request not sent to the agent goes through the workflow. What is the largest whole number of requests that can be sent to the agent without exceeding the budget?",
+      "unit": "requests"
+    },
+    {
+      "id": "q9",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Application: Which request to the makerspace assistant most justifies letting an agent, rather than a fixed workflow, control the steps?",
+      "options": [
+        {"id": "a", "text": "A student asks whether a 40 cm acrylic sheet fits the laser cutter; the size limits are in a table in the manual"},
+        {"id": "b", "text": "A student asks to book the laser cutter on Friday afternoon, which needs training on record"},
+        {"id": "c", "text": "A student asks for a list of their bookings this term, which the calendar tool returns in one call"},
+        {"id": "d", "text": "A student says their prints keep failing halfway through and asks what to change"}
+      ]
+    },
+    {
+      "id": "q10",
+      "type": "short",
+      "objective": "O4",
+      "stem": "Application: At a design review, your sponsor proposes a feature that emails every student a fixed safety checklist after each booking, and asks why it should not be handled by the same agent as the rest of the assistant, since agents are more flexible. In one or two sentences, state your recommendation and one reason for it."
+    }
+  ]
+}

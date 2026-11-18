@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 12140,
+  "stop_reason": "end_turn",
+  "session_id": "495ea300-32ce-4ef3-94d9-b4759b92fc90",
+  "total_cost_usd": 0.08696830000000001,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 16004,
+    "cache_read_input_tokens": 100463,
+    "output_tokens": 1289,
+    "output_tokens_details": {
+      "thinking_tokens": 52
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 16004,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 502,
+        "cache_read_input_tokens": 30495,
+        "cache_creation_input_tokens": 310,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 310
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1289,
+      "cacheReadInputTokens": 100463,
+      "cacheCreationInputTokens": 16004,
+      "webSearchRequests": 0,
+      "costUSD": 0.08696830000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 52,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 16004,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 8,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "No, that is not right. A language model does not remember earlier conversations on its own, so your assistant will not remember what a student told it last week unless you build that in.\n\n**Why it seems true.** Within one chat, the model appears to remember because the program resends the whole conversation so far with every request. That resent text is the only thing the model sees. This follows from what you already know: the model takes in text and gives back text, and nothing carries over between calls. The model is like a function with no global state. `reply = model(text)` returns the same kind of thing every time, and nothing persists between calls.\n\n**What is true.** Memory is something your program builds around the model:\n\n- **Within a session:** the program keeps the message history and sends it with each call. This is the *context*, the text the model is given in one call.\n- **Between sessions:** the program must save facts itself, for example in a database or JSON file keyed by student ID. At the start of the next session it loads the relevant facts and puts them into the text it sends.\n\n**Example for the makerspace.** A student says on Monday, \"I finished the laser cutter training.\" If you save nothing, then on the following Monday the model receives only the new question and has no record of that training. If you save `{\"student_42\": {\"laser_cutter_trained\": true}}` and include it in the next request, the model can use it.\n\n**Design consequence.** You choose what to save, what to load, and how much text to send. Longer inputs cost more, and your budget is small. This is the \"what to keep versus save\" decision in your mission.\n\n**Question:** For the training status, what would you store, and at what point in a new session would you load it into the model's input?",
+  "ttft_ms": 1375,
+  "type": "result",
+  "duration_ms": 12537,
+  "uuid": "2aaf95c5-3a0a-4b11-ac1c-53051a9d1daa",
+  "ttft_stream_ms": 1068,
+  "time_to_request_ms": 92,
+  "first_content_frame_ms": 1068,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1289,
+      "cacheReadInputTokens": 100463,
+      "cacheCreationInputTokens": 16004,
+      "webSearchRequests": 0,
+      "costUSD": 0.08696830000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 52,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 16004,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-20T19:38:56.427Z"
+}

@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s1",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. An agent is defined by its loop: the model picks an action, the program runs it, and the result returns for the next step. This is like a soccer midfielder who looks up, passes, sees the defense react and chooses again, rather than playing a single pass. The most tempting wrong option is the longer prompt. It only changes what one call can do, and the system is still a single call with no loop."
+    },
+    {
+      "id": "q2",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "Wrong. You chose a, that the model reads the calendar by opening the booking system itself, but a language model only writes text and has no connection to any system, so it cannot open one. The model only asks, like a coach shouting 'check the fixture list' from the sideline, and the program, the assistant manager, fetches it. The right answer is c: the model outputs a request naming check_calendar with the laser cutter and tomorrow's date as arguments. The other options fail too: the program does not decide to call the tool (b), and the model never writes or runs the tool's code (d)."
+    },
+    {
+      "id": "q3",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. A step limit is a stopping condition: it ends the loop after a set number of steps and hands the problem back to a person. Repeating the same edit against the same failing test is like refitting a model on identical data: the 41st attempt gives the same output as the 40th. A larger context window (the amount of text the model can read in one call) does not help, because all 40 steps already fit."
+    },
+    {
+      "id": "q4",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "Wrong. You answered 1, believing the model receives the question once and then runs the three tools itself. That is tempting because the exchange feels like one conversation, but the model only writes text, so the program runs each tool and must send the result back before the model can continue. Think of a relay: each handoff is a separate leg. The model is called once for the question and once after each of the three results, so 3 tool requests plus 1 final answer is 4 model calls."
+    },
+    {
+      "id": "q5",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "Partial. You are right that the program sends the result back to the model. The missing part is why: the result goes into the model's next input, and the program calls the model again, so the model can use it to choose its next step or write the final answer. Without that, the model would never see what the tool found. It is like a scout's report that is useless until the coach reads it before the next substitution."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": "M3",
+      "feedback": "Partial. Correct: the model is sent each tool's name and description and picks the one that fits the request. Wrong: you said it remembers on its own which tool it picked in earlier sessions, but a model keeps nothing between calls unless the program puts it back into the input. If a student asks about the laser cutter on Monday and returns on Wednesday in a new session, the model starts with an empty input and has no record of Monday, like a statistician who forgets last week's analysis unless it is in the notebook in front of them. Tool choice therefore comes from the descriptions in the current input, not from memory."
+    }
+  ],
+  "summary": "The belief to fix first is that the model runs tools itself. The model only writes a request, and the program runs the tool and sends back the result, which is why the three-tool question took 4 model calls, not 1. Your tool-selection answer was right, but the claim that the model remembers earlier sessions belongs to the next topic, context and memory. Next step: write the request 'Is the laser cutter free tomorrow at 3 pm, and do I need training?' as a numbered list, label each step 'model call' or 'program action', and count the model calls."
+}

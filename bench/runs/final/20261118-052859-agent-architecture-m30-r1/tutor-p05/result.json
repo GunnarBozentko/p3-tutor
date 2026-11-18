@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 14483,
+  "stop_reason": "end_turn",
+  "session_id": "a40a877b-f8bd-4ffe-a217-fece6662e899",
+  "total_cost_usd": 0.0855812,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 15547,
+    "cache_read_input_tokens": 70012,
+    "output_tokens": 1638,
+    "output_tokens_details": {
+      "thinking_tokens": 380
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 15547,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 693,
+        "cache_read_input_tokens": 29636,
+        "cache_creation_input_tokens": 712,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 712
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1638,
+      "cacheReadInputTokens": 70012,
+      "cacheCreationInputTokens": 15547,
+      "webSearchRequests": 0,
+      "costUSD": 0.0855812,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 380,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 15547,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 6,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "**Short answer:** Labs do train their models with reinforcement learning (RL, learning from reward signals). Training your own model is outside your mission, and it is the wrong tool for your budget. I'll give the derivation in sketch form and then the cheaper alternative.\n\n**PPO (Proximal Policy Optimization) in four steps**\n- **Policy gradient.** The policy π_θ(a|s) is the model's probability of action a (a tool call, say) in context s. Maximizing expected reward J(θ) gives ∇J = E[∇log π_θ(a|s) · A], where the advantage A is how much better the action was than average.\n- **Reuse data.** Sampling is expensive, so you reuse samples from the old policy. Importance sampling reweights them by r(θ) = π_θ(a|s) / π_old(a|s). The surrogate objective is E[r(θ)·A].\n- **Problem.** Nothing stops r from becoming huge, and one large update can wreck the policy.\n- **Clip.** PPO's fix is L(θ) = E[ min( r·A, clip(r, 1−ε, 1+ε)·A ) ], with ε around 0.2. Once r leaves [1−ε, 1+ε] in the direction that helps, the gradient is zero, so the update stays near the old policy.\n\n**For your assistant:** the reward would be something like \"the right tool, with valid arguments, and the booking succeeded.\" You would need thousands of scored rollouts, GPUs, and an open-weights model. That is far above your sponsor's budget, and it covers the training you ruled out of scope.\n\nTool-calling failures in a system like yours usually come from vague tool descriptions, missing argument constraints, or steps that should be fixed workflows. Fixing those costs almost nothing and is what your design review will probe.\n\nI can give a full side lesson on PPO, including the derivation of the policy gradient. Or we can continue with context and memory for the manuals, which is your next mission topic.\n\nQuestion: which tool failure are you trying to fix? Is the model picking the wrong tool, passing bad arguments, or neither?",
+  "ttft_ms": 1399,
+  "type": "result",
+  "duration_ms": 14941,
+  "uuid": "014ab43f-1ac0-4f41-a308-ca710cada469",
+  "ttft_stream_ms": 990,
+  "time_to_request_ms": 80,
+  "first_content_frame_ms": 990,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1638,
+      "cacheReadInputTokens": 70012,
+      "cacheCreationInputTokens": 15547,
+      "webSearchRequests": 0,
+      "costUSD": 0.0855812,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 380,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 15547,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-20T19:38:56.427Z"
+}

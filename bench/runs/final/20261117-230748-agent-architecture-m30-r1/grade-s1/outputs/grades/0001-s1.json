@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s1",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. An agent is defined by its loop: the model picks an action, the program runs it, and the result returns for the next step. The most tempting wrong option is the longer prompt. It changes what a single call can do, but the system is still one call with no loop. A bigger context window (the amount of text the model can read at once) or stored memory has the same limit."
+    },
+    {
+      "id": "q2",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "Wrong. You chose a, believing the model opens the booking system and reads the calendar itself. A model only writes text, like a soccer coach who calls a substitution from the sideline but cannot step onto the pitch. The correct answer is c: the model writes a request naming check_calendar, with the laser cutter and tomorrow's date as arguments (the values passed to the tool), and the program runs the tool. Option b fails because the model, not the program, decides to call the tool; option d fails because the model never runs the tool's code."
+    },
+    {
+      "id": "q3",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. The agent is repeating one failing edit, so more steps add nothing. The fix is a stopping condition, such as a step limit, that ends the loop and reports back to a person. The tempting alternative is a larger context window. It does not help, because all 40 steps already fit in the context, the text the model can see at one time."
+    },
+    {
+      "id": "q4",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "Wrong. You answered 1, believing the model receives the question once and then runs the three tools itself. The model only writes text, like a soccer player who passes the ball and then waits to see where it goes; the program runs each tool. The program then calls the model again with each result. The model is called once for the question and once for each of the three tool results: 3 + 1 = 4 calls."
+    },
+    {
+      "id": "q5",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "Partial. Your answer is right that the program sends the result back to the model, and that is the core step. It is incomplete because you did not give the reason. The result goes into the model's next input so that the model can use it to choose its next step or write the final answer. Compare a statistician who collects a sample and then hands it to the analyst: the handoff matters because the analyst needs the data for the next decision."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": "M3",
+      "feedback": "Partial. The first part is right: the program gives the model a list of tools, each with a name and short description, and the model picks the one that fits. The second claim is wrong: the model remembers nothing between sessions unless the program stores it and puts it back into the input, so a student's earlier request would not be recalled on their next visit. A statistical model fitted on one dataset likewise has no record of an earlier fit unless you load the saved results. The correct answer is that the model chooses only from the descriptions it is given. It never sees the code inside the tools, so the name and description are all it has to match against the request."
+    }
+  ],
+  "summary": "You are correct on the agent loop, on choosing tools from their descriptions, and on needing a stopping condition. The belief to work on next is that the model runs tools itself. It only writes a request, and the program runs the tool and calls the model again with the result, which is why the laser cutter question takes 4 calls. A related slip is believing the model remembers earlier sessions on its own; it does not. Next, re-trace that makerspace request step by step, marking what the model writes and what the program does at each step."
+}

@@ -1,0 +1,110 @@
+{
+  "duration_api_ms": 37349,
+  "stop_reason": "end_turn",
+  "session_id": "f8f97536-0d9e-4834-b7d2-fd5f698c085a",
+  "total_cost_usd": 0.1663357,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 1979,
+    "cache_read_input_tokens": 69061,
+    "output_tokens": 936,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 1979,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 410,
+        "cache_read_input_tokens": 35215,
+        "cache_creation_input_tokens": 610,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 610
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 20,
+      "outputTokens": 4820,
+      "cacheReadInputTokens": 211747,
+      "cacheCreationInputTokens": 26154,
+      "webSearchRequests": 0,
+      "costUSD": 0.1663357,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 1326,
+      "cacheCreationEphemeral5mInputTokens": 5130,
+      "cacheCreationEphemeral1hInputTokens": 21024,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "origin": {
+    "kind": "task-notification",
+    "producer": "session-task",
+    "runId": "0mwlbvbn9-19558b4f"
+  },
+  "subagent_stats": {
+    "spawned": 1,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 1
+    },
+    "started_in_background": 1,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 1,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "hint-checker": 1
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 2,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I will not tell you which letter is right for q3 before the quiz is graded, and a retake does not change that: the quiz measures what you can do, not what you can read off.\n\nThree steps you can take on your own:\n\n1. **Analogy.** Treat the model as a soccer player and the agent program as the match officials and the touchline staff. Think about which parts of the system a change could touch, and read each option for which part it touches. The analogy breaks down because a player is a person with a history, while a model is a function of the text it is given.\n2. **Worked example on a different case.** Pick any agent failure from a different domain, such as a scheduling tool or a spreadsheet script. Write it in one sentence, then list two or three changes someone might propose and say what each would alter.\n3. **Check on every option.** For each of a, b, c and d, write down (i) which part of the system it changes: the model, the text it receives, or the program around it; (ii) what the change would cost or require to put in place; and (iii) what evidence you would need to judge whether it helped. Compare your four answers side by side.\n\nBefore the quiz is graded, write one sentence on what you would want to be true of any safeguard in this situation, then compare each option against it. What does your sentence say? Once the quiz is graded, I will go through q3 with you in full.",
+  "ttft_ms": 2867,
+  "type": "result",
+  "duration_ms": 5176,
+  "uuid": "96bc99ee-a861-403c-b872-ad274d6b9a07",
+  "ttft_stream_ms": 576,
+  "time_to_request_ms": 16,
+  "first_content_frame_ms": 576,
+  "queued_turn_count": 0,
+  "result_index": 1,
+  "model_usage_since_last_result": {},
+  "credential_expires_at": "2026-11-20T19:38:56.427Z"
+}

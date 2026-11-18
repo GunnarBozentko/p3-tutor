@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 16501,
+  "stop_reason": "end_turn",
+  "session_id": "6371771b-d2a6-4641-a7d8-5f1b0ebcefef",
+  "total_cost_usd": 0.091175,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 15749,
+    "cache_read_input_tokens": 69970,
+    "output_tokens": 2117,
+    "output_tokens_details": {
+      "thinking_tokens": 610
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 15749,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 928,
+        "cache_read_input_tokens": 29594,
+        "cache_creation_input_tokens": 956,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 956
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 2117,
+      "cacheReadInputTokens": 69970,
+      "cacheCreationInputTokens": 15749,
+      "webSearchRequests": 0,
+      "costUSD": 0.091175,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 610,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 15749,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 6,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "**Scope note:** your mission lists training and fine-tuning as out of scope. Here is the derivation at your level, and then why it is probably not your next step.\n\n**Setup.** A policy π_θ is the model's probability of each next action given the state. For an agent, the state is the conversation so far and the action is the text it writes, including the tool call. The reward R is a score for the outcome, for example 1 if the booking is correct and 0 otherwise.\n\n**Derivation**\n- Objective: J(θ) = E_{τ∼π_θ}[R(τ)], where τ is one full episode (a trajectory).\n- Policy gradient, via the log-derivative trick: ∇J = E[∇log π_θ(a|s) · A(s,a)]. The advantage A is the return minus a baseline (a value estimate V(s)). Subtracting the baseline lowers variance without adding bias.\n- Problem: one gradient step on fresh samples is wasteful, and a large step can wreck the policy. Reuse samples from the old policy with importance sampling: L(θ) = E_old[ r_t(θ) · A_t ], where r_t = π_θ(a|s) / π_old(a|s). At θ = θ_old, ∇r_t = ∇log π_θ, so this recovers the policy gradient.\n- Trust-region idea: keep r_t near 1. PPO (Proximal Policy Optimization) clips it:\n\n  **L_CLIP(θ) = E[ min( r_t·A_t, clip(r_t, 1−ε, 1+ε)·A_t ) ]**, with ε ≈ 0.2.\n\n  If A > 0, gains stop once r > 1+ε. If A < 0, the penalty is not shrunk once r < 1−ε. The full loss adds a value-function loss and an entropy bonus. For language models it also adds a KL penalty (a divergence term) that keeps the model close to a reference model.\n\n**Applying it to tool calling**\n- Collect many (request, tool-call sequence) rollouts from an open-weights model.\n- Score each with a reward: valid JSON, correct tool, correct arguments, correct final booking.\n- Estimate advantages and run the clipped update for a few epochs on each batch. A common simplification, GRPO, drops the value model and uses the group average reward as the baseline.\n\n**Why this is likely wrong for your budget:** it needs a model you can host, GPUs, thousands of rollouts and a reward function you trust. Hosted models can't be trained this way. Before this, fix tool descriptions, add examples and build a 50-request evaluation set. Most tool-calling failures at this scale come from those.\n\n**Question:** are you asking out of curiosity, or does your team actually plan to fine-tune? The answer decides whether a lesson on evaluation or one on RL is more useful.",
+  "ttft_ms": 934,
+  "type": "result",
+  "duration_ms": 16736,
+  "uuid": "a29b214f-024b-458f-be33-122d331f394e",
+  "ttft_stream_ms": 554,
+  "time_to_request_ms": 73,
+  "first_content_frame_ms": 554,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 2117,
+      "cacheReadInputTokens": 69970,
+      "cacheCreationInputTokens": 15749,
+      "webSearchRequests": 0,
+      "costUSD": 0.091175,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 610,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 15749,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-20T19:38:56.427Z"
+}

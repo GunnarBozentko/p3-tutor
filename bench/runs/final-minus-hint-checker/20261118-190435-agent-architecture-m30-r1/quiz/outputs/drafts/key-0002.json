@@ -1,0 +1,75 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "Control flow is the order of steps and the decision of what runs next; who makes that decision is what separates workflows from agents. Defining it as the instructions in the prompt is the most tempting error, because the prompt shapes what the model says but not which step runs next.",
+      "distractors": {"a": "M10", "c": "M11", "d": "M12"}
+    },
+    {
+      "id": "q2",
+      "answer": "d",
+      "rationale": "In a workflow, predefined code fixes the steps and their order, even when some steps are model calls. Option a describes an agent, where the model, not the code, picks the next step; that swap is the most tempting wrong answer.",
+      "distractors": {"a": "M14", "b": "M13", "c": "M15"}
+    },
+    {
+      "id": "q3",
+      "answer": "c",
+      "rationale": "An agent is a system where the model directs its own steps and tool use, looping until it decides it is done. Having a tool is not enough, since a fixed workflow can call tools too.",
+      "distractors": {"a": "M16", "b": "M18", "d": "M19"}
+    },
+    {
+      "id": "q4",
+      "answer": "One model call writes a response and another evaluates it and gives feedback, in a loop.",
+      "accepted": [
+        "one model generates and another critiques it, repeating until good enough",
+        "generates an answer, then has a second call evaluate it and refine it in a loop",
+        "a generator call and an evaluator call loop to improve the output",
+        "it drafts, critiques and revises in a loop"
+      ],
+      "rationale": "Evaluator-optimizer pairs a generating call with an evaluating call that gives feedback, looping while the output improves. Describing it as a model choosing its own tools describes an agent, not this fixed pattern."
+    },
+    {
+      "id": "q5",
+      "answer": "a",
+      "rationale": "Prompt chaining is a fixed sequence of model calls where each call's output feeds the next, optionally with programmatic checks between steps. Running calls at the same time and combining them is parallelization, the tempting wrong answer.",
+      "distractors": {"b": "M20", "c": "M21", "d": "M22"}
+    },
+    {
+      "id": "q6",
+      "answer": "b",
+      "rationale": "The same lookup is needed every time, so the steps are known in advance and code can run them, which is cheaper and more predictable than an agent. Choosing an agent because the question sounds open-ended is the tempting error; the wording varies, but the steps do not.",
+      "distractors": {"a": "M23", "c": "M23", "d": "M16"}
+    },
+    {
+      "id": "q7",
+      "answer": "d",
+      "rationale": "The developer wrote both branches, so the possible paths are fixed in code and the model only supplies a label; this is routing inside a workflow. A model output feeding an if statement does not hand the model control of the flow, which is the tempting wrong answer.",
+      "distractors": {"a": "M24", "b": "M17", "c": "M25"}
+    },
+    {
+      "id": "q8",
+      "answer": "An agent, because the number and order of lookups vary from report to report, so the model must choose each next step.",
+      "accepted": [
+        "agent, because the lookups needed vary from report to report",
+        "agent, because the number and order of steps is not known ahead of time",
+        "agent, since the model has to decide the next check from each result",
+        "an agent: the path varies so it cannot be hard-coded"
+      ],
+      "rationale": "When the number and order of steps differ from case to case and cannot be fixed beforehand, the model has to direct the process, which is what an agent does. A fixed workflow would suit these checks only if the same lookups ran in the same order every time, which the case rules out."
+    },
+    {
+      "id": "q9",
+      "answer": 0.0146,
+      "tolerance": 0.0002,
+      "rationale": "The classification call costs 0.001. Workflow requests cost 2 x 0.004 = 0.008, weighted 0.8 gives 0.0064; agent requests cost 6 x 0.006 = 0.036, weighted 0.2 gives 0.0072; the total is 0.001 + 0.0064 + 0.0072 = 0.0146 dollars. Applying the agent's 0.036 to every request, or leaving out the classification call, gives a wrong figure."
+    },
+    {
+      "id": "q10",
+      "answer": "c",
+      "rationale": "Agents trade cost and latency for flexibility, so when most requests follow known steps, fixed code does them with fewer calls and keeps the agent for requests whose steps cannot be predicted. Option a is the tempting one but wrong: an agent can call fixed code, and the objection to an all-agent design is cost and predictability, not that it would secretly be a workflow.",
+      "distractors": {"a": "M26", "b": "M27", "d": "M28"}
+    }
+  ]
+}

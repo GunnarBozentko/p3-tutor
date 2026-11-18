@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 11763,
+  "stop_reason": "end_turn",
+  "session_id": "03672a7f-d0fd-4af7-b33c-c5d3c2992694",
+  "total_cost_usd": 0.0880572,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 15768,
+    "cache_read_input_tokens": 99892,
+    "output_tokens": 1498,
+    "output_tokens_details": {
+      "thinking_tokens": 281
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 15768,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 560,
+        "cache_read_input_tokens": 30031,
+        "cache_creation_input_tokens": 538,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 538
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1498,
+      "cacheReadInputTokens": 99892,
+      "cacheCreationInputTokens": 15768,
+      "webSearchRequests": 0,
+      "costUSD": 0.0880572,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 281,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 15768,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 7,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "**Tool calling, as a restaurant order**\n\nTool calling means the model never does anything itself. It only writes a request, and a separate program carries it out. A restaurant works the same way. You are the model. You cannot enter the kitchen, so you read a menu and write an order slip. The kitchen is the program. It reads the slip, cooks the dish and brings it back. You then decide what to do next: order more, or ask for the bill.\n\nThe pieces map as follows:\n\n- **Menu:** the tool descriptions. These are short texts that tell the model which actions exist and what each is for. The model can only order what is on the menu.\n- **Order slip:** the tool call. It is text naming a dish and its details, for example \"laser cutter, Friday, afternoon\".\n- **Kitchen:** your program. It is the only part that touches the real calendar or the real manuals.\n- **Dish returning:** the tool result. It is placed back in front of the model as new text.\n- **Bill:** the final answer. The model stops ordering and replies to the student.\n\nWhere the analogy is weaker: you remember your earlier orders, but the model does not. Every time the dish comes back, the program sends the model the whole conversation again, including the slip and the result, as a fresh call. That is also why every step costs money.\n\nIn your assistant, \"Is the laser cutter free on Friday?\" becomes this sequence:\n\n1. The model writes a calendar-check slip.\n2. Your program queries the booking calendar.\n3. The result, \"free 2–4 pm\", goes back to the model.\n4. The model writes the answer to the student.\n\nQuestion to check your understanding: if the model writes a slip for a tool that does not exist on the menu, what do you think happens, and which part of the system is responsible for handling it?",
+  "ttft_ms": 885,
+  "type": "result",
+  "duration_ms": 12132,
+  "uuid": "c68d7693-86e0-4700-a0d0-7fdd02601bae",
+  "ttft_stream_ms": 529,
+  "time_to_request_ms": 90,
+  "first_content_frame_ms": 529,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1498,
+      "cacheReadInputTokens": 99892,
+      "cacheCreationInputTokens": 15768,
+      "webSearchRequests": 0,
+      "costUSD": 0.0880572,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 281,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 15768,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-20T19:38:56.427Z"
+}

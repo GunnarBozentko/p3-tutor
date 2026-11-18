@@ -1,0 +1,40 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "c",
+      "rationale": "The model keeps nothing between calls; the program appends each result to a message list and sends the whole list on the next call. Picking a or b shows the belief that the model itself remembers earlier steps."
+    },
+    {
+      "id": "q2",
+      "answer": 6600,
+      "tolerance": 0,
+      "rationale": "The calls read 1,500, 2,200 and 2,900 tokens, which sum to 6,600 (3 x 1,500 + 700 x 3). An answer of 2,900 counts only the last call; 4,400 counts only new tokens plus the first call."
+    },
+    {
+      "id": "q3",
+      "answer": "a",
+      "rationale": "A risky permission is decided from the authoritative record, read through a tool at the moment of the decision. A note is a copy that can be stale, a student's claim is not a record, and the model's impression is a guess. A note may only remind the assistant to check."
+    },
+    {
+      "id": "q4",
+      "answer": "Every call is billed for all the pasted tokens, and the model's recall of details can degrade as the context grows.",
+      "accepted": [
+        "cost",
+        "it costs too much because the whole manual is billed on every call",
+        "recall degrades with a long context",
+        "context rot",
+        "the whole manual is billed on each call",
+        "long contexts reduce the model's accuracy on details",
+        "fewer tokens means lower cost and better focus"
+      ],
+      "rationale": "Either reason is complete: cost, because every token in the request is billed on every call, or quality, because recall can fall as the context grows (context rot). Fitting inside the window does not mean it is affordable or reliable. An answer that the manual would be rejected shows a misreading, since it fits."
+    },
+    {
+      "id": "q5",
+      "answer": "b",
+      "rationale": "A stable preference that helps in later sessions is what saved notes are for. Free time is live data read from the calendar tool, the manual chapter is retrieved on demand, and training status must be read from the training record through a tool, not from a note."
+    }
+  ]
+}

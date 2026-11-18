@@ -1,0 +1,65 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "c",
+      "rationale": "In a workflow, the program's code fixes the path and the model is called inside the steps. Using several model calls (option b) does not make a workflow, because an agent also makes many calls; what matters is who decides the path.",
+      "distractors": {"a": "M27", "b": "M21", "d": "M22"}
+    },
+    {
+      "id": "q2",
+      "answer": "b",
+      "rationale": "In an agent, the model directs its own process: it chooses the tools and decides when to stop. Having a tool available (option a) is not enough, since a workflow can call tools too; the question is who chooses.",
+      "distractors": {"a": "M10", "c": "M28", "d": "M25"}
+    },
+    {
+      "id": "q3",
+      "answer": "which step runs next, and when to stop",
+      "accepted": ["the decision of what happens next", "who decides the next step", "the order of steps and when the process ends", "the decision of which step or tool comes next and when to finish", "the logic that decides what step runs next"],
+      "rationale": "Control flow is the decision of which step runs next and when the process ends. Answering \"the text the model writes\" confuses control flow with the content of a step."
+    },
+    {
+      "id": "q4",
+      "answer": "a",
+      "rationale": "Agentic system is the umbrella term that covers both workflows and agents. Treating it as another word for agent (option b) is the tempting error, because it erases the difference this objective is about.",
+      "distractors": {"b": "M23", "c": "M29", "d": "M30"}
+    },
+    {
+      "id": "q5",
+      "answer": "The model replies with a final answer instead of a tool request",
+      "accepted": ["the model gives a final answer rather than asking for another tool", "the model decides it is done and writes its answer", "the model returns plain text with no tool request", "the model produces its final answer"],
+      "rationale": "In an agent the model itself ends the loop by answering instead of requesting another tool; a step limit is only a safeguard. Naming only the step limit as the normal ending mistakes the safety stop for how the loop usually finishes."
+    },
+    {
+      "id": "q6",
+      "answer": "a",
+      "rationale": "The model only labels the message; the label selects a branch and code runs every step after it, so code owns the control flow and this is a workflow (a routing workflow). Option b is tempting but wrong: the model makes one choice inside a step, yet it does not direct the process.",
+      "distractors": {"b": "M35", "c": "M13", "d": "M21"}
+    },
+    {
+      "id": "q7",
+      "answer": "c",
+      "rationale": "A rule that must hold every time belongs in code that fixes the order, so the booking tool cannot run before the training check passes. Instructions, a request to the student, or a second model call (options a, b and d) only make a violation less likely, because the model still chooses what to do.",
+      "distractors": {"a": "M16", "b": "M31", "d": "M20"}
+    },
+    {
+      "id": "q8",
+      "answer": 604,
+      "tolerance": 0,
+      "rationale": "$20 buys 10,000,000 tokens. With x agent requests, 11,000x + 2,400(2,000 - x) = 4,800,000 + 8,600x must be at most 10,000,000, so x <= 604.65 and the largest whole number is 604. Sending all 2,000 requests to the agent would cost $44, and 605 agent requests would exceed the budget."
+    },
+    {
+      "id": "q9",
+      "answer": "d",
+      "rationale": "A failure with an open-ended cause has an unknown number and mix of steps, so the model must choose them: agent territory. The booking request (option b) feels important, but its steps are the same every time, so a fixed workflow is cheaper and more predictable.",
+      "distractors": {"a": "M32", "b": "M33", "c": "M34"}
+    },
+    {
+      "id": "q10",
+      "answer": "Keep it as a fixed workflow: the checklist is the same every time, so code gives lower cost per request and predictable behaviour that an agent cannot guarantee.",
+      "accepted": ["use a fixed workflow because it is cheaper and more predictable for a routine task", "keep it as a workflow; an agent spends extra model calls and may take different steps each time, which costs more and is less reliable", "for a well-defined step, code guarantees the order and uses fewer tokens", "workflow, for predictability and lower cost per request"],
+      "rationale": "Sending the same checklist after each booking follows known steps, so a fixed workflow runs a short sequence, costs less and behaves the same each time. Recommending an agent because it is more flexible ignores that its loops cost more and vary (M11)."
+    }
+  ]
+}

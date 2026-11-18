@@ -1,0 +1,130 @@
+{
+  "duration_api_ms": 757228,
+  "stop_reason": "end_turn",
+  "session_id": "96e3b834-cf6d-4ccc-9d0a-5ce2e9ae33c1",
+  "total_cost_usd": 2.42799004,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 36243,
+    "cache_read_input_tokens": 404726,
+    "output_tokens": 20050,
+    "output_tokens_details": {
+      "thinking_tokens": 277
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 36243,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 613,
+        "cache_read_input_tokens": 145624,
+        "cache_creation_input_tokens": 19531,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 19531
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 102,
+      "outputTokens": 106658,
+      "cacheReadInputTokens": 3061799,
+      "cacheCreationInputTokens": 311399,
+      "webSearchRequests": 0,
+      "costUSD": 2.3769924000000002,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 31238,
+      "cacheCreationEphemeral5mInputTokens": 161045,
+      "cacheCreationEphemeral1hInputTokens": 150354,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 107361,
+      "outputTokens": 15998,
+      "cacheReadInputTokens": 3254,
+      "cacheCreationInputTokens": 17840,
+      "webSearchRequests": 3,
+      "costUSD": 0.05099764000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 9668,
+      "cacheCreationEphemeral5mInputTokens": 17840,
+      "cacheCreationEphemeral1hInputTokens": 0,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "origin": {
+    "kind": "task-notification",
+    "producer": "session-task",
+    "runId": "0mwloxxwn-325980cb"
+  },
+  "subagent_stats": {
+    "spawned": 6,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 6
+    },
+    "started_in_background": 5,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 6,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "web-fetch": 1,
+      "lesson-reviewer": 2,
+      "preference-reviewer": 1,
+      "reference-checker": 1,
+      "lesson-editor": 1
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 5,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Your lesson on context and memory is written (30 minutes, objective O3), and a five-item quiz on it is ready.\n\n**What the lesson covers**\n- **Context window:** it holds the system prompt, tool definitions, message history and the model's output. The model keeps nothing between calls, so the program resends the history each time.\n- **Between steps:** the history grows with every call, so total input grows roughly with the square of the number of steps. The lesson gives the formula, a proof, and a worked token-and-cost example.\n- **When the context fills up:** context rot, then three fixes: clearing old tool results, compaction, and sub-agents.\n- **Between sessions:** saved notes suit stable, low-risk facts. A student's training status is always read from the official record through a tool at booking time, never from a note or the student's word. If the lookup fails, the answer is \"not permitted yet\" and a pointer to staff.\n- **Retrieval:** embeddings and cosine similarity, with a numeric case, plus the risk that a miss is silent. Pre-computed search and just-in-time retrieval are compared.\n\n**Checks and sources**\n- The lesson went through two content reviews, a preference review, a reference check and a consistency edit, and the fixes are applied. The reference check found no unsupported claims.\n- Sources are two Anthropic pages (an engineering post on context engineering, and the context-windows documentation) and a survey post by Lilian Weng. I added all three to your resources list.\n- I did not add a community link, because I had not opened a trustworthy one.\n- The dollar figures in the lesson use an assumed price of $3 per million input tokens. Check your provider's current price.\n\nI didn't grade either attempt at quiz 0001, and your notes now mark lesson 0001 as taught but not yet checked.\n\nAsk me for quiz 0002 when you want to take it, or ask me anything about the lesson.",
+  "ttft_ms": 2027,
+  "type": "result",
+  "duration_ms": 95632,
+  "uuid": "75ab8a06-24d7-4379-ae68-dcc28ad1884d",
+  "ttft_stream_ms": 1105,
+  "time_to_request_ms": 265,
+  "first_content_frame_ms": 1105,
+  "queued_turn_count": 0,
+  "result_index": 5,
+  "model_usage_since_last_result": {},
+  "credential_expires_at": "2026-11-20T19:38:56.427Z"
+}

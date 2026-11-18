@@ -1,0 +1,110 @@
+{
+  "id": "0002",
+  "objective": "O4",
+  "title": "Workflows, agents and who owns the control flow",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Definitions: In a system built around a language model, which of these best defines its control flow?",
+      "options": [
+        {"id": "a", "text": "The instructions given to the model before the student's question arrives"},
+        {"id": "b", "text": "The order of steps and the decision about which step runs next"},
+        {"id": "c", "text": "The record of earlier steps and results sent to the model on its next call"},
+        {"id": "d", "text": "The way the system turns the model's text into the final reply"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Definitions: Which of these best defines a workflow?",
+      "options": [
+        {"id": "a", "text": "A system where the model decides after each result which step to take next and when to stop"},
+        {"id": "b", "text": "A system that handles easy questions with a model and passes hard ones to a person"},
+        {"id": "c", "text": "A system where several models each handle a different part of one request"},
+        {"id": "d", "text": "A system where code fixes the steps and the order in which they run"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Definitions: Which of these best defines an agent?",
+      "options": [
+        {"id": "a", "text": "A system whose model has access to at least one tool it can call"},
+        {"id": "b", "text": "A system where a person approves each step the model takes before it runs"},
+        {"id": "c", "text": "A system where the model chooses its own steps and tools, looping until done"},
+        {"id": "d", "text": "A system whose prompt lists every step the model must follow in order"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O4",
+      "stem": "Definitions: In a workflow, what does the pattern called evaluator-optimizer do? Answer in one phrase."
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Definitions: Which of these best defines prompt chaining?",
+      "options": [
+        {"id": "a", "text": "A fixed sequence of model calls, each one taking the previous call's output as input"},
+        {"id": "b", "text": "A single model call that is shown a worked example of the answer format"},
+        {"id": "c", "text": "Several model calls run at the same time, with the outputs combined afterward by code"},
+        {"id": "d", "text": "A model call that sorts each input and picks which fixed path handles it"}
+      ]
+    },
+    {
+      "id": "q6",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Applying it: A student asks the makerspace assistant, \"Is the laser cutter free Thursday at 3?\" Every question of this kind needs the same lookup of that machine's booking slots. How should this part of the assistant be built?",
+      "options": [
+        {"id": "a", "text": "As an agent, because any question about a calendar needs the model to plan how to read it"},
+        {"id": "b", "text": "As a fixed workflow, because every such question needs the same lookup, so code can run it"},
+        {"id": "c", "text": "As an agent, because the wording of availability questions varies too much for code to handle"},
+        {"id": "d", "text": "As an agent, because only agents are able to call the booking system's tools"}
+      ]
+    },
+    {
+      "id": "q7",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Applying it: Here is the core of a draft assistant, in Python.\n\nkind = ask_model('Label this question booking or manual: ' + question)\nif kind == 'booking':\n    reply = run_booking_steps(question)\nelse:\n    reply = answer_from_manuals(question)\n\nThe model chooses the label. Is this a workflow or an agent?",
+      "options": [
+        {"id": "a", "text": "An agent, because the model's output decides which of the program's paths gets run next"},
+        {"id": "b", "text": "An agent, because it uses a language model to make a decision at all"},
+        {"id": "c", "text": "A workflow, because it uses no tools anywhere in the program"},
+        {"id": "d", "text": "A workflow, because the code fixes the possible paths and the model only picks one"}
+      ]
+    },
+    {
+      "id": "q8",
+      "type": "short",
+      "objective": "O4",
+      "stem": "Applying it: A student reports that prints from the makerspace's 3D printer keep failing. The assistant can read the printer manual, the maintenance log and the booking history. Over the last month the team resolved 20 such reports: some needed one lookup, others needed six, and the useful lookups came in a different order each time. Should this part be a fixed workflow or an agent? Answer with your choice and the reason in one sentence."
+    },
+    {
+      "id": "q9",
+      "type": "numeric",
+      "objective": "O4",
+      "stem": "Applying it: Your team's design first makes one classification call on every request, at $0.001 per request. That call is counted separately from the calls below. Of all requests, 80% (booking and manual questions) go to fixed workflows that make 2 further model calls at $0.004 each. The other 20% (troubleshooting) go to an agent that makes 6 further model calls at $0.006 each. What is the average cost per request of this design, in dollars?",
+      "unit": "dollars"
+    },
+    {
+      "id": "q10",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Applying it: A teammate proposes making the whole makerspace assistant one agent, because \"an agent can handle anything.\" Which is the strongest objection to raise at your design review, given the sponsor's small model budget?",
+      "options": [
+        {"id": "a", "text": "An agent still needs fixed code for the bookings, so it would really be a workflow"},
+        {"id": "b", "text": "Agents answer short manual questions less accurately than workflows, so students would get worse answers"},
+        {"id": "c", "text": "Most requests follow known steps, so fixed code runs them with fewer calls"},
+        {"id": "d", "text": "Agents cannot be given a step limit, so cost per request could not be capped"}
+      ]
+    }
+  ]
+}

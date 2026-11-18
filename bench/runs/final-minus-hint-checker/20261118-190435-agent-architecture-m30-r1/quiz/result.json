@@ -1,0 +1,144 @@
+{
+  "duration_api_ms": 458727,
+  "stop_reason": "end_turn",
+  "session_id": "f42b9415-cc9c-4dbe-a559-aaae7686dbf1",
+  "total_cost_usd": 1.0196061900000002,
+  "usage": {
+    "input_tokens": 10,
+    "cache_creation_input_tokens": 14890,
+    "cache_read_input_tokens": 296269,
+    "output_tokens": 9025,
+    "output_tokens_details": {
+      "thinking_tokens": 2724
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 14890,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 614,
+        "cache_read_input_tokens": 81244,
+        "cache_creation_input_tokens": 453,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 453
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 44,
+      "outputTokens": 60557,
+      "cacheReadInputTokens": 712824,
+      "cacheCreationInputTokens": 95734,
+      "webSearchRequests": 0,
+      "costUSD": 1.0166194000000002,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 32920,
+      "cacheCreationEphemeral5mInputTokens": 28838,
+      "cacheCreationEphemeral1hInputTokens": 66896,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 4,
+      "outputTokens": 2995,
+      "cacheReadInputTokens": 3164,
+      "cacheCreationInputTokens": 11658,
+      "webSearchRequests": 0,
+      "costUSD": 0.0029867900000000005,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 1639,
+      "cacheCreationEphemeral5mInputTokens": 11658,
+      "cacheCreationEphemeral1hInputTokens": 0,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [
+    {
+      "tool_name": "Bash",
+      "tool_use_id": "toolu_01V2TPGYJBxtyuiDvb9mgcj7",
+      "tool_input": {
+        "command": "cd \"C:/Users/gunna/AppData/Local/Temp/p3-wpwqlayh\" && ls quizzes keys drafts; ls review-records 2>&1 | head",
+        "description": "Check folders before final write"
+      }
+    },
+    {
+      "tool_name": "Bash",
+      "tool_use_id": "toolu_01AiWv4o3hucj55Cdr5XP43q",
+      "tool_input": {
+        "command": "cd \"C:/Users/gunna/AppData/Local/Temp/p3-wpwqlayh\" && cp quizzes/0002.json drafts/quiz-0002.json && cp keys/0002.json drafts/key-0002.json && echo ok",
+        "description": "Sync drafts to last revision"
+      }
+    }
+  ],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "origin": {
+    "kind": "task-notification",
+    "producer": "session-task",
+    "runId": "0mwmiag9v-7b3f0900"
+  },
+  "subagent_stats": {
+    "spawned": 3,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 3
+    },
+    "started_in_background": 2,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 3,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "web-fetch": 1,
+      "quiz-reviewer": 2
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 6,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "The quiz is written to `quizzes/0002.json`, with its key in `keys/0002.json`. It is ready when you are.\n\n- **Source:** No lesson covers O4, so the quiz is ahead of the lessons. I built it from Anthropic's \"Building effective agents\".\n- **Length:** It has ten questions, not six, because you prefer ten: five definition questions, then five application questions.\n- **Definitions (q1–q5):** control flow, workflow, agent, evaluator-optimizer and prompt chaining.\n- **Applications (q6–q10):** these use the makerspace assistant.\n  - q6 asks how to build the availability lookup.\n  - q7 gives a short Python draft and asks whether it is a workflow or an agent.\n  - q8 asks whether the print-failure case should be a fixed workflow or an agent.\n  - q9 is a cost calculation: how many dollars per request the routed design saves against an all-agent design.\n  - q10 asks for the strongest objection to making the whole assistant one agent, given your budget.\n- **Review:** A reviewer checked the draft, and two review passes ran. I did not review the second revision.\n- **Left as is:** I kept the two pattern-name questions (q4 and q5) against the reviewer's \"side detail\" finding. The review record in `review-records/0002-quiz.md` explains why.\n- **Stale drafts:** The files in `drafts/` are the first revision, not the final one, because a guard blocked my copy command. The final files in `quizzes/` and `keys/` are correct.\n- **Misconception ids:** I could not read `keys/0001.json`, so the key's misconception ids (M10 onward) are new. If quiz 0001 already uses any of them, the ids should be reconciled before grading.",
+  "ttft_ms": 19099,
+  "type": "result",
+  "duration_ms": 56502,
+  "uuid": "1cfdbbdf-19b2-45cd-b384-02782bab2c3a",
+  "ttft_stream_ms": 463,
+  "time_to_request_ms": 19,
+  "first_content_frame_ms": 463,
+  "queued_turn_count": 0,
+  "result_index": 2,
+  "model_usage_since_last_result": {},
+  "credential_expires_at": "2026-11-20T19:38:56.427Z"
+}

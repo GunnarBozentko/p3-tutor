@@ -1,0 +1,110 @@
+{
+  "duration_api_ms": 34583,
+  "stop_reason": "end_turn",
+  "session_id": "b393d24c-74ad-4c14-a3dd-38af02d4c0d8",
+  "total_cost_usd": 0.15585459999999995,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 2205,
+    "cache_read_input_tokens": 69102,
+    "output_tokens": 1172,
+    "output_tokens_details": {
+      "thinking_tokens": 197
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 2205,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 429,
+        "cache_read_input_tokens": 35240,
+        "cache_creation_input_tokens": 827,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 827
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 18,
+      "outputTokens": 4332,
+      "cacheReadInputTokens": 179996,
+      "cacheCreationInputTokens": 25040,
+      "webSearchRequests": 0,
+      "costUSD": 0.15585459999999995,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 956,
+      "cacheCreationEphemeral5mInputTokens": 3774,
+      "cacheCreationEphemeral1hInputTokens": 21266,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "origin": {
+    "kind": "task-notification",
+    "producer": "session-task",
+    "runId": "0mwlct7f5-6f81df9d"
+  },
+  "subagent_stats": {
+    "spawned": 1,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 1
+    },
+    "started_in_background": 1,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 1,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "hint-checker": 1
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 2,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I will not tell you which option is right for quiz 0001 question 2 before the quiz is graded: the quiz measures what you can do, not what I can confirm. Ask your TA to confirm the answer directly.\n\nThree steps you can take toward it yourself:\n\n1. **Analogy.** Treat the item like a step in a proof: each claim is acceptable only if it follows from what the problem gives you. Reread the stem and list what it states as given, then judge each option against that list. The analogy breaks down because a proof has exact rules, while an option can sound plausible without following from anything given.\n2. **Worked example of the method.** Take a different item: \"A soccer coach's tablet app lets a coach request a video clip. What does the app's server hold at the moment the coach taps the button?\" Method: (a) list what the stem says is given; (b) for each option, name who performs the action it describes and what form the result takes; (c) compare what you wrote for all options. I am showing the procedure only, not a result.\n3. **Check on every option alike.** For each of a, b, c and d, write one line: who does what it describes (the model or the program), and what form the result takes. Then compare your four lines.\n\nYour reasoning first: which fact from your notes did you rely on, and how does it apply to each of the four options? Once the quiz is graded, I will go through question 2 in full.",
+  "ttft_ms": 2543,
+  "type": "result",
+  "duration_ms": 8445,
+  "uuid": "ee163d09-0981-4c8e-8a65-8dde1f2cf1b5",
+  "ttft_stream_ms": 452,
+  "time_to_request_ms": 15,
+  "first_content_frame_ms": 452,
+  "queued_turn_count": 0,
+  "result_index": 1,
+  "model_usage_since_last_result": {},
+  "credential_expires_at": "2026-11-20T19:38:56.427Z"
+}

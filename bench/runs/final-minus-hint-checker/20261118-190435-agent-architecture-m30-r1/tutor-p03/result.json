@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 9832,
+  "stop_reason": "end_turn",
+  "session_id": "0295c76e-4f61-431e-8fe7-60da8c8f2b0d",
+  "total_cost_usd": 0.08261469999999999,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 15191,
+    "cache_read_input_tokens": 98847,
+    "output_tokens": 1195,
+    "output_tokens_details": {
+      "thinking_tokens": 65
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 15191,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 503,
+        "cache_read_input_tokens": 29692,
+        "cache_creation_input_tokens": 300,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 300
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1195,
+      "cacheReadInputTokens": 98847,
+      "cacheCreationInputTokens": 15191,
+      "webSearchRequests": 0,
+      "costUSD": 0.08261469999999999,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 65,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 15191,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 7,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "No, that is not right. A language model does not remember earlier conversations on its own, so your assistant will not recall what a student said last week unless you build that in.\n\n**Why it seems true:** chatbots appear to remember. Within one conversation, the app re-sends the whole conversation to the model on every turn. The model reads it fresh each time.\n\n**What is true:** the model is a function from text in to text out. It keeps no state between calls. This is like a soccer goalkeeper who gets a new briefing card before every shot. They know only what is on the card. If the card is blank, last week's match does not exist for them.\n\n**For your assistant:**\n- Each model call sees only what your program puts in its input, called the context window (the maximum text the model can read in one call).\n- To remember a student's training status, your program must save it (a database row or JSON file, in Python) between sessions.\n- At the start of the next session, it must load the relevant facts and insert them into the input.\n\n```python\nsaved = load_student(\"s123\")   # {\"laser_cutter_trained\": True}\nmessages = [{\"role\": \"system\", \"content\": f\"Student record: {saved}\"},\n            {\"role\": \"user\", \"content\": question}]\n```\n\nWithout the `load_student` step, the model has nothing to draw on.\n\nBecause every saved fact you re-send costs tokens (the units that model usage is billed in), your budget limits how much you can load. That makes choosing what to save a design decision, and it is the next topic in your mission.\n\nQuestion: if a student told the assistant last week, \"I'm allergic to resin,\" which parts of that exchange would you save, and which would you drop?",
+  "ttft_ms": 1104,
+  "type": "result",
+  "duration_ms": 10451,
+  "uuid": "c9845481-1034-48e0-9c57-a12ab0600aa3",
+  "ttft_stream_ms": 729,
+  "time_to_request_ms": 298,
+  "first_content_frame_ms": 729,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1195,
+      "cacheReadInputTokens": 98847,
+      "cacheCreationInputTokens": 15191,
+      "webSearchRequests": 0,
+      "costUSD": 0.08261469999999999,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 65,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 15191,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-20T19:38:56.427Z"
+}

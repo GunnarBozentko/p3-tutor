@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s2",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. An agent is defined by its loop: the model chooses an action, the program runs it, and the result returns for the next choice. A longer prompt, the tempting option, only changes what a single call does, like giving a striker better instructions without changing how the match is played."
+    },
+    {
+      "id": "q2",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. The model outputs only a structured request (a formatted message naming the tool and its inputs), here naming check_calendar with the laser cutter and tomorrow's date as arguments, and the program around the model then runs the tool. Options a and d fail because the model never opens the booking system or runs the tool's code, and option b fails because the model, not the program, decides to call the tool. Think of the model as a coach calling a play from the sideline while the players on the pitch carry it out."
+    },
+    {
+      "id": "q3",
+      "verdict": "wrong",
+      "misconception": "M6",
+      "feedback": "Wrong. You chose to leave the agent running, believing more steps will eventually fix the bug, but the same failing test returns every time, so step 41 adds no new information. It is like replaying the same failed corner kick forty times and expecting a goal; repeating identical data does not change an estimate either. The correct answer is a step limit, a stopping condition that ends the loop and reports back to a person. A larger context window (the amount of text the model can see at once) fails because all 40 steps already fit, and a longer prompt does not stop a loop."
+    },
+    {
+      "id": "q4",
+      "verdict": "partial",
+      "misconception": "M4",
+      "feedback": "Partial. Your count of 4 is right: three tool requests plus the final answer is four model calls. Your reasoning is wrong, because the model does not run any tool itself; it only writes a request, and the program around it runs the tool and sends the result back. Compare a goalkeeper who calls out where to pass: the call is the model's output, but the defenders make the pass. Count one model call per input the model receives, which is the question plus three results."
+    },
+    {
+      "id": "q5",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. You gave both parts: the result goes back to the model as its next input, and the model uses it to decide its next step. Without the result in front of it, the model would have no way to know what the tool found, just as a reply cannot be written to a message you never saw."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "Partial. The name is part of what the model sees, so that much is right. A name alone is not enough: the model relies on the whole tool description, meaning its name, what it does, and the parameters it takes (the inputs it expects, such as machine and date). Consider a dataset column named income that actually holds thousands of dollars: a reader using only the name will misuse it. A data dictionary, a table describing each column, exists for that reason, and a tool description plays the same role for the model."
+    }
+  ],
+  "summary": "You have what defines an agent and why the result is fed back, but your reasoning on the call count still had the model running the tools itself. Work first on the belief that an agent left running will eventually succeed. It will not, because a loop that gets the same failing result each time receives no new information, and it needs a stopping condition such as a step limit. Next step: for the makerspace assistant's booking loop, write a step limit in Python (a counter that ends the loop and reports what was tried) and state in one sentence why you chose that number."
+}

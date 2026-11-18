@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s1",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. An agent is defined by its structure: a loop in which the model picks an action, the program runs it, and the result returns for the next step. The loop repeats until a stopping condition is met. The tempting option was the longer prompt, but a prompt only changes what one call can do, in the way a longer team talk does not change the rules of the match. Memory of past conversations and a larger context window (the amount of text the model can read in one call) fail for the same reason: neither adds the loop."
+    },
+    {
+      "id": "q2",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "Wrong. You chose a, which assumes the model opens the booking system itself. A model only produces text, like a statistician who can write a data request but cannot open the database. The correct answer is c: the model outputs a structured request (a fixed-format message the program can read) naming check_calendar, with the laser cutter and tomorrow's date as arguments, and the program then runs the tool. Option b fails because the model decides to call the tool, and option d fails because the model never receives or runs the tool's code."
+    },
+    {
+      "id": "q3",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. The agent is repeating one failing edit, so the fix is a stopping condition such as a step limit, which ends the loop and hands the problem to a person. Letting it run longer fails because the same edit and the same failing test only repeat and add cost. A larger context window fails because all 40 steps already fit. Telling the model to try harder fails because an instruction does not stop a loop, as shouting at a team stuck in a passing loop does not change the formation."
+    },
+    {
+      "id": "q4",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "Wrong. You answered 1 and said the model runs the three tools itself, but the model only writes text, so each tool request ends one call and the program runs the tool. The correct answer is 4: one call for the question and one after each of the three tool results, so 3 + 1 = 4. The last call is the one that writes the final answer. It works like a statistician who writes one data request, waits for the output, and only then writes the next step; each wait is a separate call."
+    },
+    {
+      "id": "q5",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "Partial. Your answer, that the program sends the result back to the model, is right but omits the why. The program adds the result to the model's next input and calls the model again, so the model can use the result to choose its next step or write the final answer. Without that, the model never sees what the tool returned and cannot continue, like a player never told what the scout found."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": "M3",
+      "feedback": "Partial. Your first part is right: the program sends the model a list of tools, each with a name and a short description, and the model picks the one that fits the request. The second claim is wrong: a model keeps nothing between calls, like a player who forgets the previous match unless someone hands over the notes. Memory of earlier sessions exists only if the program saves it and sends it back in as text. A student's training status, for example, must be looked up in the training record with a tool at that moment, not recalled from a remembered choice."
+    }
+  ],
+  "summary": "Fix first: the model does not run tools. It writes a request as text, and the program runs the tool and returns the result, which is why the laser cutter question needed four model calls. Next step: redraw the loop for the question about the laser cutter and training, labelling each step as what the model writes or what the program does, and add one sentence on why each result is sent back."
+}

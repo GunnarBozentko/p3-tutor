@@ -1,0 +1,57 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "An agent's model at step 4 uses a fact from the tool result at step 1. How does the model have access to that fact?",
+      "options": [
+        {"id": "a", "text": "It keeps earlier steps in its own internal state"},
+        {"id": "b", "text": "The program sends the earlier messages in the call"},
+        {"id": "c", "text": "The provider stores each user's steps on its servers"},
+        {"id": "d", "text": "It recalls the fact from its training data"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "An agent's instructions and tool descriptions take 2,000 tokens and the student's question takes 100 tokens. The agent makes 4 model calls. Each call after the first also includes 500 more tokens than the previous call. How many input tokens are processed across all 4 calls?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Last week a student told the assistant they finished band-saw training, and the assistant saved that in a notes file. Today they ask to book the band saw. What should the assistant do first?",
+      "options": [
+        {"id": "a", "text": "Book it, because the saved note records the training"},
+        {"id": "b", "text": "Ask the student to repeat that the training is done"},
+        {"id": "c", "text": "Look up the training record with a tool and follow it"},
+        {"id": "d", "text": "Book it, then check the training record afterwards"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "The assistant must still know a student's chosen project deadline after the conversation is summarized to save space, and again in that student's next session. Where should the program put it?",
+      "options": [
+        {"id": "a", "text": "In the first message of the current conversation"},
+        {"id": "b", "text": "In the summary written when the chat is compacted"},
+        {"id": "c", "text": "In an earlier tool result left in the message list"},
+        {"id": "d", "text": "In a notes store outside the context window"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "A knowledge base of 90,000 tokens is loaded whole into the context on each of 5 model calls. Retrieval would instead add 3 chunks of 500 tokens on each call. How many fewer tokens does retrieval process across the 5 calls?",
+      "unit": "tokens"
+    }
+  ]
+}

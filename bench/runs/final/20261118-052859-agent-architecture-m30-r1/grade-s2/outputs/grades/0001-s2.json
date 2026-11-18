@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s2",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. An agent is defined by its loop: the model picks an action, the program runs it, and the result returns for the next step. The most tempting wrong option is the longer prompt. A longer prompt only changes the instructions for one call, much as a longer team talk does not change the rules of a match. Memory and a larger context window (the amount of text the model can see in one call) do not create the loop either."
+    },
+    {
+      "id": "q2",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. The model only writes text, here a structured request, meaning text in a fixed format that names check_calendar with the machine and date as arguments. The program around the model reads that request and runs the tool. The tempting wrong option is that the model reads the calendar itself. It cannot, just as a statistician writing a query has not yet run it against the database."
+    },
+    {
+      "id": "q3",
+      "verdict": "wrong",
+      "misconception": "M6",
+      "feedback": "Wrong. You chose 'left to run longer, it will eventually fix the bug', which assumes more steps always bring progress. The loop repeats the same edit and gets the same failing test, so step 41 will look like step 40, like gradient descent stuck on a flat region with no iteration cap. The fix is a step limit, a counter in the program that ends the loop after a set number of steps and reports what happened so far. A larger context window fails because all 40 steps already fit, and a stronger prompt fails because it changes the instructions, not the program that decides when to stop."
+    },
+    {
+      "id": "q4",
+      "verdict": "partial",
+      "misconception": "M4",
+      "feedback": "Partial. The count of 4 is right: three tool requests plus one final answer, each a separate model call. The reason is wrong: you wrote that the model 'runs' each tool itself. The model only outputs text naming a tool and its arguments, and the program runs it, like a coach who calls a play from the sideline while the players execute it. If the model ran tools itself, it would need direct access to the booking system, yet all it can produce is text."
+    },
+    {
+      "id": "q5",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. You gave both parts: the result goes back in as the next input, and the model uses it to decide what to do next. The group-chat comparison holds because the model can only act on what is in front of it. The model keeps no live connection to the tool, so a result it never receives cannot affect its next step."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "Partial. 'By the name' is half right: the name is one thing the model sees, but the program also supplies a description of what the tool does and its parameters (the inputs it takes). A tool named check or tool_7 gives the model nothing to choose by, as a column named 'value' tells you nothing without a data dictionary. The model never sees the code, so the description is its only evidence of what each tool does. Write a one-sentence purpose for every tool."
+    }
+  ],
+  "summary": "Questions 1, 2 and 5 show you have the loop itself, the model's output being a tool request, and results returning as the next input. Work first on the belief that an agent left to run longer will eventually succeed. Repeated identical failures add no new information, so every loop needs a stopping condition such as a step limit. Second, question 4 showed you still think the model runs tools; it only requests them, and the program runs them. Next step: write a short Python loop for the makerspace assistant that stops after 10 steps and returns what it did so far. Then state what an unlimited version would do if the test failed every time."
+}

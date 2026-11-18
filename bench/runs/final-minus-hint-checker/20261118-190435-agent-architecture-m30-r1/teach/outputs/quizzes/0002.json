@@ -1,0 +1,56 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A makerspace agent calls a calendar tool at step 1 and makes its next model call at step 2. What carries the calendar result into step 2?",
+      "options": [
+        {"id": "a", "text": "Weights the model updates after each call it makes"},
+        {"id": "b", "text": "A private memory the model keeps for each user"},
+        {"id": "c", "text": "The message list that the program sends again"},
+        {"id": "d", "text": "A summary the model writes to itself each night"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "An agent's first model call has 1,500 input tokens. Each later call has 700 more input tokens than the call before, because the history is resent. The agent makes three calls in total. How many input tokens are processed across all three calls?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A returning student asks to book the 3D printer. A saved note from last month says \"trained on the 3D printer\", and the student says the same. What should decide whether the assistant books it?",
+      "options": [
+        {"id": "a", "text": "A lookup in the training record, made through a tool now"},
+        {"id": "b", "text": "The saved note, since the assistant itself wrote it earlier"},
+        {"id": "c", "text": "The student's statement, since it matches the saved note"},
+        {"id": "d", "text": "The model's judgment of how experienced the student sounds"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O3",
+      "stem": "A 400-page manual would fit inside your model's context window. In one or two sentences, give one reason to retrieve a few relevant chunks instead of pasting the whole manual into every request."
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Which of these is the best fit for a saved note that is loaded at the start of the student's next session?",
+      "options": [
+        {"id": "a", "text": "Whether the laser cutter is free on Friday at 3 pm"},
+        {"id": "b", "text": "That the student prefers booking evening slots on weekdays"},
+        {"id": "c", "text": "The full text of the laser cutter manual's safety chapter"},
+        {"id": "d", "text": "Whether the student has passed the band saw training"}
+      ]
+    }
+  ]
+}

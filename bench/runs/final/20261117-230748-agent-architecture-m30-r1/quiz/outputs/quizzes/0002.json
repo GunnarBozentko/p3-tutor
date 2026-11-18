@@ -1,0 +1,58 @@
+{
+  "id": "0002",
+  "objective": "O4",
+  "title": "Workflows, agents and who owns the control flow",
+  "items": [
+    {"id": "q1", "type": "mcq", "objective": "O4",
+     "stem": "Definitions: Which of these best defines the control flow of an LLM system?",
+     "options": [
+       {"id": "a", "text": "The data each step passes to the next step, such as the model's text or a tool result"},
+       {"id": "b", "text": "The decision of which step runs next, and when the whole process stops"},
+       {"id": "c", "text": "The set of tools, and their descriptions, that the model may call during one request"},
+       {"id": "d", "text": "The prompt that tells the model how to behave at each step"}
+     ]},
+    {"id": "q2", "type": "mcq", "objective": "O4",
+     "stem": "Definitions: Which of these best defines a workflow, as opposed to an agent?",
+     "options": [
+       {"id": "a", "text": "A system that calls the model once per request and returns its reply as is"},
+       {"id": "b", "text": "A system that makes more than one model call to finish a request"},
+       {"id": "c", "text": "A system where the developer's program, not the model, picks each step"},
+       {"id": "d", "text": "A system where the model only writes text and never calls any tool"}
+     ]},
+    {"id": "q3", "type": "short", "objective": "O4",
+     "stem": "Definitions: In one phrase, what is an agent, as opposed to a workflow?"},
+    {"id": "q4", "type": "short", "objective": "O4",
+     "stem": "Definitions: In a few words, name two things that typically get worse when the model, rather than code, owns the control flow."},
+    {"id": "q5", "type": "short", "objective": "O4",
+     "stem": "Definitions: In one phrase, what do you give up when you choose a fixed workflow instead of an agent?"},
+    {"id": "q6", "type": "mcq", "objective": "O4",
+     "stem": "Applying it: A teammate proposes this makerspace design. Python calls check_training_record(student_id) on every request. If it returns False, the program prints \"Complete training first\" and ends. If it returns True, the program passes the student's message to a model together with the three tools search_manual, get_slots and book_slot. The model may call any of them, in any order, as many times as it likes, and its final text is shown to the student. Who owns the control flow?",
+     "options": [
+       {"id": "a", "text": "Code owns the check and the early stop; the model owns the flow after that"},
+       {"id": "b", "text": "Code owns the check and the early stop; code also owns the order of search_manual, get_slots and book_slot after that"},
+       {"id": "c", "text": "The model owns the whole flow, including whether training is checked, because it receives the student's message"},
+       {"id": "d", "text": "Code owns the whole flow, because code runs both the check and the call to the model"}
+     ]},
+    {"id": "q7", "type": "mcq", "objective": "O4",
+     "stem": "Applying it: A request goes through three stages. Stage 1: the model returns JSON naming the machine and date from the student's message. Stage 2: a line of Python passes that machine name to get_slots. Stage 3: the model writes the reply from the returned slots. A teammate says this is an agent because the model is called twice. Which statement is correct?",
+     "options": [
+       {"id": "a", "text": "It is an agent, because the model's summary decides which tool call comes next"},
+       {"id": "b", "text": "It is a workflow: the model never chooses what runs next; it only writes text and JSON"},
+       {"id": "c", "text": "It is an agent, because the model is called twice and a workflow would call it only once"},
+       {"id": "d", "text": "It is neither, because a system needs tools to count as either"}
+     ]},
+    {"id": "q8", "type": "numeric", "objective": "O4",
+     "stem": "Applying it: Every booking request runs the same two availability checks and then book_slot, in that order, and nothing in a request changes that (book_slot is a plain function call, not a model call). Design A is code that calls the model for each of 3 steps (calendar summary, training summary, booking confirmation). Design B is an agent that, averaged over past requests, makes 6 model calls. Each model call costs $0.005, and the makerspace expects 2,000 booking requests per month. What is the monthly model cost, in dollars, of the design that fits this request type?",
+     "unit": "dollars"},
+    {"id": "q9", "type": "mcq", "objective": "O4",
+     "stem": "Applying it: A teammate wants the manual question-answering path to be an agent. The logs of 500 past questions show the same sequence every time: one search_manual call, then one model call that writes the answer from the passages. The team has a small model budget. Which response is strongest?",
+     "options": [
+       {"id": "a", "text": "Use an agent: it can recover when a step fails, and that reliability is worth its higher cost on the busiest path of the whole assistant"},
+       {"id": "b", "text": "Use an agent: the model finds better passages when it chooses its own searches"},
+       {"id": "c", "text": "Keep a fixed workflow, but add a loop so the model can search again if the first passages look weak"},
+       {"id": "d", "text": "Keep a fixed workflow: the logged path never varied, so an agent's extra calls would add cost with no decision for it to make"}
+     ]},
+    {"id": "q10", "type": "short", "objective": "O4",
+     "stem": "Applying it: Compare two student requests. Request X: \"Is the laser cutter free Friday afternoon?\" Request Y: \"Is the laser cutter free Friday afternoon? If not, find the soonest slot on any machine I am trained on that can cut 3 mm acrylic.\" Which request could code own end to end, which needs the model to own the control flow after the first lookup, and what property of the requests separates them?"}
+  ]
+}

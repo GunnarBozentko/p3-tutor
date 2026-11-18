@@ -1,0 +1,104 @@
+{
+  "id": "0002",
+  "objective": "O4",
+  "title": "Workflows, agents and who owns the control flow",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Definition: Which of these best defines a workflow, as the term is used for systems built on language models?",
+      "options": [
+        {"id": "a", "text": "A system that sends the model one prompt per request and returns its reply with no further steps"},
+        {"id": "b", "text": "A system where the program's code fixes the sequence of model calls and tools in advance"},
+        {"id": "c", "text": "A system in which the model is given tools but a person approves every call"},
+        {"id": "d", "text": "A system that uses the model for one narrow job, such as labelling a message, and nothing else"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Definition: Which of these best defines an agent?",
+      "options": [
+        {"id": "a", "text": "A system that calls the model several times per request, with each call's prompt written by the team"},
+        {"id": "b", "text": "A system in which the model is given a detailed prompt that lists every step to follow"},
+        {"id": "c", "text": "A system where the model dynamically directs its own steps and tool use"},
+        {"id": "d", "text": "A system whose code hands the model a tool at one stage of a longer pipeline"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "short",
+      "objective": "O4",
+      "stem": "Definition: In one phrase, what does \"control flow\" mean for a system built on a language model?"
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Definition: Which of these best defines prompt chaining?",
+      "options": [
+        {"id": "a", "text": "Splitting a task into stages where each model call works on the previous call's output"},
+        {"id": "b", "text": "Sending one input to several model calls at the same time and merging all their outputs"},
+        {"id": "c", "text": "Having the model call itself repeatedly until it decides the task is done"},
+        {"id": "d", "text": "Letting a person review each model output before the next call is made"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O4",
+      "stem": "Definition: In one sentence, what does a routing workflow do with an incoming request?"
+    },
+    {
+      "id": "q6",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Applying it: Your makerspace assistant receives \"How do I change the nozzle on the Prusa printer?\" The program text reads: results = search_manuals(question); reply = model(question, results); print(reply). Is this a workflow or an agent, and why?",
+      "options": [
+        {"id": "a", "text": "An agent, because the model writes the reply that the student finally reads on the screen"},
+        {"id": "b", "text": "An agent, because the search results change what the model writes in its reply"},
+        {"id": "c", "text": "A workflow, because the program text already settles what runs first and what runs second"},
+        {"id": "d", "text": "A workflow, because the model is called only once"}
+      ]
+    },
+    {
+      "id": "q7",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Applying it: Which part of the makerspace assistant is the strongest candidate for a fixed workflow rather than an agent?",
+      "options": [
+        {"id": "a", "text": "Diagnosing why a student's 3D prints keep warping and suggesting what to change"},
+        {"id": "b", "text": "Booking a machine slot for a trained student when the calendar shows the slot is free"},
+        {"id": "c", "text": "Helping a student plan a project that needs both the laser cutter and the 3D printer"},
+        {"id": "d", "text": "Responding when a student reports a machine fault that the manual does not mention"}
+      ]
+    },
+    {
+      "id": "q8",
+      "type": "numeric",
+      "objective": "O4",
+      "stem": "Applying it: The sponsor allows $0.05 per request in expected cost, not worst-case cost. Design W is a fixed workflow: always 3 model calls per request, each with 1,500 input tokens and 300 output tokens. Design A is an agent: on average 5 model calls per request (at most 8), each with 3,000 input tokens and 300 output tokens. A token is a small chunk of text; the price is $3 per million input tokens and $15 per million output tokens. Exactly one design exceeds the allowance on expected cost. By how many dollars per request does it exceed it?",
+      "unit": "dollars"
+    },
+    {
+      "id": "q9",
+      "type": "short",
+      "objective": "O4",
+      "stem": "Applying it: Booking can be built as a fixed workflow or as an agent, and both book correctly. In one sentence, name one reason a reviewer should accept for choosing the workflow, and say what about fixed steps causes it."
+    },
+    {
+      "id": "q10",
+      "type": "mcq",
+      "objective": "O4",
+      "stem": "Applying it: A team proposes this design for open questions such as \"Can I build my project on the laser cutter this week?\" Step 1: code checks the student's training record and stops if training is missing. Step 2: the model, given search_manuals and check_calendar tools, may make up to 6 calls to work out an answer. Step 3: code saves the answer to a log. Which statement about who decides what happens next is accurate?",
+      "options": [
+        {"id": "a", "text": "The model decides at all three steps, because it is the only part that calls tools"},
+        {"id": "b", "text": "Code decides at steps 1 and 3; the model decides which lookups happen in step 2 and when it stops"},
+        {"id": "c", "text": "Code decides at all three steps, because it sets the six-call limit"},
+        {"id": "d", "text": "The model decides at step 2 only whether to stop; the code decides which tool each of the six calls uses, in a set order"}
+      ]
+    }
+  ]
+}

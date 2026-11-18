@@ -1,0 +1,36 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "c",
+      "rationale": "A model call keeps nothing from the previous call, so the program resends the earlier messages and tool results with the new message. Answers a and d assume the model remembers; b assumes it can look a chat up."
+    },
+    {
+      "id": "q2",
+      "answer": 8750,
+      "tolerance": 1,
+      "rationale": "Call 1 input = 2,100. Call 2 input = 2,100 + 50 + 400 = 2,550. Call 3 input = 2,550 + 50 + 1,500 = 4,100. Total = 8,750. An answer of 4,100 counts only the last call and misses that history is resent at every call."
+    },
+    {
+      "id": "q3",
+      "answer": "b",
+      "rationale": "A safety permission comes from the authoritative record, read through a tool at the moment of the decision. A student's claim and a saved note are copies that can be wrong or stale, even when they agree, and asking for the training date or for proof in the chat still relies on claims rather than the record."
+    },
+    {
+      "id": "q4",
+      "answer": 0.67,
+      "tolerance": 0.01,
+      "rationale": "Recall is relevant chunks retrieved divided by relevant chunks needed: 2 / 3 = 0.67. An answer of 0.5 is precision (2 relevant of 4 returned)."
+    },
+    {
+      "id": "q5",
+      "answer": "Compaction summarizes the current context so the same session continues in a fresh window; notes are saved outside the context and persist, so later sessions can load them.",
+      "accepted": [
+        "compaction shortens the history within a session; notes persist across sessions",
+        "compaction summarizes the context to keep going in the same session, while notes are stored outside the context for later sessions"
+      ],
+      "rationale": "The difference is scope and place: compaction rewrites the current context to free space within a session, while notes live outside the context window and survive between sessions. A answer that says both just summarize, or that notes shrink the current window, misses this."
+    }
+  ]
+}

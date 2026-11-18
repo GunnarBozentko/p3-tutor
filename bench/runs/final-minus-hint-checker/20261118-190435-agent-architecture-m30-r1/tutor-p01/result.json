@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 13106,
+  "stop_reason": "end_turn",
+  "session_id": "e5afa8e5-aeac-46b2-8bf4-0782deab25f0",
+  "total_cost_usd": 0.0934324,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 16926,
+    "cache_read_input_tokens": 100624,
+    "output_tokens": 1565,
+    "output_tokens_details": {
+      "thinking_tokens": 294
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 16926,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 513,
+        "cache_read_input_tokens": 31291,
+        "cache_creation_input_tokens": 436,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 436
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1565,
+      "cacheReadInputTokens": 100624,
+      "cacheCreationInputTokens": 16926,
+      "webSearchRequests": 0,
+      "costUSD": 0.0934324,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 294,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 16926,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 8,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I will not tell you which letter is right for q3. Quiz 0001 is still ungraded, and the quiz measures what you can do, so a retake counts the same way. Here are three steps you can take on your own.\n\n1. **Analogy.** A soccer team is losing 1–0 and the coach keeps running the same failed play. The players can see the whole match so far, and the coach can tell them to try harder. Neither of those changes what the team does next. Something outside the players has to decide when the approach is over. The analogy breaks down because a coach is a person who judges what to do. An agent program only does what its code does.\n\n2. **Worked example on a different case.** Suppose a script retries a failing web request over and over. Ask which kind of fix applies:\n   - What the retrying part can see (its inputs).\n   - What the retrying part is told (its instructions).\n   - What the program around the retrying part enforces regardless of what it decides (its code).\n\n   A fix in the first two categories depends on the model to behave differently. A fix in the third works even if the model never changes its behaviour. The question is which category each q3 option falls into.\n\n3. **Check on every option alike.** For each of a through d, run the scenario forward. The agent is at step 41 and its behaviour has not changed. Ask whether the option changes the outcome at step 41. Then ask whether it changes the outcome only if the model decides to act differently. Write the answer for each option.\n\nWhich of the four options still has the model making the same edit at step 41, and what does that tell you about the others?\n\nOnce quiz 0001 is graded, I will go through q3 and all the other items in full with you.",
+  "ttft_ms": 1132,
+  "type": "result",
+  "duration_ms": 13552,
+  "uuid": "315345c5-8356-43b8-bf6f-3a0d80808887",
+  "ttft_stream_ms": 534,
+  "time_to_request_ms": 75,
+  "first_content_frame_ms": 535,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1565,
+      "cacheReadInputTokens": 100624,
+      "cacheCreationInputTokens": 16926,
+      "webSearchRequests": 0,
+      "costUSD": 0.0934324,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 294,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 16926,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-20T19:38:56.427Z"
+}

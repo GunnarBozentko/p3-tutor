@@ -1,0 +1,65 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "A workflow is a system in which predefined code paths fix the sequence of model calls and tools. Option c tempts because it mentions tools, but a workflow is defined by code deciding the steps, not by approvals or tool use.",
+      "distractors": {"a": "M11", "c": "M26", "d": "M16"}
+    },
+    {
+      "id": "q2",
+      "answer": "c",
+      "rationale": "An agent is a system where the model dynamically directs its own process and tool use, deciding the next step from the results so far. Option d tempts because agents use tools, but a workflow can also give the model tools; the difference is who decides what happens next.",
+      "distractors": {"a": "M18", "b": "M19", "d": "M10"}
+    },
+    {
+      "id": "q3",
+      "answer": "which part, the code or the model, decides what step happens next",
+      "accepted": ["who decides the next step", "who decides what happens next", "whether the code or the model decides the sequence of steps", "the decision of what step comes next, made by code or by the model", "who chooses the order of steps", "what runs next and when to stop, and who decides it"],
+      "rationale": "Control flow is the question of what runs next and when to stop, and whether code or the model decides it. Listing the steps or the tools is the common wrong answer; it misses that the term is about who decides them."
+    },
+    {
+      "id": "q4",
+      "answer": "a",
+      "rationale": "Prompt chaining splits a task into a fixed sequence of model calls, each processing the output of the previous one. Option b is parallelization, where calls run side by side rather than in sequence.",
+      "distractors": {"b": "M20", "c": "M21", "d": "M22"}
+    },
+    {
+      "id": "q5",
+      "answer": "It classifies the request and sends it to a specialised follow-up path or prompt.",
+      "accepted": ["classifies the input and directs it to a specialized handler", "sorts the request by type and sends it to the matching path", "classifies the request then routes it to a specialised prompt, tool or model", "directs the input to the right specialised path"],
+      "rationale": "Routing classifies an input and directs it to a specialised downstream path. A reply that says it runs all paths at once describes parallelization, not routing."
+    },
+    {
+      "id": "q6",
+      "answer": "c",
+      "rationale": "The program text fixes the order (search, then model, then print), so the code decides what runs next and this is a workflow. Option a tempts because the model writes the visible reply, but writing text is not the same as choosing the next step.",
+      "distractors": {"a": "M12", "b": "M12", "d": "M28"}
+    },
+    {
+      "id": "q7",
+      "answer": "b",
+      "rationale": "Booking has known steps that can be written in advance, so a fixed workflow is cheaper and more predictable. Option d is the closest wrong choice: what to do next depends on a fault the manual does not cover, so the steps cannot be written beforehand.",
+      "distractors": {"a": "M14", "c": "M24", "d": "M25"}
+    },
+    {
+      "id": "q8",
+      "answer": 0.0175,
+      "tolerance": 0.0005,
+      "rationale": "Design W: 4,500 input tokens ($0.0135) plus 900 output tokens ($0.0135) is $0.027, within the allowance. Design A on the expected 5 calls: 15,000 input tokens ($0.045) plus 1,500 output tokens ($0.0225) is $0.0675, which exceeds $0.05 by $0.0175. Using the worst case of 8 calls, or the same token counts for both designs, gives a wrong figure."
+    },
+    {
+      "id": "q9",
+      "answer": "It is cheaper or more predictable, because fixed steps mean fewer model calls and the same path every time.",
+      "accepted": ["lower cost, because fewer model calls", "cheaper, because the steps are fixed in code", "more predictable, because the same steps run every time", "easier to test, because the path never changes", "faster, because there are fewer model calls"],
+      "rationale": "With the steps fixed in code there are fewer model calls and the same path every time, so cost, speed and testing are easier to control. Saying an agent is less accurate is wrong, since the stem says both book correctly."
+    },
+    {
+      "id": "q10",
+      "answer": "b",
+      "rationale": "Code fixes steps 1 and 3, while the model chooses which lookups to make and when to stop inside step 2, so the deciding is split by stage. Option c tempts because the code sets the six-call limit, but a limit only bounds the model's choices; it does not make them.",
+      "distractors": {"a": "M10", "c": "M13", "d": "M23"}
+    }
+  ]
+}

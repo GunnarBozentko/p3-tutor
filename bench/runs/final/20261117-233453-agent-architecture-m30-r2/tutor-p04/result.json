@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 11890,
+  "stop_reason": "end_turn",
+  "session_id": "1fc52ee5-74ee-44bd-b02e-88591d5035c4",
+  "total_cost_usd": 0.08511479999999999,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 15543,
+    "cache_read_input_tokens": 99868,
+    "output_tokens": 1294,
+    "output_tokens_details": {
+      "thinking_tokens": 68
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 15543,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 574,
+        "cache_read_input_tokens": 30022,
+        "cache_creation_input_tokens": 322,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 322
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1294,
+      "cacheReadInputTokens": 99868,
+      "cacheCreationInputTokens": 15543,
+      "webSearchRequests": 0,
+      "costUSD": 0.08511479999999999,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 68,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 15543,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 7,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Neither. The premise is not correct: more agents do not always give better results, so \"five or ten\" is the wrong question.\n\n**Why it is tempting:** more workers sounds like more capacity. But an agent here is a model called in a loop (your loop from the earlier session), and each agent is its own loop that costs money.\n\n**What is true:** splitting adds costs and risks.\n- **Cost:** every agent makes its own model calls, and each call re-reads its instructions and context. Ten agents can cost several times what one does, and your budget is small.\n- **Handoff loss:** agents pass each other summaries, not full context. Details drop out at each handoff, and errors compound. If each handoff keeps the right information with probability 0.95, a chain of ten keeps it with probability 0.95¹⁰ ≈ 0.60.\n- **Coordination:** the more agents, the more work goes into deciding who does what.\n\n**Soccer analogy:** adding players does not help past eleven, because they collide and the passes get lost. It breaks down in that agents do not tire. The cost is in the calls, not stamina.\n\n**When splitting pays off:** when the sub-tasks are independent, so they can run in parallel, or when one agent's context would get too large or muddled. Your assistant has three jobs: answering from manuals, checking the calendar, and booking. Those are sequential and share the student's request, so one agent with three well-described tools is the sensible default. Parts with fixed steps, such as \"book this slot\", may be better as a plain workflow, meaning code that follows set steps with no model deciding the route.\n\n**Question:** which of your three jobs, if any, needs its own context separate from the others, and what would that agent need to be told by the others?\n\nI can write a lesson on multi-agent systems and when they pay off.",
+  "ttft_ms": 1160,
+  "type": "result",
+  "duration_ms": 12262,
+  "uuid": "d2a0d34b-d2c0-4d0b-8167-a8904c54a2d8",
+  "ttft_stream_ms": 551,
+  "time_to_request_ms": 73,
+  "first_content_frame_ms": 551,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1294,
+      "cacheReadInputTokens": 99868,
+      "cacheCreationInputTokens": 15543,
+      "webSearchRequests": 0,
+      "costUSD": 0.08511479999999999,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 68,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 15543,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-20T19:38:56.427Z"
+}

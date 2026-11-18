@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s2",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. An agent is defined by its structure: a loop in which the model picks an action, the program runs it, and the result returns for the next step. A longer prompt (a) only changes what a single call can do. It adds no loop, just as a longer game plan does not turn one pass into a whole match."
+    },
+    {
+      "id": "q2",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. The model's output is only a structured request naming the tool and its arguments, here check_calendar with the laser cutter and tomorrow's date. The program around the model runs the tool. Option d, the model outputting the tool's code, fails for the same reason: the model never executes anything."
+    },
+    {
+      "id": "q3",
+      "verdict": "wrong",
+      "misconception": "M6",
+      "feedback": "Wrong. You chose c, the belief that the agent will fix the bug if left to run longer. The agent gets identical failing feedback each time, like a striker repeating the same missed shot and expecting a different result. The answer is b, a step limit, a cap on loop iterations that stops the run and reports progress to a person. A larger context window (a, the amount of text the model can read at once) fails because all 40 steps already fit, and a longer prompt (d) adds no stopping condition."
+    },
+    {
+      "id": "q4",
+      "verdict": "partial",
+      "misconception": "M4",
+      "feedback": "Partial. The count of 4 is right, but you wrote that the model runs each tool itself, and it does not. The model only outputs a request such as check_calendar with the date, like a coach calling a play while the program, as the players, carries it out. If the model ran them itself, all three runs could happen inside one call and the total could be 1. The count is 4 because the model is called once per input it receives: the question plus three tool results."
+    },
+    {
+      "id": "q5",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. You gave both parts: the result goes back to the model as its next input, so the model can decide its next step. In the group-chat comparison, the model sees only the message placed in front of it. It never sees the result until the program sends it back."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "Partial. You answered that the model knows by the name alone, which assumes a name states what a tool does. The model reads the whole tool description: its name, what the tool does, and its parameters (the inputs it takes). A column named x is unusable without a codebook saying what x measures, and a tool named check_calendar could just as well cover machine bookings or staff shifts. The correct answer is that the model chooses from the descriptions the program gives it."
+    }
+  ],
+  "summary": "Work first on the belief that an agent left to run longer will eventually succeed. A loop that gets the same failing feedback each time repeats the same step, like refitting a model on identical data and expecting a different estimate, so the loop needs a step limit. Next step: on paper, trace the makerspace assistant's loop for \"Is the laser cutter free tomorrow?\", as in your agent loop session. Add a limit of 10 steps and write what the program reports when the limit is reached."
+}

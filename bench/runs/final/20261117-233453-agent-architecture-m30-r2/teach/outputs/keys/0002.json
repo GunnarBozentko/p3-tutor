@@ -1,0 +1,32 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "The model keeps nothing between calls; the program resends the message list, which includes step 1's result, on every call. Choosing a shows the belief that the model holds a running memory of the conversation."
+    },
+    {
+      "id": "q2",
+      "answer": 11400,
+      "tolerance": 0,
+      "rationale": "Call 1 reads 2,100 tokens, then 2,600, 3,100 and 3,600. The sum is 11,400. An answer of 3,600 counts only the final context; an answer of 8,400 repeats the first call four times."
+    },
+    {
+      "id": "q3",
+      "answer": "c",
+      "rationale": "A risky permission is decided by the authoritative record, read through a tool at the moment of the decision. A note is a copy of the student's claim and can be stale or wrong; asking again or checking afterwards still lets a claim decide the booking."
+    },
+    {
+      "id": "q4",
+      "answer": "d",
+      "rationale": "Information that must survive both compaction and the end of the session has to live in storage outside the context window. The first message, a summary and an old tool result are all inside the window and can be dropped or lost when the window is rebuilt or the session ends."
+    },
+    {
+      "id": "q5",
+      "answer": 442500,
+      "tolerance": 0,
+      "rationale": "Loading whole costs 5 x 90,000 = 450,000 tokens. Retrieval costs 5 x (3 x 500) = 7,500 tokens. The difference is 442,500 tokens."
+    }
+  ]
+}

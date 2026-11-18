@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 10957,
+  "stop_reason": "end_turn",
+  "session_id": "1ec35608-6534-4eae-887f-cd83793fde0c",
+  "total_cost_usd": 0.0799946,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 15147,
+    "cache_read_input_tokens": 69846,
+    "output_tokens": 1241,
+    "output_tokens_details": {
+      "thinking_tokens": 97
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 15147,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 592,
+        "cache_read_input_tokens": 29532,
+        "cache_creation_input_tokens": 416,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 416
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1241,
+      "cacheReadInputTokens": 69846,
+      "cacheCreationInputTokens": 15147,
+      "webSearchRequests": 0,
+      "costUSD": 0.0799946,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 97,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 15147,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 6,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Neither. The premise is false: more agents do not always give better results, and for your budget the answer is probably one agent.\n\n**Why the premise is tempting.** More workers usually means more work done, as with a bigger team. But an agent is a model running its own loop of calls, and every extra agent adds costs that a bigger team does not have.\n\n**What is true.** Each agent re-reads its own instructions and context, so token cost (tokens are the units of text you pay for) rises with every agent. Each handoff between agents is a place where information gets dropped or distorted. Splitting pays off only when the sub-tasks are independent, the work can run in parallel, or one agent's context would otherwise overflow.\n\n**Soccer analogy.** Eleven players is not better than seven at a task that needs only two passes and a shot. Extra players add coordination, and each pass between them can be intercepted. The analogy breaks down because a player costs nothing per touch, while an agent costs money per call.\n\n**Your assistant.** Its three jobs are:\n- Answering from manuals.\n- Checking the calendar.\n- Booking equipment.\n\nThey are sequential and share one conversation, so splitting them gains little. A sound starting design is:\n- One agent with three tools (manual search, calendar check, booking).\n- Fixed workflow steps wherever the order never changes, for example \"check availability, then book\".\n- Splitting off a second agent only if you measure a specific failure that a split would fix, such as the manuals overflowing the context window.\n\nDefend it at your review by saying that you start with the simplest design and add agents only with evidence.\n\n**Question for you:** for a request like \"book the laser cutter Thursday at 3 and tell me the safety steps\", which of the steps would you fix in a workflow, and which need the model's judgment? I can also write a lesson on when multi-agent designs pay off.",
+  "ttft_ms": 902,
+  "type": "result",
+  "duration_ms": 11219,
+  "uuid": "1f8c7d5c-694e-4249-af74-735e8e5a1caf",
+  "ttft_stream_ms": 545,
+  "time_to_request_ms": 70,
+  "first_content_frame_ms": 545,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1241,
+      "cacheReadInputTokens": 69846,
+      "cacheCreationInputTokens": 15147,
+      "webSearchRequests": 0,
+      "costUSD": 0.0799946,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 97,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 15147,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-20T19:38:56.427Z"
+}

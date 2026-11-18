@@ -1,0 +1,50 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A student sends a second message in the same conversation with your makerspace assistant, and the program calls the model again. What must the program include in that call so the model can follow the conversation?",
+      "options": [
+        {"id": "a", "text": "Only the new message, since the model remembers the earlier ones itself"},
+        {"id": "b", "text": "Only a reference number for the chat, which the model uses to look it up"},
+        {"id": "c", "text": "The earlier messages and tool results again, plus the new message"},
+        {"id": "d", "text": "Only the system prompt and the new message, since history is built in"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "A request has a 2,000-token system prompt and a 100-token question. The model is called three times. Call 1 outputs 50 tokens and its tool result is 400 tokens. Call 2 outputs 50 tokens and its tool result is 1,500 tokens. Call 3 writes the final answer. The program resends the full history at every call. How many input tokens are sent across the three calls in total?",
+      "unit": "input tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A student says they finished CNC router training last week, and a note saved from an earlier session also says \"CNC trained\". The student asks the assistant to book the router. What should the assistant do?",
+      "options": [
+        {"id": "a", "text": "Book it, because the student's claim and the saved note agree"},
+        {"id": "b", "text": "Call a tool that reads the training database, and book only if it confirms"},
+        {"id": "c", "text": "Book it, and ask the student to confirm the date of the training"},
+        {"id": "d", "text": "Decline until the student uploads proof of training in the chat"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "A manual search returns 4 chunks. Two of the 4 are relevant. The question needs 3 relevant chunks in total. What is the recall of this search, as a decimal rounded to two places?"
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O3",
+      "stem": "In one or two sentences, how does saving notes to memory differ from compaction in what each does for an agent?"
+    }
+  ]
+}

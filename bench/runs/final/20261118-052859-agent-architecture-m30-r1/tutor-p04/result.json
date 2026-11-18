@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 11715,
+  "stop_reason": "end_turn",
+  "session_id": "c1a62d97-2c29-4164-be28-3ac2a387cf09",
+  "total_cost_usd": 0.0807017,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 15273,
+    "cache_read_input_tokens": 69877,
+    "output_tokens": 1261,
+    "output_tokens_details": {
+      "thinking_tokens": 188
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 15273,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 523,
+        "cache_read_input_tokens": 29567,
+        "cache_creation_input_tokens": 507,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 507
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1261,
+      "cacheReadInputTokens": 69877,
+      "cacheCreationInputTokens": 15273,
+      "webSearchRequests": 0,
+      "costUSD": 0.0807017,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 188,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 15273,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 6,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "The premise is wrong: more agents do not always give better results. So neither five nor ten is the right starting point.\n\nIt is tempting because a team of specialists works well for people. But each agent is a separate model loop, and each loop re-reads its own instructions and context, so **token cost** (the text you pay for, in and out) grows with every agent you add. Agents also pass work to each other as text summaries. Every handoff can drop a detail, such as which machine or which time slot the student asked for. Splitting pays off mainly when subtasks are independent and can run in parallel, or when one context would be too large for a single agent. Soccer is a fair comparison. Eleven players need positions, but adding a twelfth does not help. It adds passes that can go wrong.\n\nFor your assistant, the work is three narrow, sequential tasks:\n\n- Answer from the manuals.\n- Check the calendar.\n- Book the time.\n\nA sensible default:\n\n- **One agent** with three well-described tools.\n- **Fixed workflow steps** (code that always runs in the same order) for anything with a predictable sequence, such as verifying a student's training status before a booking.\n- **Split off a second agent** only if you can show a concrete failure that one agent cannot fix. An example is manual lookups filling the context so badly that booking quality drops.\n\nA small comparison you can defend at the design review: if one agent costs C tokens per request, N agents that each re-read shared context cost roughly N·C before any handoff overhead. Your budget is small, so that matters.\n\nQuestion: for the booking step, which would you defend, an agent deciding what to do or a fixed workflow, and what is your reason?",
+  "ttft_ms": 1483,
+  "type": "result",
+  "duration_ms": 12088,
+  "uuid": "55955b67-eebe-4a37-a8c3-70da3f107c23",
+  "ttft_stream_ms": 1148,
+  "time_to_request_ms": 82,
+  "first_content_frame_ms": 1148,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1261,
+      "cacheReadInputTokens": 69877,
+      "cacheCreationInputTokens": 15273,
+      "webSearchRequests": 0,
+      "costUSD": 0.0807017,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 188,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 15273,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-20T19:38:56.427Z"
+}

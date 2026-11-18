@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 11974,
+  "stop_reason": "end_turn",
+  "session_id": "c0890a26-fea9-4824-97f0-2981efab54ac",
+  "total_cost_usd": 0.08039660000000001,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 14909,
+    "cache_read_input_tokens": 69086,
+    "output_tokens": 1384,
+    "output_tokens_details": {
+      "thinking_tokens": 212
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 14909,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 614,
+        "cache_read_input_tokens": 29173,
+        "cache_creation_input_tokens": 537,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 537
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1384,
+      "cacheReadInputTokens": 69086,
+      "cacheCreationInputTokens": 14909,
+      "webSearchRequests": 0,
+      "costUSD": 0.08039660000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 212,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 14909,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 6,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "**The premise is not correct, so neither \"five\" nor \"ten\" is the right answer yet.** Adding agents does not reliably improve results, and for your budget it usually makes them worse.\n\n**Why it is tempting:** a team of specialists sounds better than one generalist. But an agent is a model running its own loop (call a tool, read the result, repeat). Each extra agent adds its own loop, and every handoff between agents is a place where information gets lost.\n\n**What is true:**\n- **Cost:** each agent re-reads its own instructions and context (the text it is given on every call), and the coordinator must read every report. Token use, and therefore cost, grows with each agent.\n- **Errors compound.** If each handoff preserves the needed information with probability 0.95, a chain of 5 handoffs preserves it with probability 0.95⁵ ≈ 0.77. With 10 handoffs it is ≈ 0.60. Quality falls as the chain lengthens.\n- **Soccer analogy:** adding players to a team does not add goals. Eleven is the rule, and more passes between players means more chances to lose the ball. The analogy breaks down because a team can only field 11, whereas you can add agents without limit.\n\n**When splitting pays off:** the subtasks are independent and can run in parallel, or each needs a large context that would otherwise crowd out the others. Your assistant has three duties: answering from manuals, checking the calendar, and booking. These are sequential and share one student's context, so they gain little from splitting. A single agent with three well-described tools, or a fixed workflow for the booking steps, is the sensible baseline.\n\n**Rule for your design review:** start with one agent, and add another only when you can name the specific failure that the split fixes.\n\nQuestion: for a student asking \"Can I use the laser cutter Thursday at 3?\", which of your three duties depend on each other's output, and what does that imply for splitting them?",
+  "ttft_ms": 907,
+  "type": "result",
+  "duration_ms": 12262,
+  "uuid": "e7b4eb77-5255-4296-8b09-ca3ae80ae54f",
+  "ttft_stream_ms": 524,
+  "time_to_request_ms": 85,
+  "first_content_frame_ms": 525,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1384,
+      "cacheReadInputTokens": 69086,
+      "cacheCreationInputTokens": 14909,
+      "webSearchRequests": 0,
+      "costUSD": 0.08039660000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 212,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 14909,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-20T19:38:56.427Z"
+}

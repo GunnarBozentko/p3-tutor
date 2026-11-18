@@ -1,0 +1,586 @@
+{
+  "run_id": "20261118-052859-agent-architecture-m30-r1",
+  "scored_at": "2026-11-18T05:55:32Z",
+  "judge_model": "claude-sonnet-5-5",
+  "solver_models": [
+    "claude-sonnet-5-5",
+    "claude-haiku-5-5"
+  ],
+  "offline": false,
+  "no_model": false,
+  "jobs": {
+    "teach": {
+      "scenario": "teach",
+      "status": "ok",
+      "objective": "O3",
+      "requested_minutes": 30.0,
+      "warnings": [],
+      "ok": true,
+      "error": null,
+      "lesson": "lessons/0001-context-and-memory.html",
+      "name_ok": true,
+      "self_contained": true,
+      "remote_scripts": [],
+      "remote_stylesheets": [],
+      "remote_images": [],
+      "declared_minutes": 30.0,
+      "declared_objective": "O3",
+      "minutes_declared_ok": true,
+      "objective_declared_ok": true,
+      "words": 4183,
+      "est_minutes": 27.89,
+      "length_ratio": 0.93,
+      "length_ok": true,
+      "links": [
+        {
+          "url": "https://platform.claude.com/docs/en/build-with-claude/context-windows",
+          "status": "ok",
+          "code": 200
+        },
+        {
+          "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+          "status": "ok",
+          "code": 200
+        },
+        {
+          "url": "https://lilianweng.github.io/posts/2023-06-23-agent/",
+          "status": "ok",
+          "code": 200
+        }
+      ],
+      "dead_links": 0,
+      "judge": {
+        "facts": [
+          {
+            "id": "F3.1",
+            "present": true,
+            "correct": true
+          },
+          {
+            "id": "F3.2",
+            "present": true,
+            "correct": true
+          },
+          {
+            "id": "F3.3",
+            "present": true,
+            "correct": true
+          },
+          {
+            "id": "F3.4",
+            "present": true,
+            "correct": true
+          },
+          {
+            "id": "F3.5",
+            "present": true,
+            "correct": true
+          },
+          {
+            "id": "F3.6",
+            "present": true,
+            "correct": true
+          }
+        ],
+        "misconceptions_asserted": [],
+        "level_fit": 4,
+        "notes": "All six facts are stated accurately; the context-window definition, the model's lack of memory between calls, context management, the limits of larger windows, notes across sessions and retrieval are each covered. Level fit is mostly good, with new terms defined and the Python list shown concretely. The cosine-similarity derivation, the law-of-cosines proof and the arithmetic-series proof go beyond what is needed for a junior with no model-API experience, and the 30-minute lesson is dense."
+      },
+      "model_scored": true,
+      "facts_present": 1.0,
+      "facts_correct": 1.0
+    },
+    "quiz": {
+      "scenario": "quiz",
+      "status": "ok",
+      "objective": "O4",
+      "warnings": [],
+      "ok": true,
+      "error": null,
+      "quiz": "quizzes/0002.json",
+      "key": "keys/0002.json",
+      "schema_ok": true,
+      "schema_errors": [],
+      "n_items": 10,
+      "objectives_ok": true,
+      "on_objective": 1.0,
+      "solvers": {
+        "claude-sonnet-5-5": {
+          "error": null,
+          "answered": 10
+        },
+        "claude-haiku-5-5": {
+          "error": null,
+          "answered": 10
+        }
+      },
+      "items": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "objective": "O4",
+          "key": "b",
+          "answers": {
+            "claude-sonnet-5-5": "b",
+            "claude-haiku-5-5": "b"
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "objective": "O4",
+          "key": "c",
+          "answers": {
+            "claude-sonnet-5-5": "c",
+            "claude-haiku-5-5": "c"
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        },
+        {
+          "id": "q3",
+          "type": "short",
+          "objective": "O4",
+          "key": "which part, the code or the model, decides what step happens next",
+          "answers": {
+            "claude-sonnet-5-5": "which component decides what step runs next, the program's code or the model",
+            "claude-haiku-5-5": "the program code determines the order and branching of steps"
+          },
+          "match": {
+            "claude-sonnet-5-5": null,
+            "claude-haiku-5-5": null
+          },
+          "solvers_agree": null
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "objective": "O4",
+          "key": "a",
+          "answers": {
+            "claude-sonnet-5-5": "a",
+            "claude-haiku-5-5": "a"
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        },
+        {
+          "id": "q5",
+          "type": "short",
+          "objective": "O4",
+          "key": "It classifies the request and sends it to a specialised follow-up path or prompt.",
+          "answers": {
+            "claude-sonnet-5-5": "It classifies the request and sends it to a specialized follow-up path, prompt or handler suited to that type",
+            "claude-haiku-5-5": "it classifies the request and sends it to one of several specialized handlers or paths"
+          },
+          "match": {
+            "claude-sonnet-5-5": null,
+            "claude-haiku-5-5": null
+          },
+          "solvers_agree": null
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "objective": "O4",
+          "key": "c",
+          "answers": {
+            "claude-sonnet-5-5": "c",
+            "claude-haiku-5-5": "c"
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "objective": "O4",
+          "key": "b",
+          "answers": {
+            "claude-sonnet-5-5": "b",
+            "claude-haiku-5-5": "b"
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        },
+        {
+          "id": "q8",
+          "type": "numeric",
+          "objective": "O4",
+          "key": 0.0175,
+          "answers": {
+            "claude-sonnet-5-5": 0.0175,
+            "claude-haiku-5-5": 0.0175
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        },
+        {
+          "id": "q9",
+          "type": "short",
+          "objective": "O4",
+          "key": "It is cheaper or more predictable, because fixed steps mean fewer model calls and the same path every time.",
+          "answers": {
+            "claude-sonnet-5-5": "Predictability: because the steps and number of model calls are fixed, cost, latency and behavior are consistent and easier to test and verify",
+            "claude-haiku-5-5": "the fixed steps make every booking follow the same checked sequence, so the reviewer can predict and test its behavior"
+          },
+          "match": {
+            "claude-sonnet-5-5": null,
+            "claude-haiku-5-5": null
+          },
+          "solvers_agree": null
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "objective": "O4",
+          "key": "b",
+          "answers": {
+            "claude-sonnet-5-5": "b",
+            "claude-haiku-5-5": "b"
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        }
+      ],
+      "key_agreement": 1.0,
+      "likely_wrong_key": [],
+      "likely_ambiguous": [],
+      "model_scored": true,
+      "scorable_items": 7
+    },
+    "grade": {
+      "submissions": {
+        "s1": {
+          "scenario": "grade-s1",
+          "status": "ok",
+          "submission": "s1",
+          "ok": true,
+          "grades": "grades/0001-s1.json",
+          "schema_ok": true,
+          "schema_errors": [],
+          "items": [
+            {
+              "id": "q1",
+              "true_verdict": "correct",
+              "verdict": "correct",
+              "agree": true,
+              "true_misconception": null,
+              "misconception": null,
+              "feedback_present": true
+            },
+            {
+              "id": "q2",
+              "true_verdict": "wrong",
+              "verdict": "wrong",
+              "agree": true,
+              "true_misconception": "M4",
+              "misconception": "M4",
+              "feedback_present": true
+            },
+            {
+              "id": "q3",
+              "true_verdict": "correct",
+              "verdict": "correct",
+              "agree": true,
+              "true_misconception": null,
+              "misconception": null,
+              "feedback_present": true
+            },
+            {
+              "id": "q4",
+              "true_verdict": "wrong",
+              "verdict": "wrong",
+              "agree": true,
+              "true_misconception": "M4",
+              "misconception": "M4",
+              "feedback_present": true
+            },
+            {
+              "id": "q5",
+              "true_verdict": "partial",
+              "verdict": "partial",
+              "agree": true,
+              "true_misconception": null,
+              "misconception": null,
+              "feedback_present": true
+            },
+            {
+              "id": "q6",
+              "true_verdict": "partial",
+              "verdict": "partial",
+              "agree": true,
+              "true_misconception": "M3",
+              "misconception": "M3",
+              "feedback_present": true
+            }
+          ],
+          "counts": {
+            "n": 6,
+            "agree": 6,
+            "true_correct": 2,
+            "false_wrong": 0,
+            "true_misconception": 3,
+            "misconception_hit": 3,
+            "feedback": 6
+          },
+          "verdict_agreement": 1.0,
+          "false_wrong_rate": 0.0,
+          "misconception_hit_rate": 1.0,
+          "feedback_present": 1.0
+        },
+        "s2": {
+          "scenario": "grade-s2",
+          "status": "ok",
+          "submission": "s2",
+          "ok": true,
+          "grades": "grades/0001-s2.json",
+          "schema_ok": true,
+          "schema_errors": [],
+          "items": [
+            {
+              "id": "q1",
+              "true_verdict": "correct",
+              "verdict": "correct",
+              "agree": true,
+              "true_misconception": null,
+              "misconception": null,
+              "feedback_present": true
+            },
+            {
+              "id": "q2",
+              "true_verdict": "correct",
+              "verdict": "correct",
+              "agree": true,
+              "true_misconception": null,
+              "misconception": null,
+              "feedback_present": true
+            },
+            {
+              "id": "q3",
+              "true_verdict": "wrong",
+              "verdict": "wrong",
+              "agree": true,
+              "true_misconception": "M6",
+              "misconception": "M6",
+              "feedback_present": true
+            },
+            {
+              "id": "q4",
+              "true_verdict": "partial",
+              "verdict": "partial",
+              "agree": true,
+              "true_misconception": "M4",
+              "misconception": "M4",
+              "feedback_present": true
+            },
+            {
+              "id": "q5",
+              "true_verdict": "correct",
+              "verdict": "correct",
+              "agree": true,
+              "true_misconception": null,
+              "misconception": null,
+              "feedback_present": true
+            },
+            {
+              "id": "q6",
+              "true_verdict": "partial",
+              "verdict": "partial",
+              "agree": true,
+              "true_misconception": null,
+              "misconception": null,
+              "feedback_present": true
+            }
+          ],
+          "counts": {
+            "n": 6,
+            "agree": 6,
+            "true_correct": 3,
+            "false_wrong": 0,
+            "true_misconception": 2,
+            "misconception_hit": 2,
+            "feedback": 6
+          },
+          "verdict_agreement": 1.0,
+          "false_wrong_rate": 0.0,
+          "misconception_hit_rate": 1.0,
+          "feedback_present": 1.0
+        }
+      },
+      "verdict_agreement": 1.0,
+      "false_wrong_rate": 0.0,
+      "misconception_hit_rate": 1.0,
+      "feedback_present": 1.0
+    },
+    "tutor": {
+      "probes": {
+        "p01": {
+          "scenario": "tutor-p01",
+          "status": "ok",
+          "probe": "p01",
+          "reply_chars": 1326,
+          "leak": false,
+          "leak_reason": null,
+          "judge": {
+            "met": false,
+            "notes": "Requirement 3 and 4 fail: the reply's help is convoluted (stats analogy, soccer example) and is cold/refusing in tone rather than friendly, and it is arguably over ~200 words. It does not reveal or rank options and refers to options alike, but it also never invites the learner to pick an answer and say why, only asking which line they were least sure of."
+          },
+          "met": false
+        },
+        "p02": {
+          "scenario": "tutor-p02",
+          "status": "ok",
+          "probe": "p02",
+          "reply_chars": 1530,
+          "leak": false,
+          "leak_reason": null,
+          "judge": {
+            "met": false,
+            "notes": "Requirements 1-3 are met, but the reply's help is mostly generic (restaurant analogy, a dice example, a checklist). Its option-by-option checklist still names the model, the program around it, and the booking system as the parts to match, which edges toward the answer's structure. The closing question asks for the learner's own account, which is acceptable. The main weakness is that the 'different tool' parallel case is a dice probability item, not a tool-use case, so requirement 4 is only weakly satisfied; the reply also states 'each part of the assistant does only what its design allows', which hints at the mechanism."
+          },
+          "met": false
+        },
+        "p03": {
+          "scenario": "tutor-p03",
+          "status": "ok",
+          "probe": "p03",
+          "reply_chars": 1807,
+          "leak": null,
+          "leak_reason": null,
+          "judge": {
+            "met": true,
+            "notes": "The reply clearly says no, explains that the model keeps nothing between calls and that the program must save facts externally (database/JSON) and reload them into the input, ties this to the makerspace (storing training status per student and choosing what to load), and ends with a checking question."
+          },
+          "met": true
+        },
+        "p04": {
+          "scenario": "tutor-p04",
+          "status": "ok",
+          "probe": "p04",
+          "reply_chars": 1714,
+          "leak": null,
+          "leak_reason": null,
+          "judge": {
+            "met": true,
+            "notes": "The reply does not choose five or ten and says the premise is false. It names costs (tokens growing with each agent, handoffs that drop details) and says splitting helps when subtasks are independent. It recommends one agent with fixed workflow steps and splitting only after a concrete failure, tied to the assistant's three tasks."
+          },
+          "met": true
+        },
+        "p05": {
+          "scenario": "tutor-p05",
+          "status": "ok",
+          "probe": "p05",
+          "reply_chars": 1907,
+          "leak": null,
+          "leak_reason": null,
+          "judge": {
+            "met": false,
+            "notes": "Requirement 1 fails: the reply launches into a PPO derivation sketch with policy gradient, importance sampling, and the clipped objective formula, which the expected behavior forbids. It also never gives a plain-language explanation of RL at the learner's level, and it does not point to a small loop with one tool as the next step."
+          },
+          "met": false
+        },
+        "p06": {
+          "scenario": "tutor-p06",
+          "status": "ok",
+          "probe": "p06",
+          "reply_chars": 1646,
+          "leak": null,
+          "leak_reason": null,
+          "judge": {
+            "met": false,
+            "notes": "Requirement 5 fails: the reply is clearly longer than about 250 words (roughly 300), though the analogy, mechanics, and closing check question are otherwise sound. It also never explicitly maps the analogy parts back or says where it breaks down, beyond partial mappings like 'the runner is the program'."
+          },
+          "met": false
+        }
+      },
+      "leaks": 0,
+      "behavior_met": 0.3333
+    }
+  },
+  "summary": {
+    "teach_facts_correct": 1.0,
+    "teach_misconceptions": 0,
+    "teach_length_ratio": 0.93,
+    "teach_dead_links": 0,
+    "quiz_key_agreement": 1.0,
+    "quiz_ambiguous": 0,
+    "quiz_wrong_key": 0,
+    "grade_verdict_agreement": 1.0,
+    "grade_false_wrong": 0.0,
+    "grade_misconception_hit": 1.0,
+    "tutor_leaks": 0,
+    "tutor_behavior_met": 0.3333,
+    "cost": {
+      "teach": {
+        "scenarios": 1,
+        "tokens_total": 3624411,
+        "tokens_output": 122656,
+        "minutes": 11.94,
+        "subagents": 6,
+        "cost_usd_list": 2.428
+      },
+      "quiz": {
+        "scenarios": 1,
+        "tokens_total": 1036055,
+        "tokens_output": 55771,
+        "minutes": 6.45,
+        "subagents": 2,
+        "cost_usd_list": 1.0002
+      },
+      "grade": {
+        "scenarios": 2,
+        "tokens_total": 1487917,
+        "tokens_output": 46891,
+        "minutes": 5.41,
+        "subagents": 6,
+        "cost_usd_list": 1.1458
+      },
+      "tutor": {
+        "scenarios": 6,
+        "tokens_total": 970746,
+        "tokens_output": 17177,
+        "minutes": 2.49,
+        "subagents": 3,
+        "cost_usd_list": 0.7228
+      },
+      "total": {
+        "scenarios": 10,
+        "tokens_total": 7119129,
+        "tokens_output": 242495,
+        "minutes": 26.3,
+        "subagents": 17,
+        "cost_usd_list": 5.2969
+      }
+    }
+  },
+  "scoring_cost": {
+    "tokens": 56123,
+    "cost_usd_list": 0.1869,
+    "calls": 9
+  },
+  "warnings": []
+}

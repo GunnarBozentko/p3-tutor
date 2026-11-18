@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cheat sheet: where each fact goes in the assistant</title>
+  <style>
+    body { max-width: 40rem; margin: 0 auto; padding: 2rem 1rem; font-family: Georgia, serif; line-height: 1.5; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+    th, td { text-align: left; vertical-align: top; padding: 0.4rem 0.5rem; border-bottom: 1px solid #ccc; }
+    code { background: #f1ede4; padding: 0.1em 0.3em; }
+  </style>
+</head>
+<body>
+  <h1>Where each fact goes in the assistant</h1>
+  <table>
+    <tr><th>Kind of fact</th><th>Where it lives</th><th>Example</th></tr>
+    <tr><td>This session's request and tool results</td><td>Message list (context window), resent every step</td><td>The student's question</td></tr>
+    <tr><td>Live data that changes</td><td>Read by a tool when needed</td><td>Calendar availability</td></tr>
+    <tr><td>Long reference text</td><td>Retrieved in chunks, with page labels</td><td>Laser cutter power settings</td></tr>
+    <tr><td>Stable student preferences</td><td>Short saved notes, loaded at session start</td><td>Prefers evening slots</td></tr>
+    <tr><td>Permission for risky actions</td><td>Authoritative record, read through a tool at decision time</td><td><code>check_training_record</code></td></tr>
+  </table>
+  <h2>Formulas</h2>
+  <ul>
+    <li>Total input over n calls: n·a + d·n(n − 1)/2 (a = first call's input, d = tokens added per step). Example: 5 × 2,200 + 1,000 × 10 = 21,000.</li>
+    <li>Cost = tokens × price per token. Example: 21,000 × $3 / 1,000,000 = $0.063 (illustrative price).</li>
+    <li>Cosine similarity = dot product / (length of u × length of v). Example: (4,3) and (3,4) give 24 / 25 = 0.96.</li>
+  </ul>
+  <h2>Reminders</h2>
+  <ul>
+    <li>The model keeps nothing between calls; the program resends the list.</li>
+    <li>Clearing old tool results and compaction shrink the list but lose detail.</li>
+    <li>A note or a student's claim never decides a safety question; an unreadable record means "not permitted yet".</li>
+  </ul>
+</body>
+</html>

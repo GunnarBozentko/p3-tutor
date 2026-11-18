@@ -1,0 +1,130 @@
+{
+  "duration_api_ms": 845625,
+  "stop_reason": "end_turn",
+  "session_id": "c8e0247b-3de3-49c3-b7c1-f501819ebdd2",
+  "total_cost_usd": 2.7296586850000004,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 35273,
+    "cache_read_input_tokens": 662294,
+    "output_tokens": 19974,
+    "output_tokens_details": {
+      "thinking_tokens": 227
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 35273,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 705,
+        "cache_read_input_tokens": 185937,
+        "cache_creation_input_tokens": 2473,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 2473
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 100,
+      "outputTokens": 118368,
+      "cacheReadInputTokens": 3323628,
+      "cacheCreationInputTokens": 359895,
+      "webSearchRequests": 0,
+      "costUSD": 2.6763938000000005,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 36016,
+      "cacheCreationEphemeral5mInputTokens": 186286,
+      "cacheCreationEphemeral1hInputTokens": 173609,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 86622,
+      "outputTokens": 19477,
+      "cacheReadInputTokens": 14531,
+      "cacheCreationInputTokens": 37751,
+      "webSearchRequests": 3,
+      "costUSD": 0.053264885,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 9700,
+      "cacheCreationEphemeral5mInputTokens": 37751,
+      "cacheCreationEphemeral1hInputTokens": 0,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "origin": {
+    "kind": "task-notification",
+    "producer": "session-task",
+    "runId": "0mwlc9ysm-9dd74097"
+  },
+  "subagent_stats": {
+    "spawned": 8,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 8
+    },
+    "started_in_background": 5,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 8,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "web-fetch": 3,
+      "lesson-reviewer": 2,
+      "preference-reviewer": 1,
+      "reference-checker": 1,
+      "lesson-editor": 1
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 6,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I wrote the 30-minute lesson, \"Context and memory in an agent\", and a five-item quiz to go with it. I haven't opened the finished lesson in a browser to check how it renders. The quiz is ready whenever you want it.\n\nThe lesson covers these parts:\n- **Context window and cost:** the context window is everything the model sees in one call. Every call resends the whole context, so one request that ends at 4,900 tokens bills 15,000 input tokens.\n- **Between steps:** the model keeps nothing between calls. Your program resends the message list each time, and clearing old tool results and compaction (summarizing a long chat) are how you shrink it.\n- **Between sessions:** notes saved outside the window carry preferences and progress to the next visit.\n- **Safety rule:** a student's training status is never saved as a note. The assistant reads it from the training database through a tool at booking time, and answers \"not permitted yet\" if it cannot.\n- **Retrieval:** chunking, embeddings, keyword ranking and when to skip retrieval. It also covers retrieval as memory, and ends with a worked placement of the assistant's information, plus faded practice.\n\nThree things to know:\n- The $3 per million tokens price in the cost example is a placeholder, marked as such in the lesson. Replace it with your provider's real price.\n- The code is simplified sketches with invented function names, except the memory handler, which follows the documented path-validation guidance.\n- The lesson is the longest of the three lengths the reviewers considered, at about 5,000 words against a 4,500-word target. I kept the code and worked examples because your preferences ask for them. I added a second recall question to the warm-up, but the word target rules out much further trimming.\n\nTwo things I did not do: I did not write a cheat sheet, and no community for testing agent designs is listed yet.\n\nAsk me anything about the lesson in the chat. Which part of the placement exercise, if any, would you like to go through step by step?",
+  "ttft_ms": 1005,
+  "type": "result",
+  "duration_ms": 99749,
+  "uuid": "a49f342c-70d1-4152-9724-ab30f0f14fe2",
+  "ttft_stream_ms": 641,
+  "time_to_request_ms": 226,
+  "first_content_frame_ms": 641,
+  "queued_turn_count": 0,
+  "result_index": 5,
+  "model_usage_since_last_result": {},
+  "credential_expires_at": "2026-11-20T19:38:56.427Z"
+}

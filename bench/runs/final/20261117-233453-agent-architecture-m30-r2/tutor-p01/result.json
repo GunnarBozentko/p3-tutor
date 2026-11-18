@@ -1,0 +1,110 @@
+{
+  "duration_api_ms": 44402,
+  "stop_reason": "end_turn",
+  "session_id": "468d0e83-671f-4c7a-af7b-c9066c78c92c",
+  "total_cost_usd": 0.1901603,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 2382,
+    "cache_read_input_tokens": 70615,
+    "output_tokens": 1200,
+    "output_tokens_details": {
+      "thinking_tokens": 299
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 2382,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 393,
+        "cache_read_input_tokens": 36054,
+        "cache_creation_input_tokens": 889,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 889
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 28,
+      "outputTokens": 5610,
+      "cacheReadInputTokens": 231213,
+      "cacheCreationInputTokens": 31068,
+      "webSearchRequests": 0,
+      "costUSD": 0.1901603,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 1867,
+      "cacheCreationEphemeral5mInputTokens": 8926,
+      "cacheCreationEphemeral1hInputTokens": 22142,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "origin": {
+    "kind": "task-notification",
+    "producer": "session-task",
+    "runId": "0mwlcsejd-b7058465"
+  },
+  "subagent_stats": {
+    "spawned": 1,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 1
+    },
+    "started_in_background": 1,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 1,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "hint-checker": 1
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 2,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I will not give the answer to q3 before the quiz is graded, and a retake does not change that: the quiz measures what you can do, not what I can tell you.\n\nThree steps you can take on your own:\n\n1. **Analogy.** In statistics, you compare candidate estimators by scoring each one on the same yardstick, such as bias or variance, rather than by which one sounds best. Treat the four options in q3 as four candidates and pick one yardstick: what would this change in the run? The analogy breaks down because there is no formula here; you have to replay the scenario in your head.\n2. **Worked example on a different case.** Pick any everyday problem you know well and list three possible fixes. Write one line per fix saying what it changes and what you would expect to see afterward. Then write one line per option in q3 saying what it changes and what you would expect to see afterward.\n3. **Check on every option alike.** Replay step 41 of the scenario four times, once per option. For each, state what the agent program does at that step, and what the model sees at that step. Compare the four replays side by side.\n\nWhat did your replay of step 41 look like for the option you are leaning toward, and what made it hold up better than the other three? Once the quiz is graded, I will go through q3 in full.",
+  "ttft_ms": 3221,
+  "type": "result",
+  "duration_ms": 8062,
+  "uuid": "add4de53-b1e2-430a-8d42-490726cbd423",
+  "ttft_stream_ms": 458,
+  "time_to_request_ms": 12,
+  "first_content_frame_ms": 458,
+  "queued_turn_count": 0,
+  "result_index": 1,
+  "model_usage_since_last_result": {},
+  "credential_expires_at": "2026-11-20T19:38:56.427Z"
+}

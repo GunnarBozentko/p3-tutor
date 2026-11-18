@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 10065,
+  "stop_reason": "end_turn",
+  "session_id": "05c0f5dd-9ec8-4941-a93e-134096899b09",
+  "total_cost_usd": 0.0843736,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 15555,
+    "cache_read_input_tokens": 99976,
+    "output_tokens": 1214,
+    "output_tokens_details": {
+      "thinking_tokens": 94
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 15555,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 512,
+        "cache_read_input_tokens": 30072,
+        "cache_creation_input_tokens": 284,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 284
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1214,
+      "cacheReadInputTokens": 99976,
+      "cacheCreationInputTokens": 15555,
+      "webSearchRequests": 0,
+      "costUSD": 0.0843736,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 94,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 15555,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 7,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "No, that is not right. A language model does not remember earlier conversations on its own.\n\n**Why it is tempting:** inside one chat, the model seems to remember what you said a minute ago. It does not. The program sends the whole conversation so far back to the model on every call. The model is *stateless*, meaning it keeps nothing between calls. Its weights are fixed after training, and nothing a student says changes them.\n\n**What is true:** memory is something your program builds. Two terms matter here:\n- **Context window:** the text the model reads on one call. It is the only thing the model \"knows\" about the current student.\n- **Persistent memory:** information your program saves outside the model, for example in a database, and puts back into the context on a later call.\n\n**Worked example:** a student says on Monday, \"I finished the laser cutter training.\" With no saved memory, on Friday the assistant sees only Friday's message and has no idea. With memory, your program does this:\n\n- On Monday, it saves `{\"student\": \"s123\", \"trained\": [\"laser cutter\"]}` to a file or database.\n- On Friday, it loads that record and adds it to the context, for example \"Known facts about this student: trained on the laser cutter.\"\n- The model answers using that text. To the student it looks like memory, but the program supplied the text.\n\nTwo consequences for your design:\n- You must decide what to save. Saving everything costs tokens on every call, and your budget is small.\n- Never treat a student's own statement as the authority on training status. Look it up in the official record.\n\nQuestion: if the assistant should know each student's training status next week, what would you save, and what would you put back into the context at the start of each session?",
+  "ttft_ms": 1010,
+  "type": "result",
+  "duration_ms": 10428,
+  "uuid": "e5a7ab08-113a-4cb0-8c9d-ca73ca2d69b0",
+  "ttft_stream_ms": 511,
+  "time_to_request_ms": 71,
+  "first_content_frame_ms": 512,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1214,
+      "cacheReadInputTokens": 99976,
+      "cacheCreationInputTokens": 15555,
+      "webSearchRequests": 0,
+      "costUSD": 0.0843736,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 94,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 15555,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-20T19:38:56.427Z"
+}

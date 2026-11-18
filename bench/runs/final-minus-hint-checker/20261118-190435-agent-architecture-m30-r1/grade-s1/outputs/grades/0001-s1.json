@@ -1,0 +1,43 @@
+{
+  "quiz": "0001",
+  "submission": "s1",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. An agent is defined by its structure: the model picks an action, the program runs it, and the result returns for the next step. A longer prompt (option a) is tempting, but it only changes what a single call is told, not the shape of the system. Compare a soccer coach who gives a longer team talk with one who adjusts tactics after every play: only the second is working in a loop."
+    },
+    {
+      "id": "q2",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "Wrong. You chose a, that the model reads the calendar by opening the booking system itself. The model only produces text, so it cannot reach into any system, much as a regression model outputs a prediction while your script fetches the data. The model outputs a request naming check_calendar with the laser cutter and tomorrow's date (option c), and the program runs the tool. Option b fails because the model, not the program, decides to call the tool; option d fails because the model never receives or runs the tool's code."
+    },
+    {
+      "id": "q3",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. A step limit is a stopping condition that ends the loop and reports back to a person, which is what a loop repeating one failing step needs. Waiting longer (option c) fails because the same input produces the same failing edit again. A larger context window (the amount of text the model can read at once, option a) is useless because all 40 steps already fit. A stronger instruction (option d) does not interrupt a loop, much as shouting at a striker does not stop a repeated miss."
+    },
+    {
+      "id": "q4",
+      "verdict": "wrong",
+      "misconception": "M4",
+      "feedback": "Wrong. You answered 1, on the belief that the model runs the three tools itself inside one call. The model only writes text: it requests one tool, the program runs it, and the model must be called again to read each result. Like a statistician who must see one query's output before choosing the next query, the model cannot choose a next step or write the final answer without being shown the calendar result. The correct count is 4: three calls that each request one tool, plus a fourth that writes the final answer."
+    },
+    {
+      "id": "q5",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "Partial. The result going back to the model is correct, but the reason is missing. The model needs the result as part of its next input so that it can decide its next step or write the final answer. Without it, the model is like a statistician asked to interpret a test whose output was never shown to them: after the calendar tool runs, it could not tell whether the laser cutter is free. Fix: state both parts, that the program feeds the result into the next model call, and that this lets the model continue."
+    },
+    {
+      "id": "q6",
+      "verdict": "partial",
+      "misconception": "M3",
+      "feedback": "Partial. The first part is right: the model is sent a list of tools, each with a name and a description, and picks the one that fits the request. The second part is wrong: the model does not remember earlier sessions on its own. A model keeps nothing between calls, so it sees only the text in its current input, like a forecaster who is handed today's data and has no memory of last week's. If past choices should inform a later session, the program must save them and place them in the input; otherwise the choice comes from the tool descriptions alone."
+    }
+  ],
+  "summary": "Work first on the belief that the model runs the tools itself: it only writes a request, the program runs the tool, and every result needs a further model call, which is why your three-tool example takes 4 model calls and not 1. Next step: redo the paper trace from your session on the agent loop for \"Is the laser cutter free tomorrow at 3 pm, and do I need training to use it?\" and mark each step as done by the model or by the program. Then count the model calls. The belief that the model remembers earlier sessions by itself comes after this, in the next topic, context and memory."
+}

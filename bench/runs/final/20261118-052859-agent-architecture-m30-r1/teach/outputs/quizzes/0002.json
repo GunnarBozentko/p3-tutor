@@ -1,0 +1,56 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your assistant makes a second model call in the same request, after a tool result comes back. Where does the model get what happened in the first call?",
+      "options": [
+        {"id": "a", "text": "It keeps its own memory of the first call and reads it back"},
+        {"id": "b", "text": "The program sends the earlier messages again as part of the input"},
+        {"id": "c", "text": "It looks the first call up in a database it can open itself"},
+        {"id": "d", "text": "Its training was updated by the first call and now includes it"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "An agent request has a base context of 1,000 tokens (system prompt, tool definitions and question). Each step adds 400 tokens to the history, and the model is called 5 times. The program sends the full history on every call. How many input tokens are processed in total across the 5 calls?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Saved notes from an earlier session say, \"Dana completed the lathe training in March.\" Dana now asks the assistant to book the lathe for tomorrow. Which action should the assistant take?",
+      "options": [
+        {"id": "a", "text": "Book the lathe, because the saved note shows Dana is trained"},
+        {"id": "b", "text": "Ask Dana to confirm the training, then book it on her word"},
+        {"id": "c", "text": "Decline to book until the notes are refreshed at the next session"},
+        {"id": "d", "text": "Read Dana's training record with a tool, then decide from the result"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "The assistant must answer questions from an 80-page laser cutter manual. A student asks which speed to use for 3 mm acrylic. Which design best balances accuracy and cost per request?",
+      "options": [
+        {"id": "a", "text": "Search the manual and add only the best-matching passages to the context"},
+        {"id": "b", "text": "Put the whole manual in the context on every call to be safe"},
+        {"id": "c", "text": "Replace the manual with a one-paragraph summary kept in the context"},
+        {"id": "d", "text": "Let the model answer from what it learned about laser cutters in training"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O3",
+      "stem": "A run has a very large tool result from 30 steps ago that the agent no longer needs, and the context is filling up. Name one way to stop it from using up the context."
+    }
+  ]
+}

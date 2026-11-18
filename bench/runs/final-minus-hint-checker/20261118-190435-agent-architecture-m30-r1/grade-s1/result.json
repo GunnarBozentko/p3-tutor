@@ -1,0 +1,111 @@
+{
+  "duration_api_ms": 141916,
+  "stop_reason": "end_turn",
+  "session_id": "8b595b98-bd0b-4fe4-aed5-465310596ee2",
+  "total_cost_usd": 0.5842222000000001,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 8258,
+    "cache_read_input_tokens": 162834,
+    "output_tokens": 4764,
+    "output_tokens_details": {
+      "thinking_tokens": 162
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 8258,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 476,
+        "cache_read_input_tokens": 56031,
+        "cache_creation_input_tokens": 4591,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 4591
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 58,
+      "outputTokens": 21345,
+      "cacheReadInputTokens": 734747,
+      "cacheCreationInputTokens": 91380,
+      "webSearchRequests": 0,
+      "costUSD": 0.5842222000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 3872,
+      "cacheCreationEphemeral5mInputTokens": 45559,
+      "cacheCreationEphemeral1hInputTokens": 45821,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "origin": {
+    "kind": "task-notification",
+    "producer": "session-task",
+    "runId": "0mwmigc3u-8ba3d1cb"
+  },
+  "subagent_stats": {
+    "spawned": 3,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 3
+    },
+    "started_in_background": 3,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 3,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "grader": 1,
+      "grade-reviewer": 2
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 7,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Quiz 0001 attempt s1 is graded: 2 correct, 2 wrong and 2 partial.\n\n| Item | Verdict |\n|---|---|\n| q1 | Correct |\n| q2 | Wrong |\n| q3 | Correct |\n| q4 | Wrong |\n| q5 | Partial |\n| q6 | Partial |\n\n- **q2 and q4 (wrong):** Both rest on the belief that the model runs the tools itself. The model only writes a request, and the program runs the tool. Your three-tool example therefore takes 4 model calls, not 1: one per tool request, plus one for the final answer.\n- **q5 (partial):** You said the result goes back to the model, which is right. The missing reason is that the model needs the result in its next input to decide its next step or write the answer.\n- **q6 (partial):** You were right that the model is sent a list of tools and picks from their descriptions. You were wrong that it remembers earlier sessions on its own. The program has to save that information and supply it in the next input.\n\nNext step: redo the paper trace from your session on the agent loop for \"Is the laser cutter free tomorrow at 3 pm, and do I need training to use it?\" Mark each step as done by the model or by the program, then count the model calls. The memory belief comes after that, in the context and memory topic.\n\nThe grades file is written, along with a record of the two review passes and a learning record. I also updated your notes. The second attempt (s2) is still ungraded.",
+  "ttft_ms": 1211,
+  "type": "result",
+  "duration_ms": 27788,
+  "uuid": "4e00f3b7-c052-4595-981b-baa9743d6091",
+  "ttft_stream_ms": 851,
+  "time_to_request_ms": 19,
+  "first_content_frame_ms": 851,
+  "queued_turn_count": 0,
+  "result_index": 3,
+  "model_usage_since_last_result": {},
+  "credential_expires_at": "2026-11-20T19:38:56.427Z"
+}

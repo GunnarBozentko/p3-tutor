@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 15888,
+  "stop_reason": "end_turn",
+  "session_id": "7e2bab9f-614f-4322-8087-9f64942d2666",
+  "total_cost_usd": 0.09210149999999999,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 16363,
+    "cache_read_input_tokens": 100535,
+    "output_tokens": 1658,
+    "output_tokens_details": {
+      "thinking_tokens": 372
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 16363,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 502,
+        "cache_read_input_tokens": 30565,
+        "cache_creation_input_tokens": 599,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 599
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1658,
+      "cacheReadInputTokens": 100535,
+      "cacheCreationInputTokens": 16363,
+      "webSearchRequests": 0,
+      "costUSD": 0.09210149999999999,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 372,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 16363,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 9,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "**Tool calling, as a manager in a locked room**\n\nPicture a manager in a windowless room with a slot in the door. They know a lot, but they cannot leave the room or touch anything outside it. A runner waits at the door. The runner is the program that wraps the model. A tool is one errand the runner knows how to do, for example \"look up the booking calendar\".\n\nYou slide a question under the door: \"Is the laser cutter free on Friday?\" The manager cannot answer from memory. They write a note: \"Runner, do the errand *check calendar*, for the laser cutter, on Friday.\" This note is the tool call. The manager only writes the request. They never perform it.\n\nThe runner reads the note and does the errand. Then the runner slides back a note saying \"booked 2–4 pm\". The manager reads it and writes the final answer: \"Free except 2–4 pm.\"\n\nTwo details people often miss:\n- **The runner does the work.** The model only produces text that asks for an action. Your program carries it out.\n- **The manager forgets everything between notes.** Each time, the runner slides in the whole file again: the original question, the manager's earlier note and the result. Every step is a separate model call, which is why long loops cost more.\n\nThe runner also gives the manager a menu of errands at the start, with a one-line description of each. The manager picks errands only from that menu. This is why a clear tool description matters for your makerspace assistant.\n\nCheck: in the Friday example, who actually reads the calendar, and what does the manager receive afterwards? Answer in your own words, and I will tell you what is correct and what is missing.",
+  "ttft_ms": 1483,
+  "type": "result",
+  "duration_ms": 16313,
+  "uuid": "f693f5cc-d2b0-4d2e-8012-58142af58b47",
+  "ttft_stream_ms": 1037,
+  "time_to_request_ms": 69,
+  "first_content_frame_ms": 1037,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1658,
+      "cacheReadInputTokens": 100535,
+      "cacheCreationInputTokens": 16363,
+      "webSearchRequests": 0,
+      "costUSD": 0.09210149999999999,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 372,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 16363,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-20T19:38:56.427Z"
+}

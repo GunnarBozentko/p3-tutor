@@ -1,0 +1,111 @@
+{
+  "duration_api_ms": 154097,
+  "stop_reason": "end_turn",
+  "session_id": "d5f4ab22-62c1-4fdf-bf54-b4f423f3f35c",
+  "total_cost_usd": 0.5801175999999999,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 6666,
+    "cache_read_input_tokens": 158838,
+    "output_tokens": 4140,
+    "output_tokens_details": {
+      "thinking_tokens": 170
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 6666,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 489,
+        "cache_read_input_tokens": 54579,
+        "cache_creation_input_tokens": 3054,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 3054
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 54,
+      "outputTokens": 23356,
+      "cacheReadInputTokens": 650666,
+      "cacheCreationInputTokens": 86854,
+      "webSearchRequests": 0,
+      "costUSD": 0.5801175999999999,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 6978,
+      "cacheCreationEphemeral5mInputTokens": 44022,
+      "cacheCreationEphemeral1hInputTokens": 42832,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "origin": {
+    "kind": "task-notification",
+    "producer": "session-task",
+    "runId": "0mwlcnq9p-86c18487"
+  },
+  "subagent_stats": {
+    "spawned": 3,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 3
+    },
+    "started_in_background": 3,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 3,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "grader": 1,
+      "grade-reviewer": 2
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 8,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Your submission scored 2 correct, 2 partial and 2 wrong out of 6.\n\n| Item | Verdict | Why |\n|---|---|---|\n| q1 | Correct | An agent is a loop of model actions, runs and results. |\n| q2 | Wrong | You chose the model opening the booking system itself. The model only writes text, here a request naming the calendar tool with its arguments. The program runs the tool. |\n| q3 | Correct | A step limit is the safeguard for a stuck loop. |\n| q4 | Wrong | You answered 1 model call. The correct count is 4: one call for the question and one after each of the three tool results. |\n| q5 | Partial | You said the program sends the result back, which is right. You left out why: the model needs the result to pick its next step or write the final answer. |\n| q6 | Partial | You were right that the model picks a tool from a list of names and descriptions. You were wrong that it remembers earlier choices. It keeps nothing between calls. |\n\nThe belief to fix first is that the model runs the tools itself. On q6, any decision about machine access must come from reading the student's training record through a tool, not from a remembered choice.\n\n**Next step:** redraw the loop for \"Is the laser cutter free tomorrow at 3 pm, and do I need training?\" Label each step as what the model writes or what the program does. Add one sentence on why each result goes back to the model.\n\nYour second attempt (`submissions/s2.json`) is not graded yet. Do you want me to grade it next?",
+  "ttft_ms": 1975,
+  "type": "result",
+  "duration_ms": 24918,
+  "uuid": "f7b83cfd-c7a3-444b-baaf-8ea52d823d83",
+  "ttft_stream_ms": 423,
+  "time_to_request_ms": 14,
+  "first_content_frame_ms": 423,
+  "queued_turn_count": 0,
+  "result_index": 3,
+  "model_usage_since_last_result": {},
+  "credential_expires_at": "2026-11-20T19:38:56.427Z"
+}
