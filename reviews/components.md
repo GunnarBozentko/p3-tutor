@@ -25,7 +25,7 @@ An example of a finished entry:
 - Purpose: to add ask about definiton and application questions to the learner after the teach skill
 - With and without: reviews/c1-skills.md, Round 1 (without) and Round 2 (with)
 - Review: Without it the quiz had 6 questions with them mostly being applide questions. With it there are not 5 definiton and 5 application questions. The structure made the quiz a bit easier, but there are more questions now.
-- Kept in final: TODO
+- Kept in final: yes
 
 ### tutor
 
@@ -34,7 +34,7 @@ An example of a finished entry:
 - Purpose: to guide and help the user with quiz questions but not give the answer away. 
 - With and without: reviews/c1-skills.md, Round 3 (without) and Round 4 (with)
 - Review: The refusals were kind and soft at first, but now they are straight to the point. It also uses soccer and everyday analogies which is good. 
-- Kept in final: TODO
+- Kept in final: yes
 
 ### teach
 
@@ -43,7 +43,7 @@ An example of a finished entry:
 - Purpose: give a lesson to the learner
 - With and without: none yet; teach ships with c0-baseline and no c1-skills round changed it, so its SKILL.md in configs/c1-skills/ is the same as in configs/c0-baseline/
 - Review: The skill was unchanged in c1 so the only differences come from my preferneces which ask for math and coding examples as well as analogies, which it does well.
-- Kept in final: TODO
+- Kept in final: yes
 
 ### grade
 
@@ -52,7 +52,7 @@ An example of a finished entry:
 - Purpose: grades quizzes and gives feedback on the answers
 - With and without: reviews/c1-skills.md, Round 4 (without) and Round 5 (with)
 - Review: Does a good job explaining why a question was incorrect, and explains why the correct answer is right. A drawback is that the responses are a little lengthy.
-- Kept in final: TODO
+- Kept in final: yes
 
 ### quiz-reviewer
 
@@ -61,7 +61,7 @@ An example of a finished entry:
 - Purpose: This subagent quiz reviewer is able to reread each question and compare it to others to try and make sure quiz answers arent revealed from other quiz questions.
 - With and without: reviews/c2-review.md, Round 1 (without) and Round 2 (with)
 - Review: Wit hit the length of the quiz questions di dnot give the answer away, but occasionally some quiz questions would give away quiz answers. 
-- Kept in final: TODO
+- Kept in final: yes
 
 ### grade-reviewer
 
@@ -70,7 +70,7 @@ An example of a finished entry:
 - Purpose: The purpose of the grade reviewer was to make sure all feedback was within 3-5 sentecnes, each feedback started with a verdict, and to use analogies for each qquuestion to help with understanding. 
 - With and without: reviews/c2-review.md, Round 4 (without) and Round 5 (with)
 - Review: This agent did very well as most feedback is within sentence range, starts wit ha verdict, and has analogies included. 
-- Kept in final: TODO
+- Kept in final: yes
 
 ### lesson-reviewer
 
@@ -79,7 +79,7 @@ An example of a finished entry:
 - Purpose: The goal of this sub-reviewer was to make the lesson length longer and also to reduce the number of precision slips in the lessons. 
 - With and without: reviews/c2-review.md, Round 5 (without) and Round 6 (with)
 - Review: The lessons were much longer now with a length ratio of .78 and precision slips were absent. Numerical and common misconception exmaples were also added which was good. 
-- Kept in final: TODO
+- Kept in final: yes
 
 ### lesson-editor
 
@@ -88,7 +88,7 @@ An example of a finished entry:
 - Purpose: A subagent with fresh context that reads the lesson after the draft finishes to make sure each section states facts the same way and there are no inconsistencies.
 - With and without: reviews/c3-split.md, Round 1 (without) and Round 2 (with)
 - Review: Resolved a notes contradiction but lead to more issues with safety for an example in the lesson and the quiz footer. It wrote the footer as “quiz 0002, on this lesson, O3” without even opening the quiz, whcih was not true in this run, giving incorrect information.
-- Kept in final: TODO
+- Kept in final: yes
 
 ### reference-checker
 
@@ -97,7 +97,7 @@ An example of a finished entry:
 - Purpose: A subagent with fresh context that opens all worksapce files the section names and pulls out quotes to amek sure the information in the lesson matches the reference.
 - With and without: reviews/c3-split.md, Round 2 (without) and Round 3 (with)
 - Review: Corrected the quiz footer and cited records from their actual titles. it did a very good job. The Round 3 lesson with a legnth ratio of .88 corrected a footer since quiz 0002’s objective really was O3.
-- Kept in final: TODO
+- Kept in final: yes
 
 ### preference-reviewer
 
@@ -106,40 +106,40 @@ An example of a finished entry:
 - Purpose: A subagent with fresh context that checks every preference in PREFERENCES.md one by one to make sure they are all included in the lesson.
 - With and without: reviews/c3-split.md, Round 3 (without) and Round 4 (with)
 - Review: Before this subagent, a soccer example was missing. After adding it, the soccer example was added as well as math proofs and coding examples. It also opened each section with a concrete example. This subagent performed very well. The full c3-split teach run costed $2.45 and took 12.4 minutes per run. This is compared against c2-review’s $1.69 and 8.2 minutes. We do not know the exact amount each skill led to this cost. 
-- Kept in final: TODO
+- Kept in final: yes
 
 ### grader
 
 - Kind: subagent
 - Step added: final
-- Purpose: TODO
+- Purpose: Only lets a subagent named grader look at the answer key. The purpose of this is that only the grader subagent needs to look at it, so nothing else should. 
 - With and without: reviews/final.md, Round 1 (without) and Round 2 (with)
-- Review: TODO
-- Kept in final: TODO
+- Review: Without it all the misconception fields were null, but hte verdict were all correct. With it, all the misconception fields were filled in and all of the cerdicts were still correct. 
+- Kept in final: yes
 
 ### learner-wording
 
 - Kind: skill
 - Step added: final
-- Purpose: TODO
+- Purpose: In round 2 the summary told the learner to review M4 which is an internal file the learner has never seen. The purpose of this is to have no misconception ids or file paths in text the learner reads, sentences under about 30 words, new terms defined on first use, and feedback that opens with a verdict.
 - With and without: reviews/final.md, Round 2 (without) and Round 3 (with)
-- Review: TODO
-- Kept in final: TODO
+- Review: Without it M4 was named to look at and some sentences were 60 seconds long. After this, the lesson stated the misconception and sentences dropped a bit, but to around 35-40 words, which is still a little long. Overall it did a decent job.
+- Kept in final: yes
 
 ### safety
 
 - Kind: skill
 - Step added: final
-- Purpose: TODO
+- Purpose: In my lesson it kept swithcing between round sto state a safety statement from a saved note or from an official document. I made this so all safety requirements must come from an official document rather than from a classmate or a saved note, as these can be inaccurate. 
 - With and without: reviews/final.md, Round 3 (without) and Round 4 (with)
-- Review: TODO
-- Kept in final: TODO
+- Review: Without the safety reviewer, the safety requirement would come from a saved note which is not very official or trustworthy. Now all safety requirement must come from an official document wit ha quote and where it came from. All safety requirement come from an official document in my lessons which is great.
+- Kept in final: yes
 
 ### hint-checker
 
 - Kind: subagent
 - Step added: final
-- Purpose: TODO
+- Purpose: In earlier steps the tutr refused to give quiz answers but gave hints away that gave out the answer instead. This subagent reads the tutors draft to the learner to flag resposnes in case they give away answers to a quiz. 
 - With and without: reviews/final.md, Round 4 (without) and Round 5 (with)
-- Review: TODO
-- Kept in final: TODO
+- Review: With it the quiz probes improved as for p02 the tutro refused to confirm an option despite a TA claiming it was okay. One issue is that it overreached on p06 as it did not allow the tutor to get an analogy for a question they had that would not give the answer away which is not great. 
+- Kept in final: yes
