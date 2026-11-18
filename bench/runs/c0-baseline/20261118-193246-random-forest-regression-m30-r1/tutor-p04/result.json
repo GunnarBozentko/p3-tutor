@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 22494,
+  "stop_reason": "end_turn",
+  "session_id": "b0eb1323-a6c2-4278-b69c-ccff3169c0a4",
+  "total_cost_usd": 0.1374567,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 23457,
+    "cache_read_input_tokens": 114327,
+    "output_tokens": 3218,
+    "output_tokens_details": {
+      "thinking_tokens": 1199
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 23457,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 1110,
+        "cache_read_input_tokens": 37037,
+        "cache_creation_input_tokens": 1221,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 1221
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 3218,
+      "cacheReadInputTokens": 114327,
+      "cacheCreationInputTokens": 23457,
+      "webSearchRequests": 0,
+      "costUSD": 0.1374567,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 1199,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 23457,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 9,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Yes. The bound is from Breiman (2001), *Random Forests*, Machine Learning 45, and I've derived it here from memory rather than from a fresh read of the paper. One caveat first: the strength-and-correlation bound is for **classification**. Your mission is regression, so I'll give the classification derivation and then the regression version, which is simpler and answers your \"why does averaging help?\" confusion directly.\n\n**Setup (classification).** Let Θ be the randomness that defines one tree (bootstrap sample plus feature choices). The tree's vote is h(X,Θ).\n- Margin: mg(X,Y) = P_Θ(h=Y) − max_{j≠Y} P_Θ(h=j). It is positive when the forest classifies the point correctly.\n- Strength: s = E[mg].\n- Forest error: PE* = P(mg < 0).\n\n**Step 1: Chebyshev.** If s > 0, then PE* = P(mg < 0) ≤ Var(mg)/s².\n\n**Step 2: variance as correlation.** Define the raw margin of a single tree as rmg(Θ) = 1[h=Y] − 1[h=ĵ], where ĵ is the best wrong class. Then mg = E_Θ[rmg(Θ)], so mg² = E_{Θ,Θ'}[rmg(Θ)·rmg(Θ')], with Θ' an independent copy of Θ. Taking the variance over (X,Y) gives:\n\nVar(mg) = E_{Θ,Θ'}[ cov(rmg(Θ), rmg(Θ')) ] = ρ̄ · (E_Θ sd(Θ))² ≤ ρ̄ · E_Θ[var(rmg(Θ))]\n\nHere ρ̄ is the mean correlation between two trees' raw margins.\n\n**Step 3: bound the variance.** Since |rmg| ≤ 1, E_Θ var(rmg) = E_Θ E_{XY}[rmg²] − E_Θ(E_{XY} rmg)² ≤ 1 − s². The second term is at least s² by Jensen's inequality.\n\n**Result:** PE* ≤ ρ̄ (1 − s²) / s².\n\nYou want strong trees (s up) and uncorrelated trees (ρ̄ down). Random feature selection lowers ρ̄ at a small cost in s.\n\n**Regression version.** Let the forest predict the average of h(x,Θ) over Θ. Then, with ρ̄ the weighted correlation between the residuals Y − h(Θ) and Y − h(Θ'):\n\nE(Y − avg h)² = E_{Θ,Θ'} E[(Y − h(Θ))(Y − h(Θ'))] = ρ̄ · E_Θ E(Y − h(Θ))²\n\nSo **PE(forest) ≤ ρ̄ · PE(tree)**. If trees were perfectly correlated (ρ̄ = 1), averaging gains nothing. If they are less correlated, the error falls in proportion. That is why averaging many deep, low-bias trees beats one deep tree.\n\nQuick check: if ρ̄ = 0.3 and the average single-tree error is 10, what's the most the forest's error can be?\n\nIf you'd like, I can turn this into a lesson with worked numbers and a quiz.",
+  "ttft_ms": 1316,
+  "type": "result",
+  "duration_ms": 22675,
+  "uuid": "684ee7d0-3572-402a-b35f-7ec6e8e875f8",
+  "ttft_stream_ms": 531,
+  "time_to_request_ms": 75,
+  "first_content_frame_ms": 531,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 3218,
+      "cacheReadInputTokens": 114327,
+      "cacheCreationInputTokens": 23457,
+      "webSearchRequests": 0,
+      "costUSD": 0.1374567,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 1199,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 23457,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-20T19:38:56.427Z"
+}

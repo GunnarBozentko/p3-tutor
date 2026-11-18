@@ -1,0 +1,43 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "A plant foot far behind the ball means the kicking foot meets it on the upswing, catching the lower half and lifting it, so the ball rises and may clear the bar. Choosing a shows M2: the belief that planting behind gives more power with no cost.",
+      "distractors": {"a": "M2"}
+    },
+    {
+      "id": "q2",
+      "answer": "b",
+      "rationale": "The inside of the foot is wide and flat and faces the target on a shorter, slower swing, so contact is forgiving. The laces give more speed but less margin for error. Choosing d shows M4: the belief that the laces are best for both power and accuracy.",
+      "distractors": {"d": "M4"}
+    },
+    {
+      "id": "q3",
+      "answer": "Leaning back raises the path of the kicking foot so it hits below the ball's centre and scoops it upward.",
+      "accepted": [
+        "It makes the foot hit the bottom half of the ball, lifting it",
+        "The foot is moving upward at contact and catches the lower half of the ball",
+        "Contact below the centre of the ball sends it up"
+      ],
+      "rationale": "Leaning back puts the chest behind the ball and the foot's path upward, so contact is below the ball's centre and the ball launches upward with backspin. An answer saying leaning back adds power or speed shows M3."
+    },
+    {
+      "id": "q4",
+      "answer": "c",
+      "rationale": "The ball is low and hard, so height and power are fine. The miss is direction, and the plant foot's toes point left of the target, which pulls the swing off line. Choosing d shows M1: treating more power as the fix for every miss. Choices a and b would lift the ball.",
+      "distractors": {"b": "M2", "d": "M1"}
+    },
+    {
+      "id": "q5",
+      "answer": "A very hard shot is harder to control, so it is more likely to miss wide or over, and a well-placed slower shot in the corner can still beat the keeper.",
+      "accepted": [
+        "Accuracy matters more than power because a ball in the corner beats the keeper at moderate pace",
+        "Hitting it too hard loses control and the ball can miss the target",
+        "Maximum power reduces accuracy so it can miss the goal"
+      ],
+      "rationale": "Any reason that says power costs control or accuracy, or that placement can beat the keeper without maximum pace, is correct. An answer saying more power is always better shows M1."
+    }
+  ]
+}

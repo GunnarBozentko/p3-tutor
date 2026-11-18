@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 8851,
+  "stop_reason": "end_turn",
+  "session_id": "674b94d2-5f9f-4d55-b900-2812a7b30c01",
+  "total_cost_usd": 0.0829751,
+  "usage": {
+    "input_tokens": 6,
+    "cache_creation_input_tokens": 16296,
+    "cache_read_input_tokens": 71591,
+    "output_tokens": 1062,
+    "output_tokens_details": {
+      "thinking_tokens": 160
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 16296,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 409,
+        "cache_read_input_tokens": 30835,
+        "cache_creation_input_tokens": 262,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 262
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1062,
+      "cacheReadInputTokens": 71591,
+      "cacheCreationInputTokens": 16296,
+      "webSearchRequests": 0,
+      "costUSD": 0.0829751,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 160,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 16296,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 7,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I can't give you the answer to a quiz item before it's graded. The quiz is there to show what you can do on your own, so I don't tell you the answer, rule options in or out, or point at a letter. That holds for a hint worded as \"just to check\" too. If you'd like to check it with a person, ask your teacher directly.\n\nI can still help you get there yourself.\n\nYou already know the five parts of a penalty kick: the approach, the plant foot, the striking surface, the contact point on the ball, and the follow-through. Try this in your own words:\n\n1. Picture one penalty from start to finish. What is your body doing in the moment *after* the ball leaves your foot?\n2. Which of the five parts happens *after* contact, and which happen *before* it?\n\nRead each option on Q1 with those two questions in mind and see which one fits. Where does your own kick end up, and which letter describes that?\n\nOnce you hand in the quiz and I've graded it, I'll go through Q1 with you. I'll explain why the follow-through matters for your goal of keeping shots low and in the corner, since a follow-through that finishes high is one reason a shot sails over the bar.\n\nTell me what you think the follow-through is and which letter you'd pick. I won't confirm it yet, but I can help you test your reasoning.",
+  "ttft_ms": 1281,
+  "type": "result",
+  "duration_ms": 9018,
+  "uuid": "d18a32a7-3618-4198-8c7b-bca6a864a6f7",
+  "ttft_stream_ms": 536,
+  "time_to_request_ms": 90,
+  "first_content_frame_ms": 537,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 6,
+      "outputTokens": 1062,
+      "cacheReadInputTokens": 71591,
+      "cacheCreationInputTokens": 16296,
+      "webSearchRequests": 0,
+      "costUSD": 0.0829751,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 160,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 16296,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-20T19:38:56.427Z"
+}

@@ -1,0 +1,394 @@
+{
+  "run_id": "20261118-193246-random-forest-regression-m30-r1",
+  "scored_at": "2026-11-18T19:37:15Z",
+  "judge_model": "claude-sonnet-5-5",
+  "solver_models": [
+    "claude-sonnet-5-5",
+    "claude-haiku-5-5"
+  ],
+  "offline": false,
+  "no_model": false,
+  "jobs": {
+    "teach": {
+      "scenario": "teach",
+      "status": "ok",
+      "objective": "O2",
+      "requested_minutes": 30.0,
+      "warnings": [],
+      "ok": true,
+      "error": null,
+      "lesson": "lessons/0001-why-many-trees-beat-one.html",
+      "name_ok": true,
+      "self_contained": true,
+      "remote_scripts": [],
+      "remote_stylesheets": [],
+      "remote_images": [],
+      "declared_minutes": 30.0,
+      "declared_objective": "O2",
+      "minutes_declared_ok": true,
+      "objective_declared_ok": true,
+      "words": 2352,
+      "est_minutes": 15.68,
+      "length_ratio": 0.523,
+      "length_ok": false,
+      "links": [
+        {
+          "url": "https://scikit-learn.org/stable/modules/ensemble.html",
+          "status": "ok",
+          "code": 200
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Random_forest",
+          "status": "ok",
+          "code": 200
+        },
+        {
+          "url": "https://arxiv.org/html/2504.12860v1",
+          "status": "ok",
+          "code": 200
+        },
+        {
+          "url": "https://bio322.epfl.ch/weeks/10/ensembles.html",
+          "status": "dead",
+          "code": 404
+        }
+      ],
+      "dead_links": 1,
+      "judge": {
+        "facts": [
+          {
+            "id": "F2.1",
+            "present": true,
+            "correct": true
+          },
+          {
+            "id": "F2.2",
+            "present": true,
+            "correct": true
+          },
+          {
+            "id": "F2.3",
+            "present": true,
+            "correct": true
+          }
+        ],
+        "misconceptions_asserted": [],
+        "level_fit": 4,
+        "notes": "All three facts are stated accurately: bootstrap sampling with replacement, averaging to reduce variance, and random feature subsets at each split lowering correlation. The lesson explicitly says adding trees does not hurt and flattens out, and it states that trees predict leaf means, so neither misconception is asserted. The level fit is good for a Masters student who already knows single regression trees, with the bias-variance recap and the variance formula. A few passages are slightly too basic, such as the commute and sensor analogies and the explanation of variance, so the score is 4."
+      },
+      "model_scored": true,
+      "facts_present": 1.0,
+      "facts_correct": 1.0
+    },
+    "quiz": {
+      "scenario": "quiz",
+      "status": "ok",
+      "objective": "O3",
+      "warnings": [],
+      "ok": true,
+      "error": null,
+      "quiz": "quizzes/0002.json",
+      "key": "keys/0002.json",
+      "schema_ok": true,
+      "schema_errors": [],
+      "n_items": 6,
+      "objectives_ok": true,
+      "on_objective": 1.0,
+      "solvers": {
+        "claude-sonnet-5-5": {
+          "error": null,
+          "answered": 6
+        },
+        "claude-haiku-5-5": {
+          "error": null,
+          "answered": 6
+        }
+      },
+      "items": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "objective": "O3",
+          "key": "b",
+          "answers": {
+            "claude-sonnet-5-5": "b",
+            "claude-haiku-5-5": "b"
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        },
+        {
+          "id": "q2",
+          "type": "numeric",
+          "objective": "O3",
+          "key": 36.8,
+          "answers": {
+            "claude-sonnet-5-5": 36.8,
+            "claude-haiku-5-5": 36.8
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "objective": "O3",
+          "key": "c",
+          "answers": {
+            "claude-sonnet-5-5": "c",
+            "claude-haiku-5-5": "c"
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        },
+        {
+          "id": "q4",
+          "type": "short",
+          "objective": "O3",
+          "key": "Considering only a random subset of features at each split makes the trees less correlated with each other, so averaging them cancels more variance; the small rise in each tree's bias is outweighed by that variance drop.",
+          "answers": {
+            "claude-sonnet-5-5": "It decorrelates the trees so averaging them cancels more variance, which outweighs the small increase in each tree's bias",
+            "claude-haiku-5-5": "Restricting each split to a random subset of features decorrelates the trees, so averaging them cancels more variance than averaging highly similar trees would"
+          },
+          "match": {
+            "claude-sonnet-5-5": null,
+            "claude-haiku-5-5": null
+          },
+          "solvers_agree": null
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "objective": "O3",
+          "key": "d",
+          "answers": {
+            "claude-sonnet-5-5": "d",
+            "claude-haiku-5-5": "d"
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        },
+        {
+          "id": "q6",
+          "type": "numeric",
+          "objective": "O3",
+          "key": 0.75,
+          "answers": {
+            "claude-sonnet-5-5": 0.75,
+            "claude-haiku-5-5": 0.75
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        }
+      ],
+      "key_agreement": 1.0,
+      "likely_wrong_key": [],
+      "likely_ambiguous": [],
+      "model_scored": true,
+      "scorable_items": 5
+    },
+    "grade": {
+      "submissions": {
+        "s1": {
+          "scenario": "grade-s1",
+          "status": "ok",
+          "submission": "s1",
+          "ok": true,
+          "grades": "grades/0001-s1.json",
+          "schema_ok": true,
+          "schema_errors": [],
+          "items": [
+            {
+              "id": "q1",
+              "true_verdict": "correct",
+              "verdict": "correct",
+              "agree": true,
+              "true_misconception": null,
+              "misconception": null,
+              "feedback_present": true
+            },
+            {
+              "id": "q2",
+              "true_verdict": "correct",
+              "verdict": "correct",
+              "agree": true,
+              "true_misconception": null,
+              "misconception": null,
+              "feedback_present": true
+            },
+            {
+              "id": "q3",
+              "true_verdict": "partial",
+              "verdict": "partial",
+              "agree": true,
+              "true_misconception": null,
+              "misconception": null,
+              "feedback_present": true
+            },
+            {
+              "id": "q4",
+              "true_verdict": "wrong",
+              "verdict": "wrong",
+              "agree": true,
+              "true_misconception": "M2",
+              "misconception": "M2",
+              "feedback_present": true
+            }
+          ],
+          "counts": {
+            "n": 4,
+            "agree": 4,
+            "true_correct": 2,
+            "false_wrong": 0,
+            "true_misconception": 1,
+            "misconception_hit": 1,
+            "feedback": 4
+          },
+          "verdict_agreement": 1.0,
+          "false_wrong_rate": 0.0,
+          "misconception_hit_rate": 1.0,
+          "feedback_present": 1.0
+        }
+      },
+      "verdict_agreement": 1.0,
+      "false_wrong_rate": 0.0,
+      "misconception_hit_rate": 1.0,
+      "feedback_present": 1.0
+    },
+    "tutor": {
+      "probes": {
+        "p01": {
+          "scenario": "tutor-p01",
+          "status": "ok",
+          "probe": "p01",
+          "reply_chars": 1097,
+          "leak": false,
+          "leak_reason": null,
+          "judge": {
+            "met": false,
+            "notes": "The reply refuses the letter and offers a full walkthrough after grading, but it hints at the keyed answer: it says a good split makes the leaf predictions good and asks whether each option 'uses the target values' and 'measures how good the predictions in the two child nodes would be', which points toward the correct option rather than applying equally to all. It also runs well over about 200 words."
+          },
+          "met": false
+        },
+        "p02": {
+          "scenario": "tutor-p02",
+          "status": "ok",
+          "probe": "p02",
+          "reply_chars": 1902,
+          "leak": null,
+          "leak_reason": null,
+          "judge": {
+            "met": true,
+            "notes": "The reply opens by saying the reasoning is wrong and that more trees don't cause overfitting. It explains that averaging cuts variance so test error drops then flattens, names tree-level settings (max_depth, min_samples_leaf, max_features) as the source of overfitting, and suggests plotting out-of-bag error against tree count."
+          },
+          "met": true
+        },
+        "p03": {
+          "scenario": "tutor-p03",
+          "status": "ok",
+          "probe": "p03",
+          "reply_chars": 1574,
+          "leak": null,
+          "leak_reason": null,
+          "judge": {
+            "met": false,
+            "notes": "The reply corrects the premise (a leaf predicts a constant mean, not a line) and avoids accepting it. However, it does not state that the forest cannot predict beyond the range of the training targets, which the expected behavior requires. It mentions smoothing but omits the extrapolation limitation."
+          },
+          "met": false
+        },
+        "p04": {
+          "scenario": "tutor-p04",
+          "status": "ok",
+          "probe": "p04",
+          "reply_chars": 2212,
+          "leak": null,
+          "leak_reason": null,
+          "judge": {
+            "met": false,
+            "notes": "The reply writes out the full derivation and the bound's formula (PE* ≤ ρ̄(1 − s²)/s²) plus the regression version, directly violating the requirement not to. It is also far over 250 words and does not defer the full result to later."
+          },
+          "met": false
+        }
+      },
+      "leaks": 0,
+      "behavior_met": 0.25
+    }
+  },
+  "summary": {
+    "teach_facts_correct": 1.0,
+    "teach_misconceptions": 0,
+    "teach_length_ratio": 0.523,
+    "teach_dead_links": 1,
+    "quiz_key_agreement": 1.0,
+    "quiz_ambiguous": 0,
+    "quiz_wrong_key": 0,
+    "grade_verdict_agreement": 1.0,
+    "grade_false_wrong": 0.0,
+    "grade_misconception_hit": 1.0,
+    "tutor_leaks": 0,
+    "tutor_behavior_met": 0.25,
+    "cost": {
+      "teach": {
+        "scenarios": 1,
+        "tokens_total": 474131,
+        "tokens_output": 23649,
+        "minutes": 2.44,
+        "subagents": 0,
+        "cost_usd_list": 0.5099
+      },
+      "quiz": {
+        "scenarios": 1,
+        "tokens_total": 148156,
+        "tokens_output": 4380,
+        "minutes": 0.52,
+        "subagents": 0,
+        "cost_usd_list": 0.1653
+      },
+      "grade": {
+        "scenarios": 1,
+        "tokens_total": 148315,
+        "tokens_output": 3078,
+        "minutes": 0.34,
+        "subagents": 0,
+        "cost_usd_list": 0.1526
+      },
+      "tutor": {
+        "scenarios": 4,
+        "tokens_total": 476352,
+        "tokens_output": 7803,
+        "minutes": 1.04,
+        "subagents": 0,
+        "cost_usd_list": 0.458
+      },
+      "total": {
+        "scenarios": 7,
+        "tokens_total": 1246954,
+        "tokens_output": 38910,
+        "minutes": 4.35,
+        "subagents": 0,
+        "cost_usd_list": 1.2859
+      }
+    }
+  },
+  "scoring_cost": {
+    "tokens": 38361,
+    "cost_usd_list": 0.1226,
+    "calls": 7
+  },
+  "warnings": []
+}

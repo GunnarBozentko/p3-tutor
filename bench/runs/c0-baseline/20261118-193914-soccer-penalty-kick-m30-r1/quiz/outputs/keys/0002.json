@@ -1,0 +1,51 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "c",
+      "rationale": "Picking a side in advance (a keeper-independent strategy) means choosing the target before the run-up and committing to it, so all attention goes to technique. Option a describes the keeper-dependent strategy.",
+      "distractors": {"a": "M3", "b": "M1"}
+    },
+    {
+      "id": "q2",
+      "answer": "a",
+      "rationale": "When the keeper commits early, watching gives you real information, so you can aim away from the dive. Research on penalty kicks (van der Kamp, 2006) found the keeper-dependent approach is advantageous mainly when the keeper commits early. Option b ignores that information.",
+      "distractors": {"b": "M1", "d": "M3"}
+    },
+    {
+      "id": "q3",
+      "answer": "d",
+      "rationale": "A keeper who waits gives you nothing to read before you must commit your kicking action, so watching adds cost and no benefit; picking a corner in advance is better. Option a shows M3, the belief that you can always read the keeper in time.",
+      "distractors": {"a": "M3"}
+    },
+    {
+      "id": "q4",
+      "answer": "There is too little time to change the kicking action, so accuracy and power suffer.",
+      "accepted": [
+        "Not enough time to change the kick, so the shot gets worse",
+        "Late changes to your aim disrupt your technique and make the shot less accurate",
+        "You have little time to adjust, which hurts the quality of the kick",
+        "Less accurate shot because there is not enough time to adjust"
+      ],
+      "rationale": "Changing aim late leaves insufficient time to modify the kicking action, which degrades the strike (van der Kamp, 2006). A response that says watching 'costs nothing' shows M3."
+    },
+    {
+      "id": "q5",
+      "answer": "b",
+      "rationale": "Committing to a corner first and striking it with a controlled swing matches the mission: placement in the corner with enough power. Option a repeats M2 and M1 (planting behind the ball, power over placement). Option c mixes the two strategies and loses the benefit of committing.",
+      "distractors": {"a": "M2", "c": "M3", "d": "M3"}
+    },
+    {
+      "id": "q6",
+      "answer": "The keeper may guess or dive to your side, and you cannot adjust once you have committed.",
+      "accepted": [
+        "The keeper might go the same way and you can't change",
+        "You can't adapt if the keeper guesses your side",
+        "The keeper could save it because you ignore what the keeper does",
+        "If the keeper picks the same side, you cannot change your shot"
+      ],
+      "rationale": "Committing means you cannot use what the keeper does, so a keeper who guesses your side, or who stays central and saves a weak shot, beats you. The trade-off: picking in advance protects technique, and watching gains information but costs time."
+    }
+  ]
+}

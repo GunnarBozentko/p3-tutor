@@ -1,0 +1,55 @@
+{
+  "id": "0002",
+  "objective": "O2",
+  "title": "How plant foot, striking surface and lean change a penalty",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O2",
+      "stem": "A kicker moves their plant foot from beside the ball to a full stride behind it, with everything else unchanged. What is the most likely effect on the shot?",
+      "options": [
+        {"id": "a", "text": "The ball travels faster and stays low and flat"},
+        {"id": "b", "text": "The ball travels higher and is more likely to miss over the bar"},
+        {"id": "c", "text": "The ball travels at the same height and speed as before"},
+        {"id": "d", "text": "The ball swerves sideways but keeps the same height"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O2",
+      "stem": "Why is the inside of the foot generally more accurate than the laces for a penalty?",
+      "options": [
+        {"id": "a", "text": "It makes the leg swing faster, so the ball has less time to drift"},
+        {"id": "b", "text": "It is a wide flat surface facing the target on a slower, shorter swing"},
+        {"id": "c", "text": "It is a smaller, harder surface so the ball always leaves cleanly"},
+        {"id": "d", "text": "It is both the most accurate and the most powerful way to strike"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "short",
+      "objective": "O2",
+      "stem": "A kicker leans back as they strike the ball and it lifts. In one sentence, explain how leaning back raises the ball."
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O2",
+      "stem": "A kicker's penalties are low and hard but keep missing wide of the left post. Their plant foot lands beside the ball with the toes pointing well left of the target. Which single change should they test first?",
+      "options": [
+        {"id": "a", "text": "Lean further back so the ball rises over the keeper"},
+        {"id": "b", "text": "Plant the foot further behind the ball for a longer swing"},
+        {"id": "c", "text": "Point the plant foot's toes at the spot they want to hit"},
+        {"id": "d", "text": "Hit the ball harder so the keeper has less time to react"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O2",
+      "stem": "Give one reason why hitting a penalty with maximum power is not always the best way to score."
+    }
+  ]
+}

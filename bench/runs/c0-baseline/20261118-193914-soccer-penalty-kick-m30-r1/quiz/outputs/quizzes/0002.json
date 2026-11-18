@@ -1,0 +1,67 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Picking a side or watching the keeper",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A kicker uses the 'pick a side in advance' strategy. What does the kicker do?",
+      "options": [
+        {"id": "a", "text": "Waits for the keeper to move, then aims at the opposite side"},
+        {"id": "b", "text": "Hits the ball as hard as possible and lets the shot do the work"},
+        {"id": "c", "text": "Chooses a corner before the run-up and strikes it whatever the keeper does"},
+        {"id": "d", "text": "Aims at the keeper's body to force a mistake on the shot"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your coach tells you this keeper always dives to one side early, before the ball is struck. Which strategy fits best?",
+      "options": [
+        {"id": "a", "text": "Watch the keeper during the run-up and place the ball opposite the dive"},
+        {"id": "b", "text": "Pick the same corner you always use and strike it as hard as you can"},
+        {"id": "c", "text": "Aim at the middle of the goal so the keeper cannot read your shot"},
+        {"id": "d", "text": "Pick a side in advance and change it each time you take a penalty"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "This keeper stays still on the line until the ball is struck, then dives. You try to watch the keeper and change your aim at the last moment. What is the likely result?",
+      "options": [
+        {"id": "a", "text": "You see the dive early enough to place the ball away from it"},
+        {"id": "b", "text": "The keeper reads your eyes, so the shot is saved however you aim"},
+        {"id": "c", "text": "You gain accuracy because watching the keeper steadies your technique"},
+        {"id": "d", "text": "You have no keeper movement to read, so you should have picked a corner"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O3",
+      "stem": "In one sentence: what is the main cost of watching the keeper and changing your aim late in the run-up?"
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "You have decided to pick a side in advance. Which plan best matches your goal of scoring consistently?",
+      "options": [
+        {"id": "a", "text": "Plant well behind the ball and swing as hard as possible at the middle"},
+        {"id": "b", "text": "Choose the corner first, then strike with a controlled swing toward it"},
+        {"id": "c", "text": "Choose the corner, but look at the keeper just before contact"},
+        {"id": "d", "text": "Decide nothing until the run-up, then aim wherever the keeper is not"}
+      ]
+    },
+    {
+      "id": "q6",
+      "type": "short",
+      "objective": "O3",
+      "stem": "In one sentence: what is the main risk of picking a side in advance and ignoring the keeper?"
+    }
+  ]
+}

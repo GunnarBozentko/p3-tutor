@@ -1,0 +1,152 @@
+{
+  "duration_api_ms": 39552,
+  "stop_reason": "end_turn",
+  "session_id": "fd218586-9354-40f1-876d-2aae928287d3",
+  "total_cost_usd": 0.2023573,
+  "usage": {
+    "input_tokens": 16,
+    "cache_creation_input_tokens": 29540,
+    "cache_read_input_tokens": 240365,
+    "output_tokens": 4835,
+    "output_tokens_details": {
+      "thinking_tokens": 850
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 29540,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 418,
+        "cache_read_input_tokens": 43894,
+        "cache_creation_input_tokens": 447,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 447
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 16,
+      "outputTokens": 4835,
+      "cacheReadInputTokens": 240365,
+      "cacheCreationInputTokens": 29540,
+      "webSearchRequests": 0,
+      "costUSD": 0.1905785,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 850,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 29540,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 13308,
+      "outputTokens": 896,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 1,
+      "costUSD": 0.0117788,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 115,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 0,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 15,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "The six-question quiz on O3 is written to `quizzes/0002.json`, with its answer key in `keys/0002.json`. I haven't answered it myself, so the key is unchecked against the stems.\n\nIt's called \"Picking a side or watching the keeper\". It has four multiple-choice items and two one-sentence short answers.\n- **Strategies:** what picking a side in advance means.\n- **Keeper types:** which strategy fits a keeper who dives early, and which fits one who waits.\n- **Trade-off:** the cost of watching the keeper and changing your aim late, and the risk of committing to a side.\n- **Your goal:** a plan that fits your goal of placing the ball in the corner with a controlled swing, which ties back to your planting and power habits.\n\nThe quiz is ahead of the lessons, because no lesson covers O3 yet. I built it from search-result summaries of a 2006 van der Kamp field study and a 2025 keeper-strategy modelling paper, not from reading the papers themselves. They were also the only sources found, so the keys may rest on weaker evidence than I'd like. I added a new misconception, M3 (you can watch the keeper and change your aim late at no cost), to `NOTES.md`.\n\nDo you want a lesson on this before you take the quiz?",
+  "ttft_ms": 1145,
+  "type": "result",
+  "duration_ms": 39893,
+  "uuid": "dd3e6249-dd55-4818-a534-1ffd8adc8161",
+  "ttft_stream_ms": 778,
+  "time_to_request_ms": 193,
+  "first_content_frame_ms": 779,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 16,
+      "outputTokens": 4835,
+      "cacheReadInputTokens": 240365,
+      "cacheCreationInputTokens": 29540,
+      "webSearchRequests": 0,
+      "costUSD": 0.1905785,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 850,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 29540,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 13308,
+      "outputTokens": 896,
+      "cacheReadInputTokens": 0,
+      "cacheCreationInputTokens": 0,
+      "webSearchRequests": 1,
+      "costUSD": 0.0117788,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 115,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 0,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-20T19:38:56.427Z"
+}

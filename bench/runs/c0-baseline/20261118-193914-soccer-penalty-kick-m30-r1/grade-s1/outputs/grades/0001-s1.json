@@ -1,0 +1,31 @@
+{
+  "quiz": "0001",
+  "submission": "s1",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right: the follow-through is the kicking leg continuing toward the target after contact. It matters because the leg's path after the ball leaves is what keeps the shot on line, so it is about direction, not just power."
+    },
+    {
+      "id": "q2",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. The penalty mark is 12 yards from the goal line, which is about 11 meters, so your answer is the same distance in a different unit. Next time, give the unit the question asks for, meters here."
+    },
+    {
+      "id": "q3",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "Run up, plant your foot and follow through are right and in the right order. You collapsed the middle into 'kick the ball', though. It is really two separate choices: the striking surface (laces for power, inside of the foot for accuracy) and the contact point on the ball. Those two choices decide where the ball goes and how hard, so they are worth naming on their own."
+    },
+    {
+      "id": "q4",
+      "verdict": "wrong",
+      "misconception": "M2",
+      "feedback": "The plant foot goes beside the ball, roughly level with it, toes pointing at the target. Planting well behind it feels like a longer swing and more power, but you end up reaching for the ball and striking its underside, which lifts it, sometimes over the bar. Power comes from a balanced, controlled strike, not from extra distance behind the ball. Try it next practice: plant level, and watch how the ball stays lower."
+    }
+  ],
+  "summary": "You know the follow-through and the distance to the penalty mark, and your approach, plant and follow-through steps are in order. Two things to work on. First, the plant foot: it goes beside the ball, not behind it, and this is probably the habit behind your shots sailing over the bar. Second, split 'kick the ball' into the striking surface and the contact point. Next step: at your next practice, take five kicks with the plant foot level with the ball and compare where they finish with your usual behind-the-ball plant."
+}

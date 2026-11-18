@@ -1,0 +1,42 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "Averaging more trees lowers the variance of the forest with diminishing returns, and it does not make the forest overfit; the error plateaus. Choosing a shows the belief that more trees means more overfitting, as with a deeper single tree."
+    },
+    {
+      "id": "q2",
+      "answer": 36.8,
+      "tolerance": 0.5,
+      "rationale": "A given row is missed by one draw with probability 1 - 1/n, so by all n draws with probability (1 - 1/n)^n, which approaches 1/e, about 0.368. So roughly 36.8% of rows are out of bag for each tree. An answer of 63.2 is the share that is in the sample."
+    },
+    {
+      "id": "q3",
+      "answer": "c",
+      "rationale": "A large train/OOB gap means the trees are overfit (high variance). Raising min_samples_leaf makes each leaf average more rows, giving smoother trees with less variance. Lowering it or raising max_features makes trees fit more closely and more alike, and many more trees cannot remove the gap because they were each overfit."
+    },
+    {
+      "id": "q4",
+      "answer": "Considering only a random subset of features at each split makes the trees less correlated with each other, so averaging them cancels more variance; the small rise in each tree's bias is outweighed by that variance drop.",
+      "accepted": [
+        "It decorrelates the trees, so averaging reduces variance more.",
+        "Trees stop all choosing the same strong features, so they are less correlated and the average has lower variance.",
+        "The trees become less correlated, so the ensemble's variance falls more than the bias rises."
+      ],
+      "rationale": "A fully right answer says the trees become less correlated (decorrelated) and that this makes averaging reduce variance more. An answer that only says it speeds up training or reduces overfitting, without the correlation reason, is partial."
+    },
+    {
+      "id": "q5",
+      "answer": "d",
+      "rationale": "The best CV score was picked because it was the best among many tries, so it is optimistically biased. An untouched test set gives an honest estimate. Training R² is far too optimistic for a forest, and the average over all settings is not the chosen model's score."
+    },
+    {
+      "id": "q6",
+      "answer": 0.75,
+      "tolerance": 0.005,
+      "rationale": "R² = 1 - 20/80 = 1 - 0.25 = 0.75. An answer of 0.25 is the unexplained fraction, SSE/SST, which is not R²."
+    }
+  ]
+}

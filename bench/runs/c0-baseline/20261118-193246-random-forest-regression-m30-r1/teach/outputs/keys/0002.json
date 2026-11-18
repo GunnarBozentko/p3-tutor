@@ -1,0 +1,40 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "a",
+      "rationale": "Each deep tree is nearly unbiased but noisy; averaging cancels the random part of the error, so variance falls and bias stays about the same. Picking b or c shows M2, that averaging makes the trees more accurate on average rather than less noisy.",
+      "distractors": {"b": "M2", "c": "M2"}
+    },
+    {
+      "id": "q2",
+      "answer": 4.5,
+      "tolerance": 0.05,
+      "rationale": "rho*sigma^2 = 0.25*9 = 2.25 and (1-0.25)*9/3 = 2.25, so the variance is 4.5. An answer of 3 is sigma^2/B, which wrongly assumes independent trees (M3)."
+    },
+    {
+      "id": "q3",
+      "answer": "b",
+      "rationale": "Random feature subsets stop every tree from splitting on the same strong features, so trees are less alike (lower correlation rho), which lowers the floor rho*sigma^2.",
+      "distractors": {"d": "M4"}
+    },
+    {
+      "id": "q4",
+      "answer": "About the same as for the largest training houses: it cannot extrapolate, because each tree predicts a mean of training prices, so the average stays within the training range.",
+      "accepted": [
+        "the same as the largest houses in the training data",
+        "a flat prediction equal to the prediction for the largest training houses",
+        "it will not continue the trend; it predicts about what it predicts for 3,000 square feet",
+        "it predicts roughly the price of the largest training houses because trees average training targets"
+      ],
+      "rationale": "Every leaf predicts a mean of training targets, so the average of trees stays inside the training target range and is flat beyond the last split. Saying it continues the upward trend shows M1."
+    },
+    {
+      "id": "q5",
+      "answer": "c",
+      "rationale": "With rho = 0.4 the variance is near its floor rho*sigma^2 well before 500 trees; the (1-rho)*sigma^2/B term is already tiny. Choosing a or d shows M3 (variance falls like 1/B); choosing b shows M5 (more trees overfit more).",
+      "distractors": {"a": "M3", "d": "M3", "b": "M5"}
+    }
+  ]
+}

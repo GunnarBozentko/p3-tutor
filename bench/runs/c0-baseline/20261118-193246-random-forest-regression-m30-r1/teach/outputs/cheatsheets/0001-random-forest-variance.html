@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cheat sheet: why averaging trees works</title>
+  <style>
+    body { max-width: 40rem; margin: 0 auto; padding: 2rem 1.25rem; font-family: Georgia, serif; line-height: 1.5; background: #fffdf8; color: #1f1d1a; }
+    h1 { font-size: 1.6rem; } h2 { font-size: 1.1rem; margin-top: 1.6rem; }
+    code, pre { font-family: ui-monospace, Consolas, monospace; background: #f3efe6; border-radius: 4px; }
+    pre { padding: 0.7rem; }
+    @media (prefers-color-scheme: dark) { body { background: #171614; color: #e9e5dc; } code, pre { background: #23211e; } }
+  </style>
+</head>
+<body>
+  <h1>Cheat sheet: why averaging trees works</h1>
+  <p>From <a href="../lessons/0001-why-many-trees-beat-one.html">Lesson 1</a>.</p>
+  <h2>Prediction</h2>
+  <p>Forest prediction = average of the trees' predictions. Each tree predicts the mean of the training targets in its leaf.</p>
+  <h2>Variance of the average of B trees</h2>
+  <pre><code>Var = rho*sigma^2 + (1 - rho)*sigma^2 / B</code></pre>
+  <ul>
+    <li>sigma^2: variance of one tree's prediction; rho: correlation between two trees.</li>
+    <li>The second term shrinks with B. The first term, rho*sigma^2, is the floor.</li>
+    <li>rho = 1: no gain. rho = 0: sigma^2 / B.</li>
+  </ul>
+  <h2>Making rho small</h2>
+  <ul>
+    <li>Bagging: each tree gets a bootstrap sample of the rows.</li>
+    <li>Random forest: also a random subset of features at each split (max_features).</li>
+  </ul>
+  <h2>Limits</h2>
+  <ul>
+    <li>Averaging lowers variance, not bias shared by all trees.</li>
+    <li>No extrapolation: predictions stay within the range of training targets.</li>
+    <li>More trees past the floor do not help, and do not cause overfitting.</li>
+  </ul>
+</body>
+</html>

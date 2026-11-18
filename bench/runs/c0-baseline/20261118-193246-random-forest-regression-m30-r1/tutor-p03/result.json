@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 11953,
+  "stop_reason": "end_turn",
+  "session_id": "e9fb996b-4bf3-454e-b707-81ad27b37191",
+  "total_cost_usd": 0.11589669999999999,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 22354,
+    "cache_read_input_tokens": 114047,
+    "output_tokens": 1506,
+    "output_tokens_details": {
+      "thinking_tokens": 145
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 22354,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 521,
+        "cache_read_input_tokens": 36819,
+        "cache_creation_input_tokens": 336,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 336
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1506,
+      "cacheReadInputTokens": 114047,
+      "cacheCreationInputTokens": 22354,
+      "webSearchRequests": 0,
+      "costUSD": 0.11589669999999999,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 145,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 22354,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 9,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "The question assumes something that isn't true, so the answer is: zero lines.\n\nA standard regression tree's leaf doesn't fit a line. It predicts a single constant, the mean of the training targets that landed in that leaf. That matches what you worked out before about returning the leaf mean. A tree's prediction is a staircase of flat steps, not a set of sloped segments. (Trees that fit lines in their leaves do exist, such as model trees, but they aren't what random forest regression uses.)\n\nSo here is what the forest does:\n\n- Each of the 100 trees is a staircase function, built on its own bootstrap sample with random feature subsets at each split.\n- For a new point x, every tree drops x into one leaf and returns that leaf's mean. That gives 100 numbers.\n- The forest's prediction is the average of those 100 numbers: (ŷ₁ + ŷ₂ + … + ŷ₁₀₀) / 100.\n\nFor example, suppose you predict house price and the 100 trees return values between $290k and $320k for one house. The forest answers with their average, around $305k.\n\nThis also helps with your question about why an average beats one deep tree. The 100 staircases have their steps in slightly different places. Averaging them smooths those steps and cancels much of each tree's noise. That lowers variance, while each deep tree keeps its low bias.\n\nQuick check: if a forest has 100 trees and each tree has 50 leaves, how many distinct values could the forest's prediction take for one input x? Is it 100, 50, or something else?\n\nI can also write a short lesson on how the forest makes predictions if you'd like one.",
+  "ttft_ms": 958,
+  "type": "result",
+  "duration_ms": 12136,
+  "uuid": "36358010-612e-4507-a2d5-b3fec2a2a3f8",
+  "ttft_stream_ms": 556,
+  "time_to_request_ms": 75,
+  "first_content_frame_ms": 556,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1506,
+      "cacheReadInputTokens": 114047,
+      "cacheCreationInputTokens": 22354,
+      "webSearchRequests": 0,
+      "costUSD": 0.11589669999999999,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 145,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 22354,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-20T19:38:56.427Z"
+}

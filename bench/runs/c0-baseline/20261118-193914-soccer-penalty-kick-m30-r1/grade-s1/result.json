@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 18387,
+  "stop_reason": "end_turn",
+  "session_id": "d936e215-5af5-4fbe-8d16-344a929a01ce",
+  "total_cost_usd": 0.14200359999999998,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 25616,
+    "cache_read_input_tokens": 117736,
+    "output_tokens": 2775,
+    "output_tokens_details": {
+      "thinking_tokens": 80
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 25616,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 395,
+        "cache_read_input_tokens": 38570,
+        "cache_creation_input_tokens": 1847,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 1847
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 2775,
+      "cacheReadInputTokens": 117736,
+      "cacheCreationInputTokens": 25616,
+      "webSearchRequests": 0,
+      "costUSD": 0.14200359999999998,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 80,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 25616,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 14,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I graded Leo's submission and wrote `grades/0001-s1.json`. Leo got 2 items correct, 1 partial and 1 wrong.\n\n- **q1 (follow-through): correct.** The follow-through is the kicking leg continuing toward the target after contact.\n- **q2 (penalty mark distance): correct.** Leo answered 12 yards, which is about 11 m, so the key counts it.\n- **q3 (five parts): partial.** Run-up, plant and follow-through are right and in order. \"Kick the ball\" skips the striking surface and the contact point as two separate steps.\n- **q4 (plant foot): wrong, M2.** Leo chose to plant well behind the ball for a longer swing. That habit likely explains the shots lifting over the bar. The plant foot belongs beside the ball, roughly level with it.\n\nI also added `learning-records/0002-plant-foot-misconception.md` and updated `NOTES.md`.\n\n**Next step:** at the next practice, take five kicks with the plant foot level with the ball. Compare where they finish with the usual behind-the-ball plant. I can write a short lesson on plant foot placement, striking surface and contact point if you'd like one.",
+  "ttft_ms": 915,
+  "type": "result",
+  "duration_ms": 18534,
+  "uuid": "6ce0fa2d-e3df-47de-b64e-edd7c338fa0d",
+  "ttft_stream_ms": 526,
+  "time_to_request_ms": 89,
+  "first_content_frame_ms": 526,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 2775,
+      "cacheReadInputTokens": 117736,
+      "cacheCreationInputTokens": 25616,
+      "webSearchRequests": 0,
+      "costUSD": 0.14200359999999998,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 80,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 25616,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-20T19:38:56.427Z"
+}

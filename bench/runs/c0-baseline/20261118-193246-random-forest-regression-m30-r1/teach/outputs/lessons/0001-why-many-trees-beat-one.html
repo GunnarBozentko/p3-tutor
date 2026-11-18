@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="p3-minutes" content="30">
+  <meta name="p3-objective" content="O2">
+  <title>Why averaging many trees beats one deep tree</title>
+  <style>
+    :root {
+      --bg: #fffdf8; --text: #1f1d1a; --muted: #6b665e; --rule: #e4dfd4;
+      --accent: #9a4517; --accent-soft: #f7ede4; --warn: #8c2f39; --warn-soft: #f9eaec;
+      --ok: #2f6b3a; --ok-soft: #e7f2e9; --code-bg: #f3efe6;
+      --serif: Charter, "Bitstream Charter", "Iowan Old Style", "Sitka Text", Cambria, Georgia, serif;
+      --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --mono: ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, monospace;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #171614; --text: #e9e5dc; --muted: #a49e93; --rule: #36332e; --accent: #eaa77a;
+        --accent-soft: #2c231d; --warn: #f0a3ac; --warn-soft: #2f1f22; --ok: #9fd3a8; --ok-soft: #1c2a1f; --code-bg: #23211e; }
+    }
+    * { box-sizing: border-box; }
+    html { font-size: 19px; -webkit-text-size-adjust: 100%; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--serif); line-height: 1.6; }
+    main { max-width: 40rem; margin: 0 auto; padding: 3rem 1.25rem 4rem; }
+    p, li { hyphens: auto; }
+    a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+    h1, h2, h3 { line-height: 1.25; font-weight: 600; }
+    h1 { font-size: 2.1rem; margin: 0.25rem 0 1rem; }
+    h2 { font-size: 1.45rem; margin: 3rem 0 0.75rem; }
+    .kicker, .label, .meta, .section-time, figcaption, summary, th, nav.toc, footer.closing { font-family: var(--sans); }
+    .kicker { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+    .lead { font-size: 1.15rem; }
+    .meta { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; font-size: 0.85rem; color: var(--muted);
+            border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 0.5rem 0; margin: 1.5rem 0; }
+    nav.toc { font-size: 0.9rem; margin: 1.5rem 0 2rem; }
+    nav.toc ol { padding-left: 1.2rem; margin: 0.4rem 0 0; }
+    .section-time { font-size: 0.8rem; font-weight: 400; color: var(--muted); margin-left: 0.4rem; white-space: nowrap; }
+    dfn { font-style: normal; font-weight: 600; }
+    aside.note { font-size: 0.9rem; color: var(--muted); border-left: 2px solid var(--rule); padding-left: 1rem; margin: 1.25rem 0; }
+    .box { border-radius: 6px; padding: 1rem 1.25rem; margin: 1.75rem 0; }
+    .box > :first-child { margin-top: 0; }
+    .box > :last-child { margin-bottom: 0; }
+    .label { display: block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.4rem; }
+    .mission { background: var(--accent-soft); }
+    .mission .label { color: var(--accent); }
+    .misconception { background: var(--warn-soft); border-left: 4px solid var(--warn); }
+    .misconception .label { color: var(--warn); }
+    .worked { border: 1px solid var(--rule); }
+    .worked ol { padding-left: 1.3rem; }
+    .summary { border: 1px solid var(--rule); }
+    figure { margin: 2rem 0; }
+    figure svg { display: block; width: 100%; height: auto; }
+    figcaption { font-size: 0.85rem; color: var(--muted); margin-top: 0.5rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 1.5rem 0; }
+    th, td { text-align: left; vertical-align: top; padding: 0.45rem 0.6rem; border-bottom: 1px solid var(--rule); }
+    th { font-size: 0.78rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+    code, pre { font-family: var(--mono); font-size: 0.85em; background: var(--code-bg); border-radius: 4px; }
+    code { padding: 0.1em 0.3em; }
+    pre { padding: 1rem; overflow-x: auto; line-height: 1.45; }
+    pre code { padding: 0; background: none; font-size: 1em; }
+    .check { border: 1px solid var(--rule); border-radius: 6px; padding: 1rem 1.25rem; margin: 1.75rem 0; }
+    .check .label { color: var(--accent); }
+    .check p { margin: 0.25rem 0; }
+    .choices { list-style: none; padding: 0; margin: 0.75rem 0 0; display: grid; gap: 0.5rem; }
+    .choices button { width: 100%; text-align: left; font: inherit; font-size: 0.95rem; color: inherit; background: transparent;
+                      border: 1px solid var(--rule); border-radius: 6px; padding: 0.55rem 0.8rem; cursor: pointer; }
+    .choices button:hover { border-color: var(--accent); }
+    .choices button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .choices button.right { border-color: var(--ok); background: var(--ok-soft); }
+    .choices button.wrong { border-color: var(--warn); background: var(--warn-soft); }
+    .feedback { font-size: 0.95rem; margin: 0.6rem 0 0; }
+    .feedback:empty { margin: 0; }
+    details { margin-top: 0.75rem; }
+    summary { font-size: 0.85rem; color: var(--accent); cursor: pointer; }
+    details > :not(summary) { margin: 0.5rem 0 0; }
+    .go-further li { margin-bottom: 0.6rem; }
+    footer.closing { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--rule); font-size: 0.9rem; color: var(--muted); }
+    @media (max-width: 32rem) { html { font-size: 17px; } h1 { font-size: 1.75rem; } main { padding-top: 2rem; } }
+    @media print {
+      :root { --bg: #fff; --text: #000; --muted: #444; --rule: #ccc; --accent: #000; --accent-soft: #f2f2f2;
+              --warn: #000; --warn-soft: #f2f2f2; --ok: #000; --ok-soft: #fff; --code-bg: #f2f2f2; }
+      html { font-size: 11.5pt; } main { max-width: none; padding: 0; } nav.toc { display: none; }
+      a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.8em; word-break: break-all; }
+      .box, .check, figure, table, pre { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+<main>
+
+  <header>
+    <div class="kicker">Lesson 1 &middot; 30 minutes</div>
+    <h1>Why averaging many trees beats one deep tree</h1>
+    <p class="lead">By the end of this lesson you can explain, and compute, why the average of many regression trees has a lower error than a single deep tree, and say what the average can and cannot fix.</p>
+    <div class="meta">
+      <span>Objective O2: how adding multiple decision trees improves regression performance</span>
+      <span>About 30 minutes</span>
+    </div>
+    <div class="box mission">
+      <span class="label">Why this matters for you</span>
+      <p>Random forest regression is exactly this idea: many trees, averaged. If you can explain why the average beats one deep tree, you can answer the bias-variance questions an exam will ask about forests, and you will know what to tune when you apply one to a large dataset.</p>
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="In this lesson">
+    <strong>In this lesson</strong>
+    <ol>
+      <li><a href="#warm-up">Warm-up</a></li>
+      <li><a href="#s1">The problem: one deep tree is jumpy</a></li>
+      <li><a href="#s2">The fix: average many trees</a></li>
+      <li><a href="#s3">The math: variance of an average</a></li>
+      <li><a href="#s4">Making trees different</a></li>
+      <li><a href="#s5">What averaging cannot do</a></li>
+      <li><a href="#practice">Worked example and practice</a></li>
+      <li><a href="#summary">Summary</a></li>
+      <li><a href="#further">Go further</a></li>
+    </ol>
+  </nav>
+
+  <section id="warm-up">
+    <h2>Warm-up <span class="section-time">2 min</span></h2>
+    <div class="check">
+      <span class="label">Recall</span>
+      <p>From memory: when a new point lands in a leaf of a regression tree, what number does the tree predict? And what does a tree grown until every leaf has one training row do on new data?</p>
+      <details>
+        <summary>Check your answer</summary>
+        <p>The tree predicts the mean of the training targets in that leaf. A tree grown to single-row leaves memorises the training data, including its noise, so it predicts new data poorly: low bias, high variance. Today is about the second half of that sentence: how to keep the low bias and cut the variance.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="s1">
+    <h2>The problem: one deep tree is jumpy <span class="section-time">4 min</span></h2>
+    <p>Start with an everyday example. You want to know how long your commute takes. You time it on one random morning and get 41 minutes. That morning had a stalled bus, so 41 is a poor guess for a typical day. The measurement was honest, but one sample is at the mercy of that day's luck.</p>
+    <p>A deep regression tree is like that one morning. It fits the particular training rows it saw, noise included. Train it on a different sample of rows from the same source and the splits, and so the predictions, change a lot. This sensitivity to the training sample is called <dfn>variance</dfn>: how much the prediction at a fixed input would move if you retrained on fresh data. You already know that a deep tree has low bias and high variance; the <a href="https://scikit-learn.org/stable/modules/ensemble.html">scikit-learn guide</a> and most textbooks describe the same trade.</p>
+    <p>A simple engineering parallel: a sensor reading has noise. You do not fix noise by building a more complicated sensor; you take many readings and average them. The noise in each reading is random, so the errors partly cancel.</p>
+    <div class="check" data-check>
+      <span class="label">Check yourself</span>
+      <p>You train the same deep tree on two different random samples of 500 houses. The two trees disagree on the price of one particular house by $60,000. Which property of deep trees does this show?</p>
+      <ul class="choices">
+        <li><button type="button" data-correct="false" data-why="Bias is a systematic miss that stays the same however you resample. Here the two trees differ from each other, which is a different thing.">The trees have high bias on that house</button></li>
+        <li><button type="button" data-correct="false" data-why="Trees do not extrapolate trends at all; and nothing here is outside the training range.">The trees cannot predict outside range</button></li>
+        <li><button type="button" data-correct="true" data-why="Disagreement between models trained on different samples of the same data is exactly what variance means.">The trees have high variance on that house</button></li>
+      </ul>
+      <p class="feedback" aria-live="polite"></p>
+      <details>
+        <summary>Show the answer</summary>
+        <p>High variance. The prediction depends heavily on which sample the tree was trained on.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="s2">
+    <h2>The fix: average many trees <span class="section-time">5 min</span></h2>
+    <p>Do what you do with the commute: collect many predictions and average them. In a <dfn>random forest regressor</dfn> you grow many trees, each on a different bootstrap sample, and the prediction for a new point is the average of the trees' predictions (<a href="https://en.wikipedia.org/wiki/Random_forest">Wikipedia: Random forest</a>). A <dfn>bootstrap sample</dfn> is a sample of the same size as the training set, drawn from it at random with replacement, so some rows appear twice and some not at all. Building trees on bootstrap samples and averaging them is called <dfn>bagging</dfn> (bootstrap aggregating); the <a href="https://scikit-learn.org/stable/modules/ensemble.html">scikit-learn documentation</a> describes it as building several instances of an estimator on random subsets of the training set and combining their predictions.</p>
+    <p>Two facts make this work, and you should be able to state both:</p>
+    <ol>
+      <li><strong>Each deep tree is nearly unbiased but noisy.</strong> Its errors are partly random, pointing up for one tree and down for another.</li>
+      <li><strong>Averaging cancels random errors but keeps what the trees agree on.</strong> If all trees see the real trend, the average keeps it. The noise that differs between trees shrinks.</li>
+    </ol>
+    <p>So the average has about the same bias as one tree and lower variance. Lower variance with the same bias means lower expected squared error. That is the whole answer to your question about why many trees beat one deep tree: you are not making any tree smarter, you are averaging out the part of each tree's error that is luck.</p>
+
+    <figure>
+      <svg viewBox="0 0 640 290" role="img" aria-labelledby="fig1-title">
+        <title id="fig1-title">Three step-function trees with different split points, and their average, which has more and smaller steps</title>
+        <g fill="none" stroke-width="1.5">
+          <line x1="60" y1="240" x2="600" y2="240" stroke="currentColor"/>
+          <line x1="60" y1="240" x2="60" y2="20" stroke="currentColor"/>
+          <!-- x px = 60 + 54*x ; y px = 240 - 50*v ; tree A: breaks at 3,7 ; B: 4,8 ; C: 2,6 ; levels 1, 2.5, 4 -->
+          <polyline stroke="currentColor" stroke-opacity="0.35" points="60,190 222,190 222,115 438,115 438,40 600,40"/>
+          <polyline stroke="currentColor" stroke-opacity="0.35" stroke-dasharray="6 4" points="60,190 276,190 276,115 492,115 492,40 600,40"/>
+          <polyline stroke="currentColor" stroke-opacity="0.35" stroke-dasharray="2 3" points="60,190 168,190 168,115 384,115 384,40 600,40"/>
+          <polyline style="stroke: var(--accent)" stroke-width="3.5" points="60,190 168,190 168,165 222,165 222,140 276,140 276,115 384,115 384,90 438,90 438,65 492,65 492,40 600,40"/>
+        </g>
+        <g fill="currentColor" font-family="system-ui, sans-serif" font-size="18">
+          <text x="330" y="272" text-anchor="middle">input x</text>
+          <text x="20" y="130" transform="rotate(-90 20 130)" text-anchor="middle">prediction</text>
+          <text x="70" y="80" style="fill: var(--accent)">average of 3 trees</text>
+          <text x="70" y="104" fill-opacity="0.7">thin lines: single trees</text>
+        </g>
+      </svg>
+      <figcaption>Figure 1. Each thin line is one tree, with its own split points: a coarse staircase. Their average (thick) has six steps in place of two. Each tree's jump is shared out across several smaller jumps. Notice too that all lines go flat at the right edge.</figcaption>
+    </figure>
+
+    <aside class="note">Why the steps differ: bootstrap samples contain different rows, so the best split threshold lands in a different place each time. Section 4 covers how to make trees differ even more.</aside>
+
+    <div class="check" data-check>
+      <span class="label">Check yourself</span>
+      <p>A forest of 200 deep trees predicts better than any one of its trees. Which statement best explains why?</p>
+      <ul class="choices">
+        <li><button type="button" data-correct="true" data-why="Right: the random part of each tree's error partly cancels in the average, while the shared signal stays.">Random errors partly cancel in the average, so variance falls</button></li>
+        <li><button type="button" data-correct="false" data-why="Averaging does not change what any single tree does; each tree is still deep and overfit. The gain comes from combining them.">Averaging makes each individual tree fit its own data better</button></li>
+        <li><button type="button" data-correct="false" data-why="Trees see the same kind of data; the forest has no extra information. It has less noise, not more signal.">The forest gets extra information that no tree sees</button></li>
+      </ul>
+      <p class="feedback" aria-live="polite"></p>
+      <details>
+        <summary>Show the answer</summary>
+        <p>Random errors partly cancel, so variance falls while bias stays about the same.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="s3">
+    <h2>The math: variance of an average <span class="section-time">6 min</span></h2>
+    <p>Let each tree's prediction at a fixed input be a random variable (random because the training sample is random) with variance <code>σ²</code>. Take the average of <code>B</code> such trees. If the trees were completely independent, the variance of the average would be <code>σ²/B</code>: 100 trees, 100 times less variance.</p>
+    <p>But trees trained on overlapping data from the same source are not independent. Suppose each pair has <dfn>correlation</dfn> <code>ρ</code>, a number from 0 (unrelated errors) to 1 (identical errors). Then the standard result for the average of <code>B</code> identically distributed variables is given in <a href="https://en.wikipedia.org/wiki/Random_forest">the random forest literature</a> and in Hastie, Tibshirani and Friedman, <em>The Elements of Statistical Learning</em>, chapter 15:</p>
+    <pre><code>Var(average) = ρ·σ²  +  (1 − ρ)·σ² / B</code></pre>
+    <p>Read it as two terms. The second term, <code>(1 − ρ)σ²/B</code>, shrinks as you add trees. The first, <code>ρσ²</code>, does not depend on <code>B</code> at all. It is the shared part of the error: whatever all the trees get wrong together, averaging cannot remove.</p>
+    <p>Two limits show the idea. If <code>ρ = 1</code> (every tree identical) the formula gives <code>σ²</code> for any <code>B</code>: a hundred copies of the same tree are no better than one. If <code>ρ = 0</code> it gives <code>σ²/B</code>. Real forests sit between: the trick is to push <code>ρ</code> down.</p>
+
+    <figure>
+      <svg viewBox="0 0 640 310" role="img" aria-labelledby="fig2-title">
+        <title id="fig2-title">Variance of the average against number of trees for correlation 0.5 and 0.1, with sigma squared equal to 4</title>
+        <g fill="none" stroke-width="1.5">
+          <line x1="80" y1="260" x2="610" y2="260" stroke="currentColor"/>
+          <line x1="80" y1="260" x2="80" y2="30" stroke="currentColor"/>
+          <polyline stroke="currentColor" stroke-width="3" points="80,40 210,95 340,128 470,139 600,149"/>
+          <polyline style="stroke: var(--accent)" stroke-width="3" points="80,40 210,139 340,198 470,218 600,236"/>
+          <line x1="80" y1="149" x2="600" y2="149" stroke="currentColor" stroke-opacity="0.35" stroke-dasharray="4 4"/>
+          <line x1="80" y1="238" x2="600" y2="238" stroke="currentColor" stroke-opacity="0.35" stroke-dasharray="4 4"/>
+        </g>
+        <g fill="currentColor" font-family="system-ui, sans-serif" font-size="18" text-anchor="middle">
+          <text x="80" y="284">1</text><text x="210" y="284">2</text><text x="340" y="284">5</text>
+          <text x="470" y="284">10</text><text x="600" y="284">100</text>
+          <text x="345" y="305">number of trees B</text>
+        </g>
+        <g fill="currentColor" font-family="system-ui, sans-serif" font-size="18">
+          <text x="30" y="50" text-anchor="end">4</text>
+          <text x="30" y="154" text-anchor="end">2</text>
+          <text x="30" y="264" text-anchor="end">0</text>
+          <text x="330" y="82">ρ = 0.5: floor at 2.0</text>
+          <text x="330" y="190" style="fill: var(--accent)">ρ = 0.1: floor at 0.4</text>
+        </g>
+      </svg>
+      <figcaption>Figure 2. Variance of the average of B trees when each tree has variance 4. Both curves start at 4 (one tree) and level off at a floor of ρσ². Lower correlation means a lower floor. The horizontal axis is evenly spaced, not to scale.</figcaption>
+    </figure>
+
+    <div class="box misconception">
+      <span class="label">A common mix-up</span>
+      <p><strong>"Enough trees drives the error to zero."</strong> It is tempting because the independent case gives <code>σ²/B</code>. But trees share training data, so <code>ρ &gt; 0</code> and the variance stops at <code>ρσ²</code>. This is why forests improve quickly for the first tens of trees and then flatten. Adding more trees is cheap and does not hurt, but past the flat part it does not help either. To go lower you must lower <code>ρ</code>, which is the next section.</p>
+    </div>
+
+    <div class="check" data-check>
+      <span class="label">Check yourself</span>
+      <p>Trees have variance σ² = 8 and pairwise correlation ρ = 0.5. What is the lowest variance the average can reach, however many trees you add?</p>
+      <ul class="choices">
+        <li><button type="button" data-correct="false" data-why="That would need independent trees (ρ = 0). With ρ = 0.5 the shared term stays.">0, as B grows without limit</button></li>
+        <li><button type="button" data-correct="false" data-why="That is the floor for ρ = 0.1 style thinking, or σ²/B with B = 10. The floor is ρσ², which is 0.5 × 8 = 4, not 0.8.">0.8, reached at ten trees</button></li>
+        <li><button type="button" data-correct="true" data-why="The floor is ρσ² = 0.5 × 8 = 4. The second term (1 − ρ)σ²/B goes to 0, the first stays.">4, approached as B grows</button></li>
+      </ul>
+      <p class="feedback" aria-live="polite"></p>
+      <details>
+        <summary>Show the answer</summary>
+        <p>The floor is ρσ² = 0.5 × 8 = 4. The variance gets arbitrarily close to 4 as B grows but never goes below it.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="s4">
+    <h2>Making trees different <span class="section-time">5 min</span></h2>
+    <p>The formula says the lever is <code>ρ</code>. Bagging already lowers it by giving each tree a different bootstrap sample. A random forest goes one step further: at every split, the tree may consider only a random subset of the features, not all of them. This is the standard difference between bagging and a random forest, as the <a href="https://en.wikipedia.org/wiki/Random_forest">Wikipedia article</a> explains.</p>
+    <p>Why that helps: suppose one feature is by far the strongest. Without the restriction, almost every tree splits on it first, so all the trees look alike (high <code>ρ</code>). With the restriction, many splits cannot use the strong feature, so trees must find other good splits, and the trees become less alike. Each individual tree gets a bit worse (slightly higher bias), but the average improves because the floor <code>ρσ²</code> drops. In scikit-learn this is the <code>max_features</code> setting of <code>RandomForestRegressor</code>.</p>
+    <table>
+      <tr><th>Method</th><th>What differs between trees</th><th>Effect on ρ</th></tr>
+      <tr><td>One deep tree</td><td>nothing: there is one tree</td><td>not applicable; variance is σ²</td></tr>
+      <tr><td>Bagging</td><td>bootstrap sample of the rows</td><td>lowers it</td></tr>
+      <tr><td>Random forest</td><td>bootstrap rows, plus random features at each split</td><td>lowers it further</td></tr>
+    </table>
+    <aside class="note">Research keeps refining this picture; one 2025 analysis, <a href="https://arxiv.org/html/2504.12860v1">"When do Random Forests work?"</a>, finds that variance reduction is not the whole story and that feature randomisation can also raise bias. For your exam, the variance-and-correlation account above is the core.</aside>
+
+    <div class="check" data-check>
+      <span class="label">Check yourself</span>
+      <p>You raise <code>max_features</code> so each split sees all features, instead of a small random subset. What happens to the trees in the forest?</p>
+      <ul class="choices">
+        <li><button type="button" data-correct="false" data-why="Seeing more features does not make trees independent; it does the opposite.">They become more independent of each other</button></li>
+        <li><button type="button" data-correct="false" data-why="Sample size per tree is set by the bootstrap, not by max_features.">They train on more rows each than before</button></li>
+        <li><button type="button" data-correct="true" data-why="With all features available, the strongest features win most splits in every tree, so trees look alike: ρ goes up.">They become more alike, so correlation rises</button></li>
+      </ul>
+      <p class="feedback" aria-live="polite"></p>
+      <details>
+        <summary>Show the answer</summary>
+        <p>The trees become more alike, so ρ rises and the variance floor ρσ² rises with it.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="s5">
+    <h2>What averaging cannot do <span class="section-time">3 min</span></h2>
+    <p>Two limits, one of which you met in your first session.</p>
+    <div class="box misconception">
+      <span class="label">A common mix-up</span>
+      <p><strong>"The average of many trees will continue a rising trend past the data."</strong> It will not. Every tree predicts a mean of training targets, so the average of trees is also an average of training targets. It can never leave the range of the training targets. Figure 1 shows it: the thick line gets finer steps, but beyond the last split it is flat, like each tree. The forest is smoother between training points, not a line that continues past them. If your data trend beyond the training range, a forest will underpredict.</p>
+    </div>
+    <p>Second, averaging attacks variance, not bias. If every tree is systematically wrong in the same way, for example because the trees are too shallow to capture the pattern, the average inherits that error. That is why forests use deep trees: you want low-bias trees, and you pay for their variance with averaging.</p>
+  </section>
+
+  <section id="practice">
+    <h2>Worked example and practice <span class="section-time">5 min</span></h2>
+    <div class="box worked">
+      <span class="label">Worked example</span>
+      <p>A single deep tree has prediction variance σ² = 4 at some input. In a forest, pairs of trees have correlation ρ = 0.5. Find the variance of the average for B = 10 trees, and compare with B = 100.</p>
+      <ol>
+        <li>Write the formula: <code>Var = ρσ² + (1 − ρ)σ²/B</code>. Reason: trees are correlated, so the simple σ²/B is wrong.</li>
+        <li>Shared term: <code>ρσ² = 0.5 × 4 = 2</code>. This does not depend on B.</li>
+        <li>B = 10: <code>(1 − 0.5) × 4 / 10 = 0.2</code>, so Var = 2 + 0.2 = 2.2.</li>
+        <li>B = 100: <code>0.5 × 4 / 100 = 0.02</code>, so Var = 2 + 0.02 = 2.02.</li>
+        <li>Interpret: going from 10 to 100 trees cut the variance by only 0.18, from 2.2 to 2.02. The floor of 2 dominates. Lowering ρ would help far more than adding trees.</li>
+      </ol>
+    </div>
+    <div class="check">
+      <span class="label">Your turn</span>
+      <p>Trees have σ² = 10 and ρ = 0.3. First step: write down the shared term ρσ². Then find the variance of the average for B = 10, and say what the variance floor is.</p>
+      <details>
+        <summary>Show a solution</summary>
+        <p>Shared term: 0.3 × 10 = 3. Second term for B = 10: (1 − 0.3) × 10 / 10 = 0.7. Variance = 3 + 0.7 = 3.7. The floor, as B grows without limit, is 3. One tree would have had variance 10, so 10 trees already remove most of the avoidable part.</p>
+      </details>
+    </div>
+    <div class="check">
+      <span class="label">Explain it</span>
+      <p>A classmate says: "My forest underpredicts houses bigger than anything in the training data. I'll add 5,000 more trees to fix it." In two sentences, say whether that will work and why.</p>
+      <details>
+        <summary>Show a solution</summary>
+        <p>It will not work. Every tree predicts a mean of training prices, so the average cannot go beyond the training range, and more trees only reduce variance, which is not the source of this error.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="summary">
+    <h2>Summary <span class="section-time">2 min</span></h2>
+    <div class="box summary">
+      <ul>
+        <li>A deep tree has low bias and high variance. Averaging many trees keeps the bias about the same and lowers the variance.</li>
+        <li>Variance of the average: <code>ρσ² + (1 − ρ)σ²/B</code>. Adding trees shrinks the second term only; the floor <code>ρσ²</code> remains.</li>
+        <li>Lowering the correlation ρ, by bootstrap samples and random features at each split, is what makes the average pay off.</li>
+        <li>The average cannot extrapolate beyond the training targets and cannot fix bias shared by all the trees.</li>
+      </ul>
+      <p><strong>Say it in your own words:</strong> without looking, explain why the average of 100 deep trees beats one deep tree, and what stops the improvement from continuing forever.</p>
+    </div>
+  </section>
+
+  <section id="further" class="go-further">
+    <h2>Go further</h2>
+    <p><strong>Read next:</strong> <a href="https://scikit-learn.org/stable/modules/ensemble.html">scikit-learn user guide: Ensembles (bagging and random forests sections)</a>, the official documentation for the model you will apply, including how <code>max_features</code> and the number of trees are set. Read only the bagging and random forest parts for now.</p>
+    <ul>
+      <li><a href="https://en.wikipedia.org/wiki/Random_forest">Random forest (Wikipedia)</a>: the algorithm, the averaging for regression, and the two sources of randomness.</li>
+      <li><a href="https://arxiv.org/html/2504.12860v1">When do Random Forests work?</a>: a recent paper on when variance reduction explains forests, for a deeper look later.</li>
+      <li><a href="https://bio322.epfl.ch/weeks/10/ensembles.html">EPFL course notes on ensembles</a>: a university course page on the same ideas.</li>
+    </ul>
+    <p><strong>Test it with others:</strong> a statistics or machine-learning study group or course forum at your school is the best place to explain this argument aloud and have it challenged; try teaching the variance formula to a classmate.</p>
+  </section>
+
+  <footer class="closing">
+    <p>Anything unclear? Ask me in the chat; I can explain any part again, another way, or go deeper.</p>
+    <p>A short quiz on this lesson is ready (quiz 0002): ask me for it when you want to check what stuck.</p>
+  </footer>
+
+</main>
+<script>
+  document.querySelectorAll("[data-check]").forEach(function (box) {
+    var buttons = box.querySelectorAll("button[data-correct]");
+    var out = box.querySelector(".feedback");
+    buttons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        buttons.forEach(function (b) { b.classList.remove("right", "wrong"); });
+        var right = button.getAttribute("data-correct") === "true";
+        button.classList.add(right ? "right" : "wrong");
+        if (out) { out.textContent = (right ? "Yes. " : "Not quite. ") + (button.getAttribute("data-why") || ""); }
+      });
+    });
+  });
+</script>
+</body>
+</html>

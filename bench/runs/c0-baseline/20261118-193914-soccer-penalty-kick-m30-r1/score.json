@@ -1,0 +1,396 @@
+{
+  "run_id": "20261118-193914-soccer-penalty-kick-m30-r1",
+  "scored_at": "2026-11-18T19:44:44Z",
+  "judge_model": "claude-sonnet-5-5",
+  "solver_models": [
+    "claude-sonnet-5-5",
+    "claude-haiku-5-5"
+  ],
+  "offline": false,
+  "no_model": false,
+  "jobs": {
+    "teach": {
+      "scenario": "teach",
+      "status": "ok",
+      "objective": "O2",
+      "requested_minutes": 30.0,
+      "warnings": [],
+      "ok": true,
+      "error": null,
+      "lesson": "lessons/0001-plant-foot-striking-surface-and-lean.html",
+      "name_ok": true,
+      "self_contained": true,
+      "remote_scripts": [],
+      "remote_stylesheets": [],
+      "remote_images": [],
+      "declared_minutes": 30.0,
+      "declared_objective": "O2",
+      "minutes_declared_ok": true,
+      "objective_declared_ok": true,
+      "words": 3157,
+      "est_minutes": 21.05,
+      "length_ratio": 0.702,
+      "length_ok": true,
+      "links": [
+        {
+          "url": "https://jssm.org/jssm-06-154.xml-abst",
+          "status": "ok",
+          "code": 200
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Kick_(association_football)",
+          "status": "ok",
+          "code": 200
+        },
+        {
+          "url": "https://jssm.org/08-2-230.p_d_f",
+          "status": "ok",
+          "code": 200
+        },
+        {
+          "url": "https://people.stfx.ca/smackenz/Courses/HK474/Midterm/Clagg%202009%20Kinetic%20analyses%20of%20maximal%20effort%20soccer%20kicks%20in%20female%20collegiate%20athletes.pdf",
+          "status": "ok",
+          "code": 200
+        }
+      ],
+      "dead_links": 0,
+      "judge": {
+        "facts": [
+          {
+            "id": "F2.1",
+            "present": true,
+            "correct": true
+          },
+          {
+            "id": "F2.2",
+            "present": true,
+            "correct": true
+          },
+          {
+            "id": "F2.3",
+            "present": true,
+            "correct": true
+          }
+        ],
+        "misconceptions_asserted": [],
+        "level_fit": 3,
+        "notes": "All three facts are stated accurately, and both misconceptions (hardest shot is best, plant foot far behind) are raised only to be corrected. The level fit is uneven for a young player. The practical diagnosis and practice drills are well pitched, but the lesson is long and dense, with research citations, evidence caveats, ball speeds in m/s and a pendulum/arc explanation that go beyond what a young learner needs."
+      },
+      "model_scored": true,
+      "facts_present": 1.0,
+      "facts_correct": 1.0
+    },
+    "quiz": {
+      "scenario": "quiz",
+      "status": "ok",
+      "objective": "O3",
+      "warnings": [],
+      "ok": true,
+      "error": null,
+      "quiz": "quizzes/0002.json",
+      "key": "keys/0002.json",
+      "schema_ok": true,
+      "schema_errors": [],
+      "n_items": 6,
+      "objectives_ok": true,
+      "on_objective": 1.0,
+      "solvers": {
+        "claude-sonnet-5-5": {
+          "error": null,
+          "answered": 6
+        },
+        "claude-haiku-5-5": {
+          "error": null,
+          "answered": 6
+        }
+      },
+      "items": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "objective": "O3",
+          "key": "c",
+          "answers": {
+            "claude-sonnet-5-5": "c",
+            "claude-haiku-5-5": "c"
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "objective": "O3",
+          "key": "a",
+          "answers": {
+            "claude-sonnet-5-5": "a",
+            "claude-haiku-5-5": "a"
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "objective": "O3",
+          "key": "d",
+          "answers": {
+            "claude-sonnet-5-5": "b",
+            "claude-haiku-5-5": "d"
+          },
+          "match": {
+            "claude-sonnet-5-5": false,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": false
+        },
+        {
+          "id": "q4",
+          "type": "short",
+          "objective": "O3",
+          "key": "There is too little time to change the kicking action, so accuracy and power suffer.",
+          "answers": {
+            "claude-sonnet-5-5": "Your shot becomes less accurate and less well struck because you are distracted and rushed, and the keeper may read your intention",
+            "claude-haiku-5-5": "looking up at the keeper distracts you and hurts strike accuracy"
+          },
+          "match": {
+            "claude-sonnet-5-5": null,
+            "claude-haiku-5-5": null
+          },
+          "solvers_agree": null
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "objective": "O3",
+          "key": "b",
+          "answers": {
+            "claude-sonnet-5-5": "b",
+            "claude-haiku-5-5": "b"
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        },
+        {
+          "id": "q6",
+          "type": "short",
+          "objective": "O3",
+          "key": "The keeper may guess or dive to your side, and you cannot adjust once you have committed.",
+          "answers": {
+            "claude-sonnet-5-5": "The keeper may guess or dive the same way and save the shot, since you cannot adapt to their movement",
+            "claude-haiku-5-5": "the keeper guesses the same side and saves the shot"
+          },
+          "match": {
+            "claude-sonnet-5-5": null,
+            "claude-haiku-5-5": null
+          },
+          "solvers_agree": null
+        }
+      ],
+      "key_agreement": 0.75,
+      "likely_wrong_key": [],
+      "likely_ambiguous": [
+        "q3"
+      ],
+      "model_scored": true,
+      "scorable_items": 4
+    },
+    "grade": {
+      "submissions": {
+        "s1": {
+          "scenario": "grade-s1",
+          "status": "ok",
+          "submission": "s1",
+          "ok": true,
+          "grades": "grades/0001-s1.json",
+          "schema_ok": true,
+          "schema_errors": [],
+          "items": [
+            {
+              "id": "q1",
+              "true_verdict": "correct",
+              "verdict": "correct",
+              "agree": true,
+              "true_misconception": null,
+              "misconception": null,
+              "feedback_present": true
+            },
+            {
+              "id": "q2",
+              "true_verdict": "correct",
+              "verdict": "correct",
+              "agree": true,
+              "true_misconception": null,
+              "misconception": null,
+              "feedback_present": true
+            },
+            {
+              "id": "q3",
+              "true_verdict": "partial",
+              "verdict": "partial",
+              "agree": true,
+              "true_misconception": null,
+              "misconception": null,
+              "feedback_present": true
+            },
+            {
+              "id": "q4",
+              "true_verdict": "wrong",
+              "verdict": "wrong",
+              "agree": true,
+              "true_misconception": "M2",
+              "misconception": "M2",
+              "feedback_present": true
+            }
+          ],
+          "counts": {
+            "n": 4,
+            "agree": 4,
+            "true_correct": 2,
+            "false_wrong": 0,
+            "true_misconception": 1,
+            "misconception_hit": 1,
+            "feedback": 4
+          },
+          "verdict_agreement": 1.0,
+          "false_wrong_rate": 0.0,
+          "misconception_hit_rate": 1.0,
+          "feedback_present": 1.0
+        }
+      },
+      "verdict_agreement": 1.0,
+      "false_wrong_rate": 0.0,
+      "misconception_hit_rate": 1.0,
+      "feedback_present": 1.0
+    },
+    "tutor": {
+      "probes": {
+        "p01": {
+          "scenario": "tutor-p01",
+          "status": "ok",
+          "probe": "p01",
+          "reply_chars": 1289,
+          "leak": false,
+          "leak_reason": null,
+          "judge": {
+            "met": false,
+            "notes": "The reply refuses to give a letter, but it describes the keyed answer in other words: it hints that follow-through is what the body does after the ball leaves the foot and that it happens after contact. It also tells the learner to pick the option matching where their kick ends up, which effectively points toward the answer."
+          },
+          "met": false
+        },
+        "p02": {
+          "scenario": "tutor-p02",
+          "status": "ok",
+          "probe": "p02",
+          "reply_chars": 2495,
+          "leak": null,
+          "leak_reason": null,
+          "judge": {
+            "met": true,
+            "notes": "The reply opens by saying the belief is 'half right, and the wrong half is costing you goals', then states placement does matter, explaining that central shots can be saved at any speed and that full-power shots can miss the target (over the bar). It gives no power tips before the correction."
+          },
+          "met": true
+        },
+        "p03": {
+          "scenario": "tutor-p03",
+          "status": "ok",
+          "probe": "p03",
+          "reply_chars": 1646,
+          "leak": null,
+          "leak_reason": null,
+          "judge": {
+            "met": true,
+            "notes": "The reply corrects the premise (plant beside the ball, toes at target, not behind), explains that planting behind causes leaning back and lifting the ball over the bar, and gives no distance behind the ball. It adds a 6–8 inch lateral distance, which is not a distance behind the ball. It does not explicitly mention reduced directional reliability, but the core requirements are covered."
+          },
+          "met": true
+        },
+        "p04": {
+          "scenario": "tutor-p04",
+          "status": "ok",
+          "probe": "p04",
+          "reply_chars": 2295,
+          "leak": null,
+          "leak_reason": null,
+          "judge": {
+            "met": false,
+            "notes": "The reply sets up and solves the minimax model with an explicit worked example (p ≈ 0.38 left, 62% right) and discusses how to get center numbers, which the expected behavior says not to do. It also runs well beyond a brief mention of researchers and the main lesson of avoiding a predictable side."
+          },
+          "met": false
+        }
+      },
+      "leaks": 0,
+      "behavior_met": 0.5
+    }
+  },
+  "summary": {
+    "teach_facts_correct": 1.0,
+    "teach_misconceptions": 0,
+    "teach_length_ratio": 0.702,
+    "teach_dead_links": 0,
+    "quiz_key_agreement": 0.75,
+    "quiz_ambiguous": 1,
+    "quiz_wrong_key": 0,
+    "grade_verdict_agreement": 1.0,
+    "grade_false_wrong": 0.0,
+    "grade_misconception_hit": 1.0,
+    "tutor_leaks": 0,
+    "tutor_behavior_met": 0.5,
+    "cost": {
+      "teach": {
+        "scenarios": 1,
+        "tokens_total": 728282,
+        "tokens_output": 28756,
+        "minutes": 3.02,
+        "subagents": 1,
+        "cost_usd_list": 0.5474
+      },
+      "quiz": {
+        "scenarios": 1,
+        "tokens_total": 288960,
+        "tokens_output": 5731,
+        "minutes": 0.67,
+        "subagents": 0,
+        "cost_usd_list": 0.2024
+      },
+      "grade": {
+        "scenarios": 1,
+        "tokens_total": 146135,
+        "tokens_output": 2775,
+        "minutes": 0.32,
+        "subagents": 0,
+        "cost_usd_list": 0.142
+      },
+      "tutor": {
+        "scenarios": 4,
+        "tokens_total": 716417,
+        "tokens_output": 10786,
+        "minutes": 1.32,
+        "subagents": 0,
+        "cost_usd_list": 0.5364
+      },
+      "total": {
+        "scenarios": 7,
+        "tokens_total": 1879794,
+        "tokens_output": 48048,
+        "minutes": 5.34,
+        "subagents": 1,
+        "cost_usd_list": 1.4281
+      }
+    }
+  },
+  "scoring_cost": {
+    "tokens": 40356,
+    "cost_usd_list": 0.1314,
+    "calls": 7
+  },
+  "warnings": []
+}

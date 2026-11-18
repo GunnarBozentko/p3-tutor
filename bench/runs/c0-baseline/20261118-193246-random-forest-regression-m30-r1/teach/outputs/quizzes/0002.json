@@ -1,0 +1,56 @@
+{
+  "id": "0002",
+  "objective": "O2",
+  "title": "Why averaging many trees improves regression",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O2",
+      "stem": "A forest averages 200 deep regression trees, each trained on a different bootstrap sample. Compared with one deep tree, what does the averaging mainly change?",
+      "options": [
+        {"id": "a", "text": "It lowers the variance and leaves the bias about the same"},
+        {"id": "b", "text": "It lowers the bias and leaves the variance about the same"},
+        {"id": "c", "text": "It lowers both the bias and the variance by a lot"},
+        {"id": "d", "text": "It raises the bias and leaves the variance about the same"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O2",
+      "stem": "Each tree in a forest has prediction variance 9 at some input, and any two trees have correlation 0.25. What is the variance of the average of 3 such trees? Use Var = rho*sigma^2 + (1 - rho)*sigma^2/B.",
+      "unit": "variance units"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O2",
+      "stem": "A random forest lets each split consider only a random subset of the features. Why does that help the averaged prediction?",
+      "options": [
+        {"id": "a", "text": "Each tree then fits the training rows exactly, with no error"},
+        {"id": "b", "text": "The trees become less alike, which lowers the variance floor"},
+        {"id": "c", "text": "Each tree then needs fewer rows, so training is more accurate"},
+        {"id": "d", "text": "The trees become more alike, which lowers the variance floor"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O2",
+      "stem": "A forest is trained on houses of 1,000 to 3,000 square feet, with prices rising steadily with size. In one sentence, what will it predict for a 5,000-square-foot house, and why?"
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O2",
+      "stem": "Trees in a forest have correlation 0.4 with each other. You grow the forest from 500 trees to 5,000 trees. What happens to the variance of the average?",
+      "options": [
+        {"id": "a", "text": "It falls by about a factor of ten"},
+        {"id": "b", "text": "It rises, because the forest now overfits more"},
+        {"id": "c", "text": "It barely changes, as it is near its floor"},
+        {"id": "d", "text": "It falls to nearly zero as trees are added"}
+      ]
+    }
+  ]
+}

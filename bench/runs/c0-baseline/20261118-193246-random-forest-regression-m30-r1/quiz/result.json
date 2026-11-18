@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 30620,
+  "stop_reason": "end_turn",
+  "session_id": "26b10e42-9b09-49ea-9888-6d52e204600b",
+  "total_cost_usd": 0.16532970000000002,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 27471,
+    "cache_read_input_tokens": 116297,
+    "output_tokens": 4380,
+    "output_tokens_details": {
+      "thinking_tokens": 1058
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 27471,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 319,
+        "cache_read_input_tokens": 38793,
+        "cache_creation_input_tokens": 3479,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 3479
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 4380,
+      "cacheReadInputTokens": 116297,
+      "cacheCreationInputTokens": 27471,
+      "webSearchRequests": 0,
+      "costUSD": 0.16532970000000002,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 1058,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 27471,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 12,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "The six-question quiz on O3 is ready: `quizzes/0002.json`, with its key in `keys/0002.json`.\n\nIt's titled \"Tuning and evaluating a random forest regressor\". The questions cover:\n- what adding more trees does\n- the out-of-bag fraction\n- diagnosing a train/out-of-bag gap\n- why `max_features` helps\n- an honest final performance estimate after a grid search\n- computing test R²\n\nThere are three multiple-choice, two numeric and one short-answer item.\n\nThis quiz is ahead of the lessons. No lesson on O3 exists yet, so it checks the objective itself. I wrote it from standard random forest and scikit-learn knowledge and did not search the web for a source. Only the pending-lesson link between O3 and the earlier quiz 0001 (on O1) is missing; nothing else is blocked.\n\nWant me to write a lesson on tuning and evaluation, especially on why averaging many trees beats one deep tree?",
+  "ttft_ms": 994,
+  "type": "result",
+  "duration_ms": 30888,
+  "uuid": "ebad30e1-c956-419a-af32-d7098ff1ab03",
+  "ttft_stream_ms": 650,
+  "time_to_request_ms": 132,
+  "first_content_frame_ms": 651,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 4380,
+      "cacheReadInputTokens": 116297,
+      "cacheCreationInputTokens": 27471,
+      "webSearchRequests": 0,
+      "costUSD": 0.16532970000000002,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 1058,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 27471,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-20T19:38:56.427Z"
+}

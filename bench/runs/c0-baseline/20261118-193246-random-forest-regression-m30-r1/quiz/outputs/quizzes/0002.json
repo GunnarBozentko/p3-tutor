@@ -1,0 +1,62 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Tuning and evaluating a random forest regressor",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A random forest regressor with 100 trees is retrained with 1,000 trees, and nothing else changes. What usually happens to its error on held-out data?",
+      "options": [
+        {"id": "a", "text": "It rises, because the forest now overfits the training data"},
+        {"id": "b", "text": "It falls a little, then levels off with no overfitting penalty"},
+        {"id": "c", "text": "It keeps falling by a similar amount for every tree added"},
+        {"id": "d", "text": "It stays exactly the same, because trees never affect error"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "Each tree in a forest is trained on a bootstrap sample: n rows drawn with replacement from n training rows. For a large n, about what percentage of the training rows is left out of any one tree's sample (the rows used for out-of-bag evaluation)? Give a percentage to one decimal place.",
+      "unit": "%"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A random forest has a training R² of 0.98 but an out-of-bag R² of 0.62, with min_samples_leaf=1 and 200 trees. Which single change is most likely to narrow this gap?",
+      "options": [
+        {"id": "a", "text": "Lower min_samples_leaf so each tree fits the data more closely"},
+        {"id": "b", "text": "Raise n_estimators from 200 to 20,000 to average more trees"},
+        {"id": "c", "text": "Raise min_samples_leaf so each leaf averages more training rows"},
+        {"id": "d", "text": "Raise max_features so every split can consider every feature"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O3",
+      "stem": "In one or two sentences, explain why setting max_features to a fraction of the features (rather than all of them) can lower a random forest's error, even though each individual tree gets weaker."
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "You run a cross-validated grid search over several hyperparameters and pick the best setting. You want an honest estimate of how this model will perform on new data. Which number should you report?",
+      "options": [
+        {"id": "a", "text": "The best cross-validation score found during the grid search"},
+        {"id": "b", "text": "The R² of the refit best model on its own training data"},
+        {"id": "c", "text": "The average cross-validation score over all the settings tried"},
+        {"id": "d", "text": "The score of the best model on a test set never used in tuning"}
+      ]
+    },
+    {
+      "id": "q6",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "On a held-out test set, a forest's squared prediction errors sum to 20 (SSE). The squared differences between the test targets and their mean sum to 80 (SST). What is the forest's test R², computed as 1 - SSE/SST? Give a number, not a percentage."
+    }
+  ]
+}

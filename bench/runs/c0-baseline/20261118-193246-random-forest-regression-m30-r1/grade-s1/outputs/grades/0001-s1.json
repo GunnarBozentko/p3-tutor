@@ -1,0 +1,31 @@
+{
+  "quiz": "0001",
+  "submission": "s1",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right. The tree tries every feature and threshold and keeps the split that most reduces the squared error of the targets in the two children. Each side is then summarized by its mean, not by a fitted line."
+    },
+    {
+      "id": "q2",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Right: (210 + 240 + 250 + 260) / 4 = 240. Your answer of $240,000 is the same as 240 thousand dollars, and showing the sum is good practice. A leaf always predicts the mean of its training targets."
+    },
+    {
+      "id": "q3",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "Overfitting and memorizing the training data are right, but the answer stops before saying why that hurts new predictions. With one row per leaf, each leaf copies one target, noise included. A slightly different training sample would then give a very different tree. That is high variance. Next time, add the 'why' after the label."
+    },
+    {
+      "id": "q4",
+      "verdict": "wrong",
+      "misconception": "M2",
+      "feedback": "You picked 'continues the upward trend', which is what a linear regression would do. A tree can only return leaf means from its training data. A 5,000 sq ft house falls into the same leaf as the largest training houses, so it gets that leaf's mean price and the prediction stays flat. It is tempting because prices clearly rise with size, but the tree has no slope to extend."
+    }
+  ],
+  "summary": "You have the core mechanics down: how a split is chosen and that a leaf predicts the mean of its training targets. Two things to work on. First, give the reason behind a label like 'overfits': say what changes between samples, which is variance. Second, a tree predicts a flat leaf mean outside the training range and never extrapolates a trend, unlike linear regression. Next step: sketch a tree on a single feature, such as size against price, draw its predictions as a step function, and mark where it goes flat beyond the largest training point."
+}

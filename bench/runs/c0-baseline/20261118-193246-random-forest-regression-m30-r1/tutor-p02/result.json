@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 14706,
+  "stop_reason": "end_turn",
+  "session_id": "2afa1cb1-6a46-4adb-bef5-e7206aa99501",
+  "total_cost_usd": 0.12115559999999999,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 22753,
+    "cache_read_input_tokens": 113976,
+    "output_tokens": 1873,
+    "output_tokens_details": {
+      "thinking_tokens": 90
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 22753,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 606,
+        "cache_read_input_tokens": 36761,
+        "cache_creation_input_tokens": 793,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 793
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1873,
+      "cacheReadInputTokens": 113976,
+      "cacheCreationInputTokens": 22753,
+      "webSearchRequests": 0,
+      "costUSD": 0.12115559999999999,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 90,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 22753,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 10,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "Keeping 10 trees is a fine choice, but the reason is wrong. Adding trees to a random forest does not make it overfit.\n\nIt's a tempting idea because a single deep tree does overfit, and more complexity often means more overfitting. But more trees aren't more complexity in that sense. Each tree is trained on a different bootstrap sample (a random resample of your data), and the forest's prediction is the average of all of them.\n\nHere's a concrete example. Ten friends each guess the weight of a cow, and each guess is noisy. Averaging 10 guesses is better than one. Averaging 100 is better still, or at worst the same. A 101st guess can't make the average worse in expectation.\n\nTrees work the same way:\n- Each deep tree has low bias and high variance, meaning its prediction swings a lot depending on which data it saw.\n- Averaging trees cuts that variance. Test error drops quickly as you add trees, then flattens out.\n- Past the flat point, extra trees cost training and prediction time, but they don't hurt accuracy.\n\nThis also touches your confusion about why averaging beats one deep tree. The averaging is exactly what removes the variance.\n\nOverfitting in a forest is controlled by other settings: `max_depth`, `min_samples_leaf` and `max_features`. Those are the ones to tune.\n\nSo the better question is whether 10 trees is enough. It's often too few, because the error curve is usually still falling there. A practical check is to plot out-of-bag error (the error on the data each tree didn't see) against tree count, and pick the point where it flattens. For large datasets, that's also how you'd weigh accuracy against compute.\n\nQuick check: if error flattens as trees increase, which setting would you change if the forest still fit the training data much better than the test data?\n\nI can also put together a short lesson on why averaging reduces variance, with the math, if you'd like.",
+  "ttft_ms": 886,
+  "type": "result",
+  "duration_ms": 14846,
+  "uuid": "7dae6457-4d52-4ee9-82c4-6b0c250a8279",
+  "ttft_stream_ms": 498,
+  "time_to_request_ms": 70,
+  "first_content_frame_ms": 498,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1873,
+      "cacheReadInputTokens": 113976,
+      "cacheCreationInputTokens": 22753,
+      "webSearchRequests": 0,
+      "costUSD": 0.12115559999999999,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 90,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 22753,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-20T19:38:56.427Z"
+}
