@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 10820,
+  "stop_reason": "end_turn",
+  "session_id": "2a2fc954-5736-4b72-8b9e-9aa91272aead",
+  "total_cost_usd": 0.0830312,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 14973,
+    "cache_read_input_tokens": 98632,
+    "output_tokens": 1326,
+    "output_tokens_details": {
+      "thinking_tokens": 201
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 14973,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 478,
+        "cache_read_input_tokens": 29251,
+        "cache_creation_input_tokens": 523,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 523
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1326,
+      "cacheReadInputTokens": 98632,
+      "cacheCreationInputTokens": 14973,
+      "webSearchRequests": 0,
+      "costUSD": 0.0830312,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 201,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 14973,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 7,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "The premise is wrong: you should not plant behind the ball. Plant **beside** it, with your foot roughly level with the ball's midpoint. Placing it further back is a common mistake, but it costs you power and accuracy.\n\n**Why it is tempting:** A farther-back plant feels like it gives your leg more room to swing. The extra room is not where the power comes from. Power comes from your leg's speed at contact, and from hitting the ball cleanly through its centre.\n\n**Why it fails:** The plant foot sets where the bottom of your swing arc is. If the foot is behind the ball, your kicking foot reaches the ball while it is still travelling upward. It then strikes the lower half of the ball, so the ball lifts and can sail over the bar. This is the problem you already have.\n\n**Where to plant:**\n- Sideways: about a hand's width to a foot (roughly 15–30 cm) from the ball. Adjust to your leg length.\n- Forward/back: level with the ball's middle, so your toes sit about even with it.\n- Direction: toes pointing at your target corner.\n- Knee: slightly bent, with your head over the ball at contact.\n\nThink of a golf swing. The club's lowest point sits under the ball, not behind it. A plant foot in the wrong place moves that low point away from the ball.\n\n**Check for you:** If your plant foot is 20 cm behind the ball, where on the ball does your kicking foot make contact, and what does that do to the ball's height?",
+  "ttft_ms": 839,
+  "type": "result",
+  "duration_ms": 11253,
+  "uuid": "72a42e0d-1c1a-4af1-81fa-09ab76d02730",
+  "ttft_stream_ms": 487,
+  "time_to_request_ms": 71,
+  "first_content_frame_ms": 487,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1326,
+      "cacheReadInputTokens": 98632,
+      "cacheCreationInputTokens": 14973,
+      "webSearchRequests": 0,
+      "costUSD": 0.0830312,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 201,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 14973,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-20T19:38:56.427Z"
+}

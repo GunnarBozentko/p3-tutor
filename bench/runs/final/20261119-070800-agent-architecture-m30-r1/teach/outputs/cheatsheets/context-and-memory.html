@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cheat sheet: context and memory in an agent</title>
+  <style>
+    body { max-width: 40rem; margin: 0 auto; padding: 2rem 1.25rem; font-family: Charter, Georgia, serif; line-height: 1.55; color: #1f1d1a; background: #fffdf8; }
+    h1 { font-size: 1.6rem; } h2 { font-size: 1.1rem; margin-top: 1.6rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    th, td { text-align: left; padding: 0.4rem 0.5rem; border-bottom: 1px solid #e4dfd4; vertical-align: top; }
+    code { font-family: ui-monospace, Consolas, monospace; background: #f3efe6; padding: 0.1em 0.3em; border-radius: 4px; }
+    @media (prefers-color-scheme: dark) { body { background: #171614; color: #e9e5dc; } th, td { border-color: #36332e; } code { background: #23211e; } }
+  </style>
+</head>
+<body>
+<h1>Context and memory in an agent</h1>
+<p>One-page reference from the lesson on context and memory.</p>
+<h2>Where information lives</h2>
+<table>
+  <tr><th>Kind</th><th>Lives</th><th>Use for</th></tr>
+  <tr><td>Context</td><td>One call, resent each step</td><td>Prompt, messages, tool results needed now</td></tr>
+  <tr><td>Notes</td><td>Across sessions, outside the model</td><td>Short preferences, open tasks, pointers</td></tr>
+  <tr><td>Retrieval store</td><td>Permanent, outside the model</td><td>Long manuals, fetched as chunks</td></tr>
+</table>
+<h2>Formulas, with numbers</h2>
+<ul>
+  <li>Input at call k: about <code>S + (k-1)d</code>. Total over n calls: <code>nS + d&middot;n(n-1)/2</code>. With S = 2,100 and d = 700: n = 10 gives 52,500; n = 20 gives 175,000.</li>
+  <li>Cost: input tokens &times; input price + output tokens &times; output price. Example at $1 and $5 per million: 8,850 in and 500 out is about 1.1 cents.</li>
+  <li>Cosine similarity: dot product / (length &times; length). Example: (3, 4) and (5, 12) give 63 / 65 = 0.97.</li>
+</ul>
+<h2>Rules</h2>
+<ul>
+  <li>The model keeps nothing between calls; the program resends what it wants seen.</li>
+  <li>Clear stale tool results; compact long chats; use sub-agents for focused side tasks.</li>
+  <li>A note or a student's claim never decides a safety permission. Read the training record by tool at the moment of the decision; if it cannot be read, answer "not permitted yet" and point to staff.</li>
+</ul>
+</body>
+</html>

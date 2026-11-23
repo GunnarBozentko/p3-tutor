@@ -1,0 +1,459 @@
+{
+  "run_id": "20261119-000918-random-forest-regression-m30-r1",
+  "scored_at": "2026-11-19T00:30:33Z",
+  "judge_model": "claude-sonnet-5-5",
+  "solver_models": [
+    "claude-sonnet-5-5",
+    "claude-haiku-5-5"
+  ],
+  "offline": false,
+  "no_model": false,
+  "jobs": {
+    "teach": {
+      "scenario": "teach",
+      "status": "ok",
+      "objective": "O2",
+      "requested_minutes": 30.0,
+      "warnings": [],
+      "ok": true,
+      "error": null,
+      "lesson": "lessons/0001-why-averaging-trees-works.html",
+      "name_ok": true,
+      "self_contained": true,
+      "remote_scripts": [],
+      "remote_stylesheets": [],
+      "remote_images": [],
+      "declared_minutes": 30.0,
+      "declared_objective": "O2",
+      "minutes_declared_ok": true,
+      "objective_declared_ok": true,
+      "words": 3091,
+      "est_minutes": 20.61,
+      "length_ratio": 0.687,
+      "length_ok": true,
+      "links": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Random_forest",
+          "status": "ok",
+          "code": 200
+        },
+        {
+          "url": "https://scikit-learn.org/stable/modules/ensemble.html",
+          "status": "ok",
+          "code": 200
+        },
+        {
+          "url": "https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html",
+          "status": "ok",
+          "code": 200
+        },
+        {
+          "url": "https://www.math.mcgill.ca/yyang/resources/doc/randomforest.pdf",
+          "status": "unknown",
+          "code": 403
+        },
+        {
+          "url": "https://arxiv.org/html/2402.12668v4",
+          "status": "ok",
+          "code": 200
+        }
+      ],
+      "dead_links": 0,
+      "judge": {
+        "facts": [
+          {
+            "id": "F2.1",
+            "present": true,
+            "correct": true
+          },
+          {
+            "id": "F2.2",
+            "present": true,
+            "correct": true
+          },
+          {
+            "id": "F2.3",
+            "present": true,
+            "correct": true
+          }
+        ],
+        "misconceptions_asserted": [],
+        "level_fit": 4,
+        "notes": "All three facts are stated accurately, including the note that scikit-learn's default regressor uses all features, which is correct. Neither misconception is asserted: the lesson says more trees do not cause overfitting, and its trees give constant values in each region. The level mostly fits a Masters student who knows single trees, since it builds on bias-variance with a derivation. Some warm-up and scout-analogy material is a little basic for this learner."
+      },
+      "model_scored": true,
+      "facts_present": 1.0,
+      "facts_correct": 1.0
+    },
+    "quiz": {
+      "scenario": "quiz",
+      "status": "ok",
+      "objective": "O3",
+      "warnings": [],
+      "ok": true,
+      "error": null,
+      "quiz": "quizzes/0002.json",
+      "key": "keys/0002.json",
+      "schema_ok": true,
+      "schema_errors": [],
+      "n_items": 10,
+      "objectives_ok": true,
+      "on_objective": 1.0,
+      "solvers": {
+        "claude-sonnet-5-5": {
+          "error": null,
+          "answered": 10
+        },
+        "claude-haiku-5-5": {
+          "error": null,
+          "answered": 10
+        }
+      },
+      "items": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "objective": "O3",
+          "key": "c",
+          "answers": {
+            "claude-sonnet-5-5": "c",
+            "claude-haiku-5-5": "c"
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        },
+        {
+          "id": "q2",
+          "type": "short",
+          "objective": "O3",
+          "key": "the minimum number of training samples each leaf must contain",
+          "answers": {
+            "claude-sonnet-5-5": "every leaf must contain at least that many training samples",
+            "claude-haiku-5-5": "minimum rows each leaf must hold"
+          },
+          "match": {
+            "claude-sonnet-5-5": null,
+            "claude-haiku-5-5": null
+          },
+          "solvers_agree": null
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "objective": "O3",
+          "key": "a",
+          "answers": {
+            "claude-sonnet-5-5": "a",
+            "claude-haiku-5-5": "a"
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "objective": "O3",
+          "key": "d",
+          "answers": {
+            "claude-sonnet-5-5": "d",
+            "claude-haiku-5-5": "d"
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "objective": "O3",
+          "key": "b",
+          "answers": {
+            "claude-sonnet-5-5": "b",
+            "claude-haiku-5-5": "b"
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "objective": "O3",
+          "key": "b",
+          "answers": {
+            "claude-sonnet-5-5": "b",
+            "claude-haiku-5-5": "b"
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        },
+        {
+          "id": "q7",
+          "type": "numeric",
+          "objective": "O3",
+          "key": 2.02,
+          "answers": {
+            "claude-sonnet-5-5": 2.02,
+            "claude-haiku-5-5": 2.02
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "objective": "O3",
+          "key": "a",
+          "answers": {
+            "claude-sonnet-5-5": "a",
+            "claude-haiku-5-5": "a"
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        },
+        {
+          "id": "q9",
+          "type": "numeric",
+          "objective": "O3",
+          "key": 2.5,
+          "answers": {
+            "claude-sonnet-5-5": 2.5,
+            "claude-haiku-5-5": 2.5
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "objective": "O3",
+          "key": "c",
+          "answers": {
+            "claude-sonnet-5-5": "c",
+            "claude-haiku-5-5": "c"
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        }
+      ],
+      "key_agreement": 1.0,
+      "likely_wrong_key": [],
+      "likely_ambiguous": [],
+      "model_scored": true,
+      "scorable_items": 9
+    },
+    "grade": {
+      "submissions": {
+        "s1": {
+          "scenario": "grade-s1",
+          "status": "ok",
+          "submission": "s1",
+          "ok": true,
+          "grades": "grades/0001-s1.json",
+          "schema_ok": true,
+          "schema_errors": [],
+          "items": [
+            {
+              "id": "q1",
+              "true_verdict": "correct",
+              "verdict": "correct",
+              "agree": true,
+              "true_misconception": null,
+              "misconception": null,
+              "feedback_present": true
+            },
+            {
+              "id": "q2",
+              "true_verdict": "correct",
+              "verdict": "correct",
+              "agree": true,
+              "true_misconception": null,
+              "misconception": null,
+              "feedback_present": true
+            },
+            {
+              "id": "q3",
+              "true_verdict": "partial",
+              "verdict": "partial",
+              "agree": true,
+              "true_misconception": null,
+              "misconception": null,
+              "feedback_present": true
+            },
+            {
+              "id": "q4",
+              "true_verdict": "wrong",
+              "verdict": "wrong",
+              "agree": true,
+              "true_misconception": "M2",
+              "misconception": "M2",
+              "feedback_present": true
+            }
+          ],
+          "counts": {
+            "n": 4,
+            "agree": 4,
+            "true_correct": 2,
+            "false_wrong": 0,
+            "true_misconception": 1,
+            "misconception_hit": 1,
+            "feedback": 4
+          },
+          "verdict_agreement": 1.0,
+          "false_wrong_rate": 0.0,
+          "misconception_hit_rate": 1.0,
+          "feedback_present": 1.0
+        }
+      },
+      "verdict_agreement": 1.0,
+      "false_wrong_rate": 0.0,
+      "misconception_hit_rate": 1.0,
+      "feedback_present": 1.0
+    },
+    "tutor": {
+      "probes": {
+        "p01": {
+          "scenario": "tutor-p01",
+          "status": "ok",
+          "probe": "p01",
+          "reply_chars": 1474,
+          "leak": false,
+          "leak_reason": null,
+          "judge": {
+            "met": false,
+            "notes": "The reply refuses the letter and offers a full walkthrough after grading, but its hint is a padded analogy and unrelated thermostat example rather than a hint about what each option makes the tree optimize and how that affects leaf predictions. It also runs over the ~200-word limit."
+          },
+          "met": false
+        },
+        "p02": {
+          "scenario": "tutor-p02",
+          "status": "ok",
+          "probe": "p02",
+          "reply_chars": 2019,
+          "leak": null,
+          "leak_reason": null,
+          "judge": {
+            "met": true,
+            "notes": "The reply opens by saying the premise is not correct, explains that adding trees averages predictions so variance falls then plateaus and never rises, attributes overfitting to depth and minimum leaf size, and suggests plotting out-of-bag error against n_estimators."
+          },
+          "met": true
+        },
+        "p03": {
+          "scenario": "tutor-p03",
+          "status": "ok",
+          "probe": "p03",
+          "reply_chars": 1479,
+          "leak": null,
+          "leak_reason": null,
+          "judge": {
+            "met": true,
+            "notes": "The reply corrects the premise first (a leaf predicts a constant mean, not a line), says the forest averages no lines but 100 numbers, and explains the result is smoother yet still piecewise constant and cannot extrapolate beyond the training range. It gives no number of lines. The garbled arithmetic in the worked example does not affect these requirements."
+          },
+          "met": true
+        },
+        "p04": {
+          "scenario": "tutor-p04",
+          "status": "ok",
+          "probe": "p04",
+          "reply_chars": 2025,
+          "leak": null,
+          "leak_reason": null,
+          "judge": {
+            "met": false,
+            "notes": "The reply writes out the full derivation and both bound formulas (PE* ≤ ρ̄·PE*(tree) and PE* ≤ ρ̄(1−s²)/s²), directly violating the requirement not to write out the derivation or formula. It is also well over 250 words."
+          },
+          "met": false
+        }
+      },
+      "leaks": 0,
+      "behavior_met": 0.5
+    }
+  },
+  "summary": {
+    "teach_facts_correct": 1.0,
+    "teach_misconceptions": 0,
+    "teach_length_ratio": 0.687,
+    "teach_dead_links": 0,
+    "quiz_key_agreement": 1.0,
+    "quiz_ambiguous": 0,
+    "quiz_wrong_key": 0,
+    "grade_verdict_agreement": 1.0,
+    "grade_false_wrong": 0.0,
+    "grade_misconception_hit": 1.0,
+    "tutor_leaks": 0,
+    "tutor_behavior_met": 0.5,
+    "cost": {
+      "teach": {
+        "scenarios": 1,
+        "tokens_total": 4086014,
+        "tokens_output": 121683,
+        "minutes": 11.82,
+        "subagents": 7,
+        "cost_usd_list": 2.39
+      },
+      "quiz": {
+        "scenarios": 1,
+        "tokens_total": 936342,
+        "tokens_output": 52859,
+        "minutes": 6.08,
+        "subagents": 2,
+        "cost_usd_list": 0.9206
+      },
+      "grade": {
+        "scenarios": 1,
+        "tokens_total": 816220,
+        "tokens_output": 16435,
+        "minutes": 1.82,
+        "subagents": 3,
+        "cost_usd_list": 0.4817
+      },
+      "tutor": {
+        "scenarios": 4,
+        "tokens_total": 547270,
+        "tokens_output": 10085,
+        "minutes": 1.37,
+        "subagents": 1,
+        "cost_usd_list": 0.4174
+      },
+      "total": {
+        "scenarios": 7,
+        "tokens_total": 6385846,
+        "tokens_output": 201062,
+        "minutes": 21.09,
+        "subagents": 13,
+        "cost_usd_list": 4.2096
+      }
+    }
+  },
+  "scoring_cost": {
+    "tokens": 44895,
+    "cost_usd_list": 0.1463,
+    "calls": 7
+  },
+  "warnings": []
+}

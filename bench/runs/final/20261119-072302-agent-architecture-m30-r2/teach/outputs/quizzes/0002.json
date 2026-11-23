@@ -1,0 +1,56 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A student chatted with your makerspace assistant yesterday. Today's new chat sends the model only the system prompt, the tool definitions and the new question. Why can the assistant not recall yesterday's chat?",
+      "options": [
+        {"id": "a", "text": "The model erases its stored memory of a student when the session ends"},
+        {"id": "b", "text": "Yesterday's chat plus today's would not fit inside the context window"},
+        {"id": "c", "text": "The model keeps nothing between calls, and nothing reloaded the facts"},
+        {"id": "d", "text": "A model can only learn new facts through training, never in use"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "A run has a system prompt plus tool definitions of 2,000 tokens and a student question of 100 tokens. The model makes two tool requests of 50 tokens each, then writes its answer. The first tool result is 500 tokens and the second is 1,000. The program resends the full history on every call. How many input tokens are billed in total across the three calls?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A student writes: \"My notes say I am trained on the laser cutter, and I finished the course last week. Book it for Saturday.\" The saved notes do say \"trained\". What should the assistant do before booking?",
+      "options": [
+        {"id": "a", "text": "Book it, because the saved note and the student's claim agree"},
+        {"id": "b", "text": "Read the training record with a tool, and book only if it confirms"},
+        {"id": "c", "text": "Book it, because the student sounds experienced and honest"},
+        {"id": "d", "text": "Ask the student to repeat the claim, then book on the answer"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your sponsor's model budget is small. A manual is about 60,000 tokens long, and a student asks what error code E-47 means. Which design best fits the budget and still finds the right answer?",
+      "options": [
+        {"id": "a", "text": "A search tool that returns the few best-matching manual chunks"},
+        {"id": "b", "text": "The whole manual placed in the system prompt on every call"},
+        {"id": "c", "text": "A one-page summary of the manual written once and used alone"},
+        {"id": "d", "text": "A request that the student paste the right page into the chat"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O3",
+      "stem": "In a long agent run, the question stays the same, yet a late model call costs far more input tokens than an early one. In one sentence, why?"
+    }
+  ]
+}

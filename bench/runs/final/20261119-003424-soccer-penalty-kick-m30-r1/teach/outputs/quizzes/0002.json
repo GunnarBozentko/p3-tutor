@@ -1,0 +1,56 @@
+{
+  "id": "0002",
+  "objective": "O2",
+  "title": "Plant foot, striking surface and lean",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O2",
+      "stem": "A kicker plants the non-kicking foot well behind the ball and strikes through the centre of the ball. Which effect on the kicking foot at contact explains why the shot tends to rise?",
+      "options": [
+        {"id": "a", "text": "The foot is already past the bottom of its swing and moving upward"},
+        {"id": "b", "text": "The foot is moving level but strikes the ball with less speed"},
+        {"id": "c", "text": "The foot is at the bottom of its swing and moving downward"},
+        {"id": "d", "text": "The foot is moving level but strikes the ball with more spin"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O2",
+      "stem": "A penalty is taken from 11 m. The kick leaves with an angle error of 2 degrees to the side of the aim line. Using lateral miss = 11 x tan(error), how far, in metres, does the ball finish from the aim point? Give two decimal places.",
+      "unit": "m"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O2",
+      "stem": "A kicker wants to place the ball 0.4 m inside the post and has a wide error spread with the laces. Which choice best matches the trade-off between power and accuracy?",
+      "options": [
+        {"id": "a", "text": "Use the laces and swing harder to beat the keeper's reaction"},
+        {"id": "b", "text": "Use the laces but plant further back for a longer swing"},
+        {"id": "c", "text": "Use the inside of the foot for a tighter spread with some power loss"},
+        {"id": "d", "text": "Use the inside of the foot and lean back to add more power"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O2",
+      "stem": "A kicker corrects only a backward lean by standing more upright, yet shots still go over the bar. In one sentence, which other input should the kicker correct, according to the lesson's sources?"
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O2",
+      "stem": "Where on the ball should the foot make contact to keep a penalty low and still get good speed?",
+      "options": [
+        {"id": "a", "text": "Slightly below the centre, to add lift and clear the keeper"},
+        {"id": "b", "text": "Slightly above the centre, to press the ball into the ground"},
+        {"id": "c", "text": "On the very bottom edge, to maximise the foot's follow-through"},
+        {"id": "d", "text": "At the centre of the ball, so the contact stays level"}
+      ]
+    }
+  ]
+}

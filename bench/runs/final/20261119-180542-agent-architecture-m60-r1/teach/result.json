@@ -1,0 +1,130 @@
+{
+  "duration_api_ms": 1149539,
+  "stop_reason": "end_turn",
+  "session_id": "2d97681a-da90-4287-8c88-13c06a3e4f0e",
+  "total_cost_usd": 3.8299558950000003,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 53077,
+    "cache_read_input_tokens": 786335,
+    "output_tokens": 28857,
+    "output_tokens_details": {
+      "thinking_tokens": 381
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 53077,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 635,
+        "cache_read_input_tokens": 227511,
+        "cache_creation_input_tokens": 3146,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 3146
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 132,
+      "outputTokens": 165658,
+      "cacheReadInputTokens": 5521472,
+      "cacheCreationInputTokens": 489705,
+      "webSearchRequests": 0,
+      "costUSD": 3.7566972,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 50935,
+      "cacheCreationEphemeral5mInputTokens": 274076,
+      "cacheCreationEphemeral1hInputTokens": 215629,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 107627,
+      "outputTokens": 16394,
+      "cacheReadInputTokens": 3312,
+      "cacheCreationInputTokens": 34127,
+      "webSearchRequests": 5,
+      "costUSD": 0.073258695,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 7560,
+      "cacheCreationEphemeral5mInputTokens": 34127,
+      "cacheCreationEphemeral1hInputTokens": 0,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "origin": {
+    "kind": "task-notification",
+    "producer": "session-task",
+    "runId": "0mwnvlsit-7381ffdb"
+  },
+  "subagent_stats": {
+    "spawned": 6,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 6
+    },
+    "started_in_background": 5,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 6,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "web-fetch": 1,
+      "lesson-reviewer": 2,
+      "preference-reviewer": 1,
+      "reference-checker": 1,
+      "lesson-editor": 1
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 6,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I wrote lesson 1, \"Context and memory in an agent\": a 60-minute lesson on objective O3, with a short quiz ready for you.\n\nI estimate about 7,500 words, roughly 0.83 of the 9,000 a 60-minute lesson targets. It runs on the makerspace assistant throughout, and the time costs are priced out.\n\nWhat it covers:\n- **Context window:** what fills it, what a token is, and why it limits both accuracy and cost.\n- **Between steps:** the model keeps nothing, and the program resends the whole message list on every call. A five-call 3D-printer request reads 18,830 input tokens. The lesson proves why longer runs cost more than proportionally.\n- **Trimming a full window:** clearing old tool results, compaction and helper agents, each with a worked example.\n- **Between sessions:** notes and the memory tool. A note never decides whether a student may use a machine. The training record is read through a tool on each request.\n- **Retrieval:** pasting a manual costs about 17 times more than retrieving five chunks. It also covers keyword search, cosine similarity, and Anthropic's published retrieval-failure figures.\n- **Practice:** a worked request end to end, then several short exercises to compute and classify.\n\nThe lesson went through two content reviews, a preference review, a reference check and a consistency edit. The reference check found no missing or contradicted sources.\n\nThe 0.75-words-per-token rule, the $3 and $15 per million token prices, and the cosine and keyword-weighting formulas are not from the cited sources. The lesson labels each of them as a rule of thumb, an illustration or a standard formula.\n\nQuiz 0002 has five items on this objective, and I did not read its answers into this message. A cheat sheet with the placement rules and token arithmetic is saved too, and I updated your notes.\n\nQuestions on any part are welcome in the chat. Ask for the quiz whenever you want to check what stuck.",
+  "ttft_ms": 1611,
+  "type": "result",
+  "duration_ms": 139939,
+  "uuid": "1ae85a9b-4d11-4cee-89ca-acb437cc1264",
+  "ttft_stream_ms": 673,
+  "time_to_request_ms": 205,
+  "first_content_frame_ms": 673,
+  "queued_turn_count": 0,
+  "result_index": 5,
+  "model_usage_since_last_result": {},
+  "credential_expires_at": "2026-11-20T19:38:56.200Z"
+}

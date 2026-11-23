@@ -1,0 +1,33 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "The model keeps nothing between calls; the program keeps the message list and sends it again each call. Choosing a shows the belief that the model remembers the conversation itself."
+    },
+    {
+      "id": "q2",
+      "answer": 25000,
+      "tolerance": 0,
+      "rationale": "Inputs are 1,000, 3,000, 5,000, 7,000 and 9,000, which sum to 25,000. An answer of 9,000 counts only the last call, and 5,000 or 10,000 forget that every call resends the list."
+    },
+    {
+      "id": "q3",
+      "answer": "a",
+      "rationale": "A message list ends with the session, so what must survive is written to storage outside the window and read back later. A larger window or a single running list does not persist past the session, and fixed instructions cannot hold per-student facts."
+    },
+    {
+      "id": "q4",
+      "answer": "the training record, read through a tool call at booking time",
+      "accepted": ["a tool call to the training database", "check the training record with a tool", "it should call a tool to read the training record", "the training database via a tool", "the training record, read by a tool call"],
+      "rationale": "Permission comes from the authoritative record read through a tool at the moment of decision, never from the student's claim or a saved note. The note may only remind the assistant to check. If the record cannot be read, the answer is not permitted yet."
+    },
+    {
+      "id": "q5",
+      "answer": "It finds the few relevant pages and puts only those in the context",
+      "accepted": ["it selects the relevant pages for the question and sends only them to the model", "finds the pages that match the question and adds only those to the context", "it pulls just the relevant pages into the context instead of the whole manual", "it searches the manual and loads only the matching pages"],
+      "rationale": "Retrieval selects the few pages that match the question, such as by similarity or by a search tool, and places only them in the context instead of the whole manual. An answer saying the whole manual is loaded or memorized is wrong."
+    }
+  ]
+}

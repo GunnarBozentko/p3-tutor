@@ -1,0 +1,38 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": 4600,
+      "tolerance": 0,
+      "rationale": "The whole earlier list is sent again, plus the new tool request and result: 4,000 + 100 + 500 = 4,600. An answer of 600 counts only the new content and forgets that the earlier content is resent on every call."
+    },
+    {
+      "id": "q2",
+      "answer": "c",
+      "rationale": "A new session starts with an empty message list and the model keeps nothing between calls, so the program must save notes and load them into the new session. Options a, b and d assume the model or the window carries memory across sessions."
+    },
+    {
+      "id": "q3",
+      "answer": "a",
+      "rationale": "A training status is a safety fact, so it is decided from the authoritative record read through a tool at the moment of the decision. A saved note is a possibly stale copy, the student's claim is a belief, and the model's judgment is a guess; none of them can decide it."
+    },
+    {
+      "id": "q4",
+      "answer": "Only the few relevant chunks enter the window, so far fewer tokens are read and billed on every call than with the whole manual pasted in.",
+      "accepted": [
+        "fewer tokens are sent on each call",
+        "the whole manual would be reread and billed on every call, while retrieval sends only a few chunks",
+        "only the relevant chunks go into the context, so fewer input tokens are paid for each call",
+        "less text in the window means fewer tokens billed per call"
+      ],
+      "rationale": "Every call rereads the whole message list, so a pasted manual is billed on every call. Retrieval puts only the few best chunks in the window. A response that gives only the larger-window argument, or only says retrieval is more accurate, misses the cost reason."
+    },
+    {
+      "id": "q5",
+      "answer": 0.71,
+      "tolerance": 0.01,
+      "rationale": "Dot product: 5 x 12 + 12 x 5 = 120. Each vector has length 13, so cosine = 120 / (13 x 13) = 120 / 169, about 0.71."
+    }
+  ]
+}

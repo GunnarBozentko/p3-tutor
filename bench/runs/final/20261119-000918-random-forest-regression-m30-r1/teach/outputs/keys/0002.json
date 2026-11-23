@@ -1,0 +1,36 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "Deep trees have low bias and high variance. Averaging trees with different errors lets the errors partly cancel, which cuts variance while bias stays about the same. Picking a shows the belief that averaging removes bias.",
+      "distractors": {"a": "M3", "c": "M2", "d": "M3"}
+    },
+    {
+      "id": "q2",
+      "answer": 45,
+      "tolerance": 0.5,
+      "rationale": "Var = rho * sigma^2 + ((1 - rho)/B) * sigma^2 = 0.25 * 144 + (0.75/12) * 144 = 36 + 9 = 45. An answer of 12 divides 144 by B and ignores the correlation term."
+    },
+    {
+      "id": "q3",
+      "answer": "c",
+      "rationale": "The floor is rho * sigma^2, which does not depend on B. Fewer candidate features per split makes trees differ, which lowers rho. Option a only shrinks the second term, and option d raises the correlation.",
+      "distractors": {"a": "M1", "d": "M2"}
+    },
+    {
+      "id": "q4",
+      "answer": 20,
+      "tolerance": 0.5,
+      "rationale": "As B grows the term ((1 - rho)/B) * sigma^2 goes to 0, leaving rho * sigma^2 = 0.4 * 50 = 20. An answer of 0 shows the belief that enough trees remove all variance.",
+      "distractors": {}
+    },
+    {
+      "id": "q5",
+      "answer": "It leaves the variance unchanged, because identical errors do not cancel when averaged.",
+      "accepted": ["no change", "the variance stays the same", "it does not reduce the variance", "no reduction because the errors are identical", "unchanged"],
+      "rationale": "With rho = 1 the formula gives rho * sigma^2 + 0 = sigma^2 for any B: the average equals either tree. An answer that the variance halves shows the belief that more trees always help, whatever their correlation."
+    }
+  ]
+}

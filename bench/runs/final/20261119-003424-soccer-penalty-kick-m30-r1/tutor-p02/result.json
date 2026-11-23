@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 13029,
+  "stop_reason": "end_turn",
+  "session_id": "f6409f57-80c6-4231-836b-1e9852763f92",
+  "total_cost_usd": 0.08547830000000001,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 15119,
+    "cache_read_input_tokens": 98763,
+    "output_tokens": 1511,
+    "output_tokens_details": {
+      "thinking_tokens": 316
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 15119,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 542,
+        "cache_read_input_tokens": 29318,
+        "cache_creation_input_tokens": 602,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 602
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1511,
+      "cacheReadInputTokens": 98763,
+      "cacheCreationInputTokens": 15119,
+      "webSearchRequests": 0,
+      "costUSD": 0.08547830000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 316,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 15119,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 8,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "This is not right. Power helps, but placement still matters, and hitting as hard as you can often lowers your scoring chance.\n\n**Why it is tempting:** a faster ball gives the keeper less time. That part is true. At 100 km/h, the ball covers 11 m in about 0.4 s. But a keeper does not need to react to the ball. They guess a side before you strike, and a central or mid-height shot lets them get a hand or body to it even at high speed.\n\n**What is true:** the chance of scoring depends on speed and on placement together. Take the score probability as P(goal) = P(on target) × P(not saved | on target).\n\n- Max-power effort lowers P(on target). Striking with the laces gives speed but less accuracy. The long swing you get from planting behind the ball also lifts the ball over the bar.\n- Placement lowers P(saved). A ball in the upper or lower corner is far from the keeper's reach, so it can score at 80% of your top speed.\n\n**Example:** Shot A is at full power. It goes on target 70% of the time, and 70% of those are saved or blocked, so it scores 21%. Shot B is at 85% power, placed in the corner. It goes on target 90% of the time, and only 25% of those are saved, so it scores 67.5%. These numbers are illustrative, not measured, but the structure is what matters.\n\nYour mission asks for power and placement in the corner, so the target is controlled power, not maximum power.\n\n**Question:** in your last few penalties, which went wrong more often: shots that missed the target, or shots the keeper saved? Your answer decides which fix we start with. I can also write a lesson on the speed-accuracy tradeoff.",
+  "ttft_ms": 949,
+  "type": "result",
+  "duration_ms": 13452,
+  "uuid": "be2514bf-3e24-4bf9-9669-e3133fc2591c",
+  "ttft_stream_ms": 542,
+  "time_to_request_ms": 87,
+  "first_content_frame_ms": 542,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1511,
+      "cacheReadInputTokens": 98763,
+      "cacheCreationInputTokens": 15119,
+      "webSearchRequests": 0,
+      "costUSD": 0.08547830000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 316,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 15119,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-20T19:38:56.427Z"
+}

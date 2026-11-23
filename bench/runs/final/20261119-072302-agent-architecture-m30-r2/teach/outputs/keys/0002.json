@@ -1,0 +1,35 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "c",
+      "rationale": "The model is stateless: it sees only the text in the current call, so facts from an earlier session exist for it only if the program saves them and loads them back. Option a assumes the model stores memory; option b blames the window size; option d confuses learning with context.",
+      "distractors": {"a": "M10", "b": "M11", "d": "M12"}
+    },
+    {
+      "id": "q2",
+      "answer": 8450,
+      "tolerance": 0.5,
+      "rationale": "Call 1: 2,000 + 100 = 2,100. Call 2: 2,100 + 50 + 500 = 2,650. Call 3: 2,650 + 50 + 1,000 = 3,700. Total 2,100 + 2,650 + 3,700 = 8,450. An answer of 3,700 counts only the last call; 3,650 or similar counts each addition once and forgets the resending."
+    },
+    {
+      "id": "q3",
+      "answer": "b",
+      "rationale": "A risky permission is decided by the authoritative training record, read through a tool at the moment of the booking. A saved note is a possibly stale copy, a claim is only a belief, and the model's impression is a guess. A repeated claim is still only a claim.",
+      "distractors": {"a": "M13", "c": "M13", "d": "M13"}
+    },
+    {
+      "id": "q4",
+      "answer": "a",
+      "rationale": "Retrieval puts only the relevant chunks in context, so cost stays low and recall stays good, and an exact code is found by keyword search. Loading the whole manual on every call costs 60,000 tokens per call and weakens recall. A single summary drops details such as specific codes, and asking the student to paste a page fails the purpose of the assistant.",
+      "distractors": {"b": "M14"}
+    },
+    {
+      "id": "q5",
+      "answer": "Each call resends the whole history, including all earlier messages and tool results, so the input keeps growing.",
+      "accepted": ["the history is resent every call", "history accumulates and is resent each call", "every call includes all earlier steps and tool results", "the context grows because earlier messages and tool results are resent on each call", "earlier tool results and messages are sent again on every call"],
+      "rationale": "The model keeps no state, so the program resends all earlier messages and tool results on every call. An answer that says the model works harder or that the question gets longer misses the mechanism."
+    }
+  ]
+}

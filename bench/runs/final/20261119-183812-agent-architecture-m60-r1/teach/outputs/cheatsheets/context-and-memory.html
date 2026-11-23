@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cheat sheet: context and memory in an agent</title>
+  <style>
+    body { max-width: 44rem; margin: 0 auto; padding: 2rem 1.25rem; font-family: Charter, Georgia, serif; line-height: 1.5; color: #1f1d1a; background: #fffdf8; }
+    h1 { font-size: 1.6rem; } h2 { font-size: 1.1rem; margin-top: 1.6rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+    th, td { text-align: left; vertical-align: top; padding: 0.4rem 0.5rem; border-bottom: 1px solid #e4dfd4; }
+    code { background: #f3efe6; padding: 0.1em 0.3em; border-radius: 4px; }
+    @media (prefers-color-scheme: dark) { body { background: #171614; color: #e9e5dc; } th, td { border-color: #36332e; } code { background: #23211e; } }
+  </style>
+</head>
+<body>
+<h1>Context and memory in an agent</h1>
+<h2>Where information lives</h2>
+<table>
+  <thead><tr><th>Place</th><th>Holds</th><th>Rule</th></tr></thead>
+  <tbody>
+    <tr><td>Context window</td><td>Instructions, tool definitions, messages, tool results, output</td><td>The program resends all of it at every call; you pay for it each time</td></tr>
+    <tr><td>Saved notes</td><td>What only the student can tell you</td><td>Short, pruned, put back at session start; never decide a risky permission</td></tr>
+    <tr><td>Records and manuals</td><td>Training status, calendar, machine manuals</td><td>Read through a tool when needed; retrieve manual pages, never carry a whole manual</td></tr>
+  </tbody>
+</table>
+<h2>Formulas</h2>
+<ul>
+  <li>Call <em>n</em> carries <code>base + a1 + ... + a(n-1)</code> input tokens.</li>
+  <li>Total over <em>N</em> calls = <code>N&middot;base + &Sigma; (N &minus; k)&middot;a<sub>k</sub></code>.</li>
+  <li>Precision = relevant retrieved / retrieved. Recall = relevant retrieved / all relevant.</li>
+  <li>Rough token rule: 100 tokens is about 75 words.</li>
+</ul>
+<h2>Ways to cut context</h2>
+<ul>
+  <li>Make tools return less (arguments such as machine and date).</li>
+  <li>Clear re-fetchable tool results; leave a stub.</li>
+  <li>Compact a long conversation, and say what the summary must keep.</li>
+</ul>
+<h2>Safety rule</h2>
+<p>A risky permission is decided by the authoritative record, read through a tool at that moment. A claim or a saved note never decides it. If the record cannot be read: not permitted yet, and name staff who can confirm.</p>
+<p><a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents">Source: Effective context engineering for AI agents</a></p>
+</body>
+</html>

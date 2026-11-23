@@ -1,0 +1,40 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "c",
+      "rationale": "The model keeps nothing between calls or sessions; it sees only the context the program builds. Only what the program saved can be loaded again. Picking a shows the belief that the model remembers like a person."
+    },
+    {
+      "id": "q2",
+      "answer": 4500,
+      "tolerance": 0,
+      "rationale": "Call 1 sends 1,000; call 2 sends 1,500; call 3 sends 2,000. Total 4,500. An answer of 3,000 (3 x 1,000) forgets that earlier rounds are re-sent."
+    },
+    {
+      "id": "q3",
+      "answer": "a",
+      "rationale": "Permission for a risky action comes from the authoritative training record, read through a tool at the moment of the decision. A saved note is a copy that can be stale, and a student's claim or the model's judgment is not a record. A note may only remind the assistant to check."
+    },
+    {
+      "id": "q4",
+      "answer": "It costs tokens on every call and a long context makes the model recall details less accurately, so only the needed pages should enter.",
+      "accepted": [
+        "cost",
+        "it is cheaper",
+        "fewer tokens",
+        "less cost per request",
+        "context rot",
+        "the model recalls worse with a long context",
+        "it would waste tokens on every call"
+      ],
+      "rationale": "Either reason is fully correct: the whole manual is re-sent and paid for at every model call, and a longer context lowers the model's accuracy at recalling details (context rot)."
+    },
+    {
+      "id": "q5",
+      "answer": "b",
+      "rationale": "Compaction summarizes a conversation near the limit and restarts a fresh context from the summary. Retrieval and note-taking add or save information but do not restart the context, and context rot is a problem, not a technique."
+    }
+  ]
+}

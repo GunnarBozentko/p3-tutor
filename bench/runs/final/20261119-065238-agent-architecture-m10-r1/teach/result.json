@@ -1,0 +1,130 @@
+{
+  "duration_api_ms": 392820,
+  "stop_reason": "end_turn",
+  "session_id": "7bf45bee-5d35-467a-9e7b-f7b99f147abc",
+  "total_cost_usd": 1.31354678,
+  "usage": {
+    "input_tokens": 20,
+    "cache_creation_input_tokens": 39606,
+    "cache_read_input_tokens": 807935,
+    "output_tokens": 16478,
+    "output_tokens_details": {
+      "thinking_tokens": 433
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 39606,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 546,
+        "cache_read_input_tokens": 105390,
+        "cache_creation_input_tokens": 9507,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 9507
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 70,
+      "outputTokens": 51657,
+      "cacheReadInputTokens": 1482601,
+      "cacheCreationInputTokens": 186666,
+      "webSearchRequests": 0,
+      "costUSD": 1.2814386000000002,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 13034,
+      "cacheCreationEphemeral5mInputTokens": 86797,
+      "cacheCreationEphemeral1hInputTokens": 99869,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 43804,
+      "outputTokens": 10961,
+      "cacheReadInputTokens": 3228,
+      "cacheCreationInputTokens": 17720,
+      "webSearchRequests": 2,
+      "costUSD": 0.03210818000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 6086,
+      "cacheCreationEphemeral5mInputTokens": 17720,
+      "cacheCreationEphemeral1hInputTokens": 0,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "origin": {
+    "kind": "task-notification",
+    "producer": "session-task",
+    "runId": "0mwn72tjx-e72dc51f"
+  },
+  "subagent_stats": {
+    "spawned": 5,
+    "requested": {
+      "background": 0,
+      "foreground": 3,
+      "unset": 2
+    },
+    "started_in_background": 1,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 5,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "web-fetch": 1,
+      "lesson-reviewer": 1,
+      "preference-reviewer": 1,
+      "reference-checker": 1,
+      "lesson-editor": 1
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 28,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "The 10-minute lesson on context and memory is written, with a five-item quiz to go with it. I ran only one pass of the lesson reviewer instead of the two the process allows. That pass found a worked-example error (it compared one call against two) and a warm-up question that gave away a quiz 0001 answer. I fixed both but did not re-review. The reference checker found nothing to fix.\n\nThe lesson is \"Context and memory in an agent\". It covers:\n- **Context window:** what counts toward it, and why a very long context costs more and also hurts accuracy (\"context rot\").\n- **Between steps and between sessions:** what the program resends on each call, and why nothing survives a new session unless the program saves it.\n- **Retrieval and notes:** how the assistant fetches one manual page instead of loading the whole manual, and how per-student notes carry across visits.\n- **Training status:** a saved note only hints at it. The assistant must look it up with a tool before booking, and if the lookup fails it answers \"not permitted yet\" and points to staff.\n\nIt includes a token-cost worked example, a practice problem, a short Python note store, and a soccer-coach analogy. Its sources are Anthropic's context-engineering article and the Claude context-windows documentation.\n\nThe lesson runs about 1,700 words, which is somewhat over the 1,500 a strict 10-minute budget implies, though inside the bench's allowed range. Ask if you want it shorter.\n\nQuiz 0002 is ready when you are. Ask me anything about the lesson in the chat.\n\nFiles are in the workspace folder:\n- lessons/0001-context-and-memory.html\n- quizzes/0002.json\n- keys/0002.json",
+  "ttft_ms": 3228,
+  "type": "result",
+  "duration_ms": 208571,
+  "uuid": "cb9d8159-97f3-49e7-a7dc-4ecb2b1f7236",
+  "ttft_stream_ms": 942,
+  "time_to_request_ms": 18,
+  "first_content_frame_ms": 942,
+  "queued_turn_count": 0,
+  "result_index": 1,
+  "model_usage_since_last_result": {},
+  "credential_expires_at": "2026-11-20T19:38:56.427Z"
+}

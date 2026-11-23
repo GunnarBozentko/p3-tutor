@@ -1,0 +1,110 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Penalty strategy against a goalkeeper: when to pick a side and when to watch",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Definitions: Which of these best defines the keeper-independent penalty strategy?",
+      "options": [
+        {"id": "a", "text": "Aiming at the centre of the goal on every kick, whichever keeper you face"},
+        {"id": "b", "text": "Fixing the target side before the run-up and not revisiting it"},
+        {"id": "c", "text": "Waiting until the keeper moves, then kicking toward the opposite side"},
+        {"id": "d", "text": "Picking the side at random on the final step of the run-up each time"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Definitions: Which of these best defines the keeper-dependent penalty strategy?",
+      "options": [
+        {"id": "a", "text": "Choosing the target side before the run-up, using the keeper's habits seen on video"},
+        {"id": "b", "text": "Kicking to the side the keeper dived to in the previous penalty he faced"},
+        {"id": "c", "text": "Using the keeper's first movement during the run-up to pick the opposite side"},
+        {"id": "d", "text": "Changing the speed of the run-up depending on how early the keeper starts to move"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "short",
+      "objective": "O3",
+      "stem": "Definitions: In penalty strategy, what does it mean to say a goalkeeper has \"committed\"?"
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Definitions: What does \"mixing strategies\" mean for a penalty taker?",
+      "options": [
+        {"id": "a", "text": "Varying the pace of the run-up so the keeper cannot time the dive"},
+        {"id": "b", "text": "Aiming at one corner during the run-up and another at contact"},
+        {"id": "c", "text": "Taking half of your penalties with each foot, so the keeper cannot predict which foot you use"},
+        {"id": "d", "text": "Switching between choosing the side in advance and choosing it after the keeper moves"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O3",
+      "stem": "Definitions: In one phrase, what is an \"expected scoring rate\" for a penalty strategy?"
+    },
+    {
+      "id": "q6",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Applying it: Video of the opposing keeper's last four penalties shows him standing still in the first, then moving toward a post while the kicker was still running up in the other three (left, right, left). When you watch him and choose your side late, you score 90% if he has already moved and 40% if he stands still. A corner picked before the run-up scores 70% against him whichever way he goes. Which plan gives you the best chance to beat him?",
+      "options": [
+        {"id": "a", "text": "Choose late, after seeing whether he has moved"},
+        {"id": "b", "text": "Choose your best corner before the run-up and keep it whatever he does"},
+        {"id": "c", "text": "Choose a side by coin flip on the final step of the run-up"},
+        {"id": "d", "text": "Choose the side opposite his most recent dive before the run-up"}
+      ]
+    },
+    {
+      "id": "q7",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Applying it: You have 20 minutes of daylight to practice before Saturday's match, and you cannot see the opposing keeper play beforehand. Which plan builds the most reliable penalty?",
+      "options": [
+        {"id": "a", "text": "Practice reading a keeper's first movement, so you can aim away from wherever he goes"},
+        {"id": "b", "text": "Practice switching your aim in mid-run so you can respond to the keeper's movement"},
+        {"id": "c", "text": "Practice power first, since a harder shot is harder to save wherever it is placed"},
+        {"id": "d", "text": "Practice one fixed corner and one run-up until the strike repeats"}
+      ]
+    },
+    {
+      "id": "q8",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Applying it: Ana picks a corner before each run-up and keeps it. Ben watches the keeper and chooses his side late. Over a season they face keepers who stand still until the ball is struck. Compared with Ana, what is the most likely result for Ben?",
+      "options": [
+        {"id": "a", "text": "Ben gains the chance to punish a keeper's early dive"},
+        {"id": "b", "text": "Ben loses power because his aim keeps changing"},
+        {"id": "c", "text": "Ben gains nothing from watching and still pays for a late choice"},
+        {"id": "d", "text": "Both score at the same rate, because a keeper who waits is equally easy to beat"}
+      ]
+    },
+    {
+      "id": "q9",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "Applying it: Against a keeper who dives early on 3 of every 10 penalties and waits on the other 7, plan X, watching him, scores 85% when he dives early and 45% when he waits. Plan Y, a corner chosen before the run-up, scores 62% either way. Assume these figures already include any accuracy lost. By how many percentage points does the better plan's overall scoring chance exceed the other's?",
+      "unit": "percentage points"
+    },
+    {
+      "id": "q10",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Applying it: You planned the left corner. On your last step the keeper leans left, so you switch your aim to the right corner. Compared with a kick aimed right from the start, which part of the kick is most likely to suffer?",
+      "options": [
+        {"id": "a", "text": "Power only, because the run-up is cut short"},
+        {"id": "b", "text": "Accuracy, because there is less time to adjust the kicking action"},
+        {"id": "c", "text": "Nothing, because a trained kicker redirects as precisely as a planned kick"},
+        {"id": "d", "text": "Accuracy improves, because you now know where the keeper is leaning"}
+      ]
+    }
+  ]
+}

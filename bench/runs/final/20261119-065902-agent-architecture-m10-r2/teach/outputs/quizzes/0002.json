@@ -1,0 +1,50 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "An agent has made five model calls in one session. On the sixth call, where does the model get what happened in the first five?",
+      "options": [
+        {"id": "a", "text": "It keeps an internal memory of its own earlier calls"},
+        {"id": "b", "text": "The program resends the earlier messages inside the new call"},
+        {"id": "c", "text": "It looks the earlier steps up in its training data"},
+        {"id": "d", "text": "The tools remember and report the earlier steps back"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "An agent's instructions and the student's question take 1,000 tokens. Each step adds 2,000 tokens to the message list, and the whole list is sent on every call. The model is called 5 times. How many input tokens are sent in total across the 5 calls?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your assistant must remember each student's preferred booking times from one visit to the next. Which design makes that possible?",
+      "options": [
+        {"id": "a", "text": "Write a short note to storage and read it in next visit"},
+        {"id": "b", "text": "Use a model with a much larger context window size"},
+        {"id": "c", "text": "Keep every visit's messages inside a single running list"},
+        {"id": "d", "text": "Repeat the preferences inside the standing instructions"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O3",
+      "stem": "A returning student says, \"I finished laser cutter training last month, so book me a slot.\" The assistant's saved notes also say \"laser cutter: trained\". In one sentence, what should the assistant rely on to decide whether to book, and how does it get it?"
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O3",
+      "stem": "A 300-page machine manual is far larger than your context window budget for one request. In one or two sentences, what does retrieval do so that the assistant can still answer a question about page 212?"
+    }
+  ]
+}

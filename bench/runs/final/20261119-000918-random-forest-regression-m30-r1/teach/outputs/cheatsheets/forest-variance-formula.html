@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cheat sheet: variance of an average of trees</title>
+  <style>
+    body { max-width: 40rem; margin: 0 auto; padding: 2rem 1.25rem; font-family: Georgia, serif; line-height: 1.55; color: #1f1d1a; background: #fffdf8; }
+    h1 { font-size: 1.6rem; } h2 { font-size: 1.1rem; margin-top: 1.6rem; }
+    .eq { text-align: center; font-style: italic; font-size: 1.15rem; margin: 1rem 0; }
+    code { background: #f3efe6; padding: 0.1em 0.3em; border-radius: 4px; }
+    @media (prefers-color-scheme: dark) { body { background: #171614; color: #e9e5dc; } code { background: #23211e; } }
+  </style>
+</head>
+<body>
+  <h1>Variance of an average of B trees</h1>
+  <p class="eq">Var(average) = &rho;&sigma;&sup2; + ((1 &minus; &rho;)/B) &sigma;&sup2;</p>
+  <ul>
+    <li>&sigma;&sup2;: variance of one tree's prediction at a point. &rho;: pairwise correlation of two trees' predictions. B: number of trees.</li>
+    <li>Floor: &rho;&sigma;&sup2;. More trees remove only the second term.</li>
+    <li>&rho; = 0 gives &sigma;&sup2;/B. &rho; = 1 gives &sigma;&sup2;, no gain.</li>
+    <li>Example: &sigma;&sup2; = 100, &rho; = 0.3, B = 10 gives 30 + 7 = 37.</li>
+  </ul>
+  <h2>Bias-variance</h2>
+  <p>Expected squared error = bias&sup2; + variance + irreducible noise. Averaging keeps bias about the same (small rise), and cuts variance.</p>
+  <h2>What lowers &rho;</h2>
+  <ul>
+    <li>Bootstrap samples for each tree.</li>
+    <li>A random subset of features at each split (<code>max_features</code> below 1.0 in scikit-learn).</li>
+  </ul>
+</body>
+</html>

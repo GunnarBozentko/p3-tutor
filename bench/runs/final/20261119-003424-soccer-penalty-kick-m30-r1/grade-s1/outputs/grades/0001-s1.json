@@ -1,0 +1,31 @@
+{
+  "quiz": "0001",
+  "submission": "s1",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. The follow-through is the kicking leg continuing to swing toward the target after contact, which keeps the shot on line. Think of a free throw or a golf swing: stopping the motion at contact pulls the shot off its path. Option c fails because it describes power, and the follow-through is about direction. Option a is the approach, and option d is a keeper-watching habit, not a part of the kick."
+    },
+    {
+      "id": "q2",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. The penalty mark is 12 yards from the goal line, which is about 10.97 meters, so it matches the 11 meters the Laws of the Game are usually quoted as. Your answer was in yards while the question asked for meters, and it is accepted because 12 yards is the same distance. On a numeric question, state the unit the question asks for, since 12 meters would be a different distance."
+    },
+    {
+      "id": "q3",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "Partial. Your four steps, run up, plant, kick, follow through, are in the right order, but \"kick the ball\" merges two parts: the striking surface (which part of the foot touches the ball) and the contact point (where on the ball it lands). They are separate choices, much as choosing a model and choosing its inputs are two separate decisions in statistics. Laces give more power and less accuracy, the inside of the foot the reverse, and contact below the ball's center lifts it. The full list is approach, plant foot, striking surface, contact point, follow-through."
+    },
+    {
+      "id": "q4",
+      "verdict": "wrong",
+      "misconception": "M2",
+      "feedback": "Wrong. You chose a, believing that planting well behind the ball gives a longer swing and more power. That breaks because reaching back for the ball leans your body back and lifts the shot, like a striker who skies a penalty (sends it high) over the bar. The correct answer is b, beside the ball and roughly level with it, toes toward the target, which keeps your body over the ball. Option c fails because planting in front leans you back, and option d fails because any offset changes your lean, which changes the ball's height."
+    }
+  ],
+  "summary": "The belief to work on first is that planting the foot well behind the ball gives more power. It does not: reaching back leans your body back and lifts the ball, so the plant foot goes beside the ball. Next step: before your next practice, take five penalties with the plant foot level with the ball and toes at the target, and note how many clear the bar."
+}

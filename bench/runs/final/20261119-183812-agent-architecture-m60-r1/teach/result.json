@@ -1,0 +1,138 @@
+{
+  "duration_api_ms": 979410,
+  "stop_reason": "end_turn",
+  "session_id": "c4234ae3-e2e6-4857-a17c-70f8f72ce403",
+  "total_cost_usd": 3.3463795600000017,
+  "usage": {
+    "input_tokens": 36,
+    "cache_creation_input_tokens": 102973,
+    "cache_read_input_tokens": 2394211,
+    "output_tokens": 53109,
+    "output_tokens_details": {
+      "thinking_tokens": 2853
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 102973,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 615,
+        "cache_read_input_tokens": 205748,
+        "cache_creation_input_tokens": 3165,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 3165
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 116,
+      "outputTokens": 142426,
+      "cacheReadInputTokens": 4273543,
+      "cacheCreationInputTokens": 462761,
+      "webSearchRequests": 0,
+      "costUSD": 3.299576300000002,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 39137,
+      "cacheCreationEphemeral5mInputTokens": 268876,
+      "cacheCreationEphemeral1hInputTokens": 193885,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 58059,
+      "outputTokens": 12999,
+      "cacheReadInputTokens": 8961,
+      "cacheCreationInputTokens": 35266,
+      "webSearchRequests": 3,
+      "costUSD": 0.046803260000000006,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 6256,
+      "cacheCreationEphemeral5mInputTokens": 35266,
+      "cacheCreationEphemeral1hInputTokens": 0,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [
+    {
+      "tool_name": "Read",
+      "tool_use_id": "toolu_01DbatRYCCz1qiBuB5RL6pro",
+      "tool_input": {
+        "file_path": "C:\\Users\\gunna\\AppData\\Local\\Temp\\p3-gd8kiqci\\keys\\0001.json"
+      }
+    }
+  ],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "origin": {
+    "kind": "task-notification",
+    "producer": "session-task",
+    "runId": "0mwnwee01-ea9e92cb"
+  },
+  "subagent_stats": {
+    "spawned": 7,
+    "requested": {
+      "background": 0,
+      "foreground": 4,
+      "unset": 3
+    },
+    "started_in_background": 1,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 7,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "web-fetch": 2,
+      "lesson-reviewer": 2,
+      "preference-reviewer": 1,
+      "reference-checker": 1,
+      "lesson-editor": 1
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 77,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "The 60-minute lesson on context and memory is written, with a short quiz ready.\n\n**Lesson: \"Context and memory in an agent.\"** It covers:\n- **Context window:** what counts toward it, and why the program resends the whole history at every call, with the cost formula derived and checked on a numeric case.\n- **Between steps:** context rot, clearing old tool results, and summarizing a long conversation.\n- **Between sessions:** saved notes, how the memory tool works, and what deserves a note. Training status is never taken from a note or a student's claim; it is read from the training record through a tool at the moment of booking.\n- **Retrieval:** chunking a manual, searching it, precision and recall, and what to do when nothing relevant is found.\n\n**What's included:**\n- **Practice:** four figures, worked examples, faded practice and a design-review rehearsal.\n- **Code:** the loop with the resent message list, a saved-note example and a top-k search.\n- **Mission links:** examples throughout are the makerspace assistant and its budget.\n\n**Quiz 0002** has five questions on this lesson; ask me for it when you want to take it. Ask me anything about the lesson in the chat.\n\n**Review:** two passes of the lesson reviewer, then the preference, reference and consistency checks. I also added a one-page cheat sheet and updated your notes.\n\n**Checks I couldn't do:**\n- The 60-minute length is an estimate (about 8,200 words, ratio 0.91). My shell was blocked from counting words, so I relied on the reviewer's estimate.\n- I didn't re-fetch the Anthropic article after the final wording fixes. The \"tens of thousands of tokens\" detail comes from my own earlier read of it, which the reference checker couldn't confirm.\n\n**Question for you:** do you want the next lesson to be workflows versus agents, or when splitting work across several agents pays off?",
+  "ttft_ms": 2621,
+  "type": "result",
+  "duration_ms": 573986,
+  "uuid": "c5d3bf1a-336d-48f5-9e91-a50606fe3072",
+  "ttft_stream_ms": 735,
+  "time_to_request_ms": 22,
+  "first_content_frame_ms": 735,
+  "queued_turn_count": 0,
+  "result_index": 1,
+  "model_usage_since_last_result": {},
+  "credential_expires_at": "2026-11-20T19:38:56.200Z"
+}

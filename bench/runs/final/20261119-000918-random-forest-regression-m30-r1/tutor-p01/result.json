@@ -1,0 +1,122 @@
+{
+  "duration_api_ms": 35609,
+  "stop_reason": "end_turn",
+  "session_id": "86880c40-3e78-4d9d-bf89-aaf36863a540",
+  "total_cost_usd": 0.1524766,
+  "usage": {
+    "input_tokens": 12,
+    "cache_creation_input_tokens": 19120,
+    "cache_read_input_tokens": 164920,
+    "output_tokens": 3275,
+    "output_tokens_details": {
+      "thinking_tokens": 844
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 19120,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 450,
+        "cache_read_input_tokens": 33116,
+        "cache_creation_input_tokens": 805,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 805
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 16,
+      "outputTokens": 4701,
+      "cacheReadInputTokens": 172496,
+      "cacheCreationInputTokens": 23802,
+      "webSearchRequests": 0,
+      "costUSD": 0.1524766,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 1286,
+      "cacheCreationEphemeral5mInputTokens": 4682,
+      "cacheCreationEphemeral1hInputTokens": 19120,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 1,
+    "requested": {
+      "background": 0,
+      "foreground": 1,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 1,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "hint-checker": 1
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 11,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I will not give you the answer to q1 before quiz 0001 is graded, because the quiz measures what you can do, not what I can tell you.\n\nThree steps you can take on your own:\n\n1. **Analogy.** Treat the four options like four claims in a soccer scouting report about how a rival team plays. You would not accept any claim because it sounds plausible. You would ask what evidence from past matches supports or contradicts it. Do the same here, using your lesson material and your own derivation of how a tree is built as the evidence. The analogy breaks down because a scouting report rests on noisy match footage, while here the evidence is a definition you can recall exactly.\n2. **Worked example of the method, on a different case.** Take this item: \"A thermostat turns the heater on. Which statement is true? (a) It runs until the room is warm. (b) It runs for a fixed ten minutes. (c) It runs only at night.\" Restate each option in your own words as a claim about the device. Then note what you would need to know to test each claim, such as the manual or the wiring. Judge every option by that same test before choosing.\n3. **Check, applied to every option alike.** For each of the four options, write down in your own words what it claims the tree does. Note anything you remember from the lesson that supports or contradicts that claim. Treat all four the same way.\n\nWhat did you write down for each option? Once the quiz is graded, I will go through q1 with you in full.",
+  "ttft_ms": 922,
+  "type": "result",
+  "duration_ms": 36208,
+  "uuid": "4af98747-4eda-43a0-86c5-6989561898d0",
+  "ttft_stream_ms": 550,
+  "time_to_request_ms": 97,
+  "first_content_frame_ms": 550,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 16,
+      "outputTokens": 4701,
+      "cacheReadInputTokens": 172496,
+      "cacheCreationInputTokens": 23802,
+      "webSearchRequests": 0,
+      "costUSD": 0.1524766,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 1286,
+      "cacheCreationEphemeral5mInputTokens": 4682,
+      "cacheCreationEphemeral1hInputTokens": 19120,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-20T19:38:56.427Z"
+}

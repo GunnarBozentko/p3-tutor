@@ -1,0 +1,50 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A student chatted with your makerspace assistant on Monday and returns on Thursday in a new session. The program saved nothing from Monday. What does the assistant know about Monday's conversation?",
+      "options": [
+        {"id": "a", "text": "Everything, because the model's weights were updated during Monday's chat"},
+        {"id": "b", "text": "Everything, because the context window keeps old conversations until it fills"},
+        {"id": "c", "text": "Nothing, because the model keeps no state and the history was not saved"},
+        {"id": "d", "text": "A summary, because the model compacts old chats on its own overnight"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "An agent run makes 5 model calls. The first call has an input of 1,000 tokens, and each later call has an input 500 tokens larger than the call before. What is the total number of input tokens billed across the run?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A saved note from last week says \"Jo is trained on the laser cutter\". Jo now asks the assistant to book the laser cutter. What should the assistant do?",
+      "options": [
+        {"id": "a", "text": "Book it, because a note the assistant wrote itself is reliable"},
+        {"id": "b", "text": "Ask Jo to confirm the training, and book it if Jo says yes"},
+        {"id": "c", "text": "Book it, because the note and the request point the same way"},
+        {"id": "d", "text": "Read the official training record with a tool, and book only if it confirms"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O3",
+      "stem": "In one or two sentences, give two reasons to retrieve a few relevant chunks of a manual for each question instead of putting the whole manual in the context."
+    },
+    {
+      "id": "q5",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "A manual contains 4 chunks that answer a student's question. A search returns 5 chunks, and 2 of them are among those 4. What is the recall of this search, as a decimal between 0 and 1?"
+    }
+  ]
+}

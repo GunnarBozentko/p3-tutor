@@ -1,0 +1,50 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "An agent's fixed part (system prompt and tool definitions) plus conversation so far makes the input to its third model call 4,000 tokens. The model replies with a tool request of 100 tokens, and the tool returns a result of 500 tokens. The program appends both to the message list and calls the model again. How many input tokens does the fourth call have?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q2",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A student says in a brand-new chat, \"Book the same slot as last week.\" The makerspace assistant answers correctly. Which of these must have happened for it to know what \"last week\" means?",
+      "options": [
+        {"id": "a", "text": "The model kept its memory of the earlier visit between sessions"},
+        {"id": "b", "text": "The old session's message list was still stored in the window"},
+        {"id": "c", "text": "The program loaded the student's saved notes into the new session"},
+        {"id": "d", "text": "The model's window is large enough to hold last week's chat"}
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "The assistant's saved notes for a student named Priya say \"band saw training complete.\" Today Priya says she finished the training and asks to book the band saw. What should the assistant do before booking?",
+      "options": [
+        {"id": "a", "text": "Call the training tool now and decide from the record it returns"},
+        {"id": "b", "text": "Book it, because the saved note says she completed the training"},
+        {"id": "c", "text": "Book it, because Priya says she finished it and sounds certain"},
+        {"id": "d", "text": "Book it, because the model judges that she seems experienced"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O3",
+      "stem": "In one sentence, why does retrieving the five most relevant chunks of a 120-page manual usually cost less per request than pasting the whole manual into the prompt?"
+    },
+    {
+      "id": "q5",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "In a retrieval system, the query's embedding is the vector (5, 12) and one manual chunk's embedding is the vector (12, 5). What is their cosine similarity, to two decimal places?"
+    }
+  ]
+}

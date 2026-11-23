@@ -1,0 +1,39 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "d",
+      "rationale": "A model call is stateless and a session's context is discarded when it ends, so anything from Monday must be saved by the program and put back into the context. Options a, b and c assume the model or the program keeps Monday's text without being told to."
+    },
+    {
+      "id": "q2",
+      "answer": 9500,
+      "tolerance": 0,
+      "rationale": "Each call carries the base plus every earlier addition: 2,000 + 2,250 + 2,500 + 2,750 = 9,500. An answer of 2,750 gives only the last call's input."
+    },
+    {
+      "id": "q3",
+      "answer": "d",
+      "rationale": "Booking a machine is a permission with real-world risk, so it rests on the authoritative training record, read through a tool at the moment of the decision. A saved note is a copy that can be stale and a student's confirmation is only a claim; refusing outright ignores that the record can be read."
+    },
+    {
+      "id": "q4",
+      "answer": 0.5,
+      "tolerance": 0.01,
+      "rationale": "Recall is relevant pages found divided by all relevant pages: 2 / 4 = 0.5. An answer of 0.4 is the precision, 2 / 5."
+    },
+    {
+      "id": "q5",
+      "answer": "It costs input tokens at every call, and the model's accuracy falls as the context fills (context rot).",
+      "accepted": [
+        "it costs tokens at every call",
+        "it is expensive because the whole manual is resent every call",
+        "accuracy and recall drop as the window fills",
+        "context rot",
+        "most of the text is irrelevant noise that lowers accuracy and raises cost"
+      ],
+      "rationale": "Every call resends the whole context, so the manual's tokens are paid for at each call, and recall degrades as the token count grows. Either reason alone is a complete answer."
+    }
+  ]
+}

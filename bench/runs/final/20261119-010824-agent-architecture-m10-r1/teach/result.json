@@ -1,0 +1,130 @@
+{
+  "duration_api_ms": 434914,
+  "stop_reason": "end_turn",
+  "session_id": "cf4ff814-74cc-4ca3-a4cb-8630a2ba2450",
+  "total_cost_usd": 1.5820808349999997,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 22170,
+    "cache_read_input_tokens": 435659,
+    "output_tokens": 11412,
+    "output_tokens_details": {
+      "thinking_tokens": 325
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 22170,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 583,
+        "cache_read_input_tokens": 115524,
+        "cache_creation_input_tokens": 10550,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 10550
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 96,
+      "outputTokens": 60724,
+      "cacheReadInputTokens": 2405094,
+      "cacheCreationInputTokens": 208700,
+      "webSearchRequests": 0,
+      "costUSD": 1.5366008999999998,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 14230,
+      "cacheCreationEphemeral5mInputTokens": 97427,
+      "cacheCreationEphemeral1hInputTokens": 111273,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 76098,
+      "outputTokens": 10277,
+      "cacheReadInputTokens": 15301,
+      "cacheCreationInputTokens": 20629,
+      "webSearchRequests": 3,
+      "costUSD": 0.04547993499999999,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 5431,
+      "cacheCreationEphemeral5mInputTokens": 20629,
+      "cacheCreationEphemeral1hInputTokens": 0,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "origin": {
+    "kind": "task-notification",
+    "producer": "session-task",
+    "runId": "0mwmuwzb9-4a771384"
+  },
+  "subagent_stats": {
+    "spawned": 6,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 6
+    },
+    "started_in_background": 5,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 6,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "web-fetch": 1,
+      "lesson-reviewer": 2,
+      "preference-reviewer": 1,
+      "reference-checker": 1,
+      "lesson-editor": 1
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 6,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "The 10-minute lesson on context and memory is written, along with a five-item quiz (quiz 0002). It runs a little long; I'll say how below.\n\nThe lesson, \"Context and memory in an agent\", covers four things for the makerspace assistant:\n- **The context window:** the model keeps nothing between calls. The program re-sends everything each time, which causes \"context rot\", where the model recalls details less accurately as the context grows.\n- **Cost:** a worked token count (4 calls sending 13,800 tokens in total, not 8,400), a faded practice task, and the general formula with its derivation.\n- **Between sessions:** saving notes outside the window and loading them back, with a short Python example.\n- **Retrieval:** fetching only the pages a question needs from a long manual, shown as a size comparison and as sampling.\n\nThe lesson also states that training status must come from the makerspace record, read by a tool at the time of booking. A saved note or a student's claim can only prompt that check.\n\nIt went through two review passes, a preference review, a reference check and a consistency edit.\n\n- **Length:** the reviewers' counts disagreed (about 1,620 words early, about 2,080 at the second pass), and I added content afterwards. It likely reads closer to 12 to 13 minutes than 10, but it is inside the allowed length band.\n- **Sources:** the two Anthropic pages are the only ones cited. I read them through a fetch helper. The reference checker confirmed that every claim the lesson cites to them is supported, after I removed one claim the source did not state.\n- **Community:** no community link is included, because your notes don't say whether you want one.\n\nThe quiz is ready whenever you want it, and you can ask me about any part of the lesson in the chat.\n\nQuestion for you: do you want a link to a community where you can test agent designs with others?",
+  "ttft_ms": 1450,
+  "type": "result",
+  "duration_ms": 59720,
+  "uuid": "1305c8ac-46fa-4571-8b43-a517cbf2272a",
+  "ttft_stream_ms": 529,
+  "time_to_request_ms": 50,
+  "first_content_frame_ms": 529,
+  "queued_turn_count": 0,
+  "result_index": 5,
+  "model_usage_since_last_result": {},
+  "credential_expires_at": "2026-11-20T19:38:56.427Z"
+}

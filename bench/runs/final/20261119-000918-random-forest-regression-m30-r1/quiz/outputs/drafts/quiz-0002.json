@@ -1,0 +1,111 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Tuning and evaluating a random forest regressor",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Definitions: In a random forest regressor, what does the max_features setting control?",
+      "options": [
+        {"id": "a", "text": "The number of features each tree is trained on, chosen once per tree"},
+        {"id": "b", "text": "The number of features kept after dropping the least important ones"},
+        {"id": "c", "text": "The number of features randomly drawn as split candidates at each split"},
+        {"id": "d", "text": "The maximum number of features allowed along one root-to-leaf path"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "short",
+      "objective": "O3",
+      "stem": "Definitions: In one phrase, what does the min_samples_leaf setting of a regression tree fix?"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Definitions: Which of these best defines the out-of-bag (OOB) score of a random forest regressor?",
+      "options": [
+        {"id": "a", "text": "Prediction error on each row, using only trees whose bootstrap sample excluded that row"},
+        {"id": "b", "text": "Training error of each tree, averaged over the rows that tree was grown on"},
+        {"id": "c", "text": "Error on a held-out test set that the forest never saw during fitting"},
+        {"id": "d", "text": "Error on the rows that a validation split set aside before the forest was fitted"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Definitions: Which statement about the n_estimators setting of a random forest regressor is correct?",
+      "options": [
+        {"id": "a", "text": "It is the number of bootstrap rows drawn to train each single tree"},
+        {"id": "b", "text": "It is the number of candidate split points tried at each node"},
+        {"id": "c", "text": "It is the number of random row subsets each tree is validated on"},
+        {"id": "d", "text": "It is how many separate trees are fitted and then averaged to predict"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Definitions: Which statement correctly describes the RMSE of a regression model?",
+      "options": [
+        {"id": "a", "text": "The share of the target's variance that the model explains, on a scale up to 1"},
+        {"id": "b", "text": "A typical size of the prediction errors, in the target's units, where large misses count extra"},
+        {"id": "c", "text": "The average absolute size of the prediction errors, in the target's units, with every miss counted equally"},
+        {"id": "d", "text": "The square of the average prediction error, so that over- and under-predictions cancel out"}
+      ]
+    },
+    {
+      "id": "q6",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Applying it: A forest of 100 trees with max_features=0.5 and min_samples_leaf=1 is fitted to 50,000 rows with the OOB score switched on. It reaches a training R² of 0.98 and an OOB R² of 0.71. Which change is most likely to raise the OOB R²?",
+      "options": [
+        {"id": "a", "text": "Raise n_estimators from 100 to 1,000 so averaging more trees removes most of the variance"},
+        {"id": "b", "text": "Raise min_samples_leaf from 1 to 10 so each tree fits less noise"},
+        {"id": "c", "text": "Raise max_features from 0.5 to 1.0 so each split can always pick the strongest feature"},
+        {"id": "d", "text": "Remove any depth limit so each tree can grow until every leaf is pure"}
+      ]
+    },
+    {
+      "id": "q7",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "Applying it: At one input, each of the 100 trees in a forest has prediction variance 4. The predictions of any two different trees have correlation 0.5. What is the variance of the forest's averaged prediction at that input?",
+      "unit": "variance (squared target units)"
+    },
+    {
+      "id": "q8",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Applying it: An analyst tries 60 combinations of settings, picks the one with the best R² on the test set, and reports that test R² as the expected performance on new data. How does that figure compare with the model's true performance on new data?",
+      "options": [
+        {"id": "a", "text": "Likely too high: the 60 tries were ranked on these same rows, so the winner partly fits their quirks"},
+        {"id": "b", "text": "Likely too low: the forest never trained on the test rows, so it has not seen them"},
+        {"id": "c", "text": "About right: a forest averages many trees, so choosing settings on the test set cannot bias its score"},
+        {"id": "d", "text": "About right: R² is computed from predictions only, so how the settings were chosen does not matter"}
+      ]
+    },
+    {
+      "id": "q9",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "Applying it: A tuned forest predicts house prices. On four validation rows, its errors (predicted minus actual) are +1, -2, +2 and -4 thousand dollars. What is its RMSE on these rows, in thousand dollars?",
+      "unit": "thousand dollars"
+    },
+    {
+      "id": "q10",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Applying it: A soccer analytics team fits forests to predict expected goals from shot data. The OOB R² is 0.80 with 25 trees, 0.868 with 100 trees, 0.872 with 400 trees and 0.873 with 1,600 trees. Training cost grows in proportion to the number of trees. The team accepts the cheapest forest whose OOB R² is within 0.002 of the best score listed. Which number of trees should it use?",
+      "options": [
+        {"id": "a", "text": "25, because it is the cheapest to train and already scores 0.80"},
+        {"id": "b", "text": "100, because most of the total gain has already arrived by that point"},
+        {"id": "c", "text": "400, because it is the cheapest forest within 0.002 of the best score"},
+        {"id": "d", "text": "1,600, because it has the highest OOB R² of all the forests"}
+      ]
+    }
+  ]
+}

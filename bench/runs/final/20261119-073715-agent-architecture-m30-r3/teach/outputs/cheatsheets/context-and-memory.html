@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cheat sheet: context and memory in an agent</title>
+<style>
+  body { font-family: Georgia, serif; max-width: 46rem; margin: 0 auto; padding: 2rem 1rem; line-height: 1.45; }
+  h1 { font-size: 1.5rem; } h2 { font-size: 1.1rem; margin-top: 1.5rem; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.92rem; }
+  th, td { border-bottom: 1px solid #ccc; text-align: left; padding: 0.35rem 0.5rem; vertical-align: top; }
+  code { background: #f3efe6; padding: 0.1em 0.3em; }
+</style>
+</head>
+<body>
+<h1>Context and memory in an agent</h1>
+<h2>Where information lives</h2>
+<table>
+  <tr><th>Information</th><th>Place</th></tr>
+  <tr><td>Instructions, tool descriptions</td><td>Context, every call</td></tr>
+  <tr><td>This run's history</td><td>Context; trim by clearing, compaction, sub-agent</td></tr>
+  <tr><td>Per-student preferences</td><td>Notes saved by the program, loaded at session start</td></tr>
+  <tr><td>Long manuals</td><td>Chunked store; retrieve the top k</td></tr>
+  <tr><td>Training status, bookings</td><td>Official record, read by a tool at decision time</td></tr>
+</table>
+<h2>Formulas</h2>
+<ul>
+  <li>Total input over n calls: <code>n&middot;S + g&middot;n(n&minus;1)/2</code>. Example: S = 2,050, g = 1,600, n = 4 gives 17,800 tokens.</li>
+  <li>Cosine similarity: <code>u&middot;v / (|u||v|)</code>. Example: (3,4) and (6,8) give 1.</li>
+  <li>Recall = relevant retrieved / all relevant. Precision = relevant retrieved / all retrieved.</li>
+</ul>
+<h2>Rules</h2>
+<ul>
+  <li>The model keeps no state between calls; the program resends the history.</li>
+  <li>The window is a ceiling; the bill follows the tokens sent.</li>
+  <li>A note or a claim never grants a risky permission; read the record through a tool.</li>
+</ul>
+</body>
+</html>

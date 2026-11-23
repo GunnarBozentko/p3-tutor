@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="p3-minutes" content="30">
+  <meta name="p3-objective" content="O2">
+  <title>Plant foot, striking surface and lean: what each one does to a penalty kick</title>
+  <style>
+    :root {
+      --bg: #fffdf8; --text: #1f1d1a; --muted: #6b665e; --rule: #e4dfd4;
+      --accent: #9a4517; --accent-soft: #f7ede4; --warn: #8c2f39; --warn-soft: #f9eaec;
+      --ok: #2f6b3a; --ok-soft: #e7f2e9; --code-bg: #f3efe6;
+      --serif: Charter, "Bitstream Charter", "Iowan Old Style", "Sitka Text", Cambria, Georgia, serif;
+      --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --mono: ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, monospace;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #171614; --text: #e9e5dc; --muted: #a49e93; --rule: #36332e;
+        --accent: #eaa77a; --accent-soft: #2c231d; --warn: #f0a3ac; --warn-soft: #2f1f22;
+        --ok: #9fd3a8; --ok-soft: #1c2a1f; --code-bg: #23211e;
+      }
+    }
+    * { box-sizing: border-box; }
+    html { font-size: 19px; -webkit-text-size-adjust: 100%; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--serif); line-height: 1.6; }
+    main { max-width: 40rem; margin: 0 auto; padding: 3rem 1.25rem 4rem; }
+    p, li { hyphens: auto; }
+    a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+    h1, h2, h3 { line-height: 1.25; font-weight: 600; }
+    h1 { font-size: 2.1rem; margin: 0.25rem 0 1rem; }
+    h2 { font-size: 1.45rem; margin: 3rem 0 0.75rem; }
+    h3 { font-size: 1.1rem; margin: 2rem 0 0.5rem; }
+    .kicker, .label, .meta, .section-time, figcaption, summary, th, nav.toc, footer.closing { font-family: var(--sans); }
+    .kicker { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+    .lead { font-size: 1.15rem; }
+    .meta { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; font-size: 0.85rem; color: var(--muted);
+            border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 0.5rem 0; margin: 1.5rem 0; }
+    nav.toc { font-size: 0.9rem; margin: 1.5rem 0 2rem; }
+    nav.toc ol { padding-left: 1.2rem; margin: 0.4rem 0 0; }
+    .section-time { font-size: 0.8rem; font-weight: 400; color: var(--muted); margin-left: 0.4rem; white-space: nowrap; }
+    dfn { font-style: normal; font-weight: 600; }
+    aside.note { font-size: 0.9rem; color: var(--muted); border-left: 2px solid var(--rule); padding-left: 1rem; margin: 1.25rem 0; }
+    .box { border-radius: 6px; padding: 1rem 1.25rem; margin: 1.75rem 0; }
+    .box > :first-child { margin-top: 0; }
+    .box > :last-child { margin-bottom: 0; }
+    .label { display: block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.4rem; }
+    .mission { background: var(--accent-soft); }
+    .mission .label { color: var(--accent); }
+    .misconception { background: var(--warn-soft); border-left: 4px solid var(--warn); }
+    .misconception .label { color: var(--warn); }
+    .worked { border: 1px solid var(--rule); }
+    .worked ol { padding-left: 1.3rem; }
+    .summary { border: 1px solid var(--rule); }
+    figure { margin: 2rem 0; }
+    figure svg { display: block; width: 100%; height: auto; }
+    figcaption { font-size: 0.85rem; color: var(--muted); margin-top: 0.5rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 1.5rem 0; }
+    th, td { text-align: left; vertical-align: top; padding: 0.45rem 0.6rem; border-bottom: 1px solid var(--rule); }
+    th { font-size: 0.78rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+    code, pre { font-family: var(--mono); font-size: 0.85em; background: var(--code-bg); border-radius: 4px; }
+    code { padding: 0.1em 0.3em; }
+    pre { padding: 1rem; overflow-x: auto; line-height: 1.45; }
+    pre code { padding: 0; background: none; font-size: 1em; }
+    .check { border: 1px solid var(--rule); border-radius: 6px; padding: 1rem 1.25rem; margin: 1.75rem 0; }
+    .check .label { color: var(--accent); }
+    .check p { margin: 0.25rem 0; }
+    .choices { list-style: none; padding: 0; margin: 0.75rem 0 0; display: grid; gap: 0.5rem; }
+    .choices button { width: 100%; text-align: left; font: inherit; font-size: 0.95rem; color: inherit; background: transparent;
+                      border: 1px solid var(--rule); border-radius: 6px; padding: 0.55rem 0.8rem; cursor: pointer; }
+    .choices button:hover { border-color: var(--accent); }
+    .choices button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .choices button.right { border-color: var(--ok); background: var(--ok-soft); }
+    .choices button.wrong { border-color: var(--warn); background: var(--warn-soft); }
+    .feedback { font-size: 0.95rem; margin: 0.6rem 0 0; }
+    .feedback:empty { margin: 0; }
+    details { margin-top: 0.75rem; }
+    summary { font-size: 0.85rem; color: var(--accent); cursor: pointer; }
+    details > :not(summary) { margin: 0.5rem 0 0; }
+    .go-further li { margin-bottom: 0.6rem; }
+    footer.closing { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--rule); font-size: 0.9rem; color: var(--muted); }
+    @media (max-width: 32rem) { html { font-size: 17px; } h1 { font-size: 1.75rem; } main { padding-top: 2rem; } }
+    @media print {
+      :root { --bg: #fff; --text: #000; --muted: #444; --rule: #ccc; --accent: #000; --accent-soft: #f2f2f2;
+              --warn: #000; --warn-soft: #f2f2f2; --ok: #000; --ok-soft: #fff; --code-bg: #f2f2f2; }
+      html { font-size: 11.5pt; }
+      main { max-width: none; padding: 0; }
+      nav.toc { display: none; }
+      a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.8em; word-break: break-all; }
+      .box, .check, figure, table, pre { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+<main>
+
+  <header>
+    <div class="kicker">Lesson 1 &middot; 30 minutes</div>
+    <h1>Plant foot, striking surface and lean: what each one does to a penalty kick</h1>
+    <p class="lead">By the end of this lesson you can look at a miss, a save or a shot over the bar and name which input caused it (the plant foot's position, the contact point on the ball, the striking surface, meaning the part of the foot that hits the ball, or the lean of the body), and the one change that fixes it.</p>
+    <div class="meta">
+      <span>Objective O2: how the plant foot, the striking surface and the body's lean change accuracy, power and height</span>
+      <span>About 30 minutes</span>
+    </div>
+    <div class="box mission">
+      <span class="label">Why this matters for you</span>
+      <p>Your goal is to place the ball in the corner with power. Right now you kick as hard as possible and plant behind the ball, and some shots go over the bar. This lesson explains why, so you fix the cause instead of guessing.</p>
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="In this lesson">
+    <strong>In this lesson</strong>
+    <ol>
+      <li><a href="#warm-up">Warm-up</a></li>
+      <li><a href="#big-idea">The big idea: four inputs, three outputs</a></li>
+      <li><a href="#plant">The plant foot sets the height</a></li>
+      <li><a href="#contact">The contact point on the ball</a></li>
+      <li><a href="#surface">The striking surface: laces or inside of the foot</a></li>
+      <li><a href="#lean">Body lean: a symptom more than a cause</a></li>
+      <li><a href="#practice">Worked example and practice</a></li>
+      <li><a href="#summary">Summary</a></li>
+      <li><a href="#further">Go further</a></li>
+    </ol>
+  </nav>
+
+  <section id="warm-up">
+    <h2>Warm-up <span class="section-time">2 min</span></h2>
+    <p>Inputs at the foot set three outputs of the ball: accuracy, power and height. The next section defines them. Test your intuition on one input first. Take a pen and paper.</p>
+    <div class="check">
+      <span class="label">Predict</span>
+      <p>You plant 25 cm behind the ball and swing as hard as you can. A football is about 22 cm across. Which output suffers most: accuracy (how close the ball lands to the aim point), power (ball speed) or height (ball height at the goal line)? Write one sentence.</p>
+      <details>
+        <summary>Check your answer</summary>
+        <p>Height. A plant foot behind the ball puts contact on the upswing, the part of the swing where the foot is rising, so the ball rises. The plant-foot section shows why.</p>
+      </details>
+    </div>
+    <div class="check">
+      <span class="label">Your own numbers</span>
+      <p>Write down the results of your last 10 penalties: scored, saved, wide, over the bar. You reuse them in the practice section.</p>
+      <details>
+        <summary>How to read them</summary>
+        <p>Over-the-bar shots point to height, which the plant-foot and contact-point sections explain. Wide shots point to accuracy, which the striking-surface section explains. Saved shots in the middle point to placement, covered in the same section.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="big-idea">
+    <h2>The big idea: four inputs, three outputs <span class="section-time">3 min</span></h2>
+    <p>A penalty kick turns the speed of your foot into the speed and direction of the ball. Three outputs describe the result: <dfn>accuracy</dfn>, how close the ball lands to the spot you aimed at; <dfn>power</dfn>, the speed of the ball leaving your foot; and <dfn>height</dfn>, how high the ball is when it reaches the goal line. Four inputs set those outputs: where the plant foot (the foot you stand on) lands, where on the ball the foot makes contact, which part of the foot hits the ball, and how the body leans.</p>
+    <p>Example: the same player, the same keeper, two penalties. Kick 1: plant beside the ball and strike the centre with the inside of the foot (the side-foot). The ball is slower, but low and on target. Kick 2: plant 25 cm behind the ball and strike with the laces at full power. The ball is fast and sails over the bar. Only the inputs differ.</p>
+    <p>Statistics analogy: treat the four inputs as predictors in a regression and the three outputs as responses. Lean behaves like a predictor confounded with plant foot position: it looks related to height only because both respond to the plant foot. Once you control for the plant foot, lean adds little to height, which is the direction the sources point. They are coaching articles, not regressions, so read this as an analogy only.</p>
+    <p>Four terms recur. The <dfn>laces</dfn> are the top of the foot where the boot is laced, also called the instep. The <dfn>inside of the foot</dfn> is the flat inner side, also called the side-foot. The <dfn>contact point</dfn> is the spot on the ball your foot touches. The <dfn>knee snap</dfn> is the fast straightening of the leg below the knee.</p>
+    <p>In the tables, <dfn>spread</dfn> means how widely repeated kicks scatter around the aim point.</p>
+    <table>
+      <thead><tr><th>Input</th><th>Mainly changes</th><th>Direction of the effect</th></tr></thead>
+      <tbody>
+        <tr><td>Plant foot position</td><td>Height, then accuracy</td><td>Behind the ball: ball rises. Beside the ball: ball stays low.</td></tr>
+        <tr><td>Contact point on the ball</td><td>Height</td><td>Below the ball's centre: ball rises. At the centre: ball stays level.</td></tr>
+        <tr><td>Striking surface</td><td>Power and accuracy</td><td>Laces: more power, more spread. Inside of foot: less power, tighter spread.</td></tr>
+        <tr><td>Body lean</td><td>Mostly a sign of the plant foot</td><td>Leaning back usually goes with a plant foot that is too far behind.</td></tr>
+      </tbody>
+    </table>
+    <p>Now the same idea input by output. Each cell says what the sources report, and where no source measures an effect, it says so.</p>
+    <table>
+      <thead><tr><th></th><th>Accuracy</th><th>Power</th><th>Height</th></tr></thead>
+      <tbody>
+        <tr><td>Plant foot</td><td>Toes at the target keep the swing on line</td><td>No extra power from planting behind: power comes from the knee snap</td><td>Behind the ball: the ball rises</td></tr>
+        <tr><td>Striking surface</td><td>Inside of the foot has less error spread</td><td>Laces give more, by the usual coaching view</td><td>Not claimed: the contact point decides</td></tr>
+        <tr><td>Contact point</td><td>Left or right of the centre sends the ball off line</td><td>Centre contact gives control and speed</td><td>Below the centre: the ball rises</td></tr>
+        <tr><td>Lean</td><td>No source measures this: lean mainly signals the plant foot</td><td>Leaning back adds range of motion</td><td>Little by itself</td></tr>
+      </tbody>
+    </table>
+    <div class="check">
+      <span class="label">Quick check</span>
+      <p>You plant beside the ball, strike the centre, but your shots drift wide of the aim point. Which input do you suspect first?</p>
+      <details>
+        <summary>Check your answer</summary>
+        <p>The toe direction of the plant foot. Coaching American Soccer says to point it directly at the target. The reason, that an off-target foot turns the hips and the swing, is this lesson's own mechanical reasoning, not a quoted claim.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="plant">
+    <h2>The plant foot sets the height <span class="section-time">6 min</span></h2>
+    <p>Everyday version: on a playground swing, let go at the lowest point and you fly out level. Let go on the way up and you fly upward. The seat is the kicking foot, the lowest point of the arc is the point under the hip, letting go is contact with the ball, and your flight direction is the ball's launch direction. A plant foot behind the ball means you "let go" on the way up.</p>
+    <p>Your kicking leg swings like a pendulum that hangs from the hip. The hip sits above the plant foot. The kicking foot travels fastest and flattest at the bottom of its swing, directly under the hip, which is beside the plant foot. If the plant foot is beside the ball, the bottom of the swing is at the ball, so the foot is moving level when it hits. If the plant foot is behind the ball, the foot has already passed the bottom and is rising at contact, so it scoops the ball upward.</p>
+    <p>This is a simplified model, not a source claim. In practice the lower leg whips from the knee, so power comes from the knee snap (<a href="https://coachdeck.com/blogs/news/striking-the-ball">Brownlee, 2018</a>). The point holds either way: with the plant foot beside the ball, contact happens while the foot is moving level, and with it behind, the foot is still rising.</p>
+    <p>One coaching article on kicking technique says to plant the foot beside the ball, and says a plant foot behind the ball makes the kicking foot reach forward and contact the ball below its centre ("<a href="https://soccerfitness.ca/?p=6087">Coaches &ndash; Don't Make This Mistake When Teaching Kicking Technique</a>", Zafar, 2017). Another says that a plant foot placed behind the ball puts the plane of the instep (the angle of the top of the foot) on the upswing, while a plant foot beside the ball gives a low flight ("<a href="https://coachingamericansoccer.com/?p=9457">Plant Foot, Body Lean, and Accuracy in the Instep Drive</a>").</p>
+
+    <figure>
+      <svg viewBox="0 0 640 250" role="img" aria-labelledby="fig1-title">
+        <title id="fig1-title">Two side views of a kick. With the plant foot beside the ball, the kicking foot moves level and the ball leaves low. With the plant foot behind the ball, the foot moves upward and the ball leaves high.</title>
+        <defs>
+          <marker id="arrow1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+          </marker>
+        </defs>
+        <g fill="none" stroke="currentColor" stroke-width="1.5">
+          <line x1="10" y1="206" x2="310" y2="206"/>
+          <line x1="330" y1="206" x2="630" y2="206"/>
+          <circle cx="200" cy="186" r="20"/>
+          <circle cx="520" cy="186" r="20"/>
+          <line x1="200" y1="60" x2="200" y2="206" stroke-dasharray="5 4" style="stroke: var(--accent)"/>
+          <line x1="420" y1="60" x2="420" y2="206" stroke-dasharray="5 4" style="stroke: var(--warn)"/>
+          <line x1="40" y1="190" x2="172" y2="190" marker-end="url(#arrow1)"/>
+          <line x1="226" y1="186" x2="305" y2="184" marker-end="url(#arrow1)"/>
+          <line x1="350" y1="204" x2="494" y2="190" marker-end="url(#arrow1)"/>
+          <line x1="546" y1="176" x2="625" y2="112" marker-end="url(#arrow1)"/>
+        </g>
+        <g fill="currentColor" font-family="system-ui, sans-serif" font-size="18">
+          <text x="10" y="28">A. Plant foot beside the ball</text>
+          <text x="330" y="28">B. Plant foot behind the ball</text>
+          <text x="204" y="56" style="fill: var(--accent)" text-anchor="middle">plant foot</text>
+          <text x="420" y="56" style="fill: var(--warn)" text-anchor="middle">plant foot</text>
+          <text x="40" y="170">foot moves level</text>
+          <text x="352" y="170">foot moving up</text>
+          <text x="230" y="232">ball stays low</text>
+          <text x="500" y="232">ball rises</text>
+        </g>
+      </svg>
+      <figcaption>Figure 1. The vertical dashed line marks where the plant foot stands. In A the foot meets the ball at the bottom of its swing. In B the foot meets the ball after the bottom, while it is still rising.</figcaption>
+    </figure>
+
+    <p>The plant foot also affects accuracy. Coaching American Soccer says the toes should point at the target, and it gives a lateral distance of about 6 to 8 inches, roughly 15 to 20 centimetres, from the ball (Coaching American Soccer, as above). A plant foot pointing left or right of the target turns the hips with it, and the kicking leg follows the hips. That reason is this lesson's own mechanical reasoning, not a quoted claim.</p>
+
+    <div class="box misconception">
+      <span class="label">A common mix-up</span>
+      <p>"Planting further back gives a longer swing, so the ball gets more power." The idea is tempting because a longer pendulum looks faster. But the speed of the foot at contact depends on where in the swing it hits the ball, and a plant foot behind the ball moves that point past the fast, low part of the swing. You gain a little swing length and lose a flat contact. Brownlee adds that power comes from the knee snap, so a longer whole-leg swing buys little. From 11 metres, a ball that leaves above about 17 degrees at 25 m/s goes over the bar, and a rising foot uses up much of the margin below that.</p>
+    </div>
+
+    <div class="box worked">
+      <span class="label">Five-minute daylight drill</span>
+      <ul>
+        <li>Put a cone 15 to 20 cm to the side of the ball, level with its centre.</li>
+        <li>Plant against the cone, toes at the target.</li>
+        <li>Take 5 kicks at about 70 percent effort, filmed from the side.</li>
+        <li>Count how many go over the bar. Repeat once with the plant foot 25 cm behind the ball, and compare the counts.</li>
+      </ul>
+    </div>
+
+    <div class="check" data-check>
+      <span class="label">Check yourself</span>
+      <p>A player's shots keep sailing over the crossbar. The video shows the plant foot landing a full foot length behind the ball. What is the first fix?</p>
+      <ul class="choices">
+        <li><button type="button" data-correct="false" data-why="Aiming lower does not change the swing. The foot is still rising at contact, so the ball still gets lift.">Aim at a lower point on the goal</button></li>
+        <li><button type="button" data-correct="false" data-why="A harder swing with the same rising foot only launches the ball faster at the same upward angle.">Swing harder with a longer back lift (leg drawn back)</button></li>
+        <li><button type="button" data-correct="true" data-why="Moving the plant foot beside the ball puts the bottom of the swing at the ball, so contact is level.">Plant the foot beside the ball instead</button></li>
+      </ul>
+      <p class="feedback" aria-live="polite"></p>
+      <details>
+        <summary>Show the answer</summary>
+        <p>Plant the foot beside the ball. Aiming lower or swinging harder leaves the foot rising at contact, which is the cause of the lift.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>The contact point on the ball <span class="section-time">4 min</span></h2>
+    <p>The contact point sets how the ball leaves the foot: a hit below the ball's centre lifts it, and a hit at the centre keeps it level. Example: a lofted clearance is struck under the ball and climbs, while a driven pass is struck through the middle and stays flat. The plant foot decides the path of the foot, and the contact point is where that path meets the ball. Sources agree. Hitting the ball below its centre lifts it, and hitting it at the centre keeps it level ("Coaches &ndash; Don't Make This Mistake When Teaching Kicking Technique", above). Another coaching post says the height of an instep strike is related only to the point on the ball where the foot makes contact, with the top half keeping the ball low ("<a href="https://www.soccerfitness.ca/?p=5536">Coaches &ndash; Don't Make This Technical Mistake With Your Players</a>", 2016). A third says to strike the centre: not top, not bottom, not left, not right ("<a href="https://coachdeck.com/blogs/news/striking-the-ball">Striking the Ball</a>", Brownlee, 2018).</p>
+    <p>The sources differ slightly. Brownlee says strike the centre. Soccer Fitness says contact slightly above the midline (the horizontal line through the ball's centre) also keeps the ball low. For this course, aim at the centre and treat anything below it as the risk.</p>
+    <p>The same logic applies sideways. Brownlee says not left and not right of the centre. Contact off to one side sends the ball off line, which is this lesson's own reasoning, not a source claim. Centre contact is what gives both control and speed.</p>
+
+    <h3>How much lift is too much? A height model</h3>
+    <p>The crossbar is 2.44 metres high and the penalty mark is 11 metres from the goal line. A simple model shows how little upward angle you can afford. Let <code>v</code> be the launch speed, <code>a</code> the launch angle above the ground, <code>d = 11</code> m the distance, and <code>h0 = 0.11</code> m the height of the ball's centre at the start. Ignoring air drag and spin, the height at the goal line is:</p>
+    <pre><code>t = d / (v * cos(a))                     # time to travel d
+h = h0 + d * tan(a) - 0.5 * 9.81 * t**2  # height at the goal line</code></pre>
+    <p>This is an illustration, not a measurement of your kick. Take <code>v = 25</code> m/s, about 90 km/h. Here is what different launch angles give:</p>
+
+    <figure>
+      <svg viewBox="0 0 640 300" role="img" aria-labelledby="fig2-title">
+        <title id="fig2-title">Bar chart of the ball's height at the goal line for launch angles of 6, 10, 15, 17 and 18 degrees, at 25 metres per second. The bar for 18 degrees goes over the 2.44 metre crossbar.</title>
+        <g fill="none" stroke="currentColor" stroke-width="1.5">
+          <line x1="40" y1="250" x2="620" y2="250"/>
+          <line x1="40" y1="79" x2="620" y2="79" stroke-dasharray="6 4" style="stroke: var(--warn)"/>
+        </g>
+        <g stroke="none">
+          <rect x="60" y="228" width="80" height="22" style="fill: var(--ok)"/>
+          <rect x="170" y="175" width="80" height="75" style="fill: var(--ok)"/>
+          <rect x="280" y="107" width="80" height="143" style="fill: var(--ok)"/>
+          <rect x="390" y="80" width="80" height="170" style="fill: var(--accent)"/>
+          <rect x="500" y="66" width="80" height="184" style="fill: var(--warn)"/>
+        </g>
+        <g fill="currentColor" font-family="system-ui, sans-serif" font-size="18" text-anchor="middle">
+          <text x="100" y="220">0.31 m</text>
+          <text x="210" y="167">1.07 m</text>
+          <text x="320" y="99">2.04 m</text>
+          <text x="430" y="72">2.43 m</text>
+          <text x="540" y="58">2.63 m</text>
+          <text x="100" y="274">6&deg;</text>
+          <text x="210" y="274">10&deg;</text>
+          <text x="320" y="274">15&deg;</text>
+          <text x="430" y="274">17&deg;</text>
+          <text x="540" y="274">18&deg;</text>
+          <text x="120" y="294" text-anchor="start" font-size="16">launch angle</text>
+          <text x="610" y="72" text-anchor="end" style="fill: var(--warn)" font-size="16">crossbar 2.44 m</text>
+        </g>
+      </svg>
+      <figcaption>Figure 2. Height at the goal line for a 25 m/s ball from 11 m, ignoring drag and spin. One extra degree near 17&deg; is the difference between hitting the bar area and going over it.</figcaption>
+    </figure>
+
+    <p>Reading the chart: a launch angle of 10 degrees already puts the ball at 1.07 m, well above the ground. At 18 degrees the ball is 2.63 m high and goes over the bar. The model gives a ceiling of about 17 degrees. A real ball also has drag and spin, so treat the exact number as approximate.</p>
+    <p>The sources give no launch angle for a plant foot behind the ball, so the chart shows only your margin: about 17 degrees at 25 m/s. Film your own kick from the side and compare the ball's early flight with that margin. A few extra degrees of lift from a rising foot, or from contact below the centre, use up much of it.</p>
+    <p>Derivation: the horizontal speed is <code>v cos a</code>, so <code>t = d / (v cos a)</code>. The height is <code>h0 + (v sin a) t - 0.5 g t&sup2;</code>. Since <code>(v sin a) t = d tan a</code>, this gives the second line of the code.</p>
+    <p>Check one number by hand, at 25 m/s and 12 degrees:</p>
+    <ul>
+      <li>Time: <code>t = 11 / (25 x cos 12&deg;) = 11 / 24.45 = 0.450 s</code>.</li>
+      <li>Height: <code>h = 0.11 + 11 x tan 12&deg; - 0.5 x 9.81 x 0.450&sup2; = 0.11 + 2.338 - 0.992 = 1.46 m</code>.</li>
+      <li>Margin under the 2.44 m bar: 2.44 - 1.46 = 0.98 m.</li>
+    </ul>
+    <div class="box misconception">
+      <span class="label">A common mix-up</span>
+      <p>"Contact slightly below the centre adds power as well as lift." It is tempting because a lifted ball looks fast. But below-centre contact adds lift, which uses up the height margin, and Brownlee says to strike the centre. Speed comes from the knee snap, not from hitting low.</p>
+    </div>
+
+    <div class="check" data-check>
+      <span class="label">Check yourself</span>
+      <p>Two kicks leave at the same speed. Kick X leaves at 6 degrees and kick Y at 15 degrees. Using the model above, which statement is correct at the goal line?</p>
+      <ul class="choices">
+        <li><button type="button" data-correct="true" data-why="From the chart, X is at about 0.31 m and Y at about 2.04 m, which is close to the bar.">Y is about 1.7 m higher than X</button></li>
+        <li><button type="button" data-correct="false" data-why="Both are below 2.44 m, but their heights differ by a lot, so they are far from equal.">X and Y finish at similar heights</button></li>
+        <li><button type="button" data-correct="false" data-why="Y is below the 2.44 m crossbar at 15 degrees. It only goes over at about 18 degrees.">Y has gone over the bar</button></li>
+      </ul>
+      <p class="feedback" aria-live="polite"></p>
+      <details>
+        <summary>Show the answer</summary>
+        <p>Y is about 1.7 m higher: 2.04 m minus 0.31 m. It is still under the bar, but with very little margin.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="surface">
+    <h2>The striking surface: laces or inside of the foot <span class="section-time">5 min</span></h2>
+    <p>Example: a side-foot pass to a teammate 10 m away arrives slowly but lands on target. A laces clearance travels fast and far but can land anywhere in a wide area. A penalty has the same trade-off.</p>
+    <p>The striking surface decides how much speed reaches the ball and how repeatable the contact is. The laces give a hard, narrow contact at the end of a fast whip of the lower leg. The inside of the foot gives a wide, flat contact at the end of a shorter, more controlled swing. Power comes from the knee snap, the fast extension of the leg below the knee (Brownlee, above). The laces let the foot whip through faster. The inside of the foot sacrifices some of that speed for a larger, steadier contact area.</p>
+    <p>No source in this lesson measures the power difference. It is the standard coaching explanation, so confirm it on your own video: compare ball speed from 5 laces kicks and 5 side-foot kicks. Height is not set by the surface. The sources tie height to the plant foot and the contact point.</p>
+    <p>Research supports this trade-off. A summary of a study of 20 experienced players and 8,466 kicks reports that side-foot kicks were more accurate than instep kicks, that the variance of the error grew as ball speed rose, and that accuracy was higher for low targets than for high ones ("<a href="https://lida.sport-iat.de/twm/Record/4047769?lng=en">Modeling the two-dimensional accuracy of soccer kicks</a>", research record). I could only read this as a summary, so treat it as indicative. A coaching article puts the principle simply: "Power should never supersede accuracy – power is added to accuracy" (Coaching American Soccer, above).</p>
+
+    <h3>The statistics of a miss</h3>
+    <p>This is the variance half of bias-variance. The aim point is the mean, and the angle error is the spread around it, measured by the standard deviation. The study record reports that the spread grew as ball speed rose. The lateral miss at the goal, <code>m</code>, from an angle error <code>e</code> at distance 11 m is:</p>
+    <pre><code>m = 11 * tan(e)          # e in degrees
+# e = 1 deg -> m = 0.19 m
+# e = 3 deg -> m = 0.58 m</code></pre>
+    <p>Now compare two kicks at a target 0.5 m inside the post. A 1-degree error, 0.19 m, still scores. A 3-degree error, 0.58 m, hits the post or misses wide. The ball has a radius of 0.11 m, so the real margin to the post is about 0.39 m, and the conclusion is the same. If your laces drive has a 3-degree spread and your side-foot has a 1-degree spread, the side-foot places the ball in the corner more often, even though it is slower.</p>
+
+    <table>
+      <thead><tr><th>Surface</th><th>Power</th><th>Accuracy (spread)</th><th>Use it when</th></tr></thead>
+      <tbody>
+        <tr><td>Laces (instep)</td><td>Higher</td><td>Wider spread</td><td>You trust your contact point and want speed in a roomy target.</td></tr>
+        <tr><td>Inside of the foot</td><td>Lower</td><td>Tighter spread</td><td>You are aiming at a corner and a few centimetres decide the kick.</td></tr>
+      </tbody>
+    </table>
+
+    <aside class="note">Why not always pick the inside of the foot? A slower ball gives the keeper more time. At 25 m/s the ball covers 11 m in about 0.44 s, and at 18 m/s in about 0.61 s, ignoring drag. This lesson does not claim how much of that time a keeper uses. It shows that speed and placement trade against each other, so the choice is a trade-off, not a rule.</aside>
+
+    <div class="box misconception">
+      <span class="label">A common mix-up</span>
+      <p>"Power matters more than placement, so I should hit it as hard as I can." This is tempting because a fast ball looks unstoppable. But a ball that misses wide, hits the keeper or goes over the bar scores nothing, however fast it was. Power is added to accuracy, not a substitute for it. A well-placed ball at moderate speed beats a wild ball at full speed.</p>
+    </div>
+
+    <div class="check" data-check>
+      <span class="label">Check yourself</span>
+      <p>A player hits the target 8 times in 10 with the inside of the foot, but the keeper reaches every shot. What does the trade-off suggest trying next?</p>
+      <ul class="choices">
+        <li><button type="button" data-correct="false" data-why="Planting behind the ball adds lift, not speed, so shots start going over the bar.">Plant further behind the ball for lift</button></li>
+        <li><button type="button" data-correct="false" data-why="Leaning back is not a source of controlled power, and it points to a plant foot that is too far back.">Lean back to add more shot power</button></li>
+        <li><button type="button" data-correct="true" data-why="The slower side-foot ball gives the keeper time. A harder swing, or the laces, adds speed at the cost of more spread.">Add some speed and accept more spread</button></li>
+      </ul>
+      <p class="feedback" aria-live="polite"></p>
+      <details>
+        <summary>Show the answer</summary>
+        <p>Add some speed and accept more spread. The side-foot kick is accurate but slow, so the keeper has time. Trade a little accuracy for speed, for example with a firmer swing, and keep the plant foot beside the ball.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="lean">
+    <h2>Body lean: a symptom more than a cause <span class="section-time">4 min</span></h2>
+    <p><dfn>Body lean</dfn> is the angle of your trunk, from hips to shoulders, relative to vertical at the moment of contact. The general point is that lean mostly reflects the plant foot position instead of setting height itself. Example: plant 25 cm behind the ball and the trunk tips back to reach it, so the backward lean on video is a consequence of the plant foot. A common coaching rule says that leaning back sends the ball over the bar, so lean over the ball. One source recommends a slight forward lean with the weight over the plant foot to keep shots low (Coaching American Soccer, above).</p>
+    <p>The sources disagree on how much lean itself matters. One says leaning back does not necessarily send the ball high, and advises planting the foot beside the ball (Zafar, above). Another calls "lean forward" and "chest over the ball" side effects of having proper foot geometry (plant foot beside the ball, toes at the target), and says that with proper geometry it is not possible to lean back or to have the standing foot far from the ball (Brownlee, above). A third argues that keeping the body over the ball has no relevance to height (Soccer Fitness, 2016, above).</p>
+    <p>Plant foot position and contact point are the causes of height. When you see yourself leaning back on video, check the plant foot first. Fixing the plant foot usually fixes the lean, and fixing the lean without the plant foot usually does not fix the height.</p>
+    <p>Lean has a power side too. Zafar says that leaning back maximizes the range of motion and muscle recruitment of the kicking leg, and that numerous studies show maximum power is generated this way. This lesson found no measure of the size of the gain. Coaching American Soccer recommends a slight forward lean over the ball to keep shots low. For a penalty, a high ball scores nothing, so favour low.</p>
+
+    <div class="box misconception">
+      <span class="label">A common mix-up</span>
+      <p>"I only need to lean forward and the ball will stay low." It is tempting because the advice is simple and often correct on video. But if the plant foot is still behind the ball, the foot is still rising at contact. Treat lean as a check on your set-up, not as the control.</p>
+    </div>
+
+    <div class="check" data-check>
+      <span class="label">Check yourself</span>
+      <p>On video you lean back and the ball goes high. The plant foot is beside the ball and you hit the ball at its centre. According to the sources, what should you suspect next? (The choices assume lean alone is not the cause.)</p>
+      <ul class="choices">
+        <li><button type="button" data-correct="false" data-why="That would be the cause if lean alone set the height, but the sources say foot geometry and contact point do.">Lean is the only cause, so lean forward</button></li>
+        <li><button type="button" data-correct="false" data-why="The sources tie height to the plant foot and the contact point, not to the surface.">The laces are the cause, so use the inside</button></li>
+        <li><button type="button" data-correct="true" data-why="Soccer Fitness (2016) says height is related only to the contact point, so confirm on video where the foot met the ball.">Recheck where the foot met the ball</button></li>
+      </ul>
+      <p class="feedback" aria-live="polite"></p>
+      <details>
+        <summary>Show the answer</summary>
+        <p>Recheck where the foot met the ball. With the plant foot beside the ball and centre contact, the sources do not predict a high ball, so the contact point is probably not where you think it is.</p>
+      </details>
+    </div>
+  </section>
+
+  <section id="practice">
+    <h2>Worked example and practice <span class="section-time">5 min</span></h2>
+    <div class="box worked">
+      <span class="label">Worked example</span>
+      <p>A player takes 10 penalties with the laces. Four go over the bar. Three hit the target but are saved in the middle. Three score in the corners. Video shows the plant foot about 25 cm behind the ball and a backward lean. Diagnose the over-the-bar shots and give the fix.</p>
+      <ol>
+        <li>Name the output that failed. Four of ten went over the bar, so the problem is height.</li>
+        <li>Name the input that controls height. Plant foot position and contact point control height. Lean is a symptom.</li>
+        <li>Read the video. The plant foot is 25 cm behind the ball, so the foot is rising at contact and the ball leaves with extra lift.</li>
+        <li>Check the margin. The ball goes over the bar above about 17 degrees at 25 m/s, so even a few extra degrees of lift from a rising foot use up the margin.</li>
+        <li>Fix. Plant beside the ball, 15 to 20 cm to the side, toes at the target, and strike the centre of the ball.</li>
+        <li>Re-test. Track the over-the-bar count across the next 10 kicks. The backward lean should shrink as a side effect.</li>
+      </ol>
+    </div>
+    <div class="check">
+      <span class="label">Your turn: the margin</span>
+      <p>Same speed, 25 m/s, but a launch angle of 16 degrees. Compute the height at the goal line and the margin under the 2.44 m bar. The first step is the time to the goal line.</p>
+      <details>
+        <summary>Show a solution</summary>
+        <ul>
+          <li>cos 16&deg; = 0.9613, so t = 11 / (25 x 0.9613) = 0.458 s.</li>
+          <li>h = 0.11 + 11 x tan 16&deg; - 0.5 x 9.81 x 0.458&sup2; = 0.11 + 3.154 - 1.029 = 2.24 m.</li>
+          <li>Margin: 2.44 - 2.24 = 0.20 m. One more degree takes the ball to about 2.43 m, almost on the bar.</li>
+        </ul>
+      </details>
+    </div>
+    <div class="check">
+      <span class="label">Your turn: a wide miss</span>
+      <p>A player plants beside the ball and strikes the centre, but the ball finishes 0.8 m wide of the aim point from 11 m. Which output failed, and what do you check first? Compute the angle error.</p>
+      <details>
+        <summary>Show a solution</summary>
+        <p>Accuracy failed. Check the plant foot's toe direction first, because a toe pointing off target turns the hips. Then check for contact left or right of the centre. The angle error is atan(0.8 / 11), about 4.2 degrees.</p>
+      </details>
+    </div>
+    <div class="check">
+      <span class="label">Your turn: a hard laces swing</span>
+      <p>A different player plants correctly and strikes the centre, so none go over the bar. Aiming 0.7 m inside the post, 5 of 10 miss wide or hit the post. A video shows a very hard swing with the laces. First step given: the failed output is accuracy. Now (a) name the input that most plausibly causes it, (b) give the change, and (c) compute the largest angle error that still scores from 11 m, using <code>e = atan(0.7 / 11)</code>.</p>
+      <details>
+        <summary>Show a solution</summary>
+        <ul>
+          <li>(a) The striking surface and swing effort: a hard laces swing has a wider error spread.</li>
+          <li>(b) Switch to the inside of the foot and reduce the swing effort slightly, so the spread narrows.</li>
+          <li>(c) <code>atan(0.7 / 11)</code> is about 3.6 degrees. Any error beyond that hits the post or goes wide, so the kick needs a spread well under 3.6 degrees.</li>
+        </ul>
+      </details>
+    </div>
+  </section>
+
+  <section id="summary">
+    <h2>Summary <span class="section-time">1 min</span></h2>
+    <table>
+      <thead><tr><th>Symptom on video</th><th>Check first</th><th>Fix</th></tr></thead>
+      <tbody>
+        <tr><td>Ball goes over the bar</td><td>Plant foot behind the ball; contact below the centre</td><td>Plant beside the ball, 15 to 20 cm to the side; strike the centre</td></tr>
+        <tr><td>Ball finishes wide or on the post</td><td>Toe direction; error spread of a full-power laces kick</td><td>Toes at the target; inside of the foot or a softer swing</td></tr>
+        <tr><td>You lean back</td><td>Plant foot position</td><td>Fix the plant foot, then recheck the lean</td></tr>
+      </tbody>
+    </table>
+    <div class="box summary">
+      <ul>
+        <li>The plant foot beside the ball puts the bottom of the swing at the ball, so contact is level and the ball stays low. A plant foot behind the ball makes the foot rise at contact and lifts the ball.</li>
+        <li>Contact below the ball's centre adds lift. In the simple model, a ball at 25 m/s from 11 m goes over the bar above about 17 degrees.</li>
+        <li>The laces give more power and a wider error spread. The inside of the foot gives less power and a tighter spread. For a corner target, a small spread usually matters more than the last few km/h, but the keeper's time is part of the trade.</li>
+        <li>Lean is mostly a symptom. Check the plant foot and contact point first.</li>
+      </ul>
+      <p><strong>Say it in your own words:</strong> without looking, explain to a teammate why planting behind the ball for a longer swing can send the ball over the bar, and what you would change first.</p>
+    </div>
+  </section>
+
+  <section id="further" class="go-further">
+    <h2>Go further</h2>
+    <p><strong>Read or watch next:</strong> <a href="https://soccerfitness.ca/?p=6087">Coaches &ndash; Don't Make This Mistake When Teaching Kicking Technique</a>, the clearest of the sources on why the plant foot beside the ball matters more than lean.</p>
+    <ul>
+      <li><a href="https://coachingamericansoccer.com/?p=9457">Plant Foot, Body Lean, and Accuracy in the Instep Drive</a>: plant foot distance, toe direction and the instep's plane at contact.</li>
+      <li><a href="https://coachdeck.com/blogs/news/striking-the-ball">Striking the Ball</a>: foot geometry, a locked ankle and why lean is a side effect.</li>
+      <li><a href="https://www.soccerfitness.ca/?p=5536">Coaches &ndash; Don't Make This Technical Mistake With Your Players</a>: contact point and ball height.</li>
+      <li><a href="https://lida.sport-iat.de/twm/Record/4047769?lng=en">Modeling the two-dimensional accuracy of soccer kicks</a>: the record of the study on side-foot accuracy and error spread.</li>
+    </ul>
+    <p><strong>Test it with others:</strong> your own team's goalkeeper and coach. Ask the keeper to stand in goal for 10 penalties while a teammate films your plant foot from the side, then compare your plant foot position with where each shot ends up.</p>
+    <p>All these sources are coaching articles or an abstract-level record, not full experiments on penalty kicks. Treat the numbers as guides and confirm them on your own video.</p>
+  </section>
+
+  <footer class="closing">
+    <p>Questions on any part: ask me in the chat.</p>
+    <p>A short quiz on this lesson is ready (quiz 0002, on this lesson, O2): ask me for it when you want to check what stuck.</p>
+  </footer>
+
+</main>
+<script>
+  document.querySelectorAll("[data-check]").forEach(function (box) {
+    var buttons = box.querySelectorAll("button[data-correct]");
+    var out = box.querySelector(".feedback");
+    buttons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        buttons.forEach(function (b) { b.classList.remove("right", "wrong"); });
+        var right = button.getAttribute("data-correct") === "true";
+        button.classList.add(right ? "right" : "wrong");
+        if (out) { out.textContent = (right ? "Correct. " : "Incorrect. ") + (button.getAttribute("data-why") || ""); }
+      });
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+{
+  "duration_api_ms": 91938,
+  "stop_reason": "end_turn",
+  "session_id": "a9e009f8-1942-4745-a474-237a1a8bd1ca",
+  "total_cost_usd": 0.41104379999999996,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 6736,
+    "cache_read_input_tokens": 138597,
+    "output_tokens": 4180,
+    "output_tokens_details": {
+      "thinking_tokens": 414
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 6736,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 380,
+        "cache_read_input_tokens": 47872,
+        "cache_creation_input_tokens": 3039,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 3039
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 44,
+      "outputTokens": 13782,
+      "cacheReadInputTokens": 514333,
+      "cacheCreationInputTokens": 67015,
+      "webSearchRequests": 0,
+      "costUSD": 0.41104379999999996,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 3109,
+      "cacheCreationEphemeral5mInputTokens": 30905,
+      "cacheCreationEphemeral1hInputTokens": 36110,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "origin": {
+    "kind": "task-notification",
+    "producer": "session-task",
+    "runId": "0mwmuci4p-a246fd78"
+  },
+  "subagent_stats": {
+    "spawned": 2,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 2
+    },
+    "started_in_background": 2,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 2,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "grader": 1,
+      "grade-reviewer": 1
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 7,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I graded quiz 0001: two correct, one partial and one wrong.\n\n- **q1 (follow-through):** Correct.\n- **q2 (penalty mark distance):** Correct. You answered 12 yards, which is about 10.97 m and matches the 11 m the question asked for. Next time, give the unit the question asks for.\n- **q3 (five parts in order):** Partial. Your four steps are in the right order, but \"kick the ball\" merges two parts. The striking surface is which part of the foot touches the ball. The contact point is where on the ball it lands. The five parts are approach, plant foot, striking surface, contact point, follow-through.\n- **q4 (plant foot):** Wrong. You chose to plant well behind the ball for a longer swing. Reaching back leans your body back and lifts the shot over the bar. The correct answer is b: plant beside the ball, roughly level with it, toes toward the target.\n\nThe belief to fix first is that planting behind the ball gives more power. It does not, because it lifts the ball.\n\n**Next step:** before your next practice, take five penalties with the plant foot level with the ball and toes at the target. Count how many clear the bar.",
+  "ttft_ms": 2021,
+  "type": "result",
+  "duration_ms": 24245,
+  "uuid": "fc7135ff-d7bc-470e-b07e-f76506cc95cc",
+  "ttft_stream_ms": 459,
+  "time_to_request_ms": 12,
+  "first_content_frame_ms": 459,
+  "queued_turn_count": 0,
+  "result_index": 2,
+  "model_usage_since_last_result": {},
+  "credential_expires_at": "2026-11-20T19:38:56.427Z"
+}

@@ -1,0 +1,130 @@
+{
+  "duration_api_ms": 923394,
+  "stop_reason": "end_turn",
+  "session_id": "2fd6682f-14d3-43db-b485-5d8e96ae9e31",
+  "total_cost_usd": 2.8011171900000016,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 37922,
+    "cache_read_input_tokens": 612578,
+    "output_tokens": 19581,
+    "output_tokens_details": {
+      "thinking_tokens": 150
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 37922,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 594,
+        "cache_read_input_tokens": 174771,
+        "cache_creation_input_tokens": 2465,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 2465
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 126,
+      "outputTokens": 110685,
+      "cacheReadInputTokens": 4244119,
+      "cacheCreationInputTokens": 382631,
+      "webSearchRequests": 0,
+      "costUSD": 2.731403400000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 32361,
+      "cacheCreationEphemeral5mInputTokens": 220423,
+      "cacheCreationEphemeral1hInputTokens": 162208,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 160885,
+      "outputTokens": 18703,
+      "cacheReadInputTokens": 3279,
+      "cacheCreationInputTokens": 33928,
+      "webSearchRequests": 4,
+      "costUSD": 0.06971379,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 9975,
+      "cacheCreationEphemeral5mInputTokens": 33928,
+      "cacheCreationEphemeral1hInputTokens": 0,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "origin": {
+    "kind": "task-notification",
+    "producer": "session-task",
+    "runId": "0mwn91okv-7e6850a4"
+  },
+  "subagent_stats": {
+    "spawned": 6,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 6
+    },
+    "started_in_background": 5,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 6,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "web-fetch": 1,
+      "lesson-reviewer": 2,
+      "preference-reviewer": 1,
+      "reference-checker": 1,
+      "lesson-editor": 1
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 6,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I've written the 30-minute lesson \"Context and memory in an agent\", with a short quiz ready for it. I haven't opened either in a browser or run any scripts on them.\n\nThe lesson covers four things:\n- **Context window:** what the window limits, and that the model keeps nothing between calls because the program resends the history.\n- **Cost:** how that history makes total input cost grow quadratically with steps. It's worked through with a table and a formula, plus a hypothetical dollar figure.\n- **Between sessions:** how to keep the context small, and how saved notes carry information across sessions. It stresses that training status comes from the official record read by a tool, never from a note or a student's claim.\n- **Retrieval:** pulling a few chunks from a long manual, with a cosine-similarity example, a short code sample, and recall and precision.\n\nIt uses soccer analogies and makerspace examples throughout, with a worked example and two faded practice tasks.\n\nTwo things to know:\n- The lesson's checks and practice tasks come on top of the reading time, so it may run longer than 30 minutes. You can skip the extra practice task.\n- The community link goes to a directory listing of r/LLMDevs, not to Reddit itself. I didn't vet the community.\n\nAsk me for the quiz whenever you want it. Ask me anything about the lesson too.\n\nOne question for you: quiz 0001 on the agent loop is still ungraded. Should I grade your two attempts next?\n\nFiles are in `C:\\Users\\gunna\\AppData\\Local\\Temp\\p3-mids9z8f`:\n- `lessons/0001-context-and-memory.html`\n- `quizzes/0002.json`\n- `keys/0002.json`\n- `cheatsheets/context-and-memory.html`\n- `RESOURCES.md`\n- `review-records/0001-lesson.md`",
+  "ttft_ms": 3944,
+  "type": "result",
+  "duration_ms": 98462,
+  "uuid": "63c161d8-9768-40e6-b18d-fbde38e0e785",
+  "ttft_stream_ms": 3042,
+  "time_to_request_ms": 293,
+  "first_content_frame_ms": 3042,
+  "queued_turn_count": 0,
+  "result_index": 5,
+  "model_usage_since_last_result": {},
+  "credential_expires_at": "2026-11-20T19:38:56.427Z"
+}

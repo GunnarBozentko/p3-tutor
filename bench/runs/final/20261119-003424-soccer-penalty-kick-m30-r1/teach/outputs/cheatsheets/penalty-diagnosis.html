@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Penalty kick diagnosis: plant foot, contact point, surface, lean</title>
+  <style>
+    body { max-width: 40rem; margin: 0 auto; padding: 2rem 1.25rem; font-family: Georgia, serif; line-height: 1.55; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 1rem 0; }
+    th, td { text-align: left; vertical-align: top; padding: 0.4rem 0.5rem; border-bottom: 1px solid #ccc; }
+    code { background: #f3efe6; padding: 0.1em 0.3em; }
+  </style>
+</head>
+<body>
+  <h1>Penalty kick diagnosis</h1>
+  <table>
+    <thead><tr><th>Symptom on video</th><th>Check first</th><th>Fix</th></tr></thead>
+    <tbody>
+      <tr><td>Ball goes over the bar</td><td>Plant foot behind the ball; contact below the centre</td><td>Plant beside the ball, 15 to 20 cm to the side, toes at the target; strike the centre</td></tr>
+      <tr><td>Ball finishes wide or on the post</td><td>Toe direction; error spread of a full-power laces kick</td><td>Toes at the target; inside of the foot or a softer swing</td></tr>
+      <tr><td>You lean back</td><td>Plant foot position</td><td>Fix the plant foot, then recheck the lean</td></tr>
+      <tr><td>Accurate but saved</td><td>Ball speed too low</td><td>Add some speed and accept more spread</td></tr>
+    </tbody>
+  </table>
+  <h2>Two formulas</h2>
+  <p>Height at the goal line, no drag or spin: <code>t = d / (v cos a)</code>, <code>h = h0 + d tan a - 0.5 x 9.81 x t&sup2;</code>. With d = 11 m, v = 25 m/s, h0 = 0.11 m: 12 degrees gives 1.46 m, 17 degrees gives 2.43 m, 18 degrees gives 2.63 m. The bar is 2.44 m.</p>
+  <p>Lateral miss: <code>m = 11 x tan(e)</code>. A 1 degree error gives 0.19 m, and a 3 degree error gives 0.58 m.</p>
+</body>
+</html>

@@ -1,0 +1,153 @@
+{
+  "duration_api_ms": 873007,
+  "stop_reason": "end_turn",
+  "session_id": "35706c0d-1b16-47ef-8fb9-6a4e4094200c",
+  "total_cost_usd": 2.626777945,
+  "usage": {
+    "input_tokens": 34,
+    "cache_creation_input_tokens": 93231,
+    "cache_read_input_tokens": 2022392,
+    "output_tokens": 47975,
+    "output_tokens_details": {
+      "thinking_tokens": 1744
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 93231,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 522,
+        "cache_read_input_tokens": 181016,
+        "cache_creation_input_tokens": 3223,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 3223
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 92,
+      "outputTokens": 121021,
+      "cacheReadInputTokens": 2925611,
+      "cacheCreationInputTokens": 329537,
+      "webSearchRequests": 0,
+      "costUSD": 2.5806141,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 33267,
+      "cacheCreationEphemeral5mInputTokens": 160326,
+      "cacheCreationEphemeral1hInputTokens": 169211,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 71255,
+      "outputTokens": 13148,
+      "cacheReadInputTokens": 8922,
+      "cacheCreationInputTokens": 19001,
+      "webSearchRequests": 3,
+      "costUSD": 0.046163845,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 6532,
+      "cacheCreationEphemeral5mInputTokens": 19001,
+      "cacheCreationEphemeral1hInputTokens": 0,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [
+    {
+      "tool_name": "Bash",
+      "tool_use_id": "toolu_01BQGQ6Lgz4MySjMjJSiVnza",
+      "tool_input": {
+        "command": "cd /c/Users/gunna/AppData/Local/Temp/p3-58mdg5w1/drafts && python - <<'EOF'\nimport re\np='lesson-0001-context-and-memory.html'\ns=open(p,encoding='utf-8').read()\ndef rep(a,b,cnt=1):\n    global s\n    assert s.count(a)>=1,a[:60]\n    s=s.replace(a,b,cnt)\n# times\nrep('The context window <span class=\"section-time\">5 min','The context window <span class=\"section-time\">4 min')\nrep('What is kept between steps <span class=\"section-time\">6 min','What is kept between steps <span class=\"section-time\">4 min')\nrep('When the context gets too full <span class=\"section-time\">5 min','When the context gets too full <span class=\"section-time\">3 min')\nrep('What is kept between sessions: notes <span class=\"section-time\">6 min','What is kept between sessions: notes <span class=\"section-time\">4 min')\nrep('Retrieval: finding the right page <span class=\"section-time\">5 min','Retrieval: finding the right page <span class=\"section-time\">4 min')\nrep('Worked example and practice <span class=\"section-time\">8 min','Worked example and practice <span class=\"section-time\">6 min')\nrep('Summary <span class=\"section-time\">3 min','Summary <span class=\"section-time\">2 min')\nrep('<h2>Go further</h2>','<h2>Go further <span class=\"section-time\">1 min</span></h2>')\n# fig 2\nrep('<rect x=\"150\" y=\"35\" width=\"195\" height=\"30\"','<rect x=\"150\" y=\"35\" width=\"184\" height=\"30\"')\nrep('<text x=\"355\" y=\"57\">1,550</text>','<text x=\"344\" y=\"57\">1,550</text>')\nrep('<rect x=\"150\" y=\"95\" width=\"195\" height=\"30\"','<rect x=\"150\" y=\"95\" width=\"184\" height=\"30\"')\nrep('<rect x=\"345\" y=\"95\" width=\"45\" height=\"30\"','<rect x=\"334\" y=\"95\" width=\"43\" height=\"30\"')\nrep('<text x=\"400\" y=\"117\">1,910</text>','<text x=\"387\" y=\"117\">1,910</text>')\nrep('<rect x=\"150\" y=\"155\" width=\"240\" height=\"30\"','<rect x=\"150\" y=\"155\" width=\"227\" height=\"30\"')\nrep('<rect x=\"390\" y=\"155\" width=\"250\" height=\"30\"','<rect x=\"377\" y=\"155\" width=\"244\" height=\"30\"')\nrep('<text x=\"500\" y=\"177\" text-anchor=\"middle\"','<text x=\"499\" y=\"177\" text-anchor=\"middle\"')\n# whiteboard\na=s.index('<p>Think of a soccer team at halftime')\nb=s.index('</p>',a)+4\ns=s[:a]+'<p>Think of a soccer match at halftime. The coach is the model. The whiteboard is the context window, and the coach can act only on what is written on it. The players\\' habits from training are the model\\'s training. An assistant who copies the full game plan onto a fresh board before every play is the program. Anything the assistant does not copy, the coach never sees. If the board is full, something must be erased before anything new goes on.</p>'+s[b:]\n# delete redundant paragraph, add prompt caching dfn\na=s.index('<p>The documentation lists these as counting')\nb=s.index('</p>',a)+4\ns=s[:a]+'<p>The documentation confirms all four count toward the window. <dfn>Prompt caching</dfn> means the provider stores a repeated start of the prompt and bills it at a lower rate. Cached prefixes still occupy the window; caching changes what you pay, not whether they count.</p>'+s[b:]\n# code in steps\nrep('<p>This has a cost consequence.','''<pre><code>history = [{\"role\": \"user\", \"content\": question}]\nwhile True:\n    reply = call_model(system_prompt, tools, history)  # whole list sent every call\n    history.append(reply)\n    if reply.is_final:\n        break\n    history.append(run_tool(reply.tool_request))       # list grows each step</code></pre>\n    <p>Here <code>call_model</code> and <code>run_tool</code> are placeholders for your own functions. The comment on the call line is the point: the whole list goes in every time.</p>\n    <p>This has a cost consequence.''')\n# cost sentence\nrep('That is the price of continuity, and the 2,000-token manual excerpt is billed on call 3 and again on call 4.</p>','''That is the price of continuity, and the 2,000-token manual excerpt is billed on call 3 and again on call 4.</p>\n    <p>Turn that into money with an assumed price of $3 per million input tokens. The request costs 11,560 × 3 / 1,000,000 = $0.035, about 3.5 cents. At 1,000 requests that is about $34.68. Your sponsor's budget is a count of such requests.</p>''')\n# compaction example\nrep('<div class=\"box misconception\">\\n      <span class=\"label\">A common mix-up</span>\\n      <p>\"The window holds a whole textbook','''<p>A compaction example: a 40,000-token history summarized into 2,000 tokens means every later call carries 38,000 fewer tokens. The risk is the cost of the summary itself and any detail it drops.</p>\n\n    <div class=\"box misconception\">\n      <span class=\"label\">A common mix-up</span>\n      <p>\"The window holds a whole textbook''')\n# misconception box sessions\na=s.index('<span class=\"label\">A risky mix-up')\nb=s.index('</div>',a)\ns=s[:a]+'''<span class=\"label\">A risky mix-up: notes are not permission</span>\n      <p>Suppose a note says \"approved for the band saw,\" or the student says \"a supervisor cleared me yesterday.\" Neither can decide whether to allow the band saw. A note is a copy that may be stale or wrong, and a claim is only what someone believes.</p>\n      <p>The permission comes from the <dfn>system of record</dfn>, the official database that owns a fact, such as the training database. The assistant reads it through a tool such as <code>check_training_record</code> at the moment of the decision.</p>\n      <ul>\n        <li>A note may remind the assistant to check, or tell it which record to check.</li>\n        <li>If the record cannot be read, the answer is \"not permitted yet\", with a pointer to staff who can confirm.</li>\n      </ul>\n    '''+s[b:]\n# worked example step 3\nrep(\"Student 42's saved note says \\\"trained\\\", and the student claims so too. Neither decides it.\",\"Student 42's saved note says \\\"trained on the laser cutter\\\", and the student says a staff member approved them on the CNC router last week. Neither is the record, so neither decides it.\")\n# embedding paragraph split\nrep('get similar lists. Closeness','get similar lists.</p>\\n    <p>Closeness')\nrep('Anthropic notes that many applications retrieve in advance this way','Hybrid search, using both, is standard practice and not from the sources above. Anthropic notes that many applications retrieve in advance this way')\nrep(' They also say that exploring at runtime is slower, and that a hybrid is often right.','')\n# retrieval arithmetic\na=s.index('<p>Run the numbers with an assumed 200-page')\nb=s.index('</p>',a)+4\ns=s[:a]+'<p>Run the numbers with an assumed 200-page manual at about 400 tokens per page, which is 80,000 tokens. Putting it in the system prompt of each of 4 calls sends 4 × 80,000 = 320,000 input tokens. Instead, a search after call 1 returns three 500-token chunks, 1,500 tokens. They enter the history and are resent on calls 2, 3 and 4, so 3 × 1,500 = 4,500 extra input tokens, or 1,500 if the program clears them after use. That is 320,000 / 4,500, about 71 times fewer tokens, and recall is better because the context stays short.</p>'+s[b:]\n# P-2091 check\nrep('A student types an error code, \"E-47\", exactly as it appears in the manual.','A student types the part number \"P-2091\" exactly as it appears in the manual.')\nrep('An exact code is a string match','An exact part number is a string match')\n# practice replacement\na=s.index('<p>Take a system prompt plus tool definitions of 1,000')\nb=s.index('</details>',a)+10\ns=s[:a]+'''<p>A system prompt plus tool definitions take 1,000 tokens and the question 100. The model makes two tool requests of 40 tokens each, then answers. The tool results are 700 and 2,500 tokens. Give the input of each of the 3 calls and the total, then the total if the program clears the 700-token result before call 3. Step 1 is given: call 1 has 1,000 + 100 = 1,100 input tokens.</p>\n      <details>\n        <summary>Show a solution</summary>\n        <p>Call 2: 1,100 + 40 + 700 = 1,840. Call 3: 1,840 + 40 + 2,500 = 4,380. Total: 1,100 + 1,840 + 4,380 = 7,320 tokens. With the 700-token result cleared, call 3 is 3,680 and the total is 6,620, a saving of 700. The final answer is output, not input.</p>\n      </details>'''+s[b:]\n# retrieval numeric practice\nrep('''    <div class=\"check\" data-check>\n      <span class=\"label\">Check yourself</span>\n      <p>A student types the part number''','''    <div class=\"check\">\n      <span class=\"label\">Your turn: retrieval cost</span>\n      <p>A 60,000-token manual is put in the system prompt for 5 calls. How many input tokens is the manual alone? Then compare with retrieving two 500-token chunks after call 1 and keeping them for the remaining calls.</p>\n      <details>\n        <summary>Show a solution</summary>\n        <p>Whole manual: 5 × 60,000 = 300,000. Retrieval: 1,000 tokens resent on calls 2 to 5 is 4 × 1,000 = 4,000, which is 75 times fewer.</p>\n      </details>\n    </div>\n\n    <div class=\"check\" data-check>\n      <span class=\"label\">Check yourself</span>\n      <p>A student types the part number''')\nopen(p,'w',encoding='utf-8').write(s)\nEOF"
+      }
+    },
+    {
+      "tool_name": "Write",
+      "tool_use_id": "toolu_017nHVMCVw3cDSyZ8RY7TzvR",
+      "tool_input": {
+        "file_path": "C:\\Users\\gunna\\AppData\\Local\\Temp\\p3-edit\\edit1.py",
+        "content": "import sys\np = sys.argv[1]\ns = open(p, encoding='utf-8').read()\n\ndef rep(a, b):\n    global s\n    assert a in s, a[:70]\n    s = s.replace(a, b, 1)\n\nrep('The context window <span class=\"section-time\">5 min', 'The context window <span class=\"section-time\">4 min')\nrep('What is kept between steps <span class=\"section-time\">6 min', 'What is kept between steps <span class=\"section-time\">4 min')\nrep('When the context gets too full <span class=\"section-time\">5 min', 'When the context gets too full <span class=\"section-time\">3 min')\nrep('What is kept between sessions: notes <span class=\"section-time\">6 min', 'What is kept between sessions: notes <span class=\"section-time\">4 min')\nrep('Retrieval: finding the right page <span class=\"section-time\">5 min', 'Retrieval: finding the right page <span class=\"section-time\">4 min')\nrep('Worked example and practice <span class=\"section-time\">8 min', 'Worked example and practice <span class=\"section-time\">6 min')\nrep('Summary <span class=\"section-time\">3 min', 'Summary <span class=\"section-time\">2 min')\nrep('<h2>Go further</h2>', '<h2>Go further <span class=\"section-time\">1 min</span></h2>')\n\nrep('<rect x=\"150\" y=\"35\" width=\"195\" height=\"30\"', '<rect x=\"150\" y=\"35\" width=\"184\" height=\"30\"')\nrep('<text x=\"355\" y=\"57\">1,550</text>', '<text x=\"344\" y=\"57\">1,550</text>')\nrep('<rect x=\"150\" y=\"95\" width=\"195\" height=\"30\"', '<rect x=\"150\" y=\"95\" width=\"184\" height=\"30\"')\nrep('<rect x=\"345\" y=\"95\" width=\"45\" height=\"30\"', '<rect x=\"334\" y=\"95\" width=\"43\" height=\"30\"')\nrep('<text x=\"400\" y=\"117\">1,910</text>', '<text x=\"387\" y=\"117\">1,910</text>')\nrep('<rect x=\"150\" y=\"155\" width=\"240\" height=\"30\"', '<rect x=\"150\" y=\"155\" width=\"227\" height=\"30\"')\nrep('<rect x=\"390\" y=\"155\" width=\"250\" height=\"30\"', '<rect x=\"377\" y=\"155\" width=\"244\" height=\"30\"')\nrep('<text x=\"500\" y=\"177\" text-anchor=\"middle\"', '<text x=\"499\" y=\"177\" text-anchor=\"middle\"')\n\na = s.index('<p>Think of a soccer team at halftime')\nb = s.index('</p>', a) + 4\ns = s[:a] + \"<p>Think of a soccer match at halftime. The coach is the model. The whiteboard is the context window, and the coach can act only on what is written on it. The players' habits from training are the model's training. An assistant who copies the full game plan onto a fresh board before every play is the program. Anything the assistant does not copy, the coach never sees. If the board is full, something must be erased before anything new goes on.</p>\" + s[b:]\n\na = s.index('<p>The documentation lists these as counting')\nb = s.index('</p>', a) + 4\ns = s[:a] + '<p>The documentation confirms all four count toward the window. <dfn>Prompt caching</dfn> means the provider stores a repeated start of the prompt and bills it at a lower rate. Cached prefixes still occupy the window; caching changes what you pay, not whether they count.</p>' + s[b:]\n\nrep('<p>This has a cost consequence.', '''<pre><code>history = [{\"role\": \"user\", \"content\": question}]\nwhile True:\n    reply = call_model(system_prompt, tools, history)  # whole list sent every call\n    history.append(reply)\n    if reply.is_final:\n        break\n    history.append(run_tool(reply.tool_request))       # list grows each step</code></pre>\n    <p>Here <code>call_model</code> and <code>run_tool</code> are placeholders for your own functions. The comment on the call line is the point: the whole list goes in every time.</p>\n    <p>This has a cost consequence.''')\n\nrep('and again on call 4.</p>', '''and again on call 4.</p>\n    <p>Turn that into money with an assumed price of $3 per million input tokens. The request costs 11,560 × 3 / 1,000,000 = $0.035, about 3.5 cents. At 1,000 requests that is about $34.68. Your sponsor's budget is a count of such requests.</p>''')\n\nrep('<div class=\"box misconception\">\\n      <span class=\"label\">A common mix-up</span>\\n      <p>\"The window holds a whole textbook', '''<p>A compaction example: a 40,000-token history summarized into 2,000 tokens means every later call carries 38,000 fewer tokens. The risk is a detail the summary drops.</p>\n\n    <div class=\"box misconception\">\n      <span class=\"label\">A common mix-up</span>\n      <p>\"The window holds a whole textbook''')\n\na = s.index('<span class=\"label\">A risky mix-up')\nb = s.index('</div>', a)\ns = s[:a] + '''<span class=\"label\">A risky mix-up: notes are not permission</span>\n      <p>Suppose a note says \"approved for the band saw,\" or the student says \"a supervisor cleared me yesterday.\" Neither can decide whether to allow the band saw. A note is a copy that may be stale or wrong, and a claim is only what someone believes.</p>\n      <p>The permission comes from the <dfn>system of record</dfn>, the official database that owns a fact, such as the training database. The assistant reads it through a tool such as <code>check_training_record</code> at the moment of the decision.</p>\n      <ul>\n        <li>A note may remind the assistant to check, or tell it which record to check.</li>\n        <li>If the record cannot be read, the answer is \"not permitted yet\", with a pointer to staff who can confirm.</li>\n      </ul>\n    ''' + s[b:]\n\nrep(\"Student 42's saved note says \\\"trained\\\", and the student claims so too. Neither decides it.\", \"Student 42's saved note says \\\"trained on the laser cutter\\\", and the student says a staff member approved them on the CNC router last week. Neither is the record, so neither decides it.\")\n\nrep('get similar lists. Closeness', 'get similar lists.</p>\\n    <p>Closeness')\nrep('Anthropic notes that many applications retrieve in advance this way', 'Hybrid search, using both, is standard practice and not from the sources above. Anthropic notes that many applications retrieve in advance this way')\nrep(' They also say that exploring at runtime is slower, and that a hybrid is often right.', '')\n\na = s.index('<p>Run the numbers with an assumed 200-page')\nb = s.index('</p>', a) + 4\ns = s[:a] + '<p>Run the numbers with an assumed 200-page manual at about 400 tokens per page, which is 80,000 tokens. Putting it in the system prompt of each of 4 calls sends 4 × 80,000 = 320,000 input tokens. Instead, a search after call 1 returns three 500-token chunks, 1,500 tokens. They enter the history and are resent on calls 2, 3 and 4, so 3 × 1,500 = 4,500 extra input tokens, or 1,500 if the program clears them after use. That is 320,000 / 4,500, about 71 times fewer tokens, and recall is better because the context stays short.</p>' + s[b:]\n\nrep('A student types an error code, \"E-47\", exactly as it appears in the manual.', 'A student types the part number \"P-2091\" exactly as it appears in the manual.')\nrep('An exact code is a string match', 'An exact part number is a string match')\n\na = s.index('<p>Take a system prompt plus tool definitions of 1,000')\nb = s.index('</details>', a) + 10\ns = s[:a] + '''<p>A system prompt plus tool definitions take 1,000 tokens and the question 100. The model makes two tool requests of 40 tokens each, then answers. The tool results are 700 and 2,500 tokens. Give the input of each of the 3 calls and the total, then the total if the program clears the 700-token result before call 3. Step 1 is given: call 1 has 1,000 + 100 = 1,100 input tokens.</p>\n      <details>\n        <summary>Show a solution</summary>\n        <p>Call 2: 1,100 + 40 + 700 = 1,840. Call 3: 1,840 + 40 + 2,500 = 4,380. Total: 1,100 + 1,840 + 4,380 = 7,320 tokens. With the 700-token result cleared, call 3 is 3,680 and the total is 6,620, a saving of 700. The final answer is output, not input.</p>\n      </details>''' + s[b:]\n\nrep('''    <div class=\"check\" data-check>\n      <span class=\"label\">Check yourself</span>\n      <p>A student types the part number''', '''    <div class=\"check\">\n      <span class=\"label\">Your turn: retrieval cost</span>\n      <p>A 60,000-token manual is put in the system prompt for 5 calls. How many input tokens is the manual alone? Then compare with retrieving two 500-token chunks after call 1 and keeping them for the remaining calls.</p>\n      <details>\n        <summary>Show a solution</summary>\n        <p>Whole manual: 5 × 60,000 = 300,000. Retrieval: 1,000 tokens resent on calls 2 to 5 is 4 × 1,000 = 4,000, which is 75 times fewer.</p>\n      </details>\n    </div>\n\n    <div class=\"check\" data-check>\n      <span class=\"label\">Check yourself</span>\n      <p>A student types the part number''')\n\nopen(p, 'w', encoding='utf-8').write(s)\nprint(\"ok\")\n"
+      }
+    },
+    {
+      "tool_name": "Read",
+      "tool_use_id": "toolu_01EuNSPte63jTtEkAA9HgbjM",
+      "tool_input": {
+        "file_path": "C:\\Users\\gunna\\AppData\\Local\\Temp\\p3-58mdg5w1\\keys\\0002.json"
+      }
+    }
+  ],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "origin": {
+    "kind": "task-notification",
+    "producer": "session-task",
+    "runId": "0mwn87ufx-8817c43d"
+  },
+  "subagent_stats": {
+    "spawned": 7,
+    "requested": {
+      "background": 0,
+      "foreground": 4,
+      "unset": 3
+    },
+    "started_in_background": 1,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 7,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "web-fetch": 2,
+      "lesson-reviewer": 2,
+      "preference-reviewer": 1,
+      "reference-checker": 1,
+      "lesson-editor": 1
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 78,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "The 30-minute lesson on objective O3 is written, along with a five-question quiz. The lesson is \"Context and memory in an agent\". It covers:\n\n- **Context window:** what the model sees on one call, and why it keeps nothing between calls.\n- **Between steps:** the history is resent on every call. It includes a token and cost walk-through for a makerspace request, with a derivation of why the bill grows faster than the number of steps.\n- **Limits:** tool result clearing and compaction, and why a large window does not remove the need to choose what goes in.\n- **Between sessions:** notes as memory, with Python code to save and load them. It states that notes and student claims never decide a permission, because the training record is read through a tool.\n- **Retrieval:** chunking, keyword and embedding search, and cosine similarity worked through with numbers and tied to correlation.\n\nThe lesson also has three figures, a worked example for one student's return visit, and several practice questions with answers on demand. It follows your preferences: definitions at first use, bulleted steps, soccer and statistics analogies, and blunt feedback. I also added a one-page cheat sheet and a short list of sources.\n\nQuiz 0002 is ready when you want it. Ask me anything about the lesson in the chat.\n\nI checked all the lesson's token arithmetic by hand and the reviewers rechecked it. The Anthropic post's Pokémon \"tallies and maps\" detail was not re-confirmed on the final check; I read it in my first pass over the post and left it in.\n\nOne question for you: do you want the first quiz (0001) graded now, since it has two submissions waiting?",
+  "ttft_ms": 3796,
+  "type": "result",
+  "duration_ms": 550062,
+  "uuid": "fc738dd1-ef8d-438c-b438-3aca87e47f0c",
+  "ttft_stream_ms": 1452,
+  "time_to_request_ms": 18,
+  "first_content_frame_ms": 1452,
+  "queued_turn_count": 0,
+  "result_index": 1,
+  "model_usage_since_last_result": {},
+  "credential_expires_at": "2026-11-20T19:38:56.427Z"
+}

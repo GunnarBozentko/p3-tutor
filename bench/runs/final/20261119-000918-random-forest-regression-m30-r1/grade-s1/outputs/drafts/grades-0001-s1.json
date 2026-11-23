@@ -1,0 +1,31 @@
+{
+  "quiz": "0001",
+  "submission": "s1",
+  "items": [
+    {
+      "id": "q1",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. A regression tree scans every feature and threshold and keeps the split that most reduces the total squared error in the two child nodes. Each side is then summarized by its mean, which is why the error is the measure that matters. Option c is tempting because it sounds like linear regression, but a tree never fits a line inside a region; it only stores a mean."
+    },
+    {
+      "id": "q2",
+      "verdict": "correct",
+      "misconception": null,
+      "feedback": "Correct. A leaf predicts the mean of the training targets inside it: (210 + 240 + 250 + 260) / 4 = 240 thousand dollars. Your answer of $240,000 is the same value in dollars, so the unit conversion is valid. The median would give 245, which is a different summary and not what a regression tree returns."
+    },
+    {
+      "id": "q3",
+      "verdict": "partial",
+      "misconception": null,
+      "feedback": "Partial. A tree grown to one row per leaf overfits, meaning it fits the training data too closely, and it memorizes the training data. The missing part is why that hurts new predictions: each leaf copies one row's target, including its noise (random variation unrelated to the true pattern), so a slightly different sample would give a very different tree. That is high variance, like a soccer team that memorizes one opponent's exact moves from a single match and fails in the next game. Name the variance in your answer, because 'overfits' alone only names the symptom."
+    },
+    {
+      "id": "q4",
+      "verdict": "wrong",
+      "misconception": "M2",
+      "feedback": "Wrong. You chose a, expecting the trend to continue past 3,000 square feet, as an ordinary least squares line b0 + b1*x would at 5,000. A tree is piecewise constant, meaning a step function: it stores only leaf means and has no slope, so the 5,000-square-foot house falls into the same leaf as the largest training houses and gets that leaf's mean price (answer b). Option c fails because a tree always returns some leaf's mean, and option d fails because the new house reaches a specific leaf, not the overall average."
+    }
+  ],
+  "summary": "The tree splits by reducing squared error, each leaf predicts the mean of its training targets, and a fully grown tree overfits. Fix first the belief that a tree continues a trend beyond its data; it cannot, because it returns only the means of leaves built from training rows. Next, sketch a tree's prediction curve for one feature as a staircase, and mark what it outputs beyond the largest training value."
+}

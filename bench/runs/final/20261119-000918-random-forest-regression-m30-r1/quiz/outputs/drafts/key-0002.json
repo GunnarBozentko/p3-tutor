@@ -1,0 +1,65 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "c",
+      "rationale": "max_features is the number of features randomly drawn as candidates afresh at every split, which decorrelates the trees. Choosing one feature subset per tree (option a) is the common misreading; the draw happens at each split.",
+      "distractors": {"a": "M11", "b": "M12", "d": "M13"}
+    },
+    {
+      "id": "q2",
+      "answer": "the minimum number of training samples each leaf must contain",
+      "accepted": ["minimum samples per leaf", "the smallest number of training rows allowed in a leaf", "the minimum leaf size", "minimum number of samples in each leaf node", "the minimum number of samples required in a leaf", "smallest allowed leaf size", "the minimum number of rows in a leaf"],
+      "rationale": "Any split that would leave fewer than min_samples_leaf training samples in a child is not allowed, so leaves average more rows and predictions smooth out. Confusing it with the minimum samples needed to split a node (min_samples_split) is a typical slip."
+    },
+    {
+      "id": "q3",
+      "answer": "a",
+      "rationale": "Each row is predicted only by the trees whose bootstrap sample left it out, so the OOB score estimates generalization from the training rows alone. Option c describes a held-out test set; OOB needs no separate set, and option b is training error.",
+      "distractors": {"b": "M14", "c": "M15", "d": "M15"}
+    },
+    {
+      "id": "q4",
+      "answer": "d",
+      "rationale": "n_estimators is the number of trees fitted and averaged into the forest's prediction. Option a describes the bootstrap sample size, a different quantity and the likeliest mix-up.",
+      "distractors": {"a": "M16", "b": "M26", "c": "M27"}
+    },
+    {
+      "id": "q5",
+      "answer": "b",
+      "rationale": "RMSE is the square root of the mean squared error: a typical error size in the target's units that penalizes large misses more. Option c is mean absolute error, which counts every miss equally; option a is R², which is unit-free.",
+      "distractors": {"a": "M17", "c": "M18", "d": "M28"}
+    },
+    {
+      "id": "q6",
+      "answer": "b",
+      "rationale": "Leaves of one row mean each tree fits noise, so raising min_samples_leaf regularizes each tree and should raise the OOB score. More trees (option a) only reduce the variance of the average, not the noise each tree fits, and raising max_features (option c) makes trees more alike, weakening the averaging.",
+      "distractors": {"a": "M19", "c": "M20", "d": "M29"}
+    },
+    {
+      "id": "q7",
+      "answer": 2.02,
+      "tolerance": 0.01,
+      "rationale": "For B trees of variance s2 and pairwise correlation r, the average has variance r*s2 + (1-r)*s2/B = 0.5*4 + 0.5*4/100 = 2 + 0.02 = 2.02. An answer of 0.04 assumes uncorrelated trees; correlation puts a floor of r*s2 = 2 under the variance, which is why more trees stop helping and why lowering max_features helps."
+    },
+    {
+      "id": "q8",
+      "answer": "a",
+      "rationale": "Choosing the best of 60 settings by test score makes the test rows part of model selection, so the winning score is biased upward. Option c is wrong because the averaging does not protect against selection on the test rows, and option d is wrong because how the settings were chosen is exactly what causes the bias.",
+      "distractors": {"b": "M30", "c": "M22", "d": "M31"}
+    },
+    {
+      "id": "q9",
+      "answer": 2.5,
+      "tolerance": 0.05,
+      "rationale": "Squared errors are 1, 4, 4 and 16, summing to 25; the mean is 6.25 and its square root is 2.5 thousand dollars. An answer of 6.25 forgets the square root, and 2.25 is the mean absolute error."
+    },
+    {
+      "id": "q10",
+      "answer": "c",
+      "rationale": "The best score is 0.873, so the forest must reach at least 0.871; 100 trees scores 0.868 and misses, 400 trees scores 0.872 and is the cheapest that qualifies. Option d pays four times the cost of 400 trees for 0.001.",
+      "distractors": {"a": "M32", "b": "M33", "d": "M24"}
+    }
+  ]
+}

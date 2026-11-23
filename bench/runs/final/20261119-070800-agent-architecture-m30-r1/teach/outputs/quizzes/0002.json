@@ -1,0 +1,50 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A student chatted with your makerspace assistant on Monday and asked it to find a 3D-printer slot. On Wednesday the student starts a new chat, and the program sends the model nothing from Monday. The student asks, \"Did you find me a slot?\" Why can the model not answer from Monday's chat?",
+      "options": [
+        {"id": "a", "text": "The context window fills after about a day, so Monday was pushed out"},
+        {"id": "b", "text": "The model sees only text the program sends, and no Monday text was sent"},
+        {"id": "c", "text": "Models delete earlier chats on their own after a fixed period of time"},
+        {"id": "d", "text": "The model keeps system prompt text only, never a student's own messages"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "Each model call receives the whole context so far. The first call has 1,500 input tokens (prompt, tool definitions and question). The model then requests tool A with 100 output tokens, and A returns 400 tokens. It requests tool B with 100 output tokens, and B returns 200 tokens. The third call writes the final answer. How many input tokens were sent across the three calls in total?",
+      "unit": "input tokens"
+    },
+    {
+      "id": "q3",
+      "type": "short",
+      "objective": "O3",
+      "stem": "Your assistant keeps a saved note for a student that says \"trained on the bandsaw.\" In one or two sentences, why should that note not decide whether the student may book the bandsaw, and what should decide it?"
+    },
+    {
+      "id": "q4",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A student asks for the laser cutter's maximum engraving depth. Your retrieval step ranks the chunk on lens cleaning first, and only that chunk is put into the context. What is the most likely result?",
+      "options": [
+        {"id": "a", "text": "The model searches its own memory and quietly corrects the retrieval error"},
+        {"id": "b", "text": "The context window overflows until the call fails with an error message"},
+        {"id": "c", "text": "The model answers from the wrong passage, or from guesswork instead"},
+        {"id": "d", "text": "The program notices the mismatch and rebuilds the manual index by itself"}
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "In a toy example, a question has the embedding (6, 8) and a manual chunk has the embedding (8, 6). Cosine similarity is the dot product divided by the product of the two vector lengths. What is the cosine similarity, to two decimal places?"
+    }
+  ]
+}

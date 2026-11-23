@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cheat sheet: context and memory in an agent</title>
+  <style>
+    body { max-width: 40rem; margin: 0 auto; padding: 2rem 1.25rem; font-family: Georgia, serif; line-height: 1.5; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+    th, td { text-align: left; vertical-align: top; padding: 0.4rem 0.5rem; border-bottom: 1px solid #ccc; }
+    code { font-family: ui-monospace, Consolas, monospace; }
+  </style>
+</head>
+<body>
+  <h1>Context and memory in an agent</h1>
+  <table>
+    <thead><tr><th>Kind</th><th>Lives in</th><th>Lasts</th></tr></thead>
+    <tbody>
+      <tr><td>Context</td><td>The window: instructions, messages, tool results</td><td>One session</td></tr>
+      <tr><td>Notes</td><td>Files outside the window</td><td>Across sessions</td></tr>
+      <tr><td>Retrieval</td><td>A searchable store of manual pages</td><td>Permanent; a few pages pulled in per question</td></tr>
+    </tbody>
+  </table>
+  <ul>
+    <li>The model sees only the tokens sent in one call.</li>
+    <li>Total input over <var>n</var> calls = <var>n</var>&middot;<var>b</var> + <var>s</var>&middot;<var>n</var>(<var>n</var> &minus; 1)/2, with base <var>b</var> and step <var>s</var>. Check: 4 calls, 2,000 and 3,000 give 26,000.</li>
+    <li>Compaction: summarize and restart, or clear old tool results.</li>
+    <li>Permission to use a machine comes from the training record, read through a tool at booking time, never from a note or a claim.</li>
+  </ul>
+  <p><a href="../lessons/0001-context-and-memory.html">Lesson 1: context and memory in an agent</a></p>
+</body>
+</html>

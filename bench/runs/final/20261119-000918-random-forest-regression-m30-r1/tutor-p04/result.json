@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 19399,
+  "stop_reason": "end_turn",
+  "session_id": "d26e3d16-3c09-4e45-ae4c-06fad6b64498",
+  "total_cost_usd": 0.09847140000000001,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 15699,
+    "cache_read_input_tokens": 98594,
+    "output_tokens": 2580,
+    "output_tokens_details": {
+      "thinking_tokens": 929
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 15699,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 951,
+        "cache_read_input_tokens": 29250,
+        "cache_creation_input_tokens": 1250,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 1250
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 2580,
+      "cacheReadInputTokens": 98594,
+      "cacheCreationInputTokens": 15699,
+      "webSearchRequests": 0,
+      "costUSD": 0.09847140000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 929,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 15699,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 8,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "**Idea:** A forest errs less when its trees are individually accurate (high strength) and make different mistakes (low correlation). Breiman (2001) proved this in two forms. The strength-and-correlation form is for classification. Your mission is regression, so I give both.\n\n**Regression (your case).** Let Θ be the random draw (bootstrap sample plus feature subsets) that builds one tree h(X,Θ). The forest is the average f̄(X) = E_Θ h(X,Θ). Assume each tree is unbiased on average.\n\n- E[(Y − f̄)²] = E_{X,Y}[ (E_Θ (Y − h(X,Θ)))² ]\n- Write the square of an expectation as an expectation over two independent draws Θ, Θ′: = E_{Θ,Θ′} E_{X,Y}[(Y − h(Θ))(Y − h(Θ′))]\n- Each term is a covariance of two tree residuals, which is at most ρ(Θ,Θ′)·sd(Θ)·sd(Θ′). Define ρ̄ as the average of these correlations, weighted by the residual standard deviations.\n- Since sd(Θ)·sd(Θ′) ≤ the mean of the two variances, **PE*(forest) ≤ ρ̄ · PE*(tree)**, where PE*(tree) is the average single-tree squared error.\n\nIf ρ̄ = 1 the forest is no better than one tree. As ρ̄ → 0 the error falls toward zero. This is the variance-reduction idea from the bias-variance tradeoff.\n\n**Classification (the s and ρ̄ bound).**\n- Margin: mg(X,Y) = P_Θ(h = Y) − max_{j≠Y} P_Θ(h = j). Strength: s = E[mg]. Error: PE* = P(mg < 0).\n- Chebyshev's inequality gives PE* ≤ Var(mg)/s², for s > 0.\n- mg = E_Θ[rmg(Θ)], where rmg is the raw margin of one tree. The same two-draw trick gives Var(mg) = ρ̄ · E_Θ[Var(rmg)].\n- E_Θ[Var(rmg)] ≤ 1 − s². This follows because E[rmg²] ≤ 1 and the mean of the squared per-tree means is at least s².\n- **PE* ≤ ρ̄ (1 − s²) / s²**\n\n**What this leaves out:** the proof that ρ̄ stays bounded as trees are added (the law of large numbers over Θ). The bound is also loose in practice. A full lesson could cover those points, with a numeric example and a simulation in code.\n\n**Check your understanding:** Why does choosing a smaller number of candidate features per split (mtry) lower ρ̄? Which term in the regression bound can it raise?",
+  "ttft_ms": 1142,
+  "type": "result",
+  "duration_ms": 19778,
+  "uuid": "25c9de8f-8320-48b9-b089-71db2d6075a4",
+  "ttft_stream_ms": 764,
+  "time_to_request_ms": 98,
+  "first_content_frame_ms": 764,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 2580,
+      "cacheReadInputTokens": 98594,
+      "cacheCreationInputTokens": 15699,
+      "webSearchRequests": 0,
+      "costUSD": 0.09847140000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 929,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 15699,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-20T19:38:56.427Z"
+}

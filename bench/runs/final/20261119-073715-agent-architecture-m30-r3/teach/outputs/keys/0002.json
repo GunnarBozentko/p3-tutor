@@ -1,0 +1,33 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "c",
+      "rationale": "The model holds no state between calls, and a new session starts with an empty history, so only what the program saved and reloaded would carry over. Options a, b and d each credit the model or the window with a memory it does not have."
+    },
+    {
+      "id": "q2",
+      "answer": 10000,
+      "tolerance": 0,
+      "rationale": "The inputs are 1,000; 1,500; 2,000; 2,500; 3,000, which sum to 10,000. By formula, 5 x 1,000 + 500 x (5 x 4 / 2) = 5,000 + 5,000. An answer of 3,000 is only the last call."
+    },
+    {
+      "id": "q3",
+      "answer": "d",
+      "rationale": "Permission to use risky equipment rests on the authoritative training record, read through a tool at the time of the decision. A saved note is a copy that can be stale, and a claim or a confirmation from the student is not the record. The note may only remind the assistant which record to check."
+    },
+    {
+      "id": "q4",
+      "answer": "Every call is billed for all tokens in the context, so a whole manual costs far more; and long contexts make recall of the relevant passage worse.",
+      "accepted": ["cheaper and the model recalls better", "lower cost and less context rot", "it costs fewer tokens and avoids context rot", "the manual may not fit and it costs more and recall drops"],
+      "rationale": "Two valid reasons: cost grows with the tokens sent on every call, and recall degrades as context grows (context rot, relevant text buried in the middle). A manual that exceeds the window is a third valid reason."
+    },
+    {
+      "id": "q5",
+      "answer": 0.5,
+      "tolerance": 0.01,
+      "rationale": "Recall is the share of the relevant chunks that were retrieved: 2 of 4 = 0.5. An answer of 0.4 is the precision, 2 of 5."
+    }
+  ]
+}

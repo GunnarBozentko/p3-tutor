@@ -1,0 +1,50 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A student ends a chat with your assistant on Monday and starts a new chat on Wednesday. The program saves nothing and loads nothing. What does the model see about Monday's chat in Wednesday's calls?",
+      "options": [
+        {"id": "a", "text": "All of Monday's chat, because the model stores every conversation"},
+        {"id": "b", "text": "A short summary that the model wrote itself at Monday's end"},
+        {"id": "c", "text": "Only the tool results from Monday, because those are logged"},
+        {"id": "d", "text": "Nothing, because each session's context starts out empty again"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "Your assistant's first call carries a base of 2,000 tokens (system prompt, tool definitions and the question). Each of the next three steps adds 250 tokens to the context. The model is called four times, and the fourth call writes the final answer. How many input tokens do the four calls carry in total?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A saved note from last month reads \"Dana: completed router training\". Today Dana asks the assistant to book the CNC router. What is the correct way for the assistant to decide?",
+      "options": [
+        {"id": "a", "text": "Trust the note, because the assistant itself wrote it earlier"},
+        {"id": "b", "text": "Ask Dana to confirm the training and then book the router"},
+        {"id": "c", "text": "Refuse every booking that relies on a saved note at all"},
+        {"id": "d", "text": "Read the training record through a tool and decide from it"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "A search over a machine manual returns 5 pages, and 2 of them are relevant to the question. The manual holds 4 relevant pages in total. What is the recall of this search, as a decimal between 0 and 1?"
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O3",
+      "stem": "Your teammate wants to keep a whole 120-page manual in the context at every step of the loop. Apart from the window's size limit, give one reason this design is poor."
+    }
+  ]
+}

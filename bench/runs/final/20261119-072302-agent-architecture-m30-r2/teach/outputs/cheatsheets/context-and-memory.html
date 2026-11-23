@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cheat sheet: context and memory in an agent</title>
+  <style>
+    body { max-width: 42rem; margin: 0 auto; padding: 2rem 1.25rem; font-family: Charter, Georgia, serif; line-height: 1.5; color: #1f1d1a; background: #fffdf8; }
+    h1 { font-size: 1.6rem; } h2 { font-size: 1.1rem; margin-top: 1.5rem; font-family: system-ui, sans-serif; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+    th, td { text-align: left; vertical-align: top; padding: 0.4rem 0.5rem; border-bottom: 1px solid #e4dfd4; }
+    code { background: #f3efe6; padding: 0.1em 0.3em; border-radius: 3px; }
+    @media (prefers-color-scheme: dark) { body { background: #171614; color: #e9e5dc; } th, td { border-color: #36332e; } code { background: #23211e; } }
+  </style>
+</head>
+<body>
+<h1>Context and memory in an agent</h1>
+<p>Summary of the lesson on context and memory. The model sees only the text in the current call.</p>
+
+<h2>Where information lives</h2>
+<table>
+  <tr><th>Home</th><th>Use for</th><th>Cost and risk</th></tr>
+  <tr><td>Context window</td><td>What is needed now: system prompt, tool definitions, history, tool results</td><td>Every token is billed on every call; recall drops as it fills</td></tr>
+  <tr><td>Saved notes</td><td>Stable facts that change future answers, such as preferences</td><td>Resent on every call once loaded; keep short; never decide permissions</td></tr>
+  <tr><td>Searchable source</td><td>Long manuals, fetched as a few labeled chunks</td><td>Keyword search for exact strings, embeddings for meaning, hybrid for both</td></tr>
+  <tr><td>Tool on a system of record</td><td>Availability, training status, anything risky or fast-changing</td><td>Read at the moment of the decision; if unreadable, "not permitted yet"</td></tr>
+</table>
+
+<h2>Cost rules</h2>
+<ul>
+  <li>Input of call k+1 = input of call k + the model's request + the tool result.</li>
+  <li>n calls with first input I and equal growth a cost nI + a·n(n−1)/2.</li>
+  <li>A result added after call j is resent on calls j+1 to n: cost a(n−j).</li>
+  <li>Example: 1,550 + 1,910 + 3,970 + 4,130 = 11,560 input tokens; clearing a 2,000-token result before call 4 gives 9,560.</li>
+</ul>
+
+<h2>Housekeeping</h2>
+<ul>
+  <li>Tool result clearing: drop bulky tool results the model has used.</li>
+  <li>Compaction: summarize the history and continue from the summary; tune for recall first.</li>
+  <li>Cosine similarity: cos θ = a·b / (|a||b|); a = (1, 2), b = (2, 1) gives 0.8.</li>
+</ul>
+
+<p>Sources: <a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents">Anthropic, Effective context engineering for AI agents</a>; <a href="https://platform.claude.com/docs/en/build-with-claude/context-windows">Claude context windows</a>.</p>
+</body>
+</html>

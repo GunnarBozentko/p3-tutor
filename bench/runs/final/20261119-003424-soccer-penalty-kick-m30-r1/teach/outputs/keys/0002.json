@@ -1,0 +1,32 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "a",
+      "rationale": "The kicking foot is fastest and flattest at the bottom of its swing, under the hip and beside the plant foot. A plant foot behind the ball means the foot has passed that point and is rising at contact, which lifts the ball."
+    },
+    {
+      "id": "q2",
+      "answer": 0.38,
+      "tolerance": 0.01,
+      "rationale": "11 x tan(2 degrees) = 11 x 0.03492 = 0.384 m, which rounds to 0.38 m."
+    },
+    {
+      "id": "q3",
+      "answer": "c",
+      "rationale": "The inside of the foot gives a tighter error spread at the cost of some power, and a corner target needs a small spread. Swinging harder widens the spread, and planting behind the ball lifts the shot."
+    },
+    {
+      "id": "q4",
+      "answer": "The plant foot position, and also the contact point on the ball",
+      "accepted": ["plant foot", "the plant foot", "plant foot position", "where the plant foot lands", "plant foot and contact point", "the plant foot and the contact point", "the plant foot and contact point"],
+      "rationale": "The sources treat lean as mostly a side effect of foot geometry. A plant foot behind the ball makes the kicker lean back and also makes the foot rise at contact, so the plant foot (and the contact point) is what to correct."
+    },
+    {
+      "id": "q5",
+      "answer": "d",
+      "rationale": "Contact at the centre keeps the ball level and gives both control and speed. Below the centre adds lift, and the sources say to strike the centre, not the top or the bottom."
+    }
+  ]
+}

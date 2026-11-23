@@ -1,0 +1,130 @@
+{
+  "duration_api_ms": 567169,
+  "stop_reason": "end_turn",
+  "session_id": "5823d916-5766-4bce-a185-df636dcd9419",
+  "total_cost_usd": 1.7101779749999997,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 20482,
+    "cache_read_input_tokens": 481930,
+    "output_tokens": 12603,
+    "output_tokens_details": {
+      "thinking_tokens": 121
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 20482,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 612,
+        "cache_read_input_tokens": 131455,
+        "cache_creation_input_tokens": 2758,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 2758
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 96,
+      "outputTokens": 71313,
+      "cacheReadInputTokens": 2541785,
+      "cacheCreationInputTokens": 211007,
+      "webSearchRequests": 0,
+      "costUSD": 1.6737954999999998,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 16172,
+      "cacheCreationEphemeral5mInputTokens": 91822,
+      "cacheCreationEphemeral1hInputTokens": 119185,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    },
+    "claude-haiku-5-5": {
+      "inputTokens": 76360,
+      "outputTokens": 11921,
+      "cacheReadInputTokens": 15510,
+      "cacheCreationInputTokens": 21047,
+      "webSearchRequests": 2,
+      "costUSD": 0.036382475000000004,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 6072,
+      "cacheCreationEphemeral5mInputTokens": 21047,
+      "cacheCreationEphemeral1hInputTokens": 0,
+      "canonicalModel": "claude-haiku-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "origin": {
+    "kind": "task-notification",
+    "producer": "session-task",
+    "runId": "0mwn7i9nj-5c5791f7"
+  },
+  "subagent_stats": {
+    "spawned": 6,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 6
+    },
+    "started_in_background": 5,
+    "max_depth": 1,
+    "spawned_by_subagents": 0,
+    "completed": 6,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {
+      "web-fetch": 1,
+      "lesson-reviewer": 2,
+      "preference-reviewer": 1,
+      "reference-checker": 1,
+      "lesson-editor": 1
+    }
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 7,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "I've written the lesson \"Context and memory in an agent\", a 10-minute lesson on O3, and a five-item quiz to go with it.\n\nI didn't open or run the lesson in a browser. The reviews were by reading the file, and the two Anthropic links were checked by fetching them.\n\nThe lesson covers four things:\n- **Context window:** what the model sees in one call, and why a fuller window costs you in both money and accuracy.\n- **Between steps:** the program resends the whole message list on every call, so total input grows roughly with the square of the number of steps. It works the cost through for the makerspace assistant and shows how compaction shrinks the list.\n- **Between sessions:** notes saved outside the window. A note like \"trained on the laser cutter\" is only a reminder. Permission to use a machine comes from the training database, read through a tool at booking time.\n- **Retrieval:** how the assistant finds the right pages in a long manual, with a short Python snippet and a nearest-neighbours view of how pages are picked. It also covers pulling pages in just in time.\n\nIt includes soccer analogies, a figure, a worked example and a \"your turn\" exercise with a solution. There are also four practice checks, and the lesson ends with a link to the Anthropic article it draws on.\n\nTwo statements in the lesson aren't from its sources, and it labels them that way. They are the token rule of thumb and the cosine-similarity description of retrieval. `RESOURCES.md` lists a better source for retrieval as a gap.\n\nThe quiz is ready whenever you want it, and you can ask me anything about the lesson.\n\nFiles are in `C:\\Users\\gunna\\AppData\\Local\\Temp\\p3-wqubifh1`:\n- `lessons/0001-context-and-memory.html`\n- `quizzes/0002.json`\n- `keys/0002.json`\n- `cheatsheets/context-and-memory.html`",
+  "ttft_ms": 1780,
+  "type": "result",
+  "duration_ms": 77502,
+  "uuid": "6ad1542f-9e1d-4633-8e57-91def22bc6a0",
+  "ttft_stream_ms": 1339,
+  "time_to_request_ms": 45,
+  "first_content_frame_ms": 1339,
+  "queued_turn_count": 0,
+  "result_index": 5,
+  "model_usage_since_last_result": {},
+  "credential_expires_at": "2026-11-20T19:38:56.427Z"
+}

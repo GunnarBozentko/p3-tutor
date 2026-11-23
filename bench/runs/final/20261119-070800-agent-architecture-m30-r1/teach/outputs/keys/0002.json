@@ -1,0 +1,38 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "The model keeps nothing between calls and sees only what the program puts in the context. Without saved notes or a resent history, Monday is invisible. Option a wrongly treats the window as a timer, and options c and d invent behaviors the model does not have."
+    },
+    {
+      "id": "q2",
+      "answer": 5800,
+      "tolerance": 0,
+      "rationale": "Call 1: 1,500. Call 2: 1,500 + 100 + 400 = 2,000. Call 3: 2,000 + 100 + 200 = 2,300. Total 1,500 + 2,000 + 2,300 = 5,800. An answer of 2,300 gives only the final context size, forgetting that every call resends the whole context. An answer of 1,500 + 400 + 200 = 2,100 counts only new text."
+    },
+    {
+      "id": "q3",
+      "answer": "A note is a copy that can be stale or wrong, so the training record must be read through a tool at the moment of booking.",
+      "accepted": [
+        "the note can be out of date; check the training record with a tool when booking",
+        "notes go stale, so read the authoritative training record by tool at booking time",
+        "a note is only a copy; the training database checked by a tool decides",
+        "the note may be stale; the record read through a tool decides"
+      ],
+      "rationale": "A saved note is a copy that goes stale and was never authoritative. Permission for a risky action comes from the authoritative training record, read through a tool at the time of the decision. A student's own claim fails for the same reason. If the record cannot be read, the answer is not permitted yet, with a pointer to staff."
+    },
+    {
+      "id": "q4",
+      "answer": "c",
+      "rationale": "Retrieval is ordinary program code that puts text in the context. The model sees only the lens-cleaning chunk, so it answers from that passage or guesses. It does not search a hidden memory (a), one short chunk cannot overflow the window (b), and nothing rebuilds an index automatically (d)."
+    },
+    {
+      "id": "q5",
+      "answer": 0.96,
+      "tolerance": 0.005,
+      "rationale": "The dot product is 6*8 + 8*6 = 96. Each vector has length 10, since 6^2 + 8^2 = 100. The cosine is 96 / (10*10) = 0.96. An answer of 96 is the dot product alone and shows the division by the lengths was skipped."
+    }
+  ]
+}

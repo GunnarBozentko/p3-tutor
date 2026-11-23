@@ -1,0 +1,120 @@
+{
+  "duration_api_ms": 10941,
+  "stop_reason": "end_turn",
+  "session_id": "ab809f39-7f6e-46a1-a82f-f80fa1eb4d47",
+  "total_cost_usd": 0.08265660000000001,
+  "usage": {
+    "input_tokens": 8,
+    "cache_creation_input_tokens": 14864,
+    "cache_read_input_tokens": 98446,
+    "output_tokens": 1334,
+    "output_tokens_details": {
+      "thinking_tokens": 137
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 14864,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "global",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 516,
+        "cache_read_input_tokens": 29169,
+        "cache_creation_input_tokens": 496,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 496
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard",
+    "fallback_credit": null
+  },
+  "modelUsage": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1334,
+      "cacheReadInputTokens": 98446,
+      "cacheCreationInputTokens": 14864,
+      "webSearchRequests": 0,
+      "costUSD": 0.08265660000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 137,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 14864,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "permission_denials": [],
+  "terminal_reason": "completed",
+  "fast_mode_state": "off",
+  "fast_mode_disabled_reason": "sdk_opt_in_required",
+  "subagent_stats": {
+    "spawned": 0,
+    "requested": {
+      "background": 0,
+      "foreground": 0,
+      "unset": 0
+    },
+    "started_in_background": 0,
+    "max_depth": 0,
+    "spawned_by_subagents": 0,
+    "completed": 0,
+    "failed": 0,
+    "killed": {
+      "parent": 0,
+      "user": 0,
+      "system": 0
+    },
+    "refused": {
+      "depth_limit": 0,
+      "concurrency_limit": 0,
+      "budget": 0
+    },
+    "by_type": {}
+  },
+  "safety_stops": 0,
+  "is_error": false,
+  "num_turns": 7,
+  "subtype": "success",
+  "api_error_status": null,
+  "result": "The premise is not correct: a leaf in a regression tree does not fit a line. It predicts one constant, the mean of the training targets that landed in it. Your own earlier description of the tree says the same. The mix-up is tempting because linear regression is the usual picture of \"regression\". A standard regression tree is a different model, and it is piecewise constant, meaning a step function.\n\nSo the forest averages no lines. It averages 100 numbers per prediction:\n\n- Each of the 100 trees routes the new point to one leaf and returns that leaf's mean, ŷ_b(x).\n- The forest returns ŷ(x) = (1/100) · Σ_b ŷ_b(x).\n\n**Worked example.** Take a house whose 100 trees return $300k in 40 trees, $320k in 35 trees and $340k in 25 trees. The forest predicts (40·300 + 35·320 + 25·340)/100 = $350k·0.0 + $319.0k, which works out to (12,000 + 11,200 + 8,500)/100 = $317k. Averaging steps with different boundaries gives many small steps, so the forest looks smoother than one tree. It is still piecewise constant and still cannot extrapolate past the training range.\n\nHere is a soccer analogy. Each tree is one referee giving a flat score, and the forest is the panel's average. The analogy breaks down because the referees here are trained on different resampled data and features, which keeps their errors from being identical.\n\nQuick check: if every leaf in every tree predicted a constant, what does the forest's prediction look like for an x far above the largest training x?",
+  "ttft_ms": 974,
+  "type": "result",
+  "duration_ms": 11350,
+  "uuid": "56fd1259-c2b0-4b97-9157-af343072694e",
+  "ttft_stream_ms": 615,
+  "time_to_request_ms": 86,
+  "first_content_frame_ms": 615,
+  "queued_turn_count": 0,
+  "result_index": 0,
+  "model_usage_since_last_result": {
+    "claude-sonnet-5-5": {
+      "inputTokens": 8,
+      "outputTokens": 1334,
+      "cacheReadInputTokens": 98446,
+      "cacheCreationInputTokens": 14864,
+      "webSearchRequests": 0,
+      "costUSD": 0.08265660000000001,
+      "contextWindow": 1000000,
+      "maxOutputTokens": 128000,
+      "thinkingTokens": 137,
+      "cacheCreationEphemeral5mInputTokens": 0,
+      "cacheCreationEphemeral1hInputTokens": 14864,
+      "canonicalModel": "claude-sonnet-5-5",
+      "provider": "firstParty",
+      "costBasis": "list"
+    }
+  },
+  "credential_expires_at": "2026-11-20T19:38:56.427Z"
+}

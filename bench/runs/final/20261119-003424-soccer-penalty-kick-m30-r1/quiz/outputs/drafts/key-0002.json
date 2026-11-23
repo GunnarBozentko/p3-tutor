@@ -1,0 +1,65 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "b",
+      "rationale": "The keeper-independent strategy fixes the side before the run-up and does not revisit it. Option c is tempting but describes the keeper-dependent strategy, which waits for the keeper's move.",
+      "distractors": {"a": "M11", "c": "M15", "d": "M17"}
+    },
+    {
+      "id": "q2",
+      "answer": "c",
+      "rationale": "The keeper-dependent strategy uses the keeper's movement during the run-up to choose the side. Option a is tempting because it uses information about the keeper, but that information is gathered before the run-up and the side is fixed in advance, so it is keeper-independent.",
+      "distractors": {"a": "M19", "b": "M32", "d": "M20"}
+    },
+    {
+      "id": "q3",
+      "answer": "He has moved toward one side before the ball is struck",
+      "accepted": ["he dived early", "he has started moving to one side before the kick", "he picked a side before the ball was kicked", "the keeper moved early toward one side", "the keeper has chosen a side and is moving before the ball is struck", "he has gone to a side before the kick", "he started to dive before the ball was struck"],
+      "rationale": "A committed keeper has started moving toward one side before the kick, so he cannot easily change direction. Answering that the keeper stood still or saved the shot confuses committing with the outcome."
+    },
+    {
+      "id": "q4",
+      "answer": "d",
+      "rationale": "Mixing means switching between the two strategies across attempts so the keeper cannot exploit one pattern. Option c is tempting because it also tries to be unpredictable, but it varies the foot, not the strategy.",
+      "distractors": {"a": "M21", "b": "M18", "c": "M36"}
+    },
+    {
+      "id": "q5",
+      "answer": "The average chance of scoring, weighting each situation by how often it happens",
+      "accepted": ["the weighted average scoring rate", "the long-run average scoring probability", "average scoring chance across the situations, weighted by how often each occurs", "the probability of scoring averaged over the keeper's behaviours"],
+      "rationale": "An expected scoring rate averages the scoring chance in each situation, weighted by how often that situation occurs. A plain average of the situations' rates ignores the weights."
+    },
+    {
+      "id": "q6",
+      "answer": "a",
+      "rationale": "Three of the four videos show him moving early, so watching him scores about 0.75 x 90 + 0.25 x 40 = 77.5%, above the 70% of a fixed corner. Option b is tempting because a fixed corner is reliable, but it gives up the free information a keeper who moves early provides.",
+      "distractors": {"b": "M22", "c": "M17", "d": "M32"}
+    },
+    {
+      "id": "q7",
+      "answer": "d",
+      "rationale": "With no scouting there is no known habit to exploit, so a fixed corner and a repeatable run-up give the most reliable strike, while reading the keeper live adds the accuracy cost of a late switch. Option a is tempting because using the keeper's movement sounds smarter, but it pays that cost without a known habit to exploit.",
+      "distractors": {"a": "M10", "b": "M12", "c": "M24"}
+    },
+    {
+      "id": "q8",
+      "answer": "c",
+      "rationale": "A keeper who stands still gives Ben nothing to read, and Ben's late choice still costs him accuracy, so Ana does better. Option a is tempting because watching helps against a keeper who dives early, but these keepers do not dive.",
+      "distractors": {"a": "M37", "b": "M26", "d": "M33"}
+    },
+    {
+      "id": "q9",
+      "answer": 5,
+      "tolerance": 0.5,
+      "rationale": "Plan X: 0.3 x 85 + 0.7 x 45 = 25.5 + 31.5 = 57%. Plan Y stays at 62%, so plan Y is better by 5 points. Comparing the 85% figure with 62% ignores that the keeper waits on 7 of 10 penalties, which is the common wrong answer of picking plan X."
+    },
+    {
+      "id": "q10",
+      "answer": "b",
+      "rationale": "A switch on the last step leaves less time to adjust the kicking action, so accuracy suffers. Option c is tempting because the body feels able to redirect, but late changes reduce accuracy.",
+      "distractors": {"a": "M27", "c": "M12", "d": "M10"}
+    }
+  ]
+}

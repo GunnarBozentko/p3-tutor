@@ -1,0 +1,33 @@
+{
+  "id": "0002",
+  "items": [
+    {
+      "id": "q1",
+      "answer": "c",
+      "rationale": "The model keeps nothing between calls; only text the program saves and reloads reaches a new session."
+    },
+    {
+      "id": "q2",
+      "answer": 9000,
+      "tolerance": 0,
+      "rationale": "Call 1 reads 2,000; call 2 reads 3,000; call 3 reads 4,000. Total 9,000."
+    },
+    {
+      "id": "q3",
+      "answer": "a",
+      "rationale": "Retrieval loads only the needed page, about 1,200 tokens instead of 80,000. Recalling from training is unreliable, and a summary may drop the blade steps."
+    },
+    {
+      "id": "q4",
+      "answer": "Call a training-record tool on the training database and book only if it confirms; a note is a possibly stale copy and cannot decide a safety permission.",
+      "accepted": ["check the training record with a tool before booking", "look up the record through a tool because the note may be out of date", "verify with the training database, not the note"],
+      "rationale": "Permission for risky equipment comes from the authoritative record read through a tool at that moment. The note may only say which record to check. If the lookup fails, the answer is not permitted yet."
+    },
+    {
+      "id": "q5",
+      "answer": "Recall and accuracy degrade as the context grows (context rot), so the model attends less well to the relevant part.",
+      "accepted": ["context rot", "the model loses focus on the relevant information in a long context", "accuracy drops as token count grows"],
+      "rationale": "Longer contexts cost more because they are resent each call, and the documentation notes accuracy and recall degrade as tokens grow."
+    }
+  ]
+}

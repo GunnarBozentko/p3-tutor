@@ -1,0 +1,50 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "Your assistant has finished a long session with a student. The next day the student starts a new session. What does the model know about yesterday?",
+      "options": [
+        {"id": "a", "text": "Everything, because the model stores each chat it has had"},
+        {"id": "b", "text": "Only the final answer it gave, kept in its own weights"},
+        {"id": "c", "text": "Only what your program saved and put into the new context"},
+        {"id": "d", "text": "Nothing, and no saved information can ever change that"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "An agent's instructions and tool definitions use 2,000 tokens. Each tool result adds 1,000 tokens to the context. The agent makes 3 model calls: the first sees only the instructions, the second also sees one tool result, the third sees two. Ignoring the model's replies, how many input tokens are read in total across the 3 calls?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A student asks how to change the blade on the band saw. The band saw manual is 80,000 tokens, and the answer is on one 1,200-token page. Which design keeps cost lowest while still answering correctly?",
+      "options": [
+        {"id": "a", "text": "A search tool returns the best matching page, and the model reads it"},
+        {"id": "b", "text": "The whole manual is placed in the context on every single call"},
+        {"id": "c", "text": "The model recalls the blade steps from its training on manuals"},
+        {"id": "d", "text": "The manual is summarized once and the summary replaces the manual"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O3",
+      "stem": "A saved note for a student reads \"completed laser cutter training\", and the student asks to book the laser cutter. In one or two sentences, what should the assistant do before booking, and why?"
+    },
+    {
+      "id": "q5",
+      "type": "short",
+      "objective": "O3",
+      "stem": "In one or two sentences, why can a very long context make an agent's answers worse as well as more expensive?"
+    }
+  ]
+}

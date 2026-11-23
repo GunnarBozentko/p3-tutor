@@ -1,0 +1,56 @@
+{
+  "id": "0002",
+  "objective": "O3",
+  "title": "Context and memory in an agent",
+  "items": [
+    {
+      "id": "q1",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A student books the sanding station on Monday and ends the session. On Thursday the same student returns and opens a new session. What does the model know about Monday?",
+      "options": [
+        {"id": "a", "text": "Everything, because the model keeps every past session stored inside itself"},
+        {"id": "b", "text": "The final answer only, because the model keeps the last reply it wrote"},
+        {"id": "c", "text": "Only what the program saved and then loads into the new context"},
+        {"id": "d", "text": "Nothing, because a saved note can never be loaded into a new session"}
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numeric",
+      "objective": "O3",
+      "stem": "Your assistant's prompt, tool descriptions and question take 1,000 tokens. Each tool round (the request and its result) adds 500 tokens to the context. The assistant makes three model calls, and each call sends the whole context so far. How many input tokens are sent in total across the three calls?",
+      "unit": "tokens"
+    },
+    {
+      "id": "q3",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A student asks to book the lathe. The assistant's saved notes from last month say \"certified on the lathe\". What should the assistant do before booking?",
+      "options": [
+        {"id": "a", "text": "Call a tool that reads the training record now, and book only if it confirms"},
+        {"id": "b", "text": "Book the lathe, because the saved note is evidence of an earlier check"},
+        {"id": "c", "text": "Ask the student to confirm the certification, then book if they agree"},
+        {"id": "d", "text": "Let the model judge whether the student sounds experienced, then book"}
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "short",
+      "objective": "O3",
+      "stem": "Your team proposes putting a whole 200-page machine manual into the context for every request. Give one reason, in a sentence, why retrieving only the needed pages is better."
+    },
+    {
+      "id": "q5",
+      "type": "mcq",
+      "objective": "O3",
+      "stem": "A long assistant run is nearing the context window limit. Which technique summarizes the conversation so far and starts a fresh context from that summary?",
+      "options": [
+        {"id": "a", "text": "Retrieval, which fetches the pages of a source that the question needs"},
+        {"id": "b", "text": "Compaction, which summarizes the conversation and restarts from that summary"},
+        {"id": "c", "text": "Note-taking, which saves facts to storage outside the context window"},
+        {"id": "d", "text": "Context rot, which drops older tokens from the window to free space"}
+      ]
+    }
+  ]
+}

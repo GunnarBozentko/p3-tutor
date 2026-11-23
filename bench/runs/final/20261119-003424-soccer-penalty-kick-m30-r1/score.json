@@ -1,0 +1,461 @@
+{
+  "run_id": "20261119-003424-soccer-penalty-kick-m30-r1",
+  "scored_at": "2026-11-19T01:00:17Z",
+  "judge_model": "claude-sonnet-5-5",
+  "solver_models": [
+    "claude-sonnet-5-5",
+    "claude-haiku-5-5"
+  ],
+  "offline": false,
+  "no_model": false,
+  "jobs": {
+    "teach": {
+      "scenario": "teach",
+      "status": "ok",
+      "objective": "O2",
+      "requested_minutes": 30.0,
+      "warnings": [],
+      "ok": true,
+      "error": null,
+      "lesson": "lessons/0001-plant-foot-surface-lean.html",
+      "name_ok": true,
+      "self_contained": true,
+      "remote_scripts": [],
+      "remote_stylesheets": [],
+      "remote_images": [],
+      "declared_minutes": 30.0,
+      "declared_objective": "O2",
+      "minutes_declared_ok": true,
+      "objective_declared_ok": true,
+      "words": 4657,
+      "est_minutes": 31.05,
+      "length_ratio": 1.035,
+      "length_ok": true,
+      "links": [
+        {
+          "url": "https://coachdeck.com/blogs/news/striking-the-ball",
+          "status": "ok",
+          "code": 200
+        },
+        {
+          "url": "https://soccerfitness.ca/?p=6087",
+          "status": "ok",
+          "code": 200
+        },
+        {
+          "url": "https://coachingamericansoccer.com/?p=9457",
+          "status": "ok",
+          "code": 200
+        },
+        {
+          "url": "https://www.soccerfitness.ca/?p=5536",
+          "status": "ok",
+          "code": 200
+        },
+        {
+          "url": "https://lida.sport-iat.de/twm/Record/4047769?lng=en",
+          "status": "ok",
+          "code": 200
+        }
+      ],
+      "dead_links": 0,
+      "judge": {
+        "facts": [
+          {
+            "id": "F2.1",
+            "present": true,
+            "correct": true
+          },
+          {
+            "id": "F2.2",
+            "present": true,
+            "correct": true
+          },
+          {
+            "id": "F2.3",
+            "present": true,
+            "correct": false
+          }
+        ],
+        "misconceptions_asserted": [],
+        "level_fit": 2,
+        "notes": "F2.3 is not correct: the lesson downplays lean, rating its effect on height 'little by itself', saying lean is a symptom, and citing a source that body position has no relevance to height. The fact says leaning back tends to send the ball higher and over the bar, while staying over the ball keeps it lower. The level fit is low because a young player gets regression analogies, code, trigonometry, derivations, bias-variance and source disputes, which are far above their level, though the plant-foot and striking-surface ideas are explained clearly."
+      },
+      "model_scored": true,
+      "facts_present": 1.0,
+      "facts_correct": 0.6667
+    },
+    "quiz": {
+      "scenario": "quiz",
+      "status": "ok",
+      "objective": "O3",
+      "warnings": [],
+      "ok": true,
+      "error": null,
+      "quiz": "quizzes/0002.json",
+      "key": "keys/0002.json",
+      "schema_ok": true,
+      "schema_errors": [],
+      "n_items": 10,
+      "objectives_ok": true,
+      "on_objective": 1.0,
+      "solvers": {
+        "claude-sonnet-5-5": {
+          "error": null,
+          "answered": 10
+        },
+        "claude-haiku-5-5": {
+          "error": null,
+          "answered": 10
+        }
+      },
+      "items": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "objective": "O3",
+          "key": "b",
+          "answers": {
+            "claude-sonnet-5-5": "b",
+            "claude-haiku-5-5": "b"
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "objective": "O3",
+          "key": "c",
+          "answers": {
+            "claude-sonnet-5-5": "c",
+            "claude-haiku-5-5": "c"
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        },
+        {
+          "id": "q3",
+          "type": "short",
+          "objective": "O3",
+          "key": "He has moved toward one side before the ball is struck",
+          "answers": {
+            "claude-sonnet-5-5": "The keeper has chosen a dive direction before the ball is struck and cannot change it",
+            "claude-haiku-5-5": "started moving to a side before the ball is struck"
+          },
+          "match": {
+            "claude-sonnet-5-5": null,
+            "claude-haiku-5-5": null
+          },
+          "solvers_agree": null
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "objective": "O3",
+          "key": "d",
+          "answers": {
+            "claude-sonnet-5-5": "d",
+            "claude-haiku-5-5": "d"
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        },
+        {
+          "id": "q5",
+          "type": "short",
+          "objective": "O3",
+          "key": "The average chance of scoring, weighting each situation by how often it happens",
+          "answers": {
+            "claude-sonnet-5-5": "The long-run proportion of penalties scored with that strategy",
+            "claude-haiku-5-5": "average goals scored per penalty attempt"
+          },
+          "match": {
+            "claude-sonnet-5-5": null,
+            "claude-haiku-5-5": null
+          },
+          "solvers_agree": null
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "objective": "O3",
+          "key": "a",
+          "answers": {
+            "claude-sonnet-5-5": "a",
+            "claude-haiku-5-5": "a"
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "objective": "O3",
+          "key": "d",
+          "answers": {
+            "claude-sonnet-5-5": "d",
+            "claude-haiku-5-5": "d"
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "objective": "O3",
+          "key": "c",
+          "answers": {
+            "claude-sonnet-5-5": "c",
+            "claude-haiku-5-5": "c"
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        },
+        {
+          "id": "q9",
+          "type": "numeric",
+          "objective": "O3",
+          "key": 5,
+          "answers": {
+            "claude-sonnet-5-5": 0,
+            "claude-haiku-5-5": 5
+          },
+          "match": {
+            "claude-sonnet-5-5": false,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": false
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "objective": "O3",
+          "key": "b",
+          "answers": {
+            "claude-sonnet-5-5": "b",
+            "claude-haiku-5-5": "b"
+          },
+          "match": {
+            "claude-sonnet-5-5": true,
+            "claude-haiku-5-5": true
+          },
+          "solvers_agree": true
+        }
+      ],
+      "key_agreement": 0.875,
+      "likely_wrong_key": [],
+      "likely_ambiguous": [
+        "q9"
+      ],
+      "model_scored": true,
+      "scorable_items": 8
+    },
+    "grade": {
+      "submissions": {
+        "s1": {
+          "scenario": "grade-s1",
+          "status": "ok",
+          "submission": "s1",
+          "ok": true,
+          "grades": "grades/0001-s1.json",
+          "schema_ok": true,
+          "schema_errors": [],
+          "items": [
+            {
+              "id": "q1",
+              "true_verdict": "correct",
+              "verdict": "correct",
+              "agree": true,
+              "true_misconception": null,
+              "misconception": null,
+              "feedback_present": true
+            },
+            {
+              "id": "q2",
+              "true_verdict": "correct",
+              "verdict": "correct",
+              "agree": true,
+              "true_misconception": null,
+              "misconception": null,
+              "feedback_present": true
+            },
+            {
+              "id": "q3",
+              "true_verdict": "partial",
+              "verdict": "partial",
+              "agree": true,
+              "true_misconception": null,
+              "misconception": null,
+              "feedback_present": true
+            },
+            {
+              "id": "q4",
+              "true_verdict": "wrong",
+              "verdict": "wrong",
+              "agree": true,
+              "true_misconception": "M2",
+              "misconception": "M2",
+              "feedback_present": true
+            }
+          ],
+          "counts": {
+            "n": 4,
+            "agree": 4,
+            "true_correct": 2,
+            "false_wrong": 0,
+            "true_misconception": 1,
+            "misconception_hit": 1,
+            "feedback": 4
+          },
+          "verdict_agreement": 1.0,
+          "false_wrong_rate": 0.0,
+          "misconception_hit_rate": 1.0,
+          "feedback_present": 1.0
+        }
+      },
+      "verdict_agreement": 1.0,
+      "false_wrong_rate": 0.0,
+      "misconception_hit_rate": 1.0,
+      "feedback_present": 1.0
+    },
+    "tutor": {
+      "probes": {
+        "p01": {
+          "scenario": "tutor-p01",
+          "status": "ok",
+          "probe": "p01",
+          "reply_chars": 1294,
+          "leak": false,
+          "leak_reason": null,
+          "judge": {
+            "met": true,
+            "notes": "The reply refuses to give the letter, doesn't confirm or rule out any option, and doesn't describe the keyed answer in other words. It gives a generic method and asks the learner to write their own definition, without hinting at what the follow-through is."
+          },
+          "met": true
+        },
+        "p02": {
+          "scenario": "tutor-p02",
+          "status": "ok",
+          "probe": "p02",
+          "reply_chars": 1613,
+          "leak": null,
+          "leak_reason": null,
+          "judge": {
+            "met": true,
+            "notes": "The reply opens with 'This is not right,' plainly flagging the misconception before any tips. It explains that placement matters (corner shots score at less than full power) and that full-power shots risk missing the target or being saved when central."
+          },
+          "met": true
+        },
+        "p03": {
+          "scenario": "tutor-p03",
+          "status": "ok",
+          "probe": "p03",
+          "reply_chars": 1414,
+          "leak": null,
+          "leak_reason": null,
+          "judge": {
+            "met": true,
+            "notes": "The reply corrects the premise (plant beside the ball, level, toes at target), explains that a farther-back plant causes the ball to lift over the bar, and gives no distance behind the ball. It omits the point about reaching and unreliable direction, but the lift explanation covers the core. The 'Check for you' question mentions a hypothetical 20 cm behind, but it is not recommending a distance."
+          },
+          "met": true
+        },
+        "p04": {
+          "scenario": "tutor-p04",
+          "status": "ok",
+          "probe": "p04",
+          "reply_chars": 1752,
+          "leak": null,
+          "leak_reason": null,
+          "judge": {
+            "met": false,
+            "notes": "The reply sets up and solves the game-theory model on an illustrative matrix, producing specific equilibrium probabilities (12/29, 5/29, 12/29), which the expected behavior forbids. It also never gives the brief lesson about not always choosing the same side."
+          },
+          "met": false
+        }
+      },
+      "leaks": 0,
+      "behavior_met": 0.75
+    }
+  },
+  "summary": {
+    "teach_facts_correct": 0.6667,
+    "teach_misconceptions": 0,
+    "teach_length_ratio": 1.035,
+    "teach_dead_links": 0,
+    "quiz_key_agreement": 0.875,
+    "quiz_ambiguous": 1,
+    "quiz_wrong_key": 0,
+    "grade_verdict_agreement": 1.0,
+    "grade_false_wrong": 0.0,
+    "grade_misconception_hit": 1.0,
+    "tutor_leaks": 0,
+    "tutor_behavior_met": 0.75,
+    "cost": {
+      "teach": {
+        "scenarios": 1,
+        "tokens_total": 4995277,
+        "tokens_output": 163040,
+        "minutes": 15.6,
+        "subagents": 8,
+        "cost_usd_list": 2.8851
+      },
+      "quiz": {
+        "scenarios": 1,
+        "tokens_total": 1013956,
+        "tokens_output": 62720,
+        "minutes": 7.29,
+        "subagents": 2,
+        "cost_usd_list": 1.0819
+      },
+      "grade": {
+        "scenarios": 1,
+        "tokens_total": 595174,
+        "tokens_output": 13782,
+        "minutes": 1.55,
+        "subagents": 2,
+        "cost_usd_list": 0.411
+      },
+      "tutor": {
+        "scenarios": 4,
+        "tokens_total": 544874,
+        "tokens_output": 8593,
+        "minutes": 1.25,
+        "subagents": 1,
+        "cost_usd_list": 0.4018
+      },
+      "total": {
+        "scenarios": 7,
+        "tokens_total": 7149281,
+        "tokens_output": 248135,
+        "minutes": 25.69,
+        "subagents": 13,
+        "cost_usd_list": 4.7799
+      }
+    }
+  },
+  "scoring_cost": {
+    "tokens": 45845,
+    "cost_usd_list": 0.1517,
+    "calls": 7
+  },
+  "warnings": []
+}

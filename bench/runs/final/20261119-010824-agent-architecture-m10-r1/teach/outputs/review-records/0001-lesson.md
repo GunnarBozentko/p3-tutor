@@ -1,0 +1,9 @@
+# Review record: lesson 0001, context and memory (O3)
+
+- Passes: 2.
+- Pass 1: length estimate about 1,620 words (ratio 1.08). Must fix: cost section (T5, "context editing" cited to the wrong source), sessions section (T5 memory tool not named; P9 code raised an error on first run), context section (P7 analogy muddled; no practice). Changed: all of these, plus the retrieval illustration and a general cost formula.
+- Pass 2: length estimate about 2,080 words (ratio 1.39, reviewer's count; likely high). Must fix: L1 length, A10 retrieval-as-memory gap. Changed: removed the unsourced embeddings paragraph, split the long sessions paragraph, trimmed Go further, made the cost practice faded, shuffled the retrieval check, added the retrieval illustration. Left: the context-section practice, because the learner's notes show they cannot say what the window limits.
+- Preference reviewer Must fix: 1, 2, 3, 4, 6, 8. Changed: concrete example first in the context section; a derivation of the cost formula; definitions for prompt, tool descriptions, tool round, input tokens; filler footer line cut; everyday help-line example; statistics sampling view; check feedback now says Correct or Incorrect. Net length rose, so the final lesson is near the upper end of the length band.
+- Reference checker Must fix: "no memory between calls" claim cited to a source that does not state it; "follows the question" unsupported. Changed: citation now backs only the definition of context; replaced with the source's own point that just-in-time exploration is slower than pre-computed retrieval.
+- Editor: C1 fixed a notes-versus-table contradiction in the retrieval illustration; C2 clarified the quiz pointer; Left: none.
+- Safety check: booking decisions rest on the training record read through a tool; notes and claims only remind or point to it.

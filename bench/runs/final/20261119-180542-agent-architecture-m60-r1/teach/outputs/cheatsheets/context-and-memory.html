@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cheat sheet: context and memory in an agent</title>
+  <style>
+    body { max-width: 40rem; margin: 0 auto; padding: 2rem 1.25rem; font-family: Charter, Georgia, serif; line-height: 1.5; background: #fffdf8; color: #1f1d1a; }
+    h1 { font-size: 1.6rem; } h2 { font-size: 1.1rem; margin-top: 1.6rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+    th, td { text-align: left; padding: 0.35rem 0.5rem; border-bottom: 1px solid #e4dfd4; vertical-align: top; }
+    code { background: #f3efe6; padding: 0.1em 0.3em; border-radius: 4px; }
+    @media (prefers-color-scheme: dark) { body { background: #171614; color: #e9e5dc; } th, td { border-color: #36332e; } code { background: #23211e; } }
+  </style>
+</head>
+<body>
+<h1>Context and memory in an agent</h1>
+<p>One-page reference from the lesson <a href="../lessons/0001-context-and-memory-in-an-agent.html">Context and memory in an agent</a>.</p>
+
+<h2>Where a fact lives</h2>
+<table>
+  <thead><tr><th>Question</th><th>Place</th></tr></thead>
+  <tbody>
+    <tr><td>Needed on every call, short, same for everyone</td><td>Fixed part of the window (system prompt)</td></tr>
+    <tr><td>Durable about one student, harmless if stale</td><td>Notes, loaded at session start</td></tr>
+    <tr><td>Large, shared, stable (manuals)</td><td>Library, searched on demand (retrieval)</td></tr>
+    <tr><td>Owned by a system of record or changing by the minute (training status, calendar)</td><td>Read by a tool on this request; never from a note or a claim</td></tr>
+  </tbody>
+</table>
+
+<h2>Token arithmetic</h2>
+<ul>
+  <li>Tokens: about words / 0.75 (rule of thumb); count exactly with the provider's counting tool.</li>
+  <li>Input at call k = fixed part + everything added so far (requests, results, question).</li>
+  <li>Total input over n calls = nF + d &times; n(n &minus; 1) / 2 for F fixed tokens and d added per step.</li>
+  <li>Cost = tokens &times; price per million / 1,000,000. Output is billed too.</li>
+</ul>
+
+<h2>Keeping the window small</h2>
+<ul>
+  <li>Clear finished tool results (lightest).</li>
+  <li>Compaction: summarize and restart; pays off when saving per call &times; calls exceeds the summarizing read.</li>
+  <li>Helper agent: keeps the main window small; the helper's read is still billed.</li>
+</ul>
+
+<h2>Retrieval</h2>
+<ul>
+  <li>Chunk the manual; keyword search (BM25, rare words weigh more) finds exact codes; embeddings find paraphrases.</li>
+  <li>Cosine similarity = (q &middot; x) / (|q| |x|); keep the top k chunks.</li>
+  <li>Measure misses: recall at k on a labelled set of real questions.</li>
+</ul>
+</body>
+</html>
